@@ -1107,290 +1107,244 @@
 </footer>
 
 <script>
-// v3 - 2026-03-25
 // ── RSI Calculation ────────────────────────────────────────
 function calcRSI(closes, period = 14) {
-  if (closes.length < period + 1) return null;
+  if (!closes || closes.length < period + 1) return null;
   let gains = 0, losses = 0;
   for (let i = 1; i <= period; i++) {
     const diff = closes[i] - closes[i - 1];
     if (diff > 0) gains += diff; else losses -= diff;
   }
-  let avgGain = gains / period;
-  let avgLoss = losses / period;
+  let avgGain = gains / period, avgLoss = losses / period;
   for (let i = period + 1; i < closes.length; i++) {
     const diff = closes[i] - closes[i - 1];
-    const g = diff > 0 ? diff : 0;
-    const l = diff < 0 ? -diff : 0;
-    avgGain = (avgGain * (period - 1) + g) / period;
-    avgLoss = (avgLoss * (period - 1) + l) / period;
+    avgGain = (avgGain * (period-1) + Math.max(diff, 0)) / period;
+    avgLoss = (avgLoss * (period-1) + Math.max(-diff, 0)) / period;
   }
   if (avgLoss === 0) return 100;
-  const rs = avgGain / avgLoss;
-  return Math.round((100 - 100 / (1 + rs)) * 10) / 10;
+  return Math.round((100 - 100 / (1 + avgGain / avgLoss)) * 10) / 10;
 }
 
-// ── Fetch stock data from Yahoo Finance ────────────────────
+// ── Fetch via Cloudflare Worker ────────────────────────────
 const WORKER = 'https://alpha-rsi-proxy.alpharsi-theoptionsedge.workers.dev';
 
-async function fetchStock(sym, interval = '1wk', range = '2y') {
+async function fetchStock(sym, interval, range) {
+  interval = interval || '1wk';
+  range    = range    || '2y';
   try {
-    const url = `${WORKER}?sym=${sym}&interval=${interval}&range=${range}`;
+    const url = WORKER + '?sym=' + sym + '&interval=' + interval + '&range=' + range;
     const r = await fetch(url);
     if (!r.ok) return null;
     const d = await r.json();
-    const result = d.chart.result[0];
-    const q = result.indicators.quote[0];
-    const closes  = q.close.filter(c => c !== null && c !== undefined);
-    const highs   = q.high   ? q.high.filter(h => h !== null && h !== undefined)   : [];
-    const lows    = q.low    ? q.low.filter(l => l !== null && l !== undefined)    : [];
-    const volumes = q.volume ? q.volume.filter(v => v !== null && v !== undefined) : [];
+    if (!d.chart || !d.chart.result || !d.chart.result[0]) return null;
+    const q      = d.chart.result[0].indicators.quote[0];
+    const closes = (q.close  || []).filter(c => c != null);
+    const highs  = (q.high   || []).filter(h => h != null);
+    const lows   = (q.low    || []).filter(l => l != null);
     if (!closes.length) return null;
     return {
       closes,
-      price:  Math.round(closes[closes.length - 1] * 100) / 100,
-      high52: highs.length  >= 52 ? Math.max(...highs.slice(-52))  : (highs.length  ? Math.max(...highs)  : 0),
-      low52:  lows.length   >= 52 ? Math.min(...lows.slice(-52))   : (lows.length   ? Math.min(...lows)   : 0),
-      avgVol: volumes.length >= 4 ? Math.round(volumes.slice(-4).reduce((a,b) => a+b,0) / 4) : 0
+      price:  Math.round(closes[closes.length-1] * 100) / 100,
+      high52: highs.length >= 52 ? Math.max(...highs.slice(-52)) : (highs.length ? Math.max(...highs) : 0),
+      low52:  lows.length  >= 52 ? Math.min(...lows.slice(-52))  : (lows.length  ? Math.min(...lows)  : 0),
     };
-  } catch(e) { return null; }
+  } catch(e) { console.log('fetchStock ' + sym + ': ' + e.message); return null; }
 }
 
-async function fetchJSON(url) {
-  try {
-    const sym = url.match(/\/([A-Z]+)\?/)?.[1] || '';
-    const module = url.includes('quoteSummary') ? 'summary' : url.includes('options') ? 'options' : '';
-    const workerUrl = `${WORKER}?sym=${sym}&module=${module}`;
-    const r = await fetch(workerUrl);
-    if (!r.ok) return null;
-    return await r.json();
-  } catch(e) { return null; }
-}
-
-// ── Build ticker tape ──────────────────────────────────────
-// ── Build ticker tape ──────────────────────────────────────
+// ── Ticker tape ────────────────────────────────────────────
 async function buildTicker() {
   const track = document.getElementById('tickerTrack');
-  if (!track) return;
+  if (!track) { console.log('tickerTrack not found'); return; }
 
-  // Show static placeholder immediately so tape is never blank
-  const STATIC = [
-    {sym:'AAPL', label:'Loading RSI...', color:'#4a6070'},
-    {sym:'NVDA', label:'Loading RSI...', color:'#4a6070'},
-    {sym:'TSLA', label:'Loading RSI...', color:'#4a6070'},
-    {sym:'SPY',  label:'Loading RSI...', color:'#4a6070'},
-    {sym:'META', label:'Loading RSI...', color:'#4a6070'},
-    {sym:'MSFT', label:'Loading RSI...', color:'#4a6070'},
-  ];
-  const staticHtml = [...STATIC, ...STATIC].map(({sym, label, color}) =>
-    '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">' +
-    '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>' +
-    '<span style="color:' + color + '">' + label + '</span></div>'
-  ).join('');
-  track.innerHTML = staticHtml;
-  track.style.cssText = 'display:flex;gap:48px;width:max-content;animation:ticker 30s linear infinite;';
+  // Show placeholder immediately — never blank
+  function setTicker(items) {
+    if (!items.length) return;
+    const doubled = [...items, ...items];
+    track.innerHTML = doubled.map(function(item) {
+      return '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:monospace;font-size:13px;">' +
+        '<span style="color:#ddeeff;font-weight:500">' + item.sym + '</span>' +
+        '<span style="color:' + item.color + '">' + item.label + '</span>' +
+        '</div>';
+    }).join('');
+    track.style.display = 'flex';
+    track.style.gap = '48px';
+    track.style.width = 'max-content';
+    track.style.animation = 'ticker ' + Math.max(items.length * 4, 20) + 's linear infinite';
+  }
 
-  // Try loading real alerts first
+  // Static placeholder while loading
+  const SHOWCASE = ['AAPL','MSFT','NVDA','TSLA','META','AMD','SPY','AMZN','GOOGL','JPM','NFLX','COIN'];
+  setTicker(SHOWCASE.map(function(s) { return {sym: s, label: 'RSI loading...', color: '#4a6070'}; }));
+
+  // Try real alerts from scanner
   try {
-    const r = await fetch('/public_alerts.json?t=' + Date.now());
-    if (r.ok) {
-      const data = await r.json();
-      const ob  = (data.overbought || []).map(x => ({sym: x.sym, type: 'ob'}));
-      const os_ = (data.oversold   || []).map(x => ({sym: x.sym, type: 'os'}));
-      const all = [...ob, ...os_];
+    const resp = await fetch('/public_alerts.json?nocache=' + Date.now());
+    if (resp.ok) {
+      const data = await resp.json();
+      const ob  = (data.overbought || []).map(function(x) { return {sym: x.sym, type: 'ob'}; });
+      const os_ = (data.oversold   || []).map(function(x) { return {sym: x.sym, type: 'os'}; });
+      const all = ob.concat(os_);
       if (all.length > 0) {
+        console.log('Found ' + all.length + ' real alerts');
         const enriched = [];
-        for (const item of all.slice(0, 20)) {
-          try {
-            const d = await fetchStock(item.sym, '1wk', '2y');
-            const rsi = d ? calcRSI(d.closes) : null;
-            enriched.push({sym: item.sym, type: item.type, price: d ? d.price : null, rsi});
-          } catch(e) {}
-          await new Promise(r => setTimeout(r, 80));
+        for (var i = 0; i < Math.min(all.length, 15); i++) {
+          var item = all[i];
+          var d = await fetchStock(item.sym, '1wk', '2y');
+          var rsi = d ? calcRSI(d.closes) : null;
+          enriched.push({
+            sym:   item.sym,
+            label: (item.type === 'ob' ? '▼ OB' : '▲ OS') + (rsi ? ' RSI ' + rsi : '') + (d ? ' $' + d.price : ''),
+            color: item.type === 'ob' ? '#ff3355' : '#2dff7e'
+          });
+          await new Promise(function(r) { setTimeout(r, 80); });
         }
         if (enriched.length > 0) {
-          const doubled = [...enriched, ...enriched];
-          let html = '';
-          for (const {sym, type, price, rsi} of doubled) {
-            const color = type === 'ob' ? '#ff3355' : '#2dff7e';
-            const arrow = type === 'ob' ? '▼ OVERBOUGHT' : '▲ OVERSOLD';
-            const rsiStr   = rsi   ? ' RSI ' + rsi : '';
-            const priceStr = price ? ' $' + price  : '';
-            html += '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">';
-            html += '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>';
-            html += '<span style="color:' + color + '">' + arrow + rsiStr + priceStr + '</span></div>';
-          }
-          track.innerHTML = html;
-          track.style.cssText = 'display:flex;gap:48px;width:max-content;animation:ticker ' + Math.max(enriched.length * 5, 30) + 's linear infinite;';
-          const bar = document.getElementById('tickerLabel');
-          if (bar && data.updated) bar.textContent = "TODAY'S ALPHA RSI ALERTS — LAST UPDATED " + data.updated + " — " + all.length + " SIGNALS";
-          console.log('Ticker: ' + enriched.length + ' real alerts');
+          setTicker(enriched);
+          var bar = document.getElementById('tickerLabel');
+          if (bar && data.updated) bar.textContent = "TODAY'S ALERTS — " + data.updated + " — " + all.length + " SIGNALS";
+          console.log('Ticker: ' + enriched.length + ' real alerts loaded');
           return;
         }
       }
     }
-  } catch(e) { console.log('Alerts file: ' + e.message); }
+  } catch(e) { console.log('Alerts fetch: ' + e.message); }
 
-  // Fallback: live RSI for showcase stocks
-  const SHOWCASE = ['AAPL','MSFT','NVDA','TSLA','META','AMD','SPY','AMZN','GOOGL','COIN','JPM','NFLX'];
-  const results = [];
-  for (const sym of SHOWCASE) {
+  // Fallback: live RSI for showcase
+  console.log('Ticker: loading showcase RSI...');
+  var liveItems = [];
+  for (var i = 0; i < SHOWCASE.length; i++) {
+    var sym = SHOWCASE[i];
     try {
-      const d = await fetchStock(sym, '1wk', '2y');
-      if (!d) continue;
-      const rsi = calcRSI(d.closes);
-      if (rsi === null) continue;
-      results.push({sym, rsi, price: d.price});
-      // Update tape progressively as each stock loads
-      if (results.length >= 3) {
-        const live = [...results, ...results].map(({sym, rsi, price}) => {
-          const ob = rsi >= 70, os = rsi <= 35;
-          const color = ob ? '#ff3355' : os ? '#2dff7e' : '#4a6070';
-          const label = ob ? 'RSI ' + rsi + ' ▼ OB $' + price : os ? 'RSI ' + rsi + ' ▲ OS $' + price : 'RSI ' + rsi + ' $' + price;
-          return '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">' +
-            '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>' +
-            '<span style="color:' + color + '">' + label + '</span></div>';
-        }).join('');
-        track.innerHTML = live;
-        track.style.cssText = 'display:flex;gap:48px;width:max-content;animation:ticker ' + Math.max(results.length * 4, 20) + 's linear infinite;';
-      }
-    } catch(e) {}
-    await new Promise(r => setTimeout(r, 150));
+      var d = await fetchStock(sym, '1wk', '2y');
+      if (!d) { console.log(sym + ': no data'); continue; }
+      var rsi = calcRSI(d.closes);
+      if (rsi === null) { console.log(sym + ': RSI null'); continue; }
+      var ob = rsi >= 70, os = rsi <= 35;
+      liveItems.push({
+        sym:   sym,
+        label: (ob ? '▼ OB' : os ? '▲ OS' : 'RSI') + ' ' + rsi + ' $' + d.price,
+        color: ob ? '#ff3355' : os ? '#2dff7e' : '#4a6070'
+      });
+      if (liveItems.length >= 3) setTicker(liveItems);
+      console.log(sym + ' RSI=' + rsi);
+    } catch(e) { console.log(sym + ' error: ' + e.message); }
+    await new Promise(function(r) { setTimeout(r, 200); });
   }
-  console.log('Ticker fallback: ' + results.length + ' stocks');
+  if (liveItems.length > 0) setTicker(liveItems);
+  console.log('Ticker done: ' + liveItems.length + ' stocks');
 }
 
+// ── Alert demo card ────────────────────────────────────────
 async function buildLiveDemo() {
-  const setEl = (id, html, color) => {
-    const el = document.getElementById(id);
+  function setEl(id, html, color) {
+    var el = document.getElementById(id);
     if (!el) return;
     el.innerHTML = html;
     if (color) el.style.color = color;
-  };
+  }
 
-  // First try to show a real alert from today's scan
+  var chosen = null, chosenData = null, chosenRSI = null, chosenDailyRSI = null, chosenIsOS = false;
+
+  // Try real alert first
   try {
-    const r = await fetch('/public_alerts.json?t=' + Date.now());
-    if (r.ok) {
-      const data = await r.json();
-      const all = [...(data.oversold||[]), ...(data.overbought||[])];
-      if (all.length > 0) {
-        // Pick the first alerted stock and fetch its data
-        const sym = all[0].sym;
-        const isOS = (data.oversold||[]).some(x => x.sym === sym);
-        const weekly = await fetchStock(sym, '1wk', '5y');
-        if (weekly) {
-          const rsi = calcRSI(weekly.closes);
-          const daily = await fetchStock(sym, '1d', '3mo');
-          const dailyRSI = daily ? calcRSI(daily.closes) : null;
-          const price = weekly.price;
-          const low52  = Math.round(weekly.low52  * 100) / 100;
-          const high52 = Math.round(weekly.high52 * 100) / 100;
-          const pctLow  = low52  ? Math.round((price - low52)  / low52  * 1000) / 10 : 'N/A';
-          const pctHigh = high52 ? Math.round((price - high52) / high52 * 1000) / 10 : 'N/A';
-          const emoji   = isOS ? '🟢' : '🔴';
-          const label   = isOS ? 'OVERSOLD' : 'OVERBOUGHT';
-          const color   = isOS ? '#2dff7e' : '#ff3355';
-          const action  = isOS ? 'Consider calls / bullish spread' : 'Consider puts / bearish spread';
-          let score = 2;
-          const factors = ['Weekly RSI ' + (isOS ? 'oversold' : 'overbought') + ' (' + rsi + ')'];
-          if (dailyRSI !== null) {
-            if ((isOS && dailyRSI <= 40) || (!isOS && dailyRSI >= 60)) {
-              score += 2; factors.push('Daily RSI confirms (' + dailyRSI + ')');
-            }
-          }
-          if (isOS  && pctLow  !== 'N/A' && pctLow  <= 15) { score += 1; factors.push('Near 52-week low (' + pctLow + '% above)'); }
-          if (!isOS && pctHigh !== 'N/A' && pctHigh >= -15) { score += 1; factors.push('Near 52-week high (' + Math.abs(pctHigh) + '% below)'); }
-          score = Math.min(score, 10);
-          setEl('demoSignal',  emoji + ' ' + sym + ' — ' + label + ' | RSI: ' + rsi, color);
-          setEl('demoScore',   'Score: ' + '⭐'.repeat(score) + ' (' + score + '/10)');
-          setEl('demoSector',  'Sector: Live alert from today's scan', 'var(--muted)');
-          if (document.getElementById('demoWRSI'))  { document.getElementById('demoWRSI').textContent = rsi; document.getElementById('demoWRSI').style.color = color; }
-          if (document.getElementById('demoDRSI'))  { document.getElementById('demoDRSI').textContent = dailyRSI !== null ? dailyRSI : 'N/A'; document.getElementById('demoDRSI').style.color = color; }
-          if (document.getElementById('demoPrice')) { document.getElementById('demoPrice').textContent = '$' + price; document.getElementById('demoPrice').style.color = '#00e5ff'; }
-          setEl('demo52Low',   '52-week low: $' + low52 + ' (' + pctLow + '% above)', 'var(--muted)');
-          setEl('demo52High',  '52-week high: $' + high52 + ' (' + Math.abs(pctHigh) + '% below)', 'var(--muted)');
-          setEl('demoIV',      'HV Rank: See full alert in Telegram', 'var(--muted)');
-          setEl('demoFactors', factors.map(f => '✓ ' + f).join('<br>'), 'var(--muted)');
-          setEl('demoAction',  action, '#00e5ff');
-          console.log('Demo populated with real alert: ' + sym);
-          return;
+    var resp = await fetch('/public_alerts.json?nocache=' + Date.now());
+    if (resp.ok) {
+      var data = await resp.json();
+      var allAlerts = (data.oversold || []).map(function(x) { return {sym: x.sym, os: true}; })
+        .concat((data.overbought || []).map(function(x) { return {sym: x.sym, os: false}; }));
+      if (allAlerts.length > 0) {
+        var pick = allAlerts[0];
+        var w = await fetchStock(pick.sym, '1wk', '2y');
+        if (w) {
+          chosen = pick.sym;
+          chosenData = w;
+          chosenRSI = calcRSI(w.closes);
+          chosenIsOS = pick.os;
+          var dd = await fetchStock(pick.sym, '1d', '3mo');
+          chosenDailyRSI = dd ? calcRSI(dd.closes) : null;
         }
       }
     }
-  } catch(e) { console.log('Demo alert load failed: ' + e.message); }
+  } catch(e) {}
 
-  // Fallback: find most extreme RSI from showcase
-  const DEMO_TICKERS = ['AAPL','TSLA','NVDA','META','MSFT','AMD','AMZN','GOOGL','SPY','JPM'];
-  let chosen = null, chosenData = null, chosenRSI = null, chosenDailyRSI = null;
-  for (const sym of DEMO_TICKERS) {
-    try {
-      const weekly = await fetchStock(sym, '1wk', '5y');
-      if (!weekly) continue;
-      const rsi = calcRSI(weekly.closes);
-      if (rsi === null) continue;
-      const daily = await fetchStock(sym, '1d', '3mo');
-      const dailyRSI = daily ? calcRSI(daily.closes) : null;
-      if (!chosen || Math.abs(rsi - 50) > Math.abs(chosenRSI - 50)) {
-        chosen = sym; chosenData = weekly; chosenRSI = rsi; chosenDailyRSI = dailyRSI;
-      }
-    } catch(e) {}
-    await new Promise(r => setTimeout(r, 150));
+  // Fallback: most extreme RSI from showcase
+  if (!chosen) {
+    var DEMO = ['AAPL','TSLA','NVDA','META','MSFT','AMD','AMZN','GOOGL','SPY','JPM'];
+    for (var i = 0; i < DEMO.length; i++) {
+      try {
+        var w = await fetchStock(DEMO[i], '1wk', '2y');
+        if (!w) continue;
+        var rsi = calcRSI(w.closes);
+        if (rsi === null) continue;
+        if (!chosen || Math.abs(rsi - 50) > Math.abs(chosenRSI - 50)) {
+          chosen = DEMO[i]; chosenData = w; chosenRSI = rsi;
+          chosenIsOS = rsi < 50;
+          var dd = await fetchStock(DEMO[i], '1d', '3mo');
+          chosenDailyRSI = dd ? calcRSI(dd.closes) : null;
+        }
+      } catch(e) {}
+      await new Promise(function(r) { setTimeout(r, 150); });
+    }
   }
+
   if (!chosen) return;
-  const isOS = chosenRSI < 50;
-  const emoji = isOS ? '🟢' : '🔴';
-  const label = isOS ? 'OVERSOLD' : 'OVERBOUGHT';
-  const color = isOS ? '#2dff7e' : '#ff3355';
-  const action = isOS ? 'Consider calls / bullish spread' : 'Consider puts / bearish spread';
-  const price  = chosenData.price;
-  const low52  = Math.round(chosenData.low52  * 100) / 100;
-  const high52 = Math.round(chosenData.high52 * 100) / 100;
-  const pctLow  = Math.round((price - low52)  / low52  * 1000) / 10;
-  const pctHigh = Math.round((price - high52) / high52 * 1000) / 10;
-  let score = 2;
-  const factors = ['Weekly RSI ' + (isOS ? 'oversold' : 'overbought') + ' (' + chosenRSI + ')'];
+
+  var emoji  = chosenIsOS ? '🟢' : '🔴';
+  var label  = chosenIsOS ? 'OVERSOLD' : 'OVERBOUGHT';
+  var color  = chosenIsOS ? '#2dff7e' : '#ff3355';
+  var action = chosenIsOS ? 'Consider calls / bullish spread' : 'Consider puts / bearish spread';
+  var price  = chosenData.price;
+  var low52  = Math.round(chosenData.low52  * 100) / 100;
+  var high52 = Math.round(chosenData.high52 * 100) / 100;
+  var pctLow  = low52  ? Math.round((price - low52)  / low52  * 1000) / 10 : 'N/A';
+  var pctHigh = high52 ? Math.round((price - high52) / high52 * 1000) / 10 : 'N/A';
+
+  var score = 2, factors = ['Weekly RSI ' + (chosenIsOS ? 'oversold' : 'overbought') + ' (' + chosenRSI + ')'];
   if (chosenDailyRSI !== null) {
-    if ((isOS && chosenDailyRSI <= 40) || (!isOS && chosenDailyRSI >= 60)) { score += 2; factors.push('Daily RSI confirms (' + chosenDailyRSI + ')'); }
+    if ((chosenIsOS && chosenDailyRSI <= 40) || (!chosenIsOS && chosenDailyRSI >= 60)) {
+      score += 2; factors.push('Daily RSI confirms (' + chosenDailyRSI + ')');
+    }
   }
-  if (isOS  && pctLow  <= 15) { score += 1; factors.push('Near 52-week low ('  + pctLow  + '% above)'); }
-  if (!isOS && pctHigh >= -15) { score += 1; factors.push('Near 52-week high (' + Math.abs(pctHigh) + '% below)'); }
+  if (chosenIsOS  && pctLow  !== 'N/A' && pctLow  <= 15) { score += 1; factors.push('Near 52-week low (' + pctLow + '% above)'); }
+  if (!chosenIsOS && pctHigh !== 'N/A' && pctHigh >= -15) { score += 1; factors.push('Near 52-week high (' + Math.abs(pctHigh) + '% below)'); }
   score = Math.min(score, 10);
+
   setEl('demoSignal',  emoji + ' ' + chosen + ' — ' + label + ' | RSI: ' + chosenRSI, color);
   setEl('demoScore',   'Score: ' + '⭐'.repeat(score) + ' (' + score + '/10)');
-  setEl('demoSector',  'Sector: Live market data', 'var(--muted)');
-  if (document.getElementById('demoWRSI'))  { document.getElementById('demoWRSI').textContent = chosenRSI; document.getElementById('demoWRSI').style.color = color; }
-  if (document.getElementById('demoDRSI'))  { document.getElementById('demoDRSI').textContent = chosenDailyRSI !== null ? chosenDailyRSI : 'N/A'; document.getElementById('demoDRSI').style.color = color; }
-  if (document.getElementById('demoPrice')) { document.getElementById('demoPrice').textContent = '$' + price; document.getElementById('demoPrice').style.color = '#00e5ff'; }
-  setEl('demo52Low',   '52-week low: $' + low52 + ' (' + pctLow + '% above)', 'var(--muted)');
-  setEl('demo52High',  '52-week high: $' + high52 + ' (' + Math.abs(pctHigh) + '% below)', 'var(--muted)');
-  setEl('demoIV',      'HV Rank: Subscribe to see full analysis', 'var(--muted)');
-  setEl('demoFactors', factors.map(f => '✓ ' + f).join('<br>'), 'var(--muted)');
+  setEl('demoSector',  'Sector: Live market data');
+  var wEl = document.getElementById('demoWRSI');
+  if (wEl) { wEl.textContent = chosenRSI; wEl.style.color = color; }
+  var dEl = document.getElementById('demoDRSI');
+  if (dEl) { dEl.textContent = chosenDailyRSI !== null ? chosenDailyRSI : 'N/A'; dEl.style.color = color; }
+  var pEl = document.getElementById('demoPrice');
+  if (pEl) { pEl.textContent = '$' + price; pEl.style.color = '#00e5ff'; }
+  setEl('demo52Low',   '52-week low: $' + low52 + ' (' + pctLow + '% above)');
+  setEl('demo52High',  '52-week high: $' + high52 + ' (' + Math.abs(pctHigh) + '% below)');
+  setEl('demoIV',      'HV Rank: Subscribe for full analysis');
+  setEl('demoFactors', factors.map(function(f) { return '✓ ' + f; }).join('<br>'));
   setEl('demoAction',  action, '#00e5ff');
-  console.log('Demo fallback: ' + chosen + ' RSI=' + chosenRSI);
+  console.log('Demo: ' + chosen + ' RSI=' + chosenRSI);
 }
 
-
-// ── FAQ toggle ─────────────────────────────────────────────
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => {
-    const item = q.parentElement;
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+// ── FAQ ────────────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = q.parentElement;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
     if (!isOpen) item.classList.add('open');
   });
 });
 
 // ── Scroll reveal ──────────────────────────────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
     if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
-// ── Debug & Init ───────────────────────────────────────────
-// ── Init ───────────────────────────────────────────────────
+// ── Init ──────────────────────────────────────────────────
 buildTicker();
 buildLiveDemo();
 </script>
