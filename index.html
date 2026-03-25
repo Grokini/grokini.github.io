@@ -1168,81 +1168,96 @@ async function fetchJSON(url) {
 }
 
 // ── Build ticker tape ──────────────────────────────────────
+// ── Build ticker tape ──────────────────────────────────────
 async function buildTicker() {
   const track = document.getElementById('tickerTrack');
   if (!track) return;
-  track.innerHTML = '<div style="font-family:var(--font-mono);font-size:0.75rem;color:#00e5ff;white-space:nowrap">Loading today\'s alerts...</div>';
+
+  // Show static placeholder immediately so tape is never blank
+  const STATIC = [
+    {sym:'AAPL', label:'Loading RSI...', color:'#4a6070'},
+    {sym:'NVDA', label:'Loading RSI...', color:'#4a6070'},
+    {sym:'TSLA', label:'Loading RSI...', color:'#4a6070'},
+    {sym:'SPY',  label:'Loading RSI...', color:'#4a6070'},
+    {sym:'META', label:'Loading RSI...', color:'#4a6070'},
+    {sym:'MSFT', label:'Loading RSI...', color:'#4a6070'},
+  ];
+  const staticHtml = [...STATIC, ...STATIC].map(({sym, label, color}) =>
+    '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">' +
+    '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>' +
+    '<span style="color:' + color + '">' + label + '</span></div>'
+  ).join('');
+  track.innerHTML = staticHtml;
+  track.style.cssText = 'display:flex;gap:48px;width:max-content;animation:ticker 30s linear infinite;';
+
+  // Try loading real alerts first
   try {
     const r = await fetch('/public_alerts.json?t=' + Date.now());
     if (r.ok) {
       const data = await r.json();
-      const ob  = (data.overbought || []).map(x => ({ sym: x.sym, type: 'ob' }));
-      const os  = (data.oversold   || []).map(x => ({ sym: x.sym, type: 'os' }));
-      const all = [...ob, ...os];
+      const ob  = (data.overbought || []).map(x => ({sym: x.sym, type: 'ob'}));
+      const os_ = (data.oversold   || []).map(x => ({sym: x.sym, type: 'os'}));
+      const all = [...ob, ...os_];
       if (all.length > 0) {
         const enriched = [];
         for (const item of all.slice(0, 20)) {
           try {
-            const d = await fetchStock(item.sym, '1wk', '5y');
+            const d = await fetchStock(item.sym, '1wk', '2y');
             const rsi = d ? calcRSI(d.closes) : null;
-            enriched.push({ sym: item.sym, type: item.type, price: d ? d.price : null, rsi });
+            enriched.push({sym: item.sym, type: item.type, price: d ? d.price : null, rsi});
           } catch(e) {}
-          await new Promise(r => setTimeout(r, 100));
+          await new Promise(r => setTimeout(r, 80));
         }
-        const doubled = [...enriched, ...enriched];
-        let html = '';
-        for (const { sym, type, price, rsi } of doubled) {
-          const color = type === 'ob' ? '#ff3355' : '#2dff7e';
-          const arrow = type === 'ob' ? '\u25BC OVERBOUGHT' : '\u25B2 OVERSOLD';
-          const rsiStr = rsi !== null && rsi !== undefined ? ' RSI ' + rsi : '';
-          const priceStr = price ? ' $' + price : '';
-          html += '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">';
-          html += '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>';
-          html += '<span style="color:' + color + '">' + arrow + rsiStr + priceStr + '</span>';
-          html += '</div>';
+        if (enriched.length > 0) {
+          const doubled = [...enriched, ...enriched];
+          let html = '';
+          for (const {sym, type, price, rsi} of doubled) {
+            const color = type === 'ob' ? '#ff3355' : '#2dff7e';
+            const arrow = type === 'ob' ? '▼ OVERBOUGHT' : '▲ OVERSOLD';
+            const rsiStr   = rsi   ? ' RSI ' + rsi : '';
+            const priceStr = price ? ' $' + price  : '';
+            html += '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">';
+            html += '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>';
+            html += '<span style="color:' + color + '">' + arrow + rsiStr + priceStr + '</span></div>';
+          }
+          track.innerHTML = html;
+          track.style.cssText = 'display:flex;gap:48px;width:max-content;animation:ticker ' + Math.max(enriched.length * 5, 30) + 's linear infinite;';
+          const bar = document.getElementById('tickerLabel');
+          if (bar && data.updated) bar.textContent = "TODAY'S ALPHA RSI ALERTS — LAST UPDATED " + data.updated + " — " + all.length + " SIGNALS";
+          console.log('Ticker: ' + enriched.length + ' real alerts');
+          return;
         }
-        track.innerHTML = html;
-        track.style.display = 'flex';
-        track.style.gap = '48px';
-        track.style.width = 'max-content';
-        track.style.animation = 'ticker ' + Math.max(enriched.length * 5, 30) + 's linear infinite';
-        const bar = document.getElementById('tickerLabel');
-        if (bar && data.updated) bar.textContent = "TODAY\'S ALPHA RSI ALERTS \u2014 LAST UPDATED " + data.updated + " \u2014 " + all.length + " SIGNALS";
-        console.log('Ticker: ' + enriched.length + ' real alerts loaded');
-        return;
       }
     }
-  } catch(e) { console.log('Alerts not ready: ' + e.message); }
-  // Fallback: showcase stocks
+  } catch(e) { console.log('Alerts file: ' + e.message); }
+
+  // Fallback: live RSI for showcase stocks
   const SHOWCASE = ['AAPL','MSFT','NVDA','TSLA','META','AMD','SPY','AMZN','GOOGL','COIN','JPM','NFLX'];
   const results = [];
   for (const sym of SHOWCASE) {
     try {
-      const d = await fetchStock(sym, '1wk', '5y');
+      const d = await fetchStock(sym, '1wk', '2y');
       if (!d) continue;
       const rsi = calcRSI(d.closes);
       if (rsi === null) continue;
-      results.push({ sym, rsi, price: d.price });
+      results.push({sym, rsi, price: d.price});
+      // Update tape progressively as each stock loads
+      if (results.length >= 3) {
+        const live = [...results, ...results].map(({sym, rsi, price}) => {
+          const ob = rsi >= 70, os = rsi <= 35;
+          const color = ob ? '#ff3355' : os ? '#2dff7e' : '#4a6070';
+          const label = ob ? 'RSI ' + rsi + ' ▼ OB $' + price : os ? 'RSI ' + rsi + ' ▲ OS $' + price : 'RSI ' + rsi + ' $' + price;
+          return '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">' +
+            '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>' +
+            '<span style="color:' + color + '">' + label + '</span></div>';
+        }).join('');
+        track.innerHTML = live;
+        track.style.cssText = 'display:flex;gap:48px;width:max-content;animation:ticker ' + Math.max(results.length * 4, 20) + 's linear infinite;';
+      }
     } catch(e) {}
     await new Promise(r => setTimeout(r, 150));
   }
-  if (!results.length) { track.innerHTML = '<div style="font-family:var(--font-mono);font-size:0.75rem;color:#4a6070">Loading...</div>'; return; }
-  const doubled = [...results, ...results];
-  let html = '';
-  for (const { sym, rsi, price } of doubled) {
-    const ob = rsi >= 70, os = rsi <= 35;
-    const color = ob ? '#ff3355' : os ? '#2dff7e' : '#4a6070';
-    const label = ob ? 'RSI ' + rsi + ' \u25BC OVERBOUGHT $' + price : os ? 'RSI ' + rsi + ' \u25B2 OVERSOLD $' + price : 'RSI ' + rsi + ' $' + price;
-    html += '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">';
-    html += '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>';
-    html += '<span style="color:' + color + '">' + label + '</span>';
-    html += '</div>';
-  }
-  track.innerHTML = html;
-  track.style.display = 'flex';
-  track.style.gap = '48px';
-  track.style.width = 'max-content';
-  track.style.animation = 'ticker ' + Math.max(results.length * 4, 24) + 's linear infinite';
+  console.log('Ticker fallback: ' + results.length + ' stocks');
 }
 
 async function buildLiveDemo() {
