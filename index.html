@@ -634,6 +634,7 @@
   .ticker-sym { color: var(--text); font-weight: 500; }
   .ticker-up { color: var(--green); }
   .ticker-down { color: var(--red); }
+  .ticker-neutral { color: var(--muted); }
   .ticker-muted { color: var(--muted); }
   .ad-red { color: var(--red); font-weight: 500; }
 
@@ -1195,29 +1196,29 @@ async function buildTicker() {
     const d = await fetchStock(sym, '1wk', '2y');
     if (!d) continue;
     const rsi = calcRSI(d.closes);
-    if (!rsi) continue;
+    if (rsi === null) continue;
     results.push({ sym, rsi, price: d.price });
-    await new Promise(r => setTimeout(r, 200));
+    await new Promise(r => setTimeout(r, 150));
   }
-  if (!results.length) return;
-  // Build items x2 for seamless loop
+  if (!results.length) {
+    track.innerHTML = '<div class="ticker-item"><span class="ticker-sym" style="color:#4a6070">Could not load live data</span></div>';
+    return;
+  }
   const items = [...results, ...results].map(({ sym, rsi, price }) => {
     const ob = rsi >= 70;
     const os = rsi <= 35;
-    const cls = ob ? 'ticker-down' : os ? 'ticker-up' : 'ticker-muted';
-    const label = ob ? `RSI ${rsi} ▼ OVERBOUGHT` : os ? `RSI ${rsi} ▲ OVERSOLD` : `RSI ${rsi} $${price}`;
+    const cls = ob ? 'ticker-down' : os ? 'ticker-up' : 'ticker-neutral';
+    const label = ob ? `RSI ${rsi} ▼ OVERBOUGHT` : os ? `RSI ${rsi} ▲ OVERSOLD` : `RSI ${rsi} | $${price}`;
     return `<div class="ticker-item"><span class="ticker-sym">${sym}</span><span class="${cls}">${label}</span></div>`;
   }).join('');
   track.innerHTML = items;
-  // Fix animation duration based on count
-  track.style.animation = `ticker ${results.length * 3}s linear infinite`;
+  track.style.cssText = `animation: ticker ${Math.max(results.length * 3, 20)}s linear infinite; display:flex; gap:48px; width:max-content;`;
 }
 
 // ── Live Alert Demo ────────────────────────────────────────
 const DEMO_TICKERS = ['AAPL','TSLA','NVDA','META','MSFT','AMD','AMZN','GOOGL','SPY','JPM'];
 
 async function buildLiveDemo() {
-  // Try each ticker until we find one with interesting RSI
   let chosen = null;
   let chosenData = null;
   let chosenRSI = null;
@@ -1227,10 +1228,9 @@ async function buildLiveDemo() {
     const weekly = await fetchStock(sym, '1wk', '2y');
     if (!weekly) continue;
     const rsi = calcRSI(weekly.closes);
-    if (!rsi) continue;
+    if (rsi === null) continue;
     const daily = await fetchStock(sym, '1d', '3mo');
     const dailyRSI = daily ? calcRSI(daily.closes) : null;
-    // Prefer extreme RSI, otherwise just use the most extreme we find
     if (!chosen || Math.abs(rsi - 50) > Math.abs(chosenRSI - 50)) {
       chosen = sym;
       chosenData = weekly;
@@ -1242,7 +1242,7 @@ async function buildLiveDemo() {
 
   if (!chosen) return;
 
-  const isOS = chosenRSI <= 50;
+  const isOS = chosenRSI < 50;
   const emoji = isOS ? '🟢' : '🔴';
   const label = isOS ? 'OVERSOLD' : 'OVERBOUGHT';
   const cls   = isOS ? 'ad-green' : 'ad-red';
@@ -1276,7 +1276,7 @@ async function buildLiveDemo() {
     if (cls2) el.className = cls2;
   };
 
-  set('demoSignal', `${emoji} ${chosen} — ${label} (RSI ${isOS ? '<' : '>'} ${isOS ? 35 : 70})`, cls);
+  set('demoSignal', `${emoji} ${chosen} — ${label} | Weekly RSI: ${chosenRSI}`, cls);
   set('demoScore',  `Score: ${stars} (${score}/10)`);
   set('demoSector', 'Sector: Loading...', 'ad-muted');
   document.getElementById('demoWRSI').textContent = chosenRSI;
