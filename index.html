@@ -1292,58 +1292,28 @@ async function buildAlertsFeed() {
         }
       } catch(e) {}
 
-      // Fetch First Call Wall options data
+      // Fetch First Call Wall using Black-Scholes via Worker
       var callWall = null;
       try {
-        var optUrl = WORKER + '?sym=' + item.sym + '&module=options';
-        var optR = await fetch(optUrl);
-        if (optR.ok) {
-          var optData = await optR.json();
-          var chain = optData.optionChain && optData.optionChain.result && optData.optionChain.result[0];
-          if (chain) {
-            var expirations = chain.expirationDates || [];
-            var now = Date.now() / 1000;
-            var thirtyDays = now + (30 * 86400);
-            // Find next expiration at least 30 days out
-            var targetExp = null;
-            for (var e = 0; e < expirations.length; e++) {
-              if (expirations[e] >= thirtyDays) { targetExp = expirations[e]; break; }
-            }
-            if (targetExp && chain.options && chain.options[0]) {
-              // Fetch options for that specific expiration
-              var optUrl2 = WORKER + '?sym=' + item.sym + '&module=options&expiration=' + targetExp;
-              var optR2 = await fetch(optUrl2);
-              var optData2 = optR2.ok ? await optR2.json() : optData;
-              var opts2 = optData2.optionChain && optData2.optionChain.result && optData2.optionChain.result[0];
-              var calls = (opts2 && opts2.options && opts2.options[0] && opts2.options[0].calls) || 
-                          (chain.options[0].calls) || [];
-              var price2 = (d && d.price) ? d.price : 0;
-              if (calls.length > 0 && price2 > 0) {
-                // Find ATM strike (closest to current price)
-                var bestCall = null;
-                var bestDiff = Infinity;
-                for (var c = 0; c < calls.length; c++) {
-                  var diff = Math.abs(calls[c].strike - price2);
-                  if (diff < bestDiff) { bestDiff = diff; bestCall = calls[c]; }
-                }
-                if (bestCall && bestCall.lastPrice > 0) {
-                  var expDate = new Date(targetExp * 1000);
-                  var expStr = expDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                  callWall = {
-                    strike:  bestCall.strike,
-                    expiry:  expStr,
-                    price:   bestCall.lastPrice ? bestCall.lastPrice.toFixed(2) : null,
-                    bid:     bestCall.bid ? bestCall.bid.toFixed(2) : null,
-                    ask:     bestCall.ask ? bestCall.ask.toFixed(2) : null,
-                    oi:      bestCall.openInterest || 0,
-                    iv:      bestCall.impliedVolatility ? (bestCall.impliedVolatility * 100).toFixed(1) : null
-                  };
-                }
-              }
-            }
+        var cwUrl = WORKER + '?sym=' + item.sym + '&module=firstcallwall';
+        var cwR = await fetch(cwUrl);
+        if (cwR.ok) {
+          var cwData = await cwR.json();
+          if (cwData.callPrice && !cwData.error) {
+            callWall = {
+              strike:       cwData.strike,
+              expiry:       cwData.expiry,
+              price:        cwData.callPrice.toFixed(2),
+              bid:          cwData.bid ? cwData.bid.toFixed(2) : null,
+              ask:          cwData.ask ? cwData.ask.toFixed(2) : null,
+              oi:           null,
+              iv:           cwData.iv ? cwData.iv.toFixed(1) : null,
+              contractCost: cwData.contractCost,
+              days:         cwData.daysToExpiry
+            };
           }
         }
-      } catch(optErr) {}
+      } catch(optErr) { console.log('FCW error:', item.sym, optErr.message); }
 
       var callWallHtml = '';
       if (callWall && callWall.price) {
@@ -1357,8 +1327,8 @@ async function buildAlertsFeed() {
         if (callWall.bid && callWall.ask) {
           callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Bid $' + callWall.bid + ' · Ask $' + callWall.ask + (callWall.iv ? ' · IV ' + callWall.iv + '%' : '') + '</div>';
         }
-        if (callWall.oi > 0) {
-          callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);margin-top:2px;">Open Interest: ' + callWall.oi.toLocaleString() + '</div>';
+        if (callWall.days) {
+          callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);margin-top:2px;">' + callWall.days + ' days to expiry · Black-Scholes estimate</div>';
         }
         callWallHtml += '</div>';
       } else {
