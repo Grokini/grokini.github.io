@@ -1339,9 +1339,48 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ── Init ───────────────────────────────────────────────────
-buildTicker();
-buildLiveDemo();
+// ── Debug & Init ───────────────────────────────────────────
+async function debugTest() {
+  const out = document.createElement('div');
+  out.style = 'position:fixed;bottom:0;left:0;right:0;background:#000;color:#0f0;font-family:monospace;font-size:12px;padding:10px;z-index:9999;max-height:200px;overflow-y:auto;';
+  out.id = 'debug';
+  document.body.appendChild(out);
+
+  const log = msg => {
+    out.innerHTML += msg + '<br>';
+    console.log(msg);
+  };
+
+  log('Testing Cloudflare Worker...');
+  try {
+    const url = 'https://alpha-rsi-proxy.alpharsi-theoptionsedge.workers.dev?sym=AAPL&interval=1wk&range=2y';
+    log('Fetching: ' + url);
+    const r = await fetch(url);
+    log('HTTP Status: ' + r.status);
+    const d = await r.json();
+    if (!d.chart || !d.chart.result) {
+      log('ERROR: Unexpected response structure: ' + JSON.stringify(d).substring(0, 200));
+      return;
+    }
+    const closes = d.chart.result[0].indicators.quote[0].close.filter(c => c !== null && c !== undefined);
+    const rsi = calcRSI(closes);
+    log('AAPL closes count: ' + closes.length);
+    log('AAPL latest price: $' + closes[closes.length-1].toFixed(2));
+    log('AAPL weekly RSI: ' + rsi);
+    log('Worker is working! Now building ticker and demo...');
+    buildTicker();
+    buildLiveDemo();
+    setTimeout(() => {
+      const dbg = document.getElementById('debug');
+      if (dbg) dbg.style.display = 'none';
+    }, 15000);
+  } catch(e) {
+    log('FETCH ERROR: ' + e.message);
+    log('Stack: ' + e.stack);
+  }
+}
+
+debugTest();
 </script>
 </body>
 </html>
