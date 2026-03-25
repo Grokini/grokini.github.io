@@ -815,30 +815,11 @@
 
 <!-- TICKER TAPE -->
 <div class="ticker-wrap" style="margin-top:60px">
-  <div class="ticker-track">
-    <div class="ticker-item"><span class="ticker-sym">AAPL</span><span class="ticker-up">RSI 28.4 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">NVDA</span><span class="ticker-down">RSI 71.2 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">TSLA</span><span class="ticker-up">RSI 31.8 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">META</span><span class="ticker-up">RSI 33.1 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">AMD</span><span class="ticker-down">RSI 74.5 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">SPY</span><span class="ticker-up">RSI 29.7 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">MSFT</span><span class="ticker-down">RSI 72.3 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">AMZN</span><span class="ticker-up">RSI 30.2 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">GOOGL</span><span class="ticker-down">RSI 68.9 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">COIN</span><span class="ticker-up">RSI 27.4 ▲ OVERSOLD</span></div>
-    <!-- Duplicate for seamless loop -->
-    <div class="ticker-item"><span class="ticker-sym">AAPL</span><span class="ticker-up">RSI 28.4 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">NVDA</span><span class="ticker-down">RSI 71.2 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">TSLA</span><span class="ticker-up">RSI 31.8 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">META</span><span class="ticker-up">RSI 33.1 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">AMD</span><span class="ticker-down">RSI 74.5 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">SPY</span><span class="ticker-up">RSI 29.7 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">MSFT</span><span class="ticker-down">RSI 72.3 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">AMZN</span><span class="ticker-up">RSI 30.2 ▲ OVERSOLD</span></div>
-    <div class="ticker-item"><span class="ticker-sym">GOOGL</span><span class="ticker-down">RSI 68.9 ▼ OVERBOUGHT</span></div>
-    <div class="ticker-item"><span class="ticker-sym">COIN</span><span class="ticker-up">RSI 27.4 ▲ OVERSOLD</span></div>
+  <div class="ticker-track" id="tickerTrack">
+    <div class="ticker-item"><span style="color:#00e5ff;font-family:var(--font-mono);font-size:0.75rem;letter-spacing:1px">Loading live RSI data...</span></div>
   </div>
 </div>
+<div style="text-align:center;font-family:var(--font-mono);font-size:0.6rem;color:#4a6070;padding:5px 0;background:#0c1218;border-bottom:1px solid #1a2a38;letter-spacing:1px;">LIVE WEEKLY RSI — UPDATES ON PAGE LOAD</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -1126,6 +1107,7 @@
 </footer>
 
 <script>
+// v3 - 2026-03-25
 // ── RSI Calculation ────────────────────────────────────────
 function calcRSI(closes, period = 14) {
   if (closes.length < period + 1) return null;
@@ -1190,135 +1172,146 @@ const SHOWCASE = ['AAPL','MSFT','NVDA','TSLA','META','AMD','SPY','AMZN','GOOGL',
 
 async function buildTicker() {
   const track = document.getElementById('tickerTrack');
-  if (!track) return;
+  if (!track) { console.log('tickerTrack not found'); return; }
+  
+  track.innerHTML = '<div class="ticker-item"><span style="color:#00e5ff;font-family:var(--font-mono);font-size:0.75rem">Loading live RSI...</span></div>';
+  
   const results = [];
   for (const sym of SHOWCASE) {
-    const d = await fetchStock(sym, '1wk', '2y');
-    if (!d) continue;
-    const rsi = calcRSI(d.closes);
-    if (rsi === null) continue;
-    results.push({ sym, rsi, price: d.price });
+    try {
+      const d = await fetchStock(sym, '1wk', '2y');
+      if (!d || !d.closes || !d.closes.length) { console.log(sym + ': no data'); continue; }
+      const rsi = calcRSI(d.closes);
+      if (rsi === null) { console.log(sym + ': RSI null'); continue; }
+      console.log(sym + ' RSI=' + rsi + ' price=$' + d.price);
+      results.push({ sym, rsi, price: d.price });
+    } catch(e) { console.log(sym + ' error: ' + e.message); }
     await new Promise(r => setTimeout(r, 150));
   }
+  
+  console.log('Ticker results count: ' + results.length);
+  
   if (!results.length) {
-    track.innerHTML = '<div class="ticker-item"><span class="ticker-sym" style="color:#4a6070">Could not load live data</span></div>';
+    track.innerHTML = '<div class="ticker-item"><span style="color:#ff3355;font-family:var(--font-mono);font-size:0.75rem">Live data unavailable</span></div>';
     return;
   }
-  const items = [...results, ...results].map(({ sym, rsi, price }) => {
+  
+  const doubled = [...results, ...results];
+  let html = '';
+  for (const { sym, rsi, price } of doubled) {
     const ob = rsi >= 70;
     const os = rsi <= 35;
-    const cls = ob ? 'ticker-down' : os ? 'ticker-up' : 'ticker-neutral';
-    const label = ob ? `RSI ${rsi} ▼ OVERBOUGHT` : os ? `RSI ${rsi} ▲ OVERSOLD` : `RSI ${rsi} | $${price}`;
-    return `<div class="ticker-item"><span class="ticker-sym">${sym}</span><span class="${cls}">${label}</span></div>`;
-  }).join('');
-  track.innerHTML = items;
-  track.style.cssText = `animation: ticker ${Math.max(results.length * 3, 20)}s linear infinite; display:flex; gap:48px; width:max-content;`;
+    const color = ob ? '#ff3355' : os ? '#2dff7e' : '#4a6070';
+    const label = ob ? 'RSI ' + rsi + ' OVERBOUGHT' : os ? 'RSI ' + rsi + ' OVERSOLD' : 'RSI ' + rsi + ' $' + price;
+    html += '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">';
+    html += '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>';
+    html += '<span style="color:' + color + '">' + label + '</span>';
+    html += '</div>';
+  }
+  
+  track.innerHTML = html;
+  track.style.display = 'flex';
+  track.style.gap = '48px';
+  track.style.width = 'max-content';
+  track.style.animation = 'ticker ' + Math.max(results.length * 4, 24) + 's linear infinite';
+  console.log('Ticker built with ' + results.length + ' stocks');
 }
 
 // ── Live Alert Demo ────────────────────────────────────────
 const DEMO_TICKERS = ['AAPL','TSLA','NVDA','META','MSFT','AMD','AMZN','GOOGL','SPY','JPM'];
 
 async function buildLiveDemo() {
-  let chosen = null;
-  let chosenData = null;
-  let chosenRSI = null;
-  let chosenDailyRSI = null;
-
-  for (const sym of DEMO_TICKERS) {
-    const weekly = await fetchStock(sym, '1wk', '2y');
-    if (!weekly) continue;
-    const rsi = calcRSI(weekly.closes);
-    if (rsi === null) continue;
-    const daily = await fetchStock(sym, '1d', '3mo');
-    const dailyRSI = daily ? calcRSI(daily.closes) : null;
-    if (!chosen || Math.abs(rsi - 50) > Math.abs(chosenRSI - 50)) {
-      chosen = sym;
-      chosenData = weekly;
-      chosenRSI = rsi;
-      chosenDailyRSI = dailyRSI;
-    }
-    await new Promise(r => setTimeout(r, 200));
-  }
-
-  if (!chosen) return;
-
-  const isOS = chosenRSI < 50;
-  const emoji = isOS ? '🟢' : '🔴';
-  const label = isOS ? 'OVERSOLD' : 'OVERBOUGHT';
-  const cls   = isOS ? 'ad-green' : 'ad-red';
-  const action = isOS ? 'Consider calls / bullish spread' : 'Consider puts / bearish spread';
-
-  const price   = chosenData.price;
-  const low52   = Math.round(chosenData.low52  * 100) / 100;
-  const high52  = Math.round(chosenData.high52 * 100) / 100;
-  const pctLow  = Math.round((price - low52)  / low52  * 100 * 10) / 10;
-  const pctHigh = Math.round((price - high52) / high52 * 100 * 10) / 10;
-
-  // Score
-  let score = 2;
-  const factors = [`Weekly RSI ${isOS ? 'oversold' : 'overbought'} (${chosenRSI})`];
-  if (chosenDailyRSI) {
-    if ((isOS && chosenDailyRSI <= 40) || (!isOS && chosenDailyRSI >= 60)) {
-      score += 2;
-      factors.push(`Daily RSI confirms (${chosenDailyRSI})`);
-    }
-  }
-  if (isOS && pctLow <= 15) { score += 1; factors.push(`Near 52-week low (${pctLow}% above)`); }
-  if (!isOS && pctHigh >= -15) { score += 1; factors.push(`Near 52-week high (${Math.abs(pctHigh)}% below)`); }
-  score = Math.min(score, 10);
-  const stars = '⭐'.repeat(score);
-
-  // Update DOM
-  const set = (id, html, cls2) => {
+  const setEl = (id, html, color) => {
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) { console.log('Element not found: ' + id); return; }
     el.innerHTML = html;
-    if (cls2) el.className = cls2;
+    if (color) el.style.color = color;
   };
 
-  set('demoSignal', `${emoji} ${chosen} — ${label} | Weekly RSI: ${chosenRSI}`, cls);
-  set('demoScore',  `Score: ${stars} (${score}/10)`);
-  set('demoSector', 'Sector: Loading...', 'ad-muted');
-  document.getElementById('demoWRSI').textContent = chosenRSI;
-  document.getElementById('demoWRSI').className = cls;
-  if (chosenDailyRSI) {
-    document.getElementById('demoDRSI').textContent = chosenDailyRSI;
-    document.getElementById('demoDRSI').className = cls;
-  }
-  document.getElementById('demoPrice').textContent = `$${price}`;
-  set('demo52Low',  `52-week low: $${low52} (${pctLow}% above)`, 'ad-muted');
-  set('demo52High', `52-week high: $${high52} (${Math.abs(pctHigh)}% below)`, 'ad-muted');
-  set('demoIV',     'IV Rank: Fetching options data...', 'ad-muted');
-  set('demoFactors', factors.map(f => `✓ ${f}`).join('<br>'), 'ad-muted');
-  set('demoAction', action, 'ad-cyan');
+  let chosen = null, chosenData = null, chosenRSI = null, chosenDailyRSI = null;
 
-  // Fetch sector
+  for (const sym of DEMO_TICKERS) {
+    try {
+      const weekly = await fetchStock(sym, '1wk', '2y');
+      if (!weekly) continue;
+      const rsi = calcRSI(weekly.closes);
+      if (rsi === null) continue;
+      const daily = await fetchStock(sym, '1d', '3mo');
+      const dailyRSI = daily ? calcRSI(daily.closes) : null;
+      if (!chosen || Math.abs(rsi - 50) > Math.abs(chosenRSI - 50)) {
+        chosen = sym; chosenData = weekly; chosenRSI = rsi; chosenDailyRSI = dailyRSI;
+      }
+    } catch(e) {}
+    await new Promise(r => setTimeout(r, 150));
+  }
+
+  console.log('Demo chosen: ' + chosen + ' RSI=' + chosenRSI);
+  if (!chosen) return;
+
+  const isOS      = chosenRSI < 50;
+  const emoji     = isOS ? '🟢' : '🔴';
+  const sigLabel  = isOS ? 'OVERSOLD' : 'OVERBOUGHT';
+  const sigColor  = isOS ? '#2dff7e' : '#ff3355';
+  const action    = isOS ? 'Consider calls / bullish spread' : 'Consider puts / bearish spread';
+  const price     = chosenData.price;
+  const low52     = Math.round(chosenData.low52  * 100) / 100;
+  const high52    = Math.round(chosenData.high52 * 100) / 100;
+  const pctLow    = Math.round((price - low52)  / low52  * 1000) / 10;
+  const pctHigh   = Math.round((price - high52) / high52 * 1000) / 10;
+
+  let score = 2;
+  const factors = ['Weekly RSI ' + (isOS ? 'oversold' : 'overbought') + ' (' + chosenRSI + ')'];
+  if (chosenDailyRSI !== null) {
+    if ((isOS && chosenDailyRSI <= 40) || (!isOS && chosenDailyRSI >= 60)) {
+      score += 2; factors.push('Daily RSI confirms (' + chosenDailyRSI + ')');
+    }
+  }
+  if (isOS  && pctLow  <= 15) { score += 1; factors.push('Near 52-week low ('  + pctLow  + '% above)'); }
+  if (!isOS && pctHigh >= -15){ score += 1; factors.push('Near 52-week high (' + Math.abs(pctHigh) + '% below)'); }
+  score = Math.min(score, 10);
+
+  setEl('demoSignal',  emoji + ' ' + chosen + ' — ' + sigLabel + ' | RSI: ' + chosenRSI, sigColor);
+  setEl('demoScore',   'Score: ' + '⭐'.repeat(score) + ' (' + score + '/10)');
+  setEl('demoSector',  'Sector: Loading...');
+  setEl('demoWRSI',    String(chosenRSI), sigColor);
+  setEl('demoDRSI',    chosenDailyRSI !== null ? String(chosenDailyRSI) : 'N/A', sigColor);
+  setEl('demoPrice',   '$' + price, '#00e5ff');
+  setEl('demo52Low',   '52-week low: $' + low52 + ' (' + pctLow + '% above)');
+  setEl('demo52High',  '52-week high: $' + high52 + ' (' + Math.abs(pctHigh) + '% below)');
+  setEl('demoIV',      'IV Rank: Loading options data...');
+  setEl('demoFactors', factors.map(f => '✓ ' + f).join('<br>'));
+  setEl('demoAction',  action, '#00e5ff');
+
+  console.log('Demo DOM updated for ' + chosen);
+
+  // Sector
   try {
-    const sd = await fetchJSON(`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${chosen}?modules=assetProfile`);
-    if (sd) {
+    const sd = await fetchJSON('https://query1.finance.yahoo.com/v10/finance/quoteSummary/' + chosen + '?modules=assetProfile');
+    if (sd && sd.quoteSummary && sd.quoteSummary.result) {
       const sector = sd.quoteSummary.result[0].assetProfile.sector || 'Unknown';
-      set('demoSector', `Sector: ${sector}`, 'ad-muted');
+      setEl('demoSector', 'Sector: ' + sector);
     }
   } catch(e) {}
 
-  // Fetch IV from options chain
+  // IV
   try {
-    const od = await fetchJSON(`https://query1.finance.yahoo.com/v7/finance/options/${chosen}`);
-    if (od) {
+    const od = await fetchJSON('https://query1.finance.yahoo.com/v7/finance/options/' + chosen);
+    if (od && od.optionChain && od.optionChain.result && od.optionChain.result[0].options.length) {
       const opts = od.optionChain.result[0].options[0];
-      const all = [...(opts.calls || []), ...(opts.puts || [])];
-      const ivs = all.filter(c => c.impliedVolatility).map(c => c.impliedVolatility * 100);
+      const all  = [...(opts.calls||[]), ...(opts.puts||[])];
+      const ivs  = all.filter(c => c.impliedVolatility).map(c => c.impliedVolatility * 100);
       if (ivs.length) {
-        const iv = Math.round(ivs.reduce((a,b)=>a+b,0)/ivs.length * 10)/10;
-        const ivRank = Math.round((iv - iv*0.5) / (iv*1.8 - iv*0.5) * 100);
-        const ivLabel = ivRank >= 50 ? '🔥 HIGH IV' : ivRank >= 30 ? '⚡ MODERATE IV' : '💤 LOW IV';
-        const strat = ivRank >= 50 ? 'Sell premium — use spreads' : ivRank >= 30 ? 'Spreads or directional plays' : 'Buy options outright — cheap premiums';
-        set('demoIV', `IV: ${iv.toFixed(1)}% | Rank: ${ivRank}/100 ${ivLabel}<br><span style="font-size:0.75em">Strategy: ${strat}</span>`, 'ad-cyan');
+        const iv     = Math.round(ivs.reduce((a,b) => a+b, 0) / ivs.length * 10) / 10;
+        const ivRank = Math.min(Math.round((iv - iv*0.5) / (iv*1.3) * 100), 100);
+        const ivLbl  = ivRank >= 50 ? '🔥 HIGH IV' : ivRank >= 30 ? '⚡ MODERATE IV' : '💤 LOW IV';
+        const strat  = ivRank >= 50 ? 'Sell premium — use spreads' : ivRank >= 30 ? 'Spreads or directional' : 'Buy options outright';
+        setEl('demoIV', 'IV: ' + iv.toFixed(1) + '% | Rank: ' + ivRank + '/100 ' + ivLbl + '<br><small>Strategy: ' + strat + '</small>', '#00e5ff');
       }
     }
   } catch(e) {
-    set('demoIV', 'IV Rank: Options data unavailable', 'ad-muted');
+    setEl('demoIV', 'IV data unavailable');
   }
+  console.log('Demo complete');
 }
 
 // ── FAQ toggle ─────────────────────────────────────────────
