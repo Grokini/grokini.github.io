@@ -634,6 +634,8 @@
   .ticker-sym { color: var(--text); font-weight: 500; }
   .ticker-up { color: var(--green); }
   .ticker-down { color: var(--red); }
+  .ticker-muted { color: var(--muted); }
+  .ad-red { color: var(--red); font-weight: 500; }
 
   /* FAQ */
   .faq-list {
@@ -888,32 +890,26 @@
       <p>Not just a ticker and a number. Every alert includes RSI on two timeframes, a conviction score out of 10, IV Rank with a strategy recommendation, 52-week context, volume data, and a one-tap chart link.</p>
       <p>You get everything you need to decide whether to trade — right on your phone, the moment it fires.</p>
     </div>
-    <div class="alert-demo">
+    <div class="alert-demo" id="liveAlertDemo">
       <div class="ad-header">ALPHA RSI — THE OPTIONS EDGE</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div class="ad-green">🟢 AAPL — OVERSOLD (RSI &lt; 35)</div>
+      <div id="demoSignal" class="ad-green">⏳ Loading live market data...</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div>Score: <span class="ad-star">⭐⭐⭐⭐⭐⭐⭐</span> (7/10)</div>
-      <div class="ad-muted">Sector: Technology</div>
+      <div id="demoScore">Score: ...</div>
+      <div id="demoSector" class="ad-muted">Sector: ...</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div>Weekly RSI: <span class="ad-green">28.4</span></div>
-      <div>Daily RSI: <span class="ad-green">31.2</span></div>
-      <div>Price: <span class="ad-cyan">$198.40</span></div>
-      <div class="ad-muted">52-week low: $164.08 (21% above)</div>
-      <div class="ad-muted">52-week high: $237.23 (17% below)</div>
-      <div class="ad-muted">200-week MA: $172.30</div>
-      <div class="ad-muted">Avg volume: 4,820,000</div>
+      <div>Weekly RSI: <span id="demoWRSI" class="ad-green">...</span></div>
+      <div>Daily RSI: <span id="demoDRSI" class="ad-green">...</span></div>
+      <div>Price: <span id="demoPrice" class="ad-cyan">...</span></div>
+      <div id="demo52Low" class="ad-muted">52-week low: ...</div>
+      <div id="demo52High" class="ad-muted">52-week high: ...</div>
+
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div>IV (ATM): <span class="ad-cyan">24.8%</span></div>
-      <div>IV Rank: <span class="ad-green">22/100 💤 LOW IV</span></div>
-      <div class="ad-muted">Strategy: Buy options outright</div>
+      <div id="demoIV" class="ad-muted">IV Rank: Loading...</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div class="ad-muted">✓ Weekly RSI oversold (28.4)</div>
-      <div class="ad-muted">✓ Daily RSI confirms (31.2)</div>
-      <div class="ad-muted">✓ Near 52-week low</div>
-      <div class="ad-muted">✓ Above 200-week MA</div>
+      <div id="demoFactors" class="ad-muted">Analyzing signals...</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div class="ad-cyan">Consider calls / bullish spread</div>
+      <div id="demoAction" class="ad-cyan">...</div>
       <div class="ad-muted">📲 whop.com/alpha-rsi-the-options-edge</div>
     </div>
   </div>
@@ -1129,7 +1125,191 @@
 </footer>
 
 <script>
-// FAQ toggle
+// ── RSI Calculation ────────────────────────────────────────
+function calcRSI(closes, period = 14) {
+  if (closes.length < period + 1) return null;
+  let gains = 0, losses = 0;
+  for (let i = 1; i <= period; i++) {
+    const diff = closes[i] - closes[i - 1];
+    if (diff > 0) gains += diff; else losses -= diff;
+  }
+  let avgGain = gains / period;
+  let avgLoss = losses / period;
+  for (let i = period + 1; i < closes.length; i++) {
+    const diff = closes[i] - closes[i - 1];
+    const g = diff > 0 ? diff : 0;
+    const l = diff < 0 ? -diff : 0;
+    avgGain = (avgGain * (period - 1) + g) / period;
+    avgLoss = (avgLoss * (period - 1) + l) / period;
+  }
+  if (avgLoss === 0) return 100;
+  const rs = avgGain / avgLoss;
+  return Math.round((100 - 100 / (1 + rs)) * 10) / 10;
+}
+
+// ── Fetch stock data from Yahoo Finance ────────────────────
+async function fetchStock(sym, interval = '1wk', range = '2y') {
+  try {
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=${interval}&range=${range}`;
+    const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    if (!r.ok) return null;
+    const d = await r.json();
+    const result = d.chart.result[0];
+    const q = result.indicators.quote[0];
+    const closes = q.close.filter(c => c !== null);
+    const highs   = q.high   ? q.high.filter(h => h !== null)   : [];
+    const lows    = q.low    ? q.low.filter(l => l !== null)    : [];
+    const volumes = q.volume ? q.volume.filter(v => v !== null) : [];
+    return {
+      closes,
+      price:      Math.round(closes[closes.length - 1] * 100) / 100,
+      high52:     highs.length  >= 52 ? Math.max(...highs.slice(-52))   : Math.max(...highs),
+      low52:      lows.length   >= 52 ? Math.min(...lows.slice(-52))    : Math.min(...lows),
+      avgVol:     volumes.length >= 4  ? Math.round(volumes.slice(-4).reduce((a,b) => a+b,0) / 4) : 0
+    };
+  } catch(e) { return null; }
+}
+
+// ── Build ticker tape ──────────────────────────────────────
+const SHOWCASE = ['AAPL','MSFT','NVDA','TSLA','META','AMD','SPY','AMZN','GOOGL','COIN','JPM','NFLX'];
+
+async function buildTicker() {
+  const track = document.getElementById('tickerTrack');
+  if (!track) return;
+  const results = [];
+  for (const sym of SHOWCASE) {
+    const d = await fetchStock(sym, '1wk', '2y');
+    if (!d) continue;
+    const rsi = calcRSI(d.closes);
+    if (!rsi) continue;
+    results.push({ sym, rsi, price: d.price });
+    await new Promise(r => setTimeout(r, 200));
+  }
+  if (!results.length) return;
+  // Build items x2 for seamless loop
+  const items = [...results, ...results].map(({ sym, rsi, price }) => {
+    const ob = rsi >= 70;
+    const os = rsi <= 35;
+    const cls = ob ? 'ticker-down' : os ? 'ticker-up' : 'ticker-muted';
+    const label = ob ? `RSI ${rsi} ▼ OVERBOUGHT` : os ? `RSI ${rsi} ▲ OVERSOLD` : `RSI ${rsi} $${price}`;
+    return `<div class="ticker-item"><span class="ticker-sym">${sym}</span><span class="${cls}">${label}</span></div>`;
+  }).join('');
+  track.innerHTML = items;
+  // Fix animation duration based on count
+  track.style.animation = `ticker ${results.length * 3}s linear infinite`;
+}
+
+// ── Live Alert Demo ────────────────────────────────────────
+const DEMO_TICKERS = ['AAPL','TSLA','NVDA','META','MSFT','AMD','AMZN','GOOGL','SPY','JPM'];
+
+async function buildLiveDemo() {
+  // Try each ticker until we find one with interesting RSI
+  let chosen = null;
+  let chosenData = null;
+  let chosenRSI = null;
+  let chosenDailyRSI = null;
+
+  for (const sym of DEMO_TICKERS) {
+    const weekly = await fetchStock(sym, '1wk', '2y');
+    if (!weekly) continue;
+    const rsi = calcRSI(weekly.closes);
+    if (!rsi) continue;
+    const daily = await fetchStock(sym, '1d', '3mo');
+    const dailyRSI = daily ? calcRSI(daily.closes) : null;
+    // Prefer extreme RSI, otherwise just use the most extreme we find
+    if (!chosen || Math.abs(rsi - 50) > Math.abs(chosenRSI - 50)) {
+      chosen = sym;
+      chosenData = weekly;
+      chosenRSI = rsi;
+      chosenDailyRSI = dailyRSI;
+    }
+    await new Promise(r => setTimeout(r, 200));
+  }
+
+  if (!chosen) return;
+
+  const isOS = chosenRSI <= 50;
+  const emoji = isOS ? '🟢' : '🔴';
+  const label = isOS ? 'OVERSOLD' : 'OVERBOUGHT';
+  const cls   = isOS ? 'ad-green' : 'ad-red';
+  const action = isOS ? 'Consider calls / bullish spread' : 'Consider puts / bearish spread';
+
+  const price   = chosenData.price;
+  const low52   = Math.round(chosenData.low52  * 100) / 100;
+  const high52  = Math.round(chosenData.high52 * 100) / 100;
+  const pctLow  = Math.round((price - low52)  / low52  * 100 * 10) / 10;
+  const pctHigh = Math.round((price - high52) / high52 * 100 * 10) / 10;
+
+  // Score
+  let score = 2;
+  const factors = [`Weekly RSI ${isOS ? 'oversold' : 'overbought'} (${chosenRSI})`];
+  if (chosenDailyRSI) {
+    if ((isOS && chosenDailyRSI <= 40) || (!isOS && chosenDailyRSI >= 60)) {
+      score += 2;
+      factors.push(`Daily RSI confirms (${chosenDailyRSI})`);
+    }
+  }
+  if (isOS && pctLow <= 15) { score += 1; factors.push(`Near 52-week low (${pctLow}% above)`); }
+  if (!isOS && pctHigh >= -15) { score += 1; factors.push(`Near 52-week high (${Math.abs(pctHigh)}% below)`); }
+  score = Math.min(score, 10);
+  const stars = '⭐'.repeat(score);
+
+  // Update DOM
+  const set = (id, html, cls2) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = html;
+    if (cls2) el.className = cls2;
+  };
+
+  set('demoSignal', `${emoji} ${chosen} — ${label} (RSI ${isOS ? '<' : '>'} ${isOS ? 35 : 70})`, cls);
+  set('demoScore',  `Score: ${stars} (${score}/10)`);
+  set('demoSector', 'Sector: Loading...', 'ad-muted');
+  document.getElementById('demoWRSI').textContent = chosenRSI;
+  document.getElementById('demoWRSI').className = cls;
+  if (chosenDailyRSI) {
+    document.getElementById('demoDRSI').textContent = chosenDailyRSI;
+    document.getElementById('demoDRSI').className = cls;
+  }
+  document.getElementById('demoPrice').textContent = `$${price}`;
+  set('demo52Low',  `52-week low: $${low52} (${pctLow}% above)`, 'ad-muted');
+  set('demo52High', `52-week high: $${high52} (${Math.abs(pctHigh)}% below)`, 'ad-muted');
+  set('demoIV',     'IV Rank: Fetching options data...', 'ad-muted');
+  set('demoFactors', factors.map(f => `✓ ${f}`).join('<br>'), 'ad-muted');
+  set('demoAction', action, 'ad-cyan');
+
+  // Fetch sector
+  try {
+    const sr = await fetch(`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${chosen}?modules=assetProfile`, { headers: {'User-Agent':'Mozilla/5.0'} });
+    if (sr.ok) {
+      const sd = await sr.json();
+      const sector = sd.quoteSummary.result[0].assetProfile.sector || 'Unknown';
+      set('demoSector', `Sector: ${sector}`, 'ad-muted');
+    }
+  } catch(e) {}
+
+  // Fetch IV from options chain
+  try {
+    const or = await fetch(`https://query1.finance.yahoo.com/v7/finance/options/${chosen}`, { headers: {'User-Agent':'Mozilla/5.0'} });
+    if (or.ok) {
+      const od = await or.json();
+      const opts = od.optionChain.result[0].options[0];
+      const all = [...(opts.calls || []), ...(opts.puts || [])];
+      const ivs = all.filter(c => c.impliedVolatility).map(c => c.impliedVolatility * 100);
+      if (ivs.length) {
+        const iv = Math.round(ivs.reduce((a,b)=>a+b,0)/ivs.length * 10)/10;
+        const ivRank = Math.round((iv - iv*0.5) / (iv*1.8 - iv*0.5) * 100);
+        const ivLabel = ivRank >= 50 ? '🔥 HIGH IV' : ivRank >= 30 ? '⚡ MODERATE IV' : '💤 LOW IV';
+        const strat = ivRank >= 50 ? 'Sell premium — use spreads' : ivRank >= 30 ? 'Spreads or directional plays' : 'Buy options outright — cheap premiums';
+        set('demoIV', `IV: ${iv.toFixed(1)}% | Rank: ${ivRank}/100 ${ivLabel}<br><span style="font-size:0.75em">Strategy: ${strat}</span>`, 'ad-cyan');
+      }
+    }
+  } catch(e) {
+    set('demoIV', 'IV Rank: Options data unavailable', 'ad-muted');
+  }
+}
+
+// ── FAQ toggle ─────────────────────────────────────────────
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.parentElement;
@@ -1139,17 +1319,17 @@ document.querySelectorAll('.faq-q').forEach(q => {
   });
 });
 
-// Scroll reveal
+// ── Scroll reveal ──────────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
   });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Init ───────────────────────────────────────────────────
+buildTicker();
+buildLiveDemo();
 </script>
 </body>
 </html>
