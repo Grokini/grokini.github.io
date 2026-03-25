@@ -1202,7 +1202,7 @@ async function buildTicker() {
     const ob = rsi >= 70;
     const os = rsi <= 35;
     const color = ob ? '#ff3355' : os ? '#2dff7e' : '#4a6070';
-    const label = ob ? 'RSI ' + rsi + ' OVERBOUGHT' : os ? 'RSI ' + rsi + ' OVERSOLD' : 'RSI ' + rsi + ' $' + price;
+    const label = ob ? 'RSI ' + rsi + ' ▼ OVERBOUGHT $' + price : os ? 'RSI ' + rsi + ' ▲ OVERSOLD $' + price : 'RSI ' + rsi + ' $' + price;
     html += '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:0.75rem;">';
     html += '<span style="color:#ddeeff;font-weight:500">' + sym + '</span>';
     html += '<span style="color:' + color + '">' + label + '</span>';
