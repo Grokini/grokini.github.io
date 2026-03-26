@@ -1224,14 +1224,18 @@ function getNextScanTime() {
   var hour = ct.getHours();
   var min = ct.getMinutes();
 
-  // Next scan fires at the top of each hour 8am-4pm CT weekdays
-  if (day === 0 || day === 6 || hour >= 21 || hour < 13) {
-    return 'Market closed';
+  // Scanner runs 7am-4pm CT weekdays (12-21 UTC)
+  if (day === 0 || day === 6) return 'Opens Mon 7am';
+  var totalMins = hour * 60 + min;
+  if (totalMins < 420) {
+    return 'Opens in ' + (420 - totalMins) + 'm';
   }
-  // Minutes until next hour
+  if (totalMins >= 960) {
+    return 'Opens 7am';
+  }
   var minsLeft = 60 - min;
   if (minsLeft === 60) minsLeft = 0;
-  return minsLeft + 'm';
+  return 'Next: ' + (minsLeft || 60) + 'm';
 }
 
 // ── Update stats bar ──────────────────────────────────────
@@ -1302,16 +1306,26 @@ async function buildAlertsFeed() {
           var cwData = await cwR.json();
           var cwPrice = cwData.optionPrice || cwData.callPrice;
           if (cwPrice && !cwData.error) {
+            var liveStockPrice  = (d && d.price) ? d.price : cwData.price;
+            var alertStockPrice = cwData.price || liveStockPrice;
+            var stockDiff       = liveStockPrice - alertStockPrice;
+            var optDelta        = optType === 'put' ? -0.5 : 0.5;
+            var currentOptVal   = Math.max(Math.round((cwPrice + optDelta * stockDiff) * 100) / 100, 0.01);
+            var pnlAmt          = Math.round((currentOptVal - cwPrice) * 100);
+            var pnlPctVal       = cwPrice > 0 ? Math.round((currentOptVal - cwPrice) / cwPrice * 100 * 10) / 10 : 0;
             callWall = {
               strike:       cwData.strike,
               expiry:       cwData.expiry,
               price:        cwPrice.toFixed(2),
+              currentOpt:   currentOptVal.toFixed(2),
+              pnl:          pnlAmt,
+              pnlPct:       pnlPctVal,
               bid:          cwData.bid ? cwData.bid.toFixed(2) : null,
               ask:          cwData.ask ? cwData.ask.toFixed(2) : null,
               iv:           cwData.iv ? cwData.iv.toFixed(1) : null,
               contractCost: cwData.contractCost,
               days:         cwData.daysToExpiry,
-              optType:      cwData.optionType
+              optType:      cwData.optionType || optType
             };
           }
         }
@@ -1328,9 +1342,12 @@ async function buildAlertsFeed() {
         callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:#00e5ff;letter-spacing:1px;margin-bottom:6px;">' + wallLabel + '</div>';
         callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.72rem;color:#ddeeff;">$' + callWall.strike + ' ' + contractType + ' &middot; ' + callWall.expiry + '</div>';
         callWallHtml += '<div style="margin-top:5px;font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);">At alert: <span style="color:#ddeeff">$' + callWall.price + '</span> ($' + callWall.contractCost + '/contract)</div>';
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Now est: <span style="color:#ddeeff">$' + callWall.currentOpt + '</span> ($' + Math.round(parseFloat(callWall.currentOpt) * 100) + '/contract)</div>';
+        var nowEstVal = (callWall.currentOpt && callWall.currentOpt !== 'undefined') ? callWall.currentOpt : callWall.price;
+        var nowEstCost = Math.round(parseFloat(nowEstVal) * 100);
+        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Now est: <span style="color:#ddeeff">$' + nowEstVal + '</span> ($' + nowEstCost + '/contract)</div>';
         callWallHtml += '<div style="margin-top:6px;padding:5px 8px;background:rgba(0,0,0,0.3);border-left:2px solid ' + pnlColor + ';">';
-        callWallHtml += '<span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:500;color:' + pnlColor + ';">' + pnlArrow + ' Hypothetical P&amp;L: ' + pnlSign + '$' + callWall.pnl + '/contract (' + pnlSign + callWall.pnlPct + '%)</span>';
+        var pnlDisplay = (callWall.pnl !== undefined && !isNaN(callWall.pnl)) ? pnlSign + '$' + callWall.pnl + '/contract (' + pnlSign + callWall.pnlPct + '%)' : 'Calculating...';
+        callWallHtml += '<span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:500;color:' + pnlColor + ';">' + pnlArrow + ' Hypothetical P&amp;L: ' + pnlDisplay + '</span>';
         callWallHtml += '</div>';
         if (callWall.bid && callWall.ask) {
           callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.63rem;color:var(--muted);margin-top:4px;">Bid $' + callWall.bid + ' &middot; Ask $' + callWall.ask + (callWall.iv ? ' &middot; HV ' + callWall.iv + '%' : '') + ' &middot; ' + callWall.days + 'd exp</div>';
