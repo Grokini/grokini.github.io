@@ -1319,28 +1319,30 @@ async function buildAlertsFeed() {
 
       var callWallHtml = '';
       if (callWall && callWall.price) {
-        var contractCost = (parseFloat(callWall.price) * 100).toFixed(0);
-        callWallHtml = '<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,0.15);">';
-        var wallLabel = callWall.optType === 'put' ? '🎯 FIRST PUT WALL' : '🎯 FIRST CALL WALL';
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:#00e5ff;letter-spacing:1px;margin-bottom:6px;">' + wallLabel + '</div>';
+        var wallLabel    = callWall.optType === 'put' ? '&#127919; FIRST PUT WALL' : '&#127919; FIRST CALL WALL';
         var contractType = callWall.optType === 'put' ? 'Put' : 'Call';
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.72rem;color:#ddeeff;">$' + callWall.strike + ' ' + contractType + ' · ' + callWall.expiry + '</div>';
-        callWallHtml += '<div style="display:flex;justify-content:space-between;margin-top:4px;">';
-        callWallHtml += '<span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--muted)">Last: <span style="color:#ddeeff">$' + callWall.price + '</span> ($' + contractCost + '/contract)</span>';
+        var pnlColor     = callWall.pnl >= 0 ? '#2dff7e' : '#ff3355';
+        var pnlSign      = callWall.pnl >= 0 ? '+' : '';
+        var pnlArrow     = callWall.pnl >= 0 ? '&#9650;' : '&#9660;';
+        callWallHtml  = '<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,0.15);">';
+        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:#00e5ff;letter-spacing:1px;margin-bottom:6px;">' + wallLabel + '</div>';
+        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.72rem;color:#ddeeff;">$' + callWall.strike + ' ' + contractType + ' &middot; ' + callWall.expiry + '</div>';
+        callWallHtml += '<div style="margin-top:5px;font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);">At alert: <span style="color:#ddeeff">$' + callWall.price + '</span> ($' + callWall.contractCost + '/contract)</div>';
+        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Now est: <span style="color:#ddeeff">$' + callWall.currentOpt + '</span> ($' + Math.round(parseFloat(callWall.currentOpt) * 100) + '/contract)</div>';
+        callWallHtml += '<div style="margin-top:6px;padding:5px 8px;background:rgba(0,0,0,0.3);border-left:2px solid ' + pnlColor + ';">';
+        callWallHtml += '<span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:500;color:' + pnlColor + ';">' + pnlArrow + ' Hypothetical P&amp;L: ' + pnlSign + '$' + callWall.pnl + '/contract (' + pnlSign + callWall.pnlPct + '%)</span>';
         callWallHtml += '</div>';
         if (callWall.bid && callWall.ask) {
-          callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Bid $' + callWall.bid + ' · Ask $' + callWall.ask + (callWall.iv ? ' · IV ' + callWall.iv + '%' : '') + '</div>';
+          callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.63rem;color:var(--muted);margin-top:4px;">Bid $' + callWall.bid + ' &middot; Ask $' + callWall.ask + (callWall.iv ? ' &middot; HV ' + callWall.iv + '%' : '') + ' &middot; ' + callWall.days + 'd exp</div>';
         }
-        if (callWall.days) {
-          callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);margin-top:2px;">' + callWall.days + ' days to expiry · Black-Scholes estimate</div>';
-        }
+        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.58rem;color:var(--muted);margin-top:3px;opacity:0.5;">Delta approx &middot; Not financial advice</div>';
         callWallHtml += '</div>';
       } else {
-        var fallbackLabel = item.type === 'ob' ? '🎯 FIRST PUT WALL' : '🎯 FIRST CALL WALL';
-      callWallHtml = '<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,0.15);font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);">' + fallbackLabel + ' — Subscribe for options data</div>';
+        var fallbackLabel = item.type === 'ob' ? '&#127919; FIRST PUT WALL' : '&#127919; FIRST CALL WALL';
+        callWallHtml = '<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,0.15);font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);">' + fallbackLabel + ' &mdash; Subscribe for options data</div>';
       }
 
-      html += '<div style="background:var(--dark2);border:1px solid ' + border + ';padding:16px 18px;">';
+            html += '<div style="background:var(--dark2);border:1px solid ' + border + ';padding:16px 18px;">';
       html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
       html += '<span style="font-family:var(--font-mono);font-size:1rem;font-weight:500;color:#ddeeff">' + item.sym + '</span>';
       html += '<span style="font-family:var(--font-mono);font-size:0.7rem;color:' + color + ';letter-spacing:1px">' + label + '</span>';
