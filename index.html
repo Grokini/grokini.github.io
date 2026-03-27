@@ -1315,11 +1315,11 @@ async function buildAlertsFeed() {
   if (!feed) return;
 
   try {
-    var r = await fetch('/public_alerts.json?nocache=' + Date.now());
+    var r = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
     if (!r.ok) throw new Error('No alerts file');
     var data = await r.json();
-    var ob  = (data.overbought || []).map(function(x) { return { sym: x.sym, type: 'ob' }; });
-    var os_ = (data.oversold   || []).map(function(x) { return { sym: x.sym, type: 'os' }; });
+    var ob  = (data.overbought || []).map(function(x) { return { sym: x.sym, type: 'ob', score: x.score||0, rsi: x.rsi, alertPrice: x.price, date: data.date }; });
+    var os_ = (data.oversold   || []).map(function(x) { return { sym: x.sym, type: 'os', score: x.score||0, rsi: x.rsi, alertPrice: x.price, date: data.date }; });
     var all = os_.concat(ob);
 
     // Update stats
@@ -1332,7 +1332,7 @@ async function buildAlertsFeed() {
 
     // Build alert cards
     var html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">';
-    var items = all.slice(0, 12);
+    var items = all; // show all alerts
 
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
@@ -1342,8 +1342,8 @@ async function buildAlertsFeed() {
       var border = isOS ? 'rgba(45,255,126,0.2)' : 'rgba(255,51,85,0.2)';
 
       // Fetch live RSI
-      var rsiStr = '...';
-      var priceStr = '';
+      var rsiStr = item.rsi ? item.rsi.toFixed(1) : '...';
+      var priceStr = item.alertPrice ? '$' + item.alertPrice : '';
       try {
         var d = await fetchStock(item.sym, '1wk', '2y');
         if (d) {
@@ -1418,9 +1418,11 @@ async function buildAlertsFeed() {
 
             html += '<div style="background:var(--dark2);border:1px solid ' + border + ';padding:16px 18px;">';
       html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
+      var stars = item.score ? '⭐'.repeat(Math.min(item.score,10)) + ' (' + item.score + '/10)' : '';
       html += '<span style="font-family:var(--font-mono);font-size:1rem;font-weight:500;color:#ddeeff">' + item.sym + '</span>';
       html += '<span style="font-family:var(--font-mono);font-size:0.7rem;color:' + color + ';letter-spacing:1px">' + label + '</span>';
       html += '</div>';
+      if (stars) html += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:#ffb800;margin-bottom:6px;">' + stars + '</div>';
       html += '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">';
       html += '<span style="font-family:var(--font-mono);font-size:0.75rem;color:' + color + '">RSI ' + rsiStr + '</span>';
       html += '<span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)">' + priceStr + '</span>';
@@ -1523,7 +1525,7 @@ async function buildTicker() {
 
   // Try real alerts from scanner
   try {
-    const resp = await fetch('/public_alerts.json?nocache=' + Date.now());
+    const resp = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
     if (resp.ok) {
       const data = await resp.json();
       const ob  = (data.overbought || []).map(function(x) { return {sym: x.sym, type: 'ob'}; });
@@ -1592,7 +1594,7 @@ async function buildLiveDemo() {
 
   // Try real alert first
   try {
-    var resp = await fetch('/public_alerts.json?nocache=' + Date.now());
+    var resp = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
     if (resp.ok) {
       var data = await resp.json();
       var alertDate = data.date || new Date().toISOString().slice(0,10);
