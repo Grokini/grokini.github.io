@@ -1426,7 +1426,16 @@ async function buildAlertsFeed() {
       html += '<span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)">' + priceStr + '</span>';
       html += '</div>';
       html += callWallHtml;
-      html += '<div style="margin-top:10px;font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.5px">ALERTED TODAY · SUBSCRIBE TO GET THESE LIVE</div>';
+      // Format date nicely e.g. "MAR 26" 
+      var cardDate = item.date || alertDate || '';
+      var dateLabel = '';
+      if (cardDate) {
+        var dp = cardDate.split('-');
+        var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+        dateLabel = months[parseInt(dp[1])-1] + ' ' + parseInt(dp[2]);
+      }
+      var footerLabel = dateLabel ? 'ALERTED ' + dateLabel : 'ALERTED TODAY';
+      html += '<div style="margin-top:10px;font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.5px">' + footerLabel + ' · SUBSCRIBE TO GET THESE LIVE</div>';
       html += '</div>';
 
       feed.innerHTML = html + '</div>';
@@ -1586,20 +1595,42 @@ async function buildLiveDemo() {
     var resp = await fetch('/public_alerts.json?nocache=' + Date.now());
     if (resp.ok) {
       var data = await resp.json();
-      var allAlerts = (data.oversold || []).map(function(x) { return {sym: x.sym, os: true,  score: x.score || 0}; })
-        .concat((data.overbought || []).map(function(x) { return {sym: x.sym, os: false, score: x.score || 0}; }));
+      var alertDate = data.date || new Date().toISOString().slice(0,10);
+      var allAlerts = (data.oversold || []).map(function(x) { return {sym: x.sym, os: true,  score: x.score || 0, date: alertDate}; })
+        .concat((data.overbought || []).map(function(x) { return {sym: x.sym, os: false, score: x.score || 0, date: alertDate}; }));
       if (allAlerts.length > 0) {
-        // Pick the highest scoring alert of the day
-        allAlerts.sort(function(a, b) { return (b.score || 0) - (a.score || 0); });
-        var pick = allAlerts[0];
-        var w = await fetchStock(pick.sym, '1wk', '2y');
-        if (w) {
-          chosen     = pick.sym;
-          chosenData = w;
-          chosenRSI  = calcRSI(w.closes);
-          chosenIsOS = pick.os;
-          chosenScore = pick.score || null;
-          var dd = await fetchStock(pick.sym, '1d', '3mo');
+        // If scores are available use them, otherwise fetch RSI for each and pick most extreme
+        var hasScores = allAlerts.some(function(a) { return a.score > 0; });
+        if (hasScores) {
+          allAlerts.sort(function(a, b) { return (b.score || 0) - (a.score || 0); });
+        }
+        // Fetch RSI for top candidates and pick best
+        var bestPick = null, bestW = null, bestRSI = 50, bestScore = -1;
+        var candidates = allAlerts.slice(0, hasScores ? 1 : Math.min(allAlerts.length, 8));
+        for (var ci = 0; ci < candidates.length; ci++) {
+          try {
+            var cw = await fetchStock(candidates[ci].sym, '1wk', '2y');
+            if (!cw) continue;
+            var cr = calcRSI(cw.closes);
+            if (cr === null) continue;
+            var cs = candidates[ci].score || 0;
+            // Score takes priority; if tied or no scores, pick most extreme RSI
+            var better = !bestPick ||
+              (cs > bestScore) ||
+              (cs === bestScore && Math.abs(cr - 50) > Math.abs(bestRSI - 50));
+            if (better) {
+              bestPick = candidates[ci]; bestW = cw; bestRSI = cr; bestScore = cs;
+            }
+          } catch(e) {}
+          await new Promise(function(r) { setTimeout(r, 80); });
+        }
+        if (bestPick) {
+          chosen      = bestPick.sym;
+          chosenData  = bestW;
+          chosenRSI   = bestRSI;
+          chosenIsOS  = bestPick.os;
+          chosenScore = bestScore > 0 ? bestScore : null;
+          var dd = await fetchStock(bestPick.sym, '1d', '3mo');
           chosenDailyRSI = dd ? calcRSI(dd.closes) : null;
         }
       }
