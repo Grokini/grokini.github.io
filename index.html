@@ -1035,6 +1035,60 @@
   </div>
 </section>
 
+<!-- 30-DAY HISTORY SECTION -->
+<section style="position:relative;z-index:5;padding:80px 24px;background:rgba(12,18,24,0.6);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-tag">30-Day Track Record</div>
+    <h2 class="section-title">Every callout. <span class="accent">Every result.</span></h2>
+    <p style="color:var(--muted);max-width:620px;line-height:1.7;margin-bottom:48px;">
+      We show the winners AND the losers. Every alert stays visible for 30 days so you can see exactly how each trade played out — stock price at callout vs today, and what the option would have done.
+    </p>
+
+    <!-- TOP/BOTTOM 5 GRID -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;" class="reveal">
+
+      <!-- TOP 5 -->
+      <div>
+        <div style="font-family:var(--font-mono);font-size:0.7rem;color:#2dff7e;letter-spacing:2px;margin-bottom:12px;">&#9650; TOP 5 BEST CALLOUTS</div>
+        <div id="historyTop5" style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);padding:12px;border:1px solid var(--border);">Loading...</div>
+        </div>
+      </div>
+
+      <!-- BOTTOM 5 -->
+      <div>
+        <div style="font-family:var(--font-mono);font-size:0.7rem;color:#ff3355;letter-spacing:2px;margin-bottom:12px;">&#9660; BOTTOM 5 WORST CALLOUTS</div>
+        <div id="historyBottom5" style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);padding:12px;border:1px solid var(--border);">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL -->
+    <div style="margin-bottom:16px;">
+      <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);letter-spacing:2px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;">
+        <span>ALL 30-DAY CALLOUTS</span>
+        <span id="carouselCounter" style="color:var(--muted);">— / —</span>
+      </div>
+      <div id="historyCarousel" style="position:relative;min-height:160px;">
+        <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);padding:20px;border:1px solid var(--border);text-align:center;">
+          Loading callout history...
+        </div>
+      </div>
+      <!-- Progress bar -->
+      <div style="height:2px;background:var(--border);margin-top:8px;">
+        <div id="carouselBar" style="height:100%;background:var(--cyan);width:0%;transition:width 5s linear;"></div>
+      </div>
+      <!-- Nav dots -->
+      <div id="carouselDots" style="display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:32px;">
+      <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="btn-primary" target="_blank" style="display:inline-block">Get Real-Time Alerts</a>
+    </div>
+  </div>
+</section>
+
 <!-- BACKTESTING SECTION -->
 <section style="background:rgba(12,18,24,0.4);max-width:100%;padding:80px 0;">
   <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
@@ -1623,10 +1677,202 @@ var observer = new IntersectionObserver(function(entries) {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
+// ── Alert History ────────────────────────────────────────
+var historyData     = [];
+var carouselIndex   = 0;
+var carouselTimer   = null;
+var carouselRunning = false;
+
+async function buildAlertHistory() {
+  try {
+    var r = await fetch('https://grokini.github.io/alert_history.json?nocache=' + Date.now());
+    if (!r.ok) throw new Error('No history');
+    historyData = await r.json();
+    if (!historyData.length) throw new Error('Empty history');
+
+    // Fetch current prices and calculate P&L for each entry
+    for (var i = 0; i < historyData.length; i++) {
+      var h = historyData[i];
+      try {
+        var d = await fetchStock(h.sym, '1d', '5d');
+        h.currentPrice = d ? d.price : h.alert_price;
+      } catch(e) {
+        h.currentPrice = h.alert_price;
+      }
+      // Delta approx P&L on options
+      var optType    = h.type === 'ob' ? 'put' : 'call';
+      var priceDiff  = h.currentPrice - h.alert_price;
+      var delta      = optType === 'put' ? -0.5 : 0.5;
+      // Estimate alert-time option price via Black-Scholes proxy (5% of stock price ATM)
+      h.alertOptPrice  = h.alert_opt_price || Math.round(h.alert_price * 0.05 * 100) / 100;
+      h.currentOptPrice = Math.max(Math.round((h.alertOptPrice + delta * priceDiff) * 100) / 100, 0.01);
+      h.pnlAmt  = Math.round((h.currentOptPrice - h.alertOptPrice) * 100);
+      h.pnlPct  = h.alertOptPrice > 0 ? Math.round((h.currentOptPrice - h.alertOptPrice) / h.alertOptPrice * 100 * 10) / 10 : 0;
+    }
+
+    // Sort by P&L
+    var sorted = historyData.slice().sort(function(a,b) { return b.pnlPct - a.pnlPct; });
+    buildTop5(sorted.slice(0, 5), 'historyTop5', true);
+    buildTop5(sorted.slice(-5).reverse(), 'historyBottom5', false);
+    buildCarousel();
+
+  } catch(e) {
+    console.log('History error:', e.message);
+    var msg = '<div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);padding:16px;border:1px solid var(--border);text-align:center;">History builds as alerts fire — check back after market hours</div>';
+    var t5 = document.getElementById('historyTop5');
+    var b5 = document.getElementById('historyBottom5');
+    var cr = document.getElementById('historyCarousel');
+    if (t5) t5.innerHTML = msg;
+    if (b5) b5.innerHTML = msg;
+    if (cr) cr.innerHTML = msg;
+  }
+}
+
+function buildTop5(items, elId, isTop) {
+  var el = document.getElementById(elId);
+  if (!el || !items.length) return;
+  var html = '';
+  items.forEach(function(h) {
+    var isOS     = h.type === 'os';
+    var color    = h.pnlPct >= 0 ? '#2dff7e' : '#ff3355';
+    var sign     = h.pnlPct >= 0 ? '+' : '';
+    var arrow    = h.pnlPct >= 0 ? '&#9650;' : '&#9660;';
+    var border   = isOS ? 'rgba(45,255,126,0.15)' : 'rgba(255,51,85,0.15)';
+    var typeLabel = isOS ? '&#9650; OS' : '&#9660; OB';
+    html += '<div style="background:var(--dark2);border:1px solid ' + border + ';padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">';
+    html += '<div>';
+    html += '<span style="font-family:var(--font-mono);font-size:0.85rem;font-weight:500;color:#ddeeff;">' + h.sym + '</span>';
+    html += '<span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);margin-left:8px;">' + typeLabel + ' &middot; ' + h.alert_date + '</span>';
+    html += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:3px;">';
+    html += 'Callout $' + h.alert_price + ' &rarr; Now $' + h.currentPrice;
+    html += '</div>';
+    html += '</div>';
+    html += '<div style="text-align:right;">';
+    html += '<div style="font-family:var(--font-mono);font-size:0.85rem;font-weight:500;color:' + color + ';">' + arrow + ' ' + sign + h.pnlPct + '%</div>';
+    html += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:' + color + ';">' + sign + '$' + h.pnlAmt + '/contract</div>';
+    html += '</div>';
+    html += '</div>';
+  });
+  el.innerHTML = html;
+}
+
+function buildCarousel() {
+  if (!historyData.length) return;
+  // Sort by date desc
+  var sorted = historyData.slice().sort(function(a,b) {
+    return b.alert_date.localeCompare(a.alert_date);
+  });
+  historyData = sorted;
+
+  // Build dots
+  var dots = document.getElementById('carouselDots');
+  if (dots) {
+    var dHtml = '';
+    sorted.forEach(function(h, i) {
+      dHtml += '<div class="cdot" data-idx="' + i + '" onclick="goCarousel(' + i + ')" style="width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background 0.2s;"></div>';
+    });
+    dots.innerHTML = dHtml;
+  }
+
+  showCarouselCard(0);
+  startCarousel();
+}
+
+function showCarouselCard(idx) {
+  var el      = document.getElementById('historyCarousel');
+  var counter = document.getElementById('carouselCounter');
+  var bar     = document.getElementById('carouselBar');
+  if (!el || !historyData.length) return;
+
+  carouselIndex = ((idx % historyData.length) + historyData.length) % historyData.length;
+  var h = historyData[carouselIndex];
+
+  // Update counter
+  if (counter) counter.textContent = (carouselIndex + 1) + ' / ' + historyData.length;
+
+  // Update dots
+  document.querySelectorAll('.cdot').forEach(function(d, i) {
+    d.style.background = i === carouselIndex ? 'var(--cyan)' : 'var(--border)';
+  });
+
+  var isOS     = h.type === 'os';
+  var color    = h.pnlPct >= 0 ? '#2dff7e' : '#ff3355';
+  var sign     = h.pnlPct >= 0 ? '+' : '';
+  var arrow    = h.pnlPct >= 0 ? '&#9650;' : '&#9660;';
+  var border   = isOS ? 'rgba(45,255,126,0.25)' : 'rgba(255,51,85,0.25)';
+  var sigLabel = isOS ? '&#9650; OVERSOLD CALLOUT' : '&#9660; OVERBOUGHT CALLOUT';
+  var wallLabel = isOS ? '&#127919; FIRST CALL WALL' : '&#127919; FIRST PUT WALL';
+  var daysAgo  = Math.floor((Date.now() - new Date(h.alert_date).getTime()) / 86400000);
+  var daysStr  = daysAgo === 0 ? 'Today' : daysAgo === 1 ? '1 day ago' : daysAgo + ' days ago';
+
+  el.innerHTML = [
+    '<div style="background:var(--dark2);border:1px solid ' + border + ';padding:20px 24px;animation:fadeIn 0.3s ease;">',
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">',
+        '<div>',
+          '<span style="font-family:var(--font-mono);font-size:1.1rem;font-weight:600;color:#ddeeff;">' + h.sym + '</span>',
+          '<span style="font-family:var(--font-mono);font-size:0.7rem;color:' + (isOS ? '#2dff7e' : '#ff3355') + ';margin-left:10px;letter-spacing:1px;">' + sigLabel + '</span>',
+          '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:4px;">RSI ' + h.rsi + ' &middot; Score ' + h.score + '/10 &middot; ' + h.sector + ' &middot; ' + daysStr + '</div>',
+        '</div>',
+        '<div style="text-align:right;">',
+          '<div style="font-family:var(--font-mono);font-size:1.1rem;font-weight:600;color:' + color + ';">' + arrow + ' ' + sign + h.pnlPct + '%</div>',
+          '<div style="font-family:var(--font-mono);font-size:0.72rem;color:' + color + ';">' + sign + '$' + h.pnlAmt + '/contract</div>',
+        '</div>',
+      '</div>',
+      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;">',
+        '<div style="background:rgba(0,0,0,0.3);padding:10px 12px;">',
+          '<div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);letter-spacing:1px;">STOCK AT CALLOUT</div>',
+          '<div style="font-family:var(--font-mono);font-size:0.9rem;color:#ddeeff;margin-top:4px;">$' + h.alert_price + '</div>',
+        '</div>',
+        '<div style="background:rgba(0,0,0,0.3);padding:10px 12px;">',
+          '<div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);letter-spacing:1px;">CURRENT PRICE</div>',
+          '<div style="font-family:var(--font-mono);font-size:0.9rem;color:#ddeeff;margin-top:4px;">$' + h.currentPrice + '</div>',
+        '</div>',
+        '<div style="background:rgba(0,0,0,0.3);padding:10px 12px;">',
+          '<div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);letter-spacing:1px;">STOCK MOVE</div>',
+          '<div style="font-family:var(--font-mono);font-size:0.9rem;color:' + (h.currentPrice >= h.alert_price ? '#2dff7e' : '#ff3355') + ';margin-top:4px;">' + (h.currentPrice >= h.alert_price ? '+' : '') + Math.round((h.currentPrice - h.alert_price) / h.alert_price * 100 * 10) / 10 + '%</div>',
+        '</div>',
+      '</div>',
+      '<div style="border-top:1px solid rgba(0,229,255,0.15);padding-top:12px;">',
+        '<div style="font-family:var(--font-mono);font-size:0.65rem;color:#00e5ff;letter-spacing:1px;margin-bottom:6px;">' + wallLabel + ' &middot; Hypothetical Options P&amp;L</div>',
+        '<div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);">Option at callout: <span style="color:#ddeeff">$' + h.alertOptPrice + '</span> ($' + Math.round(h.alertOptPrice * 100) + '/contract)</div>',
+        '<div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);margin-top:2px;">Option now est: <span style="color:#ddeeff">$' + h.currentOptPrice + '</span> ($' + Math.round(h.currentOptPrice * 100) + '/contract)</div>',
+        '<div style="margin-top:8px;padding:6px 10px;background:rgba(0,0,0,0.3);border-left:2px solid ' + color + ';">',
+          '<span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:500;color:' + color + ';">' + arrow + ' ' + sign + '$' + h.pnlAmt + '/contract (' + sign + h.pnlPct + '%) &mdash; Delta approx &middot; Not financial advice</span>',
+        '</div>',
+      '</div>',
+    '</div>'
+  ].join('');
+
+  // Reset progress bar
+  if (bar) {
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    setTimeout(function() {
+      bar.style.transition = 'width 5s linear';
+      bar.style.width = '100%';
+    }, 50);
+  }
+}
+
+function goCarousel(idx) {
+  clearTimeout(carouselTimer);
+  showCarouselCard(idx);
+  startCarousel();
+}
+
+function startCarousel() {
+  clearTimeout(carouselTimer);
+  carouselTimer = setTimeout(function() {
+    showCarouselCard(carouselIndex + 1);
+    startCarousel();
+  }, 5000);
+}
+
 // ── Init ──────────────────────────────────────────────────
 buildTicker();
 buildLiveDemo();
 buildAlertsFeed();
+buildAlertHistory();
 updateStats(null);
 </script>
 </body>
