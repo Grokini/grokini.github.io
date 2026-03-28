@@ -910,8 +910,8 @@
     <div class="features-grid reveal">
       <div class="feature-card">
         <span class="feature-icon">📊</span>
-        <div class="feature-title">Dual Timeframe RSI</div>
-        <div class="feature-desc">Weekly AND daily RSI checked simultaneously. Alerts only fire when both timeframes agree — dramatically higher conviction signals.</div>
+        <div class="feature-title">Triple Timeframe RSI</div>
+        <div class="feature-desc">Weekly, daily AND monthly RSI checked simultaneously. Alerts only fire when multiple timeframes align — the rarest and highest conviction signals in the market.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">🔥</span>
@@ -921,7 +921,22 @@
       <div class="feature-card">
         <span class="feature-icon">⭐</span>
         <div class="feature-title">10-Point Scoring System</div>
-        <div class="feature-desc">Every signal scored across 6 factors. RSI level, volume spike, 200-week MA, 52-week proximity, divergence. Only the best scores reach your phone.</div>
+        <div class="feature-desc">Every signal scored across 10+ factors including RSI levels, volume spike, 200-week MA, 52-week proximity, divergence, VWAP distance, and options OI. Only the best scores reach your phone.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📅</span>
+        <div class="feature-title">Earnings Date Filter</div>
+        <div class="feature-desc">Automatically skips stocks within 5 days of earnings. Binary events destroy RSI signals — we filter them before they ever reach you.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📈</span>
+        <div class="feature-title">Revenue Growth Gate</div>
+        <div class="feature-desc">Filters out value traps. Stocks with declining revenue require a higher conviction score to alert — separating macro panic selloffs from genuinely broken businesses.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💎</span>
+        <div class="feature-title">YTD VWAP Analysis</div>
+        <div class="feature-desc">Stocks trading 20%+ below their year-to-date VWAP have a strong mean-reversion pull. We score this automatically and include it in every signal.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">📈</span>
@@ -951,42 +966,42 @@
       <div class="step-num">01</div>
       <div class="step-content">
         <div class="step-title">Full market scan launches every hour</div>
-        <div class="step-desc">8am–4pm CT Monday through Friday, GitHub Actions automatically fires the scanner across 5,000+ NYSE, NASDAQ and AMEX stocks — no manual input needed.</div>
+        <div class="step-desc">7am–4pm CT Monday through Friday, GitHub Actions automatically fires the scanner across 5,000+ NYSE, NASDAQ and AMEX stocks — no manual input needed.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <div class="step-content">
-        <div class="step-title">7-layer filter removes the noise</div>
-        <div class="step-desc">Minimum $10 price, 75,000 average volume, verified options chain, and more — most stocks never make it past the filters. Only liquid, tradeable stocks with real options chains continue.</div>
+        <div class="step-title">Multi-layer quality filters remove the noise</div>
+        <div class="step-desc">Minimum $10 price, 100,000 average volume, verified options chain, ETF exclusion, earnings date check, and revenue growth gate. Most stocks never make it past the filters — only liquid, tradeable equities with real options chains and growing businesses continue.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <div class="step-content">
-        <div class="step-title">RSI calculated on weekly and daily timeframes</div>
-        <div class="step-desc">Wilder's 14-period smoothed RSI calculated from live Yahoo Finance data. Only stocks hitting RSI extremes on the weekly chart get flagged — daily RSI used to confirm.</div>
+        <div class="step-title">RSI calculated on three timeframes</div>
+        <div class="step-desc">Wilder's 14-period smoothed RSI calculated from live Yahoo Finance data on weekly, daily, and monthly charts. Weekly RSI drives the primary signal — daily and monthly used to confirm. Multi-timeframe alignment is the rarest and most powerful setup.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">04</div>
       <div class="step-content">
-        <div class="step-title">Scored out of 10 across 6 factors</div>
-        <div class="step-desc">RSI level, daily confirmation, volume spike, 200-week moving average, 52-week proximity, and divergence. Minimum score required before an alert is sent.</div>
+        <div class="step-title">Scored out of 10 across 10+ factors</div>
+        <div class="step-desc">RSI level, daily and monthly confirmation, volume spike, 200-week moving average, 52-week proximity, RSI divergence, YTD VWAP distance, options open interest, drawdown quality gate, and sector relative strength. Minimum score required before an alert is sent.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">05</div>
       <div class="step-content">
-        <div class="step-title">IV Rank fetched from live options chain</div>
-        <div class="step-desc">Real-time implied volatility pulled from the nearest expiry options chain. Tells you immediately whether to buy options outright or use a spread strategy.</div>
+        <div class="step-title">IV Rank and options pricing calculated</div>
+        <div class="step-desc">Historical volatility rank calculated from 2 years of data. First Call/Put Wall identified via Black-Scholes pricing on the live options chain — locked to alert-time price so the P&L tracking stays accurate.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">06</div>
       <div class="step-content">
         <div class="step-title">Alert hits your Telegram in seconds</div>
-        <div class="step-desc">Complete trading brief delivered straight to your phone. Score, both RSI readings, price, IV Rank, strategy, 52-week context, and a one-tap Yahoo Finance chart link.</div>
+        <div class="step-desc">Complete trading brief delivered straight to your phone. Score, all three RSI readings, price, IV Rank, strategy, revenue growth, 52-week context, YTD VWAP, and a one-tap Yahoo Finance chart link.</div>
       </div>
     </div>
   </div>
@@ -1318,8 +1333,8 @@ async function buildAlertsFeed() {
     var r = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
     if (!r.ok) throw new Error('No alerts file');
     var data = await r.json();
-    var ob  = (data.overbought || []).map(function(x) { return { sym: x.sym, type: 'ob', score: x.score||0, rsi: x.rsi, alertPrice: x.price, date: data.date }; });
-    var os_ = (data.oversold   || []).map(function(x) { return { sym: x.sym, type: 'os', score: x.score||0, rsi: x.rsi, alertPrice: x.price, date: data.date }; });
+    var ob  = (data.overbought || []).map(function(x) { return { sym: x.sym, type: 'ob', score: x.score||0, rsi: x.rsi, alertPrice: x.price, alertOptPrice: x.opt_price||null, alert_date: x.alert_date || data.date, date: data.date }; });
+    var os_ = (data.oversold   || []).map(function(x) { return { sym: x.sym, type: 'os', score: x.score||0, rsi: x.rsi, alertPrice: x.price, alertOptPrice: x.opt_price||null, alert_date: x.alert_date || data.date, date: data.date }; });
     var all = os_.concat(ob);
 
     // Update stats
@@ -1341,19 +1356,24 @@ async function buildAlertsFeed() {
       var label  = isOS ? '▲ OVERSOLD' : '▼ OVERBOUGHT';
       var border = isOS ? 'rgba(45,255,126,0.2)' : 'rgba(255,51,85,0.2)';
 
-      // Fetch live RSI
-      var rsiStr = item.rsi ? item.rsi.toFixed(1) : '...';
-      var priceStr = item.alertPrice ? '$' + item.alertPrice : '';
+      // ── LOCKED TO FIRST ALERT VALUES ──────────────────────────
+      // RSI and stock price shown are from when the signal FIRST fired.
+      // This is the callout price — not the live price — so P&L is accurate.
+      var rsiStr   = item.rsi        ? item.rsi.toFixed(1)        : '—';
+      var priceStr = item.alertPrice ? '$' + item.alertPrice       : '';
+      // alertOptPrice is stored in alert_history; for public_alerts we use
+      // a Black-Scholes estimate locked to the alert-time stock price.
+      var alertOptPrice = item.alertOptPrice || null;
+
+      // Fetch live price ONLY for P&L delta calculation — not displayed
+      var livePrice = item.alertPrice; // fallback
       try {
         var d = await fetchStock(item.sym, '1wk', '2y');
-        if (d) {
-          var rsi = calcRSI(d.closes);
-          if (rsi) rsiStr = rsi;
-          priceStr = '$' + d.price;
-        }
+        if (d && d.price) livePrice = d.price;
       } catch(e) {}
 
-      // Fetch First Call Wall using Black-Scholes via Worker
+      // Fetch First Call Wall — use alert-time stock price for the option price,
+      // then delta-approximate current option value using live stock price.
       var callWall = null;
       try {
         var optType = item.type === 'ob' ? 'put' : 'call';
@@ -1363,26 +1383,31 @@ async function buildAlertsFeed() {
           var cwData = await cwR.json();
           var cwPrice = cwData.optionPrice || cwData.callPrice;
           if (cwPrice && !cwData.error) {
-            var liveStockPrice  = (d && d.price) ? d.price : cwData.price;
-            var alertStockPrice = cwData.price || liveStockPrice;
-            var stockDiff       = liveStockPrice - alertStockPrice;
-            var optDelta        = optType === 'put' ? -0.5 : 0.5;
-            var currentOptVal   = Math.max(Math.round((cwPrice + optDelta * stockDiff) * 100) / 100, 0.01);
-            var pnlAmt          = Math.round((currentOptVal - cwPrice) * 100);
-            var pnlPctVal       = cwPrice > 0 ? Math.round((currentOptVal - cwPrice) / cwPrice * 100 * 10) / 10 : 0;
+            // Lock option "at alert" price to alert-time stock price via delta approx
+            var alertStock  = item.alertPrice || cwData.price || livePrice;
+            var optDelta    = optType === 'put' ? -0.5 : 0.5;
+            // If we have a stored alert opt price use it, else use current (first scan)
+            var lockedOptPrice = alertOptPrice || cwPrice;
+            // Estimate current option value: locked price + delta × (live - alert stock)
+            var stockMove     = livePrice - alertStock;
+            var currentOptVal = Math.max(Math.round((lockedOptPrice + optDelta * stockMove) * 100) / 100, 0.01);
+            var pnlAmt        = Math.round((currentOptVal - lockedOptPrice) * 100);
+            var pnlPctVal     = lockedOptPrice > 0 ? Math.round((currentOptVal - lockedOptPrice) / lockedOptPrice * 100 * 10) / 10 : 0;
             callWall = {
               strike:       cwData.strike,
               expiry:       cwData.expiry,
-              price:        cwPrice.toFixed(2),
+              price:        lockedOptPrice.toFixed(2),
               currentOpt:   currentOptVal.toFixed(2),
               pnl:          pnlAmt,
               pnlPct:       pnlPctVal,
               bid:          cwData.bid ? cwData.bid.toFixed(2) : null,
               ask:          cwData.ask ? cwData.ask.toFixed(2) : null,
               iv:           cwData.iv ? cwData.iv.toFixed(1) : null,
-              contractCost: cwData.contractCost,
+              contractCost: Math.round(lockedOptPrice * 100),
               days:         cwData.daysToExpiry,
-              optType:      cwData.optionType || optType
+              optType:      cwData.optionType || optType,
+              livePrice:    livePrice,
+              alertStock:   alertStock
             };
           }
         }
@@ -1401,7 +1426,9 @@ async function buildAlertsFeed() {
         callWallHtml += '<div style="margin-top:5px;font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);">At alert: <span style="color:#ddeeff">$' + callWall.price + '</span> ($' + callWall.contractCost + '/contract)</div>';
         var nowEstVal = (callWall.currentOpt && callWall.currentOpt !== 'undefined') ? callWall.currentOpt : callWall.price;
         var nowEstCost = Math.round(parseFloat(nowEstVal) * 100);
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Now est: <span style="color:#ddeeff">$' + nowEstVal + '</span> ($' + nowEstCost + '/contract)</div>';
+        var stockMoveAmt = Math.round((callWall.livePrice - callWall.alertStock) * 100) / 100;
+        var stockMoveSign = stockMoveAmt >= 0 ? '+' : '';
+        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Now est: <span style="color:#ddeeff">$' + nowEstVal + '</span> ($' + nowEstCost + '/contract) <span style="color:' + (stockMoveAmt >= 0 ? '#2dff7e' : '#ff3355') + '">stock ' + stockMoveSign + '$' + stockMoveAmt + '</span></div>';
         callWallHtml += '<div style="margin-top:6px;padding:5px 8px;background:rgba(0,0,0,0.3);border-left:2px solid ' + pnlColor + ';">';
         var pnlDisplay = (callWall.pnl !== undefined && !isNaN(callWall.pnl)) ? pnlSign + '$' + callWall.pnl + '/contract (' + pnlSign + callWall.pnlPct + '%)' : 'Calculating...';
         callWallHtml += '<span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:500;color:' + pnlColor + ';">' + pnlArrow + ' Hypothetical P&amp;L: ' + pnlDisplay + '</span>';
@@ -1428,8 +1455,9 @@ async function buildAlertsFeed() {
       html += '<span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)">' + priceStr + '</span>';
       html += '</div>';
       html += callWallHtml;
-      // Format date nicely e.g. "MAR 26" 
-      var cardDate = item.date || alertDate || '';
+      // Format date — uses the item's own alert_date (first time alerted)
+      // NOT the JSON top-level date which updates with each scan
+      var cardDate = item.alert_date || item.date || '';
       var dateLabel = '';
       if (cardDate) {
         var dp = cardDate.split('-');
