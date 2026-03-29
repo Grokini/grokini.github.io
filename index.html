@@ -940,7 +940,7 @@
       <div class="feature-card">
         <span class="feature-icon">💎</span>
         <div class="feature-title">YTD VWAP Analysis</div>
-        <div class="feature-desc">Stocks trading 20%+ below their year-to-date VWAP have a strong mean-reversion pull. We score this automatically and include it in every signal.</div>
+        <div class="feature-desc">Stocks trading 25%+ below their year-to-date VWAP have a strong mean-reversion pull. We score this automatically and include it in every signal.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">📈</span>
@@ -1813,10 +1813,19 @@ async function buildAlertHistory() {
       h.pnlPct  = h.alertOptPrice > 0 ? Math.round((h.currentOptPrice - h.alertOptPrice) / h.alertOptPrice * 100 * 10) / 10 : 0;
     }
 
-    // Sort by P&L
+    // Sort by P&L — exclude same-day alerts from bottom 5 (they haven't had time to move)
+    var today = new Date().toISOString().slice(0, 10);
     var sorted = historyData.slice().sort(function(a,b) { return b.pnlPct - a.pnlPct; });
     buildTop5(sorted.slice(0, 5), 'historyTop5', true);
-    buildTop5(sorted.slice(-5).reverse(), 'historyBottom5', false);
+    // Bottom 5: only include alerts older than today so same-day alerts don't show as "worst"
+    var aged = sorted.filter(function(h) { return h.alert_date < today; });
+    if (aged.length >= 3) {
+      buildTop5(aged.slice(-5).reverse(), 'historyBottom5', false);
+    } else {
+      // Not enough aged alerts yet — show message instead
+      var b5 = document.getElementById('historyBottom5');
+      if (b5) b5.innerHTML = '<div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);padding:12px;border:1px solid var(--border);">Building track record — check back after market open</div>';
+    }
     buildCarousel();
 
   } catch(e) {
