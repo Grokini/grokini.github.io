@@ -836,10 +836,10 @@
     We scan <strong>5,000+ stocks</strong> across NYSE, NASDAQ & AMEX <strong>every hour</strong> — flagging extreme RSI conditions before the crowd notices. Every alert includes IV Rank so you know exactly how to trade it with options.
   </p>
   <div class="hero-btns">
-    <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="btn-primary" target="_blank">Start 3-Day Free Trial</a>
+    <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="btn-primary" target="_blank">Start 7-Day Free Trial</a>
     <a href="#how-it-works" class="btn-secondary">See How It Works</a>
   </div>
-  <p class="trial-note">3-day free trial · Cancel anytime · Not financial advice</p>
+  <p class="trial-note">7-day free trial · Cancel anytime · Not financial advice</p>
 </div>
 
 <!-- STATS BAR -->
@@ -851,6 +851,10 @@
   <div class="stat-item">
     <span class="stat-num" id="alertCountStat">—</span>
     <span class="stat-label">Alerts Today</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" id="weeklyAlertStat">—</span>
+    <span class="stat-label">Alerts This Week</span>
   </div>
   <div class="stat-item">
     <span class="stat-num" id="nextScanStat">—</span>
@@ -1058,9 +1062,17 @@
   <div style="max-width:1100px;margin:0 auto;">
     <div class="section-tag">30-Day Track Record</div>
     <h2 class="section-title">Every callout. <span class="accent">Every result.</span></h2>
-    <p style="color:var(--muted);max-width:620px;line-height:1.7;margin-bottom:48px;">
+    <p style="color:var(--muted);max-width:620px;line-height:1.7;margin-bottom:24px;">
       We show the winners AND the losers. Every alert stays visible for 30 days so you can see exactly how each trade played out — stock price at callout vs today, and what the option would have done.
     </p>
+
+    <!-- WHY WE SHOW LOSERS -->
+    <div style="max-width:620px;margin-bottom:48px;padding:20px 24px;border-left:3px solid var(--cyan);background:rgba(0,229,255,0.04);">
+      <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--cyan);letter-spacing:2px;margin-bottom:10px;">WHY WE SHOW LOSERS</div>
+      <p style="color:var(--muted);line-height:1.75;font-size:0.9rem;margin:0;">
+        Cherry-picking results is how signal services sell subscriptions. You see a highlight reel, subscribe, and then reality hits. We don't do that. Every signal that fires gets logged — the ones that worked and the ones that didn't. No deletions. No hiding. If a callout lost money, it's in the record. We believe the only way to know if a system has genuine edge is to see the full picture, not a curated one. If you find a signal service that only shows wins, that tells you everything you need to know.
+      </p>
+    </div>
 
     <!-- TOP/BOTTOM 5 GRID -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;" class="reveal">
@@ -1203,7 +1215,7 @@
         <li>IV Rank on every alert</li>
         <li>10-point conviction score</li>
         <li>5,000+ stocks scanned</li>
-        <li>3-day free trial</li>
+        <li>7-day free trial</li>
       </ul>
       <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="price-btn price-btn-secondary" target="_blank">Start Free Trial</a>
     </div>
@@ -1217,7 +1229,7 @@
         <li>Sector breakdown reports</li>
         <li>RSI divergence alerts</li>
         <li>Priority Telegram channel</li>
-        <li>3-day free trial</li>
+        <li>7-day free trial</li>
       </ul>
       <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="price-btn price-btn-primary" target="_blank">Start Free Trial</a>
     </div>
@@ -1261,7 +1273,7 @@
 <!-- CTA -->
 <div class="cta-section">
   <h2>START YOUR<br><span style="color:var(--cyan)">FREE TRIAL</span></h2>
-  <p>3 days free. No commitment. See real alerts hitting your Telegram before you decide.</p>
+  <p>7 days free. No commitment. See a full week of real alerts hitting your Telegram before you decide.</p>
   <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="btn-primary" target="_blank" style="display:inline-block">Get Access Now — It's Free to Start</a>
   <p style="margin-top:16px;font-size:0.75rem;color:var(--muted)">Not financial advice · Educational purposes only · Cancel anytime</p>
 </div>
@@ -1317,6 +1329,27 @@ function updateStats(alertCount) {
   if (countEl && alertCount !== null) countEl.textContent = alertCount;
   if (scanEl) scanEl.textContent = getNextScanTime();
 }
+
+// Pull 7-day alert count from alert_history.json
+async function updateWeeklyCount() {
+  try {
+    var r = await fetch('https://grokini.github.io/alert_history.json?nocache=' + Date.now());
+    if (!r.ok) return;
+    var history = await r.json();
+    if (!Array.isArray(history)) return;
+    var cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 7);
+    var cutoffStr = cutoff.toISOString().slice(0, 10);
+    var weeklyCount = history.filter(function(h) {
+      return h.alert_date && h.alert_date >= cutoffStr;
+    }).length;
+    var el = document.getElementById('weeklyAlertStat');
+    if (el) el.textContent = weeklyCount > 0 ? weeklyCount : '—';
+  } catch(e) {
+    // silently fail — stat just stays as —
+  }
+}
+updateWeeklyCount();
 
 // Update countdown every minute
 setInterval(function() {
