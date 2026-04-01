@@ -572,10 +572,11 @@ async function buildAlertsFeed(){
           }
         }
       }catch(e){}
-      // FIX 2: if options data unavailable show neutral loading, not "Subscribe for options data"
+      // FIX 2: if options data unavailable, show honest message — these tickers
+      // failed the live fetch (may be illiquid or chain temporarily unavailable)
       if(!cwHtml){
         var fbl=item.type==='ob'?'&#127919; FIRST PUT WALL':'&#127919; FIRST CALL WALL';
-        cwHtml='<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,.15);font-family:var(--font-mono);font-size:.65rem;color:var(--muted);">'+fbl+' &mdash; Options data loading...</div>';
+        cwHtml='<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,.15);font-family:var(--font-mono);font-size:.65rem;color:var(--muted);">'+fbl+' &mdash; Options chain data unavailable</div>';
       }
       var stars=item.score?'\u2b50'.repeat(Math.min(item.score,10))+' ('+item.score+'/10)':'';
       var dp=(item.alert_date||'').split('-'),months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -669,7 +670,7 @@ function showCarouselCard(idx){
     +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">'
       +'<div><span style="font-family:var(--font-mono);font-size:1.1rem;font-weight:600;color:#ddeeff;">'+h.sym+'</span>'
         +'<span style="font-family:var(--font-mono);font-size:.7rem;color:'+(isOS?'#2dff7e':'#ff3355')+';margin-left:10px;letter-spacing:1px;">'+sigLabel+'</span>'
-        +'<div style="font-family:var(--font-mono);font-size:.68rem;color:var(--muted);margin-top:4px;">RSI '+h.rsi+' &middot; Score '+h.score+'/10 &middot; '+h.sector+' &middot; '+daysStr+'</div></div>'
+        +'<div style="font-family:var(--font-mono);font-size:.68rem;color:var(--muted);margin-top:4px;">RSI '+h.rsi+' &middot; Score '+h.score+'/10'+(h.sector&&h.sector!=='undefined'?' &middot; '+h.sector:'')+' &middot; '+daysStr+'</div></div>'
       +'<div style="text-align:right;"><div style="font-family:var(--font-mono);font-size:1.1rem;font-weight:600;color:'+c+';">'+a+' '+s+h.pnlPct+'%</div>'
         +'<div style="font-family:var(--font-mono);font-size:.72rem;color:'+c+';">'+s+'$'+h.pnlAmt+'/contract</div></div></div>'
     +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;">'
