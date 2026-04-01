@@ -823,9 +823,9 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">
-    <div class="pulse-dot"></div>
-    Live scanner — active now
+  <div class="hero-tag" id="scanner-status-tag">
+    <div class="pulse-dot" id="scanner-dot"></div>
+    <span id="scanner-status-text">Live scanner — active now</span>
   </div>
   <h1>
     <span class="line1">ALPHA</span>
@@ -1330,20 +1330,6 @@
         <li>IV Rank on every alert</li>
         <li>10-point conviction score</li>
         <li>5,000+ stocks scanned</li>
-        <li>7-day free trial</li>
-      </ul>
-      <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="price-btn price-btn-secondary" target="_blank">Start Free Trial</a>
-    </div>
-    <div class="price-card featured">
-      <div class="price-name">Pro</div>
-      <div class="price-amount">$49</div>
-      <div class="price-period">per month</div>
-      <ul class="price-features">
-        <li>Everything in Basic</li>
-        <li>Morning briefing daily</li>
-        <li>Sector breakdown reports</li>
-        <li>RSI divergence alerts</li>
-        <li>Priority Telegram channel</li>
         <li>7-day free trial</li>
       </ul>
       <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="price-btn price-btn-primary" target="_blank">Start Free Trial</a>
@@ -2092,6 +2078,56 @@ buildLiveDemo();
 buildAlertsFeed();
 buildAlertHistory();
 updateStats(null);
+</script>
+<script>
+// Market hours status — scanner runs 7am-4pm CT Mon-Fri
+(function() {
+  function updateScannerStatus() {
+    const now = new Date();
+    // Convert to CT (UTC-5 standard, UTC-6 daylight — use Intl for accuracy)
+    const ct = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+    const day = ct.getDay(); // 0=Sun, 6=Sat
+    const hour = ct.getHours();
+    const minute = ct.getMinutes();
+    const timeDecimal = hour + minute / 60;
+
+    const isWeekday = day >= 1 && day <= 5;
+    const isMarketHours = timeDecimal >= 7 && timeDecimal < 16;
+    const isActive = isWeekday && isMarketHours;
+
+    const dot = document.getElementById('scanner-dot');
+    const text = document.getElementById('scanner-status-text');
+    const tag = document.getElementById('scanner-status-tag');
+
+    if (!dot || !text) return;
+
+    if (isActive) {
+      dot.style.background = 'var(--green)';
+      dot.style.boxShadow = '0 0 8px var(--green)';
+      dot.style.animation = 'pulse 2s infinite';
+      text.textContent = 'Live scanner — active now';
+      text.style.color = 'var(--green)';
+    } else {
+      dot.style.background = 'var(--muted)';
+      dot.style.boxShadow = 'none';
+      dot.style.animation = 'none';
+      // Show next scan time
+      let nextMsg = 'Scanner offline';
+      if (!isWeekday) {
+        nextMsg = 'Scanner resumes Monday 7am CT';
+      } else if (timeDecimal < 7) {
+        nextMsg = 'Scanner starts at 7am CT';
+      } else if (timeDecimal >= 16) {
+        nextMsg = 'Scanner resumes tomorrow 7am CT';
+      }
+      text.textContent = nextMsg;
+      text.style.color = 'var(--muted)';
+    }
+  }
+
+  updateScannerStatus();
+  setInterval(updateScannerStatus, 60000); // update every minute
+})();
 </script>
 </body>
 </html>
