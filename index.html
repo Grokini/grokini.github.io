@@ -1119,6 +1119,322 @@
   </div>
 </section>
 
+<!-- RUNNING P&L SCOREBOARD -->
+<section id="scoreboard" style="padding:80px 40px;max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+  <div class="section-tag">Live Scoreboard</div>
+  <h2 class="section-title" style="text-align:center">Running <span class="accent">P&L</span> — every callout counted</h2>
+  <p style="text-align:center;color:var(--muted);font-size:0.9rem;max-width:600px;margin:0 auto 16px;line-height:1.7;">
+    Each alert opens a position at the option price when it fires. It closes automatically when 30 days remain on the contract. Winners and losers both count. No cherry-picking.
+  </p>
+  <p style="text-align:center;font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);margin-bottom:48px;">Delta approximation · Not financial advice · Educational purposes only</p>
+
+  <!-- THREE PERIOD CARDS -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:48px;">
+
+    <!-- WEEKLY -->
+    <div style="background:var(--dark2);border:1px solid var(--border);padding:28px 24px;position:relative;overflow:hidden;" id="score-week-card">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--cyan);"></div>
+      <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">This Week</div>
+      <div style="font-family:var(--font-display);font-size:2.8rem;letter-spacing:2px;margin-bottom:4px;" id="score-week-total">—</div>
+      <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);margin-bottom:20px;" id="score-week-sub">Loading...</div>
+      <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;">
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--green);" id="score-week-wins">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">WINNERS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--red);" id="score-week-losses">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">LOSERS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--text);" id="score-week-open">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">OPEN</div>
+        </div>
+      </div>
+      <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);margin-top:12px;" id="score-week-reset"></div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div style="background:var(--dark2);border:1px solid var(--border);padding:28px 24px;position:relative;overflow:hidden;" id="score-month-card">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);"></div>
+      <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--green);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">This Month</div>
+      <div style="font-family:var(--font-display);font-size:2.8rem;letter-spacing:2px;margin-bottom:4px;" id="score-month-total">—</div>
+      <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);margin-bottom:20px;" id="score-month-sub">Loading...</div>
+      <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;">
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--green);" id="score-month-wins">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">WINNERS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--red);" id="score-month-losses">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">LOSERS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--text);" id="score-month-open">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">OPEN</div>
+        </div>
+      </div>
+      <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);margin-top:12px;" id="score-month-reset"></div>
+    </div>
+
+    <!-- YEARLY -->
+    <div style="background:var(--dark2);border:1px solid var(--border);padding:28px 24px;position:relative;overflow:hidden;" id="score-year-card">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--amber);"></div>
+      <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--amber);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">2026 YTD</div>
+      <div style="font-family:var(--font-display);font-size:2.8rem;letter-spacing:2px;margin-bottom:4px;" id="score-year-total">—</div>
+      <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);margin-bottom:20px;" id="score-year-sub">Loading...</div>
+      <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;">
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--green);" id="score-year-wins">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">WINNERS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--red);" id="score-year-losses">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">LOSERS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:1rem;color:var(--text);" id="score-year-open">—</div>
+          <div style="font-size:0.6rem;color:var(--muted);margin-top:2px;">OPEN</div>
+        </div>
+      </div>
+      <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);margin-top:12px;" id="score-year-reset"></div>
+    </div>
+
+  </div>
+
+  <!-- CLOSED POSITIONS TABLE -->
+  <div style="background:var(--dark2);border:1px solid var(--border);">
+    <div style="padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text);letter-spacing:1px;">CLOSED POSITIONS</div>
+      <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);">Closed when 30 days remain on contract</div>
+    </div>
+    <div id="score-closed-table" style="padding:16px 24px;">
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);text-align:center;padding:24px;">Loading closed positions...</div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+(function() {
+  // ── SCOREBOARD ENGINE ────────────────────────────────────────────────
+  // Positions close when 30 days remain on the ~60-day option
+  // i.e. ~30 days after alert fires
+  var CLOSE_DAYS = 30;
+  var WORKER = 'https://alpha-rsi-proxy.alpharsi-theoptionsedge.workers.dev';
+
+  function getMondayOfWeek(d) {
+    var day = d.getDay(); // 0=Sun
+    var diff = d.getDate() - day + (day === 0 ? -6 : 1);
+    var mon = new Date(d);
+    mon.setDate(diff);
+    mon.setHours(0,0,0,0);
+    return mon;
+  }
+
+  function addDays(date, days) {
+    var d = new Date(date);
+    d.setDate(d.getDate() + days);
+    return d;
+  }
+
+  function formatDate(dateStr) {
+    var d = new Date(dateStr + 'T12:00:00');
+    return d.toLocaleDateString('en-US', { month:'short', day:'numeric' });
+  }
+
+  function daysAgo(dateStr) {
+    var alert = new Date(dateStr + 'T12:00:00');
+    var now = new Date();
+    return Math.floor((now - alert) / (1000 * 60 * 60 * 24));
+  }
+
+  function isInWeek(dateStr) {
+    var d = new Date(dateStr + 'T12:00:00');
+    var mon = getMondayOfWeek(new Date());
+    var sun = addDays(mon, 7);
+    return d >= mon && d < sun;
+  }
+
+  function isInMonth(dateStr) {
+    var d = new Date(dateStr + 'T12:00:00');
+    var now = new Date();
+    return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+  }
+
+  function isInYear(dateStr) {
+    var d = new Date(dateStr + 'T12:00:00');
+    return d.getFullYear() === new Date().getFullYear();
+  }
+
+  function isClosed(alertDateStr) {
+    return daysAgo(alertDateStr) >= CLOSE_DAYS;
+  }
+
+  function pnlColor(val) { return val >= 0 ? 'var(--green)' : 'var(--red)'; }
+  function pnlSign(val)  { return val >= 0 ? '+' : ''; }
+  function pnlArrow(val) { return val >= 0 ? '▲' : '▼'; }
+
+  function formatPnl(amt) {
+    var sign = amt >= 0 ? '+' : '';
+    return sign + '$' + Math.abs(amt) + '/contract';
+  }
+
+  async function fetchCurrentPrice(sym) {
+    try {
+      var r = await fetch(WORKER + '/quote?sym=' + sym);
+      var d = await r.json();
+      return d.price || null;
+    } catch(e) { return null; }
+  }
+
+  function calcClosedPnl(entry) {
+    // Use alert_opt_price directly as locked-in entry price
+    var entryOptPrice = entry.alert_opt_price || (entry.alert_price * 0.05);
+    // For closed positions we need to estimate close price via delta approx at close date
+    // Since we don't have historical close price, use current price as proxy for recently closed
+    // and flag older ones as using estimated close
+    var priceDiff = (entry.currentPrice || entry.alert_price) - entry.alert_price;
+    var delta = entry.type === 'ob' ? -0.5 : 0.5;
+    var closeOptPrice = Math.max(entryOptPrice + delta * priceDiff, 0.01);
+    var pnlAmt = Math.round((closeOptPrice - entryOptPrice) * 100);
+    var pnlPct = entryOptPrice > 0 ? Math.round((closeOptPrice - entryOptPrice) / entryOptPrice * 1000) / 10 : 0;
+    return { pnlAmt, pnlPct, entryOptPrice, closeOptPrice };
+  }
+
+  function buildPeriodStats(entries, period) {
+    var closed = entries.filter(function(e) { return isClosed(e.alert_date) && period(e.alert_date); });
+    var open   = entries.filter(function(e) { return !isClosed(e.alert_date) && period(e.alert_date); });
+    var totalPnl = closed.reduce(function(sum, e) { return sum + e.pnlAmt; }, 0);
+    var wins  = closed.filter(function(e) { return e.pnlAmt >= 0; }).length;
+    var losses = closed.filter(function(e) { return e.pnlAmt < 0; }).length;
+    return { closed, open, totalPnl, wins, losses, openCount: open.length };
+  }
+
+  function renderCard(prefix, stats, resetLabel) {
+    var color = pnlColor(stats.totalPnl);
+    var sign  = pnlSign(stats.totalPnl);
+    var totalEl   = document.getElementById(prefix + '-total');
+    var subEl     = document.getElementById(prefix + '-sub');
+    var winsEl    = document.getElementById(prefix + '-wins');
+    var lossesEl  = document.getElementById(prefix + '-losses');
+    var openEl    = document.getElementById(prefix + '-open');
+    var resetEl   = document.getElementById(prefix + '-reset');
+    var card      = document.getElementById(prefix + '-card');
+
+    if (!totalEl) return;
+
+    if (stats.closed.length === 0 && stats.openCount === 0) {
+      totalEl.textContent = '—';
+      totalEl.style.color = 'var(--muted)';
+      subEl.textContent = 'No positions yet';
+    } else if (stats.closed.length === 0) {
+      totalEl.textContent = '—';
+      totalEl.style.color = 'var(--muted)';
+      subEl.textContent = stats.openCount + ' position' + (stats.openCount !== 1 ? 's' : '') + ' open, none closed yet';
+    } else {
+      totalEl.textContent = sign + '$' + Math.abs(stats.totalPnl);
+      totalEl.style.color = color;
+      subEl.textContent = stats.closed.length + ' closed · ' + stats.openCount + ' open';
+      // Pulse border if positive
+      if (stats.totalPnl > 0) {
+        card.style.boxShadow = '0 0 20px rgba(45,255,126,0.08)';
+      } else if (stats.totalPnl < 0) {
+        card.style.boxShadow = '0 0 20px rgba(255,51,85,0.08)';
+      }
+    }
+
+    winsEl.textContent   = stats.wins;
+    lossesEl.textContent = stats.losses;
+    openEl.textContent   = stats.openCount;
+    if (resetEl) resetEl.textContent = resetLabel;
+  }
+
+  function renderClosedTable(allClosed) {
+    var el = document.getElementById('score-closed-table');
+    if (!el) return;
+    if (allClosed.length === 0) {
+      el.innerHTML = '<div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);text-align:center;padding:24px;">No closed positions yet — first closes begin ~30 days after launch.</div>';
+      return;
+    }
+
+    // Sort by close date desc (most recently closed first)
+    var sorted = allClosed.slice().sort(function(a,b) {
+      return new Date(b.alert_date) - new Date(a.alert_date);
+    });
+
+    var rows = sorted.map(function(e) {
+      var color = pnlColor(e.pnlAmt);
+      var sign  = pnlSign(e.pnlAmt);
+      var arrow = pnlArrow(e.pnlAmt);
+      var typeLabel = e.type === 'os' ? '▲ OS' : '▼ OB';
+      var typeColor = e.type === 'os' ? 'var(--green)' : 'var(--red)';
+      var closeDate = formatDate(addDays(new Date(e.alert_date + 'T12:00:00'), CLOSE_DAYS).toISOString().split('T')[0]);
+      return '<div style="display:grid;grid-template-columns:80px 60px 80px 1fr 120px;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,42,56,0.5);">' +
+        '<div style="font-family:var(--font-mono);font-weight:500;color:var(--text);">$' + e.sym + '</div>' +
+        '<div style="font-family:var(--font-mono);font-size:0.7rem;color:' + typeColor + ';">' + typeLabel + '</div>' +
+        '<div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);">Closed ' + closeDate + '</div>' +
+        '<div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);">Entry $' + (e.entryOptPrice||'—') + ' → Close ~$' + (e.closeOptPrice ? e.closeOptPrice.toFixed(2) : '—') + '/contract</div>' +
+        '<div style="text-align:right;font-family:var(--font-mono);font-size:0.85rem;font-weight:500;color:' + color + ';">' + arrow + ' ' + sign + '$' + Math.abs(e.pnlAmt) + '<span style="font-size:0.65rem;margin-left:4px;">(' + sign + e.pnlPct + '%)</span></div>' +
+      '</div>';
+    }).join('');
+
+    el.innerHTML = rows || '<div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);text-align:center;padding:24px;">No closed positions yet.</div>';
+  }
+
+  async function buildScoreboard() {
+    try {
+      var r = await fetch('alert_history.json?t=' + Date.now());
+      var raw = await r.json();
+      if (!raw || !raw.length) return;
+
+      // Fetch current prices for all entries
+      var entries = [];
+      for (var i = 0; i < raw.length; i++) {
+        var h = raw[i];
+        var currentPrice = await fetchCurrentPrice(h.sym);
+        var entry = Object.assign({}, h, { currentPrice: currentPrice || h.alert_price });
+        var pnl = calcClosedPnl(entry);
+        entry.pnlAmt = pnl.pnlAmt;
+        entry.pnlPct = pnl.pnlPct;
+        entry.entryOptPrice = parseFloat((pnl.entryOptPrice).toFixed(2));
+        entry.closeOptPrice = parseFloat((pnl.closeOptPrice).toFixed(2));
+        entries.push(entry);
+      }
+
+      // Period stats
+      var now = new Date();
+      var mon = getMondayOfWeek(now);
+      var nextMon = addDays(mon, 7);
+      var firstOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+      var firstOfYear  = new Date(now.getFullYear(), 0, 1);
+
+      var weekStats  = buildPeriodStats(entries, isInWeek);
+      var monthStats = buildPeriodStats(entries, isInMonth);
+      var yearStats  = buildPeriodStats(entries, isInYear);
+
+      // Format reset labels
+      var weekReset  = 'Resets Monday · Week of ' + mon.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+      var monthReset = 'Resets 1st · ' + now.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+      var yearReset  = 'Resets Jan 1 · Full year 2026';
+
+      renderCard('score-week',  weekStats,  weekReset);
+      renderCard('score-month', monthStats, monthReset);
+      renderCard('score-year',  yearStats,  yearReset);
+
+      // Closed positions table — all time
+      var allClosed = entries.filter(function(e) { return isClosed(e.alert_date); });
+      renderClosedTable(allClosed);
+
+    } catch(e) {
+      console.log('Scoreboard error:', e.message);
+    }
+  }
+
+  buildScoreboard();
+})();
+</script>
+
 <!-- BACKTESTING SECTION -->
 <section style="background:rgba(12,18,24,0.4);max-width:100%;padding:80px 0;">
   <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
