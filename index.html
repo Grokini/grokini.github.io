@@ -492,6 +492,186 @@
   .htr-demo-card.htr-tier-approaching::before { background: var(--amber); }
   .htr-demo-card.htr-tier-perfect::before { background: var(--green); }
 
+  /* ── PAPER TRADE HISTORY section styles ─────────────────────────── */
+  .trade-stat { padding: 8px 4px; }
+  .trade-stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .trade-stat-value {
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .trade-stat-value.pos { color: var(--green); }
+  .trade-stat-value.neg { color: var(--red); }
+
+  .trade-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    position: relative;
+    border-left: 3px solid var(--green);
+  }
+  .trade-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .trade-card-ticker {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .trade-card-tier-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--green);
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border: 1px solid var(--green);
+    border-radius: 2px;
+  }
+  .trade-card-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 0;
+  }
+  .trade-card-row .label { color: var(--muted); }
+  .trade-card-row .value { color: var(--text); }
+  .trade-card-row .value.pos { color: var(--green); }
+  .trade-card-row .value.neg { color: var(--red); }
+  .trade-card-row .value.muted { color: var(--muted); }
+  .trade-card-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 10px 0;
+  }
+
+  /* Blur wrapper for paywalled values */
+  .paywall-blur {
+    filter: blur(4.5px);
+    user-select: none;
+    pointer-events: none;
+    display: inline-block;
+    position: relative;
+  }
+  .paywall-locked {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    margin-left: 6px;
+    padding: 1px 6px;
+    border: 1px solid rgba(0,229,255,0.3);
+    border-radius: 2px;
+  }
+  .paywall-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+  .paywall-row .lock-label {
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .paywall-row .lock-label::before { content: "🔒"; font-size: 0.7rem; }
+
+  .trade-card-footer {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* Open position vs closed marker */
+  .trade-status-open {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--amber);
+    letter-spacing: 1.5px;
+    padding: 2px 6px;
+    border: 1px solid var(--amber);
+    border-radius: 2px;
+    margin-left: 8px;
+  }
+  .trade-status-win {
+    color: var(--green);
+    border-color: var(--green);
+  }
+  .trade-status-loss {
+    color: var(--red);
+    border-color: var(--red);
+  }
+
+  /* Empty state — pre-launch credibility framing */
+  .trade-empty-state {
+    padding: 48px 32px;
+    text-align: center;
+    background: var(--dark2);
+    border: 1px dashed var(--border);
+    border-radius: 2px;
+  }
+  .trade-empty-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--amber);
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border: 1px solid var(--amber);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .trade-empty-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--text);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .trade-empty-body {
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto 16px;
+    line-height: 1.7;
+    font-size: 0.9rem;
+  }
+  .trade-empty-body strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .trade-empty-hint {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--cyan);
+    letter-spacing: 1.5px;
+    margin-top: 20px;
+  }
+
   .demo-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1352,18 +1532,48 @@
   </div>
 </section>
 
-<!-- RECENT ALERTS FEED -->
-<section style="position:relative;z-index:5;padding:80px 24px;">
+<!-- PAPER TRADE HISTORY — Tier 3 only, blurred for non-subscribers -->
+<section id="trade-history" style="position:relative;z-index:5;padding:80px 24px;">
   <div style="max-width:1100px;margin:0 auto;">
-    <div class="section-tag">Live Feed</div>
-    <h2 class="section-title">Today's <span class="accent">real alerts</span></h2>
-    <p style="color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:40px;">Every alert below was fired by the scanner today. Real tickers, real RSI levels, real signals.</p>
-    <div id="alertsFeed" style="display:flex;flex-direction:column;gap:12px;">
-      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);letter-spacing:1px;padding:20px;border:1px solid var(--border);text-align:center;">
-        LOADING TODAY'S ALERTS...
+    <div class="section-tag">Live Track Record</div>
+    <h2 class="section-title">Real trades. <span class="accent">Real outcomes.</span></h2>
+    <p style="color:var(--muted);max-width:680px;line-height:1.7;margin-bottom:24px;">
+      Every card below represents an actual paper trade placed by the scanner on a <strong style="color:var(--green);">🟢 Tier 3 Perfect Setup</strong>. Subscribers see full signal stacks, contract strikes, and exit reasons in real time.
+    </p>
+
+    <!-- Aggregate stats strip (shown when there's at least 1 trade) -->
+    <div id="tradeStats" style="display:none; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; padding: 20px; background: var(--dark2); border: 1px solid var(--border); border-radius: 2px;">
+      <div class="trade-stat">
+        <div class="trade-stat-label">Total trades</div>
+        <div class="trade-stat-value" id="statTotal">—</div>
+      </div>
+      <div class="trade-stat">
+        <div class="trade-stat-label">Win rate</div>
+        <div class="trade-stat-value" id="statWinRate">—</div>
+      </div>
+      <div class="trade-stat">
+        <div class="trade-stat-label">Closed P&amp;L</div>
+        <div class="trade-stat-value" id="statPnL">—</div>
+      </div>
+      <div class="trade-stat">
+        <div class="trade-stat-label">Open positions</div>
+        <div class="trade-stat-value" id="statOpen">—</div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:32px;">
+
+    <!-- Trade card grid -->
+    <div id="tradeHistoryFeed" style="display:flex;flex-direction:column;gap:12px;">
+      <!-- Empty state / loading placeholder -->
+      <div class="trade-empty-state">
+        <div class="trade-empty-badge">PAPER TRADING RESET: APRIL 21, 2026</div>
+        <div class="trade-empty-title">Loading paper trade history…</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:32px;display:flex;flex-direction:column;gap:16px;align-items:center;">
+      <a href="https://grokini.github.io/paper-trades.html" target="_blank" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--cyan);letter-spacing:1px;text-decoration:none;border-bottom:1px solid var(--cyan);padding-bottom:2px;">
+        FULL PERFORMANCE DASHBOARD →
+      </a>
       <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" class="btn-primary" target="_blank" style="display:inline-block">Get These Alerts in Real Time</a>
     </div>
   </div>
@@ -1373,7 +1583,7 @@
 <section style="position:relative;z-index:5;padding:80px 24px;background:rgba(12,18,24,0.6);">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="section-tag">Transparency</div>
-    <h2 class="section-title">Every trade. <span class="accent">Every outcome. Every loss.</span></h2>
+    <h2 class="section-title">Every trade. <span class="accent">Every win. Every loss.</span></h2>
     <p style="color:var(--muted);max-width:720px;line-height:1.7;margin-bottom:24px;">
       Alpha RSI operates a live Alpaca paper trading account. Every Perfect Setup alert is automatically executed in that account. Every trade — entry, exit, P&amp;L, and exit reason — is published on a public dashboard, updated after every scan during market hours. No curation. No cherry-picking. No highlight reels.
     </p>
@@ -1746,159 +1956,206 @@ setInterval(function() {
   if (scanEl) scanEl.textContent = getNextScanTime();
 }, 60000);
 
-// ── Build alerts feed ─────────────────────────────────────
-async function buildAlertsFeed() {
-  var feed = document.getElementById('alertsFeed');
+// ── Build paper trade history feed (Tier 3 only, replaces old alertsFeed) ─
+async function buildTradeHistory() {
+  var feed = document.getElementById('tradeHistoryFeed');
   if (!feed) return;
 
   try {
-    var r = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
-    if (!r.ok) throw new Error('No alerts file');
-    var data = await r.json();
-
-    // FIX 4: Ticker display corrections applied in data normalization
-    function fixTicker(sym) {
-      var fixes = {
-        'AAOI': 'AAOI',   // was displaying as A.A.O.I
-        'DUOL': 'DUOL',   // was displaying as "by"
-        'PODD': 'PODD',   // was displaying as POD
-        'APPF': 'APPF',   // was displaying as PDF
-        'TENB': 'TENB'    // was displaying as TEMB
-      };
-      return fixes[sym] || sym;
+    var r = await fetch('https://grokini.github.io/trade_fingerprints.json?nocache=' + Date.now());
+    var trades = [];
+    if (r.ok) {
+      try { trades = await r.json(); } catch(e) { trades = []; }
     }
+    if (!Array.isArray(trades)) trades = [];
 
-    var ob  = (data.overbought || []).map(function(x) { return { sym: fixTicker(x.sym), type: 'ob', score: x.score||0, rsi: x.rsi, alertPrice: x.price, alertOptPrice: x.opt_price||null, alert_date: x.alert_date || data.date, date: data.date }; });
-    var os_ = (data.oversold   || []).map(function(x) { return { sym: fixTicker(x.sym), type: 'os', score: x.score||0, rsi: x.rsi, alertPrice: x.price, alertOptPrice: x.opt_price||null, alert_date: x.alert_date || data.date, date: data.date }; });
-    var all = os_.concat(ob);
+    // Filter: Tier 3 only. Trades without a tier field (pre-launch) are excluded.
+    // Rolling 30-day window so old trades age out naturally once we have volume.
+    var cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 30);
+    var cutoffStr = cutoff.toISOString().slice(0,10);
 
-    updateStats(all.length);
+    var tier3Trades = trades.filter(function(t) {
+      if (!t) return false;
+      // Require tier field AND tier === 3 (pre-launch trades have no tier)
+      if (t.tier !== 3) return false;
+      if (t.alert_date && t.alert_date < cutoffStr) return false;
+      return true;
+    });
 
-    if (all.length === 0) {
-      feed.innerHTML = '<div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);letter-spacing:1px;padding:20px;border:1px solid var(--border);text-align:center;">NO ALERTS FIRED YET TODAY — SCANNER RUNNING HOURLY</div>';
+    // Sort most recent first
+    tier3Trades.sort(function(a, b) {
+      var da = (a.alert_time || a.alert_date || '');
+      var db = (b.alert_time || b.alert_date || '');
+      return db.localeCompare(da);
+    });
+
+    // EMPTY STATE — show credibility framing
+    if (tier3Trades.length === 0) {
+      feed.innerHTML =
+        '<div class="trade-empty-state">' +
+          '<div class="trade-empty-badge">PAPER TRADING RESET: APRIL 21, 2026</div>' +
+          '<div class="trade-empty-title">FRESH TRACK RECORD STARTS HERE</div>' +
+          '<div class="trade-empty-body">' +
+            'The scanner relaunched with finalized tier logic and 103 pre-verified liquidity filters. The paper trading account restarted at $100,000.' +
+          '</div>' +
+          '<div class="trade-empty-body">' +
+            'This section shows only <strong>🟢 Tier 3 Perfect Setup</strong> paper trades from launch forward. ' +
+            '<strong>No pre-launch history. No back-tests. No hypothetical fills.</strong> Real paper trades only, as they execute.' +
+          '</div>' +
+          '<div class="trade-empty-hint">FIRST TIER 3 PERFECT SETUP → APPEARS HERE LIVE</div>' +
+        '</div>';
+      // Stats strip stays hidden
       return;
     }
 
-    var html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">';
-    var items = all;
+    // Compute aggregate stats
+    var closed = tier3Trades.filter(function(t) { return t.outcome && t.outcome !== 'open'; });
+    var wins = closed.filter(function(t) { return t.outcome === 'win'; }).length;
+    var losses = closed.filter(function(t) { return t.outcome === 'loss'; }).length;
+    var open = tier3Trades.length - closed.length;
+    var winRate = closed.length > 0 ? Math.round((wins / closed.length) * 100) : 0;
+    var totalPnL = closed.reduce(function(sum, t) { return sum + (t.pnl || 0); }, 0);
 
-    for (var i = 0; i < items.length; i++) {
-      var item = items[i];
-      var isOS = item.type === 'os';
-      var color  = isOS ? '#2dff7e' : '#ff3355';
-      var label  = isOS ? '▲ OVERSOLD' : '▼ OVERBOUGHT';
-      var border = isOS ? 'rgba(45,255,126,0.2)' : 'rgba(255,51,85,0.2)';
+    // Populate stats strip
+    var statsEl = document.getElementById('tradeStats');
+    if (statsEl) {
+      statsEl.style.display = 'grid';
+      document.getElementById('statTotal').textContent = tier3Trades.length;
+      document.getElementById('statWinRate').textContent = closed.length > 0 ? winRate + '%' : '—';
+      var pnlEl = document.getElementById('statPnL');
+      pnlEl.textContent = closed.length > 0
+        ? (totalPnL >= 0 ? '+$' : '-$') + Math.abs(Math.round(totalPnL))
+        : '—';
+      pnlEl.classList.remove('pos', 'neg');
+      if (closed.length > 0) pnlEl.classList.add(totalPnL >= 0 ? 'pos' : 'neg');
+      document.getElementById('statOpen').textContent = open;
+    }
 
-      var rsiStr   = item.rsi        ? item.rsi.toFixed(1)        : '—';
-      var priceStr = item.alertPrice ? '$' + item.alertPrice       : '';
-      var alertOptPrice = item.alertOptPrice || null;
+    // Build trade cards (show up to 6 most recent — full history on dashboard)
+    var toShow = tier3Trades.slice(0, 6);
+    var cardsHtml = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;">';
 
-      var livePrice = item.alertPrice;
-      try {
-        var d = await fetchStock(item.sym, '1wk', '2y');
-        if (d && d.price) livePrice = d.price;
-      } catch(e) {}
+    toShow.forEach(function(t) {
+      var isWin = t.outcome === 'win';
+      var isLoss = t.outcome === 'loss';
+      var isOpen = !t.outcome || t.outcome === 'open';
+      var direction = t.signal_type === 'ob' ? '▼ OVERBOUGHT' : '▲ OVERSOLD';
+      var dirColor = t.signal_type === 'ob' ? 'var(--red)' : 'var(--green)';
 
-      var callWall = null;
-      try {
-        var optType = item.type === 'ob' ? 'put' : 'call';
-        var cwUrl = WORKER + '?sym=' + item.sym + '&module=firstcallwall&type=' + optType;
-        var cwR = await fetch(cwUrl);
-        if (cwR.ok) {
-          var cwData = await cwR.json();
-          var cwPrice = cwData.optionPrice || cwData.callPrice;
-          if (cwPrice && !cwData.error) {
-            var alertStock  = item.alertPrice || cwData.price || livePrice;
-            var optDelta    = optType === 'put' ? -0.5 : 0.5;
-            var lockedOptPrice = alertOptPrice || cwPrice;
-            var stockMove     = livePrice - alertStock;
-            var currentOptVal = Math.max(Math.round((lockedOptPrice + optDelta * stockMove) * 100) / 100, 0.01);
-            var pnlAmt        = Math.round((currentOptVal - lockedOptPrice) * 100);
-            var pnlPctVal     = lockedOptPrice > 0 ? Math.round((currentOptVal - lockedOptPrice) / lockedOptPrice * 100 * 10) / 10 : 0;
-            callWall = {
-              strike:       cwData.strike,
-              expiry:       cwData.expiry,
-              price:        lockedOptPrice.toFixed(2),
-              currentOpt:   currentOptVal.toFixed(2),
-              pnl:          pnlAmt,
-              pnlPct:       pnlPctVal,
-              bid:          cwData.bid ? cwData.bid.toFixed(2) : null,
-              ask:          cwData.ask ? cwData.ask.toFixed(2) : null,
-              iv:           cwData.iv ? cwData.iv.toFixed(1) : null,
-              contractCost: Math.round(lockedOptPrice * 100),
-              days:         cwData.daysToExpiry,
-              optType:      cwData.optionType || optType,
-              livePrice:    livePrice,
-              alertStock:   alertStock
-            };
-          }
-        }
-      } catch(optErr) { console.log('FCW error:', item.sym, optErr.message); }
+      var statusBadge = '';
+      if (isWin) statusBadge = '<span class="trade-status-open trade-status-win">WIN</span>';
+      else if (isLoss) statusBadge = '<span class="trade-status-open trade-status-loss">LOSS</span>';
+      else statusBadge = '<span class="trade-status-open">OPEN</span>';
 
-      var callWallHtml = '';
-      if (callWall && callWall.price) {
-        var wallLabel    = callWall.optType === 'put' ? '&#127919; FIRST PUT WALL' : '&#127919; FIRST CALL WALL';
-        var contractType = callWall.optType === 'put' ? 'Put' : 'Call';
-        var pnlColor     = callWall.pnl >= 0 ? '#2dff7e' : '#ff3355';
-        var pnlSign      = callWall.pnl >= 0 ? '+' : '';
-        var pnlArrow     = callWall.pnl >= 0 ? '&#9650;' : '&#9660;';
-        callWallHtml  = '<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,0.15);">';
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:#00e5ff;letter-spacing:1px;margin-bottom:6px;">' + wallLabel + '</div>';
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.72rem;color:#ddeeff;">$' + callWall.strike + ' ' + contractType + ' &middot; ' + callWall.expiry + '</div>';
-        callWallHtml += '<div style="margin-top:5px;font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);">At alert: <span style="color:#ddeeff">$' + callWall.price + '</span> ($' + callWall.contractCost + '/contract)</div>';
-        var nowEstVal = (callWall.currentOpt && callWall.currentOpt !== 'undefined') ? callWall.currentOpt : callWall.price;
-        var nowEstCost = Math.round(parseFloat(nowEstVal) * 100);
-        var stockMoveAmt = Math.round((callWall.livePrice - callWall.alertStock) * 100) / 100;
-        var stockMoveSign = stockMoveAmt >= 0 ? '+' : '';
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-top:2px;">Now est: <span style="color:#ddeeff">$' + nowEstVal + '</span> ($' + nowEstCost + '/contract) <span style="color:' + (stockMoveAmt >= 0 ? '#2dff7e' : '#ff3355') + '">stock ' + stockMoveSign + '$' + stockMoveAmt + '</span></div>';
-        callWallHtml += '<div style="margin-top:6px;padding:5px 8px;background:rgba(0,0,0,0.3);border-left:2px solid ' + pnlColor + ';">';
-        var pnlDisplay = (callWall.pnl !== undefined && !isNaN(callWall.pnl)) ? pnlSign + '$' + callWall.pnl + '/contract (' + pnlSign + callWall.pnlPct + '%)' : 'Calculating...';
-        callWallHtml += '<span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:500;color:' + pnlColor + ';">' + pnlArrow + ' Hypothetical P&amp;L: ' + pnlDisplay + '</span>';
-        callWallHtml += '</div>';
-        if (callWall.bid && callWall.ask) {
-          callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.63rem;color:var(--muted);margin-top:4px;">Bid $' + callWall.bid + ' &middot; Ask $' + callWall.ask + (callWall.iv ? ' &middot; HV ' + callWall.iv + '%' : '') + ' &middot; ' + callWall.days + 'd exp</div>';
-        }
-        callWallHtml += '<div style="font-family:var(--font-mono);font-size:0.58rem;color:var(--muted);margin-top:3px;opacity:0.5;">Delta approx &middot; Not financial advice</div>';
-        callWallHtml += '</div>';
-      } else {
-        var fallbackLabel = item.type === 'ob' ? '&#127919; FIRST PUT WALL' : '&#127919; FIRST CALL WALL';
-        callWallHtml = '<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,229,255,0.15);font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);">' + fallbackLabel + ' &mdash; Subscribe for options data</div>';
+      var pnlDisplay = 'open';
+      var pnlClass = 'muted';
+      if (!isOpen && t.pnl !== undefined && t.pnl !== null) {
+        pnlDisplay = (t.pnl >= 0 ? '+$' : '-$') + Math.abs(Math.round(t.pnl)) +
+                     ' (' + (t.pnl_pct >= 0 ? '+' : '') + t.pnl_pct.toFixed(1) + '%)';
+        pnlClass = t.pnl >= 0 ? 'pos' : 'neg';
       }
 
-      html += '<div style="background:var(--dark2);border:1px solid ' + border + ';padding:16px 18px;">';
-      html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
-      var stars = item.score ? '⭐'.repeat(Math.min(item.score,10)) + ' (' + item.score + '/10)' : '';
-      html += '<span style="font-family:var(--font-mono);font-size:1rem;font-weight:500;color:#ddeeff">' + item.sym + '</span>';
-      html += '<span style="font-family:var(--font-mono);font-size:0.7rem;color:' + color + ';letter-spacing:1px">' + label + '</span>';
-      html += '</div>';
-      if (stars) html += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:#ffb800;margin-bottom:6px;">' + stars + '</div>';
-      html += '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">';
-      html += '<span style="font-family:var(--font-mono);font-size:0.75rem;color:' + color + '">RSI ' + rsiStr + '</span>';
-      html += '<span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)">' + priceStr + '</span>';
-      html += '</div>';
-      html += callWallHtml;
-      var cardDate = item.alert_date || item.date || '';
+      // Alert date formatted
       var dateLabel = '';
-      if (cardDate) {
-        var dp = cardDate.split('-');
+      if (t.alert_date) {
+        var dp = t.alert_date.split('-');
         var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-        dateLabel = months[parseInt(dp[1])-1] + ' ' + parseInt(dp[2]);
+        if (dp.length === 3) dateLabel = months[parseInt(dp[1])-1] + ' ' + parseInt(dp[2]);
       }
-      var footerLabel = dateLabel ? 'ALERTED ' + dateLabel : 'ALERTED TODAY';
-      html += '<div style="margin-top:10px;font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.5px">' + footerLabel + ' · SUBSCRIBE TO GET THESE LIVE</div>';
-      html += '</div>';
 
-      feed.innerHTML = html + '</div>';
-      await new Promise(function(res) { setTimeout(res, 80); });
+      // Exit reason pretty
+      var exitPretty = '';
+      if (t.exit_reason === 'win_target') exitPretty = 'Take profit';
+      else if (t.exit_reason === 'stop_loss') exitPretty = 'Stop loss';
+      else if (t.exit_reason === 'time_exit') exitPretty = 'Time decay';
+      else if (t.exit_reason === 'thesis_break') exitPretty = 'Thesis break';
+      else if (t.exit_reason) exitPretty = t.exit_reason;
+
+      var card = '';
+      card += '<div class="trade-card">';
+      card += '  <div class="trade-card-header">';
+      card += '    <div><span class="trade-card-ticker">' + t.sym + '</span>' + statusBadge + '</div>';
+      card += '    <div class="trade-card-tier-badge">🟢 TIER 3</div>';
+      card += '  </div>';
+      card += '  <div class="trade-card-row">';
+      card += '    <span class="label">Direction</span>';
+      card += '    <span class="value" style="color:' + dirColor + '">' + direction + '</span>';
+      card += '  </div>';
+      card += '  <div class="trade-card-row">';
+      card += '    <span class="label">Weekly RSI</span>';
+      card += '    <span class="value">' + (t.rsi_weekly ? t.rsi_weekly.toFixed(1) : '—') + '</span>';
+      card += '  </div>';
+      card += '  <div class="trade-card-row">';
+      card += '    <span class="label">Score</span>';
+      card += '    <span class="value">' + (t.score || '—') + '/10</span>';
+      card += '  </div>';
+      card += '  <div class="trade-card-divider"></div>';
+
+      // PAYWALLED CONTENT — blurred + locked
+      card += '  <div class="paywall-row">';
+      card += '    <span class="lock-label">Daily RSI</span>';
+      card += '    <span class="paywall-blur">' + (t.rsi_daily ? t.rsi_daily.toFixed(1) : '00.0') + '</span>';
+      card += '  </div>';
+      card += '  <div class="paywall-row">';
+      card += '    <span class="lock-label">Monthly RSI</span>';
+      card += '    <span class="paywall-blur">' + (t.rsi_monthly ? t.rsi_monthly.toFixed(1) : '00.0') + '</span>';
+      card += '  </div>';
+      card += '  <div class="paywall-row">';
+      card += '    <span class="lock-label">IV Rank</span>';
+      card += '    <span class="paywall-blur">' + (t.iv_rank || '00') + '/100</span>';
+      card += '  </div>';
+      card += '  <div class="paywall-row">';
+      card += '    <span class="lock-label">Contract</span>';
+      card += '    <span class="paywall-blur">$000 ' + (t.signal_type === 'ob' ? 'Put' : 'Call') + ' · 000d</span>';
+      card += '  </div>';
+      card += '  <div class="paywall-row">';
+      card += '    <span class="lock-label">Entry premium</span>';
+      card += '    <span class="paywall-blur">$0.00</span>';
+      card += '  </div>';
+
+      if (!isOpen) {
+        card += '  <div class="paywall-row">';
+        card += '    <span class="lock-label">Exit reason</span>';
+        card += '    <span class="paywall-blur">' + (exitPretty || 'Closed') + '</span>';
+        card += '  </div>';
+      }
+
+      card += '  <div class="trade-card-divider"></div>';
+      card += '  <div class="trade-card-row">';
+      card += '    <span class="label">P&amp;L</span>';
+      card += '    <span class="value ' + pnlClass + '">' + pnlDisplay + '</span>';
+      card += '  </div>';
+
+      card += '  <div class="trade-card-footer">';
+      card += '    <span>' + (dateLabel ? 'ALERTED ' + dateLabel : 'ALERTED RECENTLY') + '</span>';
+      card += '    <span style="color:var(--cyan);">SUBSCRIBE TO UNLOCK</span>';
+      card += '  </div>';
+      card += '</div>';
+
+      cardsHtml += card;
+    });
+
+    cardsHtml += '</div>';
+
+    // If there are more trades than shown, add a note
+    if (tier3Trades.length > toShow.length) {
+      cardsHtml += '<div style="text-align:center;margin-top:20px;font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);letter-spacing:1px;">' +
+                   '+ ' + (tier3Trades.length - toShow.length) + ' MORE TRADES — SEE FULL PERFORMANCE DASHBOARD' +
+                   '</div>';
     }
-    feed.innerHTML = html + '</div>';
-    if (data.updated) {
-      feed.innerHTML += '<div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.5px;margin-top:12px;text-align:right">LAST UPDATED: ' + data.updated + '</div>';
-    }
+
+    feed.innerHTML = cardsHtml;
 
   } catch(e) {
-    updateStats(0);
-    feed.innerHTML = '<div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);letter-spacing:1px;padding:20px;border:1px solid var(--border);text-align:center;">SCANNER ACTIVE — ALERTS WILL APPEAR HERE DURING MARKET HOURS</div>';
+    // Network or JSON error — show a safe fallback state
+    console.log('Trade history error:', e && e.message);
+    feed.innerHTML =
+      '<div class="trade-empty-state">' +
+        '<div class="trade-empty-badge">PAPER TRADING RESET: APRIL 21, 2026</div>' +
+        '<div class="trade-empty-title">TRACK RECORD BUILDING</div>' +
+        '<div class="trade-empty-body">New Tier 3 Perfect Setup trades will appear here as they execute.</div>' +
+      '</div>';
   }
 }
 
@@ -2364,7 +2621,7 @@ function startCarousel() {
 // ── Init ──────────────────────────────────────────────────
 buildTicker();
 buildLiveDemo();
-buildAlertsFeed();
+buildTradeHistory();
 // buildAlertHistory() — removed: the Top 5 / Bottom 5 / Carousel sections
 // were replaced by the public paper trade dashboard. Function kept below for
 // future reuse but no longer invoked on page load.
