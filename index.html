@@ -800,6 +800,64 @@
     .stat-item { padding: 20px 12px; }
     .stat-num { font-size: 2rem; }
   }
+
+  /* FAQ QUICK-NAV STRIP */
+  .faq-quicknav {
+    position: relative;
+    z-index: 5;
+    padding: 40px 24px;
+    background: rgba(12,18,24,0.4);
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-quicknav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .faq-quicknav-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .faq-quicknav-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .faq-quicknav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    background: rgba(7,11,15,0.6);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    padding: 12px 18px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .faq-quicknav-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: rgba(0,229,255,0.05);
+  }
+  .faq-quicknav-btn .q-icon {
+    color: var(--cyan);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 640px) {
+    .faq-quicknav { padding: 30px 16px; }
+    .faq-quicknav-btn { font-size: 0.68rem; padding: 10px 14px; }
+  }
 </style>
 </head>
 <body>
@@ -866,6 +924,20 @@
   <div class="stat-item">
     <span class="stat-num" style="color:var(--cyan)">200</span>
     <span class="stat-label">Seat Cap</span>
+  </div>
+</div>
+
+<!-- FAQ QUICK-NAV STRIP -->
+<div class="faq-quicknav">
+  <div class="faq-quicknav-inner">
+    <div class="faq-quicknav-label">Questions before you start?</div>
+    <div class="faq-quicknav-grid">
+      <a href="#faq-what-is-rsi" class="faq-quicknav-btn"><span class="q-icon">?</span>What is RSI?</a>
+      <a href="#faq-experience" class="faq-quicknav-btn"><span class="q-icon">?</span>Do I need experience?</a>
+      <a href="#faq-verify" class="faq-quicknav-btn"><span class="q-icon">?</span>How do I verify results?</a>
+      <a href="#faq-seat-cap" class="faq-quicknav-btn"><span class="q-icon">?</span>Why is it capped at 200?</a>
+      <a href="#faq" class="faq-quicknav-btn" style="border-color:var(--cyan);color:var(--cyan)">All FAQs →</a>
+    </div>
   </div>
 </div>
 
@@ -1301,7 +1373,7 @@
     <div class="section-tag">FAQ</div>
     <h2 class="section-title">Common <span class="accent">questions</span></h2>
     <div class="faq-list reveal">
-      <div class="faq-item">
+      <div class="faq-item" id="faq-what-is-rsi">
         <div class="faq-q">What is RSI and why does it matter for options? <span class="faq-icon">+</span></div>
         <div class="faq-a">RSI (Relative Strength Index) measures whether a stock is overbought or oversold based on recent price movements. Extreme RSI readings — especially on the weekly chart — historically precede significant price reversals, which is exactly what options traders want to position ahead of.</div>
       </div>
@@ -1309,7 +1381,7 @@
         <div class="faq-q">How many alerts will I get per day? <span class="faq-icon">+</span></div>
         <div class="faq-a">Alert volume varies dramatically with market conditions. Quiet markets might produce 0-3 alerts per day. Volatile markets can produce 15+ alerts as more stocks hit statistical extremes. Each stock is capped at one new alert per day so you never get spammed with the same ticker — subsequent tier advancements and exit signals on that ticker still notify you as conditions change.</div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-experience">
         <div class="faq-q">Do I need trading experience to use these alerts? <span class="faq-icon">+</span></div>
         <div class="faq-a">Basic options knowledge is helpful — understanding calls, puts, and risk sizing will help you act on alerts effectively. Every alert discloses its full scoring basis (which factors contributed to the score) so you can evaluate the setup on its merits. The public paper trade dashboard also shows exactly what the scanner does with every Perfect Setup alert, so you can see the mechanics in practice before committing real capital.</div>
       </div>
@@ -1329,11 +1401,11 @@
         <div class="faq-q">How is this different from TradingView alerts? <span class="faq-icon">+</span></div>
         <div class="faq-a">TradingView alerts require you to set up each ticker manually and monitor it yourself. Alpha RSI scans approximately 12,000 NYSE/NASDAQ equities automatically every 30 minutes, scores each qualifying signal across 10+ factors, applies convergence and sync gating, tracks setups through a four-tier maturity system, and delivers complete briefs — full factor disclosure, multi-timeframe RSI readings, 52-week context, and chart links — straight to your Telegram. And every Perfect Setup is then executed in a live paper account you can watch publicly.</div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-seat-cap">
         <div class="faq-q">Why is the subscriber count capped at 200? <span class="faq-icon">+</span></div>
         <div class="faq-a">Signal quality can degrade when too many traders act on the same small-cap alert simultaneously — spreads widen, premiums spike, and the edge evaporates into noise. The 200-seat cap is a signal-preservation decision, not a marketing tactic. Once filled, a waitlist opens. Current subscribers keep their seat as long as they remain subscribed.</div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-verify">
         <div class="faq-q">How do I verify the paper trade account is legit? <span class="faq-icon">+</span></div>
         <div class="faq-a">The public dashboard at grokini.github.io/paper-trades.html displays live Alpaca paper account data: current equity, open positions with real-time P&amp;L, every closed trade with entry/exit/reason/P&amp;L, and performance statistics. The page regenerates after every scan. You can watch the scanner's own paper account rise or fall before you subscribe, while subscribed, or after canceling — the page is always public.</div>
       </div>
@@ -1828,6 +1900,24 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     if (!isOpen) item.classList.add('open');
   });
 });
+
+// ── FAQ anchor auto-open ───────────────────────────────────
+// When navigating to a specific FAQ via #faq-* anchor (from quick-nav strip
+// or shared link), auto-open the target item so the answer is visible.
+function openFaqFromHash() {
+  var hash = window.location.hash;
+  if (hash && hash.indexOf('#faq-') === 0) {
+    var target = document.querySelector(hash);
+    if (target && target.classList.contains('faq-item')) {
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      target.classList.add('open');
+    }
+  }
+}
+// Run on page load (handles direct links / reloads)
+window.addEventListener('load', openFaqFromHash);
+// Run on hash change (handles in-page clicks from the quick-nav strip)
+window.addEventListener('hashchange', openFaqFromHash);
 
 // ── Scroll reveal ──────────────────────────────────────────
 var observer = new IntersectionObserver(function(entries) {
