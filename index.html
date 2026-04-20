@@ -342,6 +342,156 @@
   .alert-demo .ad-muted { color: var(--muted); }
   .alert-demo .ad-star { color: var(--amber); }
 
+  /* ── HOW TO READ AN ALERT — teaching tool styles ───────────────────── */
+  .htr-controls {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .htr-selector-group { display: flex; flex-direction: column; gap: 8px; }
+  .htr-selector-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .htr-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .htr-tier-btn, .htr-dir-btn {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s ease;
+    letter-spacing: 0.5px;
+  }
+  .htr-tier-btn:hover, .htr-dir-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+  .htr-tier-btn.active, .htr-dir-btn.active {
+    background: rgba(0, 229, 255, 0.08);
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  .htr-card-wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .htr-card-wrap { grid-template-columns: 1fr; }
+  }
+
+  .htr-example-watermark {
+    position: absolute;
+    top: -14px;
+    left: 16px;
+    background: var(--amber);
+    color: var(--dark);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  .htr-demo-card {
+    max-width: 100%;
+    position: relative;
+  }
+
+  /* Info icon indicator */
+  .htr-info {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--cyan);
+    color: var(--dark);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    margin-left: 4px;
+    vertical-align: middle;
+    user-select: none;
+    transition: all 0.15s ease;
+  }
+  .htr-info::after { content: 'i'; }
+  .htr-info:hover {
+    background: var(--green);
+    transform: scale(1.15);
+  }
+  .htr-info.active {
+    background: var(--amber);
+    box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.25);
+  }
+
+  /* Popover panel — sticky on desktop, inline on mobile */
+  .htr-popover {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text);
+    position: sticky;
+    top: 24px;
+    min-height: 200px;
+  }
+  .htr-popover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .htr-popover-close {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+  }
+  .htr-popover-close:hover { color: var(--text); }
+  .htr-popover-body { color: var(--text); }
+  .htr-popover-body strong { color: var(--green); }
+
+  /* Contract block only visible on Tier 3 */
+  .htr-contract-block { display: block; }
+  .htr-demo-card.htr-tier-radar .htr-contract-block,
+  .htr-demo-card.htr-tier-approaching .htr-contract-block {
+    display: none;
+  }
+  /* Tier-specific left-border colors (already uses --green by default) */
+  .htr-demo-card.htr-tier-radar::before { background: var(--cyan); }
+  .htr-demo-card.htr-tier-approaching::before { background: var(--amber); }
+  .htr-demo-card.htr-tier-perfect::before { background: var(--green); }
+
   .demo-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -940,6 +1090,98 @@
     </div>
   </div>
 </div>
+
+<!-- HOW TO READ AN ALERT — teaching tool with tier selector + annotated card -->
+<section id="how-to-read" style="padding: 80px 24px; position: relative; z-index: 1;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-tag">Teaching Tool</div>
+    <h2 class="section-title">How to <span class="accent">read an alert</span></h2>
+    <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 32px; max-width: 700px;">
+      Subscribers receive four different card types depending on how mature a setup is. Tap a tier below to see that card, then tap any
+      <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--cyan);color:var(--dark);font-family:var(--font-mono);font-size:0.7rem;font-weight:700;text-align:center;line-height:18px;vertical-align:middle;">i</span>
+      icon to learn what the field means.
+    </p>
+
+    <!-- Tier + Direction selector -->
+    <div class="htr-controls">
+      <div class="htr-selector-group">
+        <div class="htr-selector-label">Tier</div>
+        <div class="htr-btn-row">
+          <button class="htr-tier-btn" data-tier="radar">🔵 On Radar</button>
+          <button class="htr-tier-btn" data-tier="approaching">🟡 Approaching</button>
+          <button class="htr-tier-btn active" data-tier="perfect">🟢 Perfect Setup</button>
+        </div>
+      </div>
+      <div class="htr-selector-group">
+        <div class="htr-selector-label">Direction</div>
+        <div class="htr-btn-row">
+          <button class="htr-dir-btn active" data-dir="ob">📉 Overbought</button>
+          <button class="htr-dir-btn" data-dir="os">📈 Oversold</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo card container (mirrors the real Telegram layout) -->
+    <div class="htr-card-wrap">
+      <div class="htr-example-watermark">EXAMPLE — NOT A LIVE ALERT</div>
+      <div class="alert-demo htr-demo-card" id="htrDemoCard">
+        <div class="ad-header" id="htrHeader">ALPHA RSI — THE OPTIONS EDGE</div>
+        <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+        <div id="htrTierLine" class="ad-green">🟢 PERFECT SETUP — Enter within 15 minutes <span class="htr-info" data-tip="tier"></span></div>
+        <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+        <div id="htrTickerLine"><strong>DEMO</strong> — OVERBOUGHT SETUP <span class="htr-info" data-tip="direction"></span></div>
+        <div id="htrSectorLine" class="ad-muted">Sector: Technology</div>
+        <div id="htrPersistLine" class="ad-amber">🚨 <em>5 SCANS AT EXTREME — maximum stretch</em> <span class="htr-info" data-tip="persistence"></span></div>
+        <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+        <div>Weekly RSI: <span id="htrWRSI" class="ad-green">85.2</span> <span class="htr-info" data-tip="wrsi"></span></div>
+        <div>Daily RSI: <span id="htrDRSI" class="ad-green">84.7</span> <span class="htr-info" data-tip="drsi"></span></div>
+        <div>Monthly RSI: <span id="htrMRSI">72.1</span> <span class="htr-info" data-tip="mrsi"></span></div>
+        <div>Price: <span id="htrPrice" class="ad-cyan">$127.45</span></div>
+        <div id="htrVWAPLine" class="ad-muted">YTD VWAP: $89.20 (+42.9% from fair value) <span class="htr-info" data-tip="vwap"></span></div>
+        <div id="htrVolLine" class="ad-amber">🔥 Volume: 3.2x avg — capitulation signal <span class="htr-info" data-tip="volume"></span></div>
+        <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+        <div><strong>Signal stack:</strong> <span class="htr-info" data-tip="stack"></span></div>
+        <div id="htrStackList">
+          <div>✅✅ Weekly RSI at extreme — 85.2 (≥83)</div>
+          <div>✅✅ Daily RSI confirming — 84.7 (from 81.3)</div>
+          <div>✅✅ Price stabilized — $127.45 (0.31% range, 4 scans)</div>
+          <div>✅✅ Gap tightening — converging (was 4.1, now 0.5)</div>
+          <div>✅✅ IV peaked — 88/100 (±1.2pts, stable)</div>
+          <div>✅✅ Weekly slope exhausted — 0.02 (flat)</div>
+          <div>✅✅ Daily slope turning DOWN ↓ — -0.18 (reversal confirmed)</div>
+        </div>
+        <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+        <div id="htrAction" class="ad-cyan"><strong>📉 Consider puts / bearish spread</strong> <span class="htr-info" data-tip="action"></span></div>
+        <div id="htrIVLine">IV Rank: <span class="ad-amber">88/100 HIGH VOL</span> <span class="htr-info" data-tip="ivrank"></span></div>
+        <div id="htrStrategy" class="ad-muted">Strategy: <em>Sell premium — use spreads not naked longs</em></div>
+        <div id="htrContractSection" class="htr-contract-block">
+          <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+          <div><strong>Recommended trade:</strong> <span class="htr-info" data-tip="contract"></span></div>
+          <div class="ad-muted">DEMO 35DTE $125P — Debit spread vs $120P</div>
+          <div class="ad-muted">Max risk: $185/contract · Break-even: $123.15</div>
+        </div>
+        <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+        <div class="ad-muted">[View Chart] · <em>Apr 20 14:30 CDT</em></div>
+        <div class="ad-muted">📲 whop.com/alpha-rsi-the-options-edge</div>
+      </div>
+
+      <!-- Popover explanation panel -->
+      <div class="htr-popover" id="htrPopover">
+        <div class="htr-popover-header">
+          <span id="htrPopoverTitle">Field explanation</span>
+          <button class="htr-popover-close" id="htrPopoverClose" aria-label="Close">×</button>
+        </div>
+        <div class="htr-popover-body" id="htrPopoverBody">
+          Click any <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--cyan);color:var(--dark);font-family:var(--font-mono);font-size:0.6rem;font-weight:700;text-align:center;line-height:14px;">i</span> icon in the card to see what that field means.
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 32px; color: var(--muted); font-size: 0.75rem;">
+      DEMO uses a fictional ticker. Real alerts use actual market data and named securities.
+    </div>
+  </div>
+</section>
 
 <!-- ALERT DEMO SECTION -->
 <section id="alerts">
@@ -2174,6 +2416,379 @@ updateStats(null);
 
   updateScannerStatus();
   setInterval(updateScannerStatus, 60000);
+})();
+</script>
+
+<!-- HOW TO READ AN ALERT — interactive logic -->
+<script>
+(function() {
+  // Tier/direction state and demo data for every combination
+  const TIER_DATA = {
+    perfect: {
+      ob: {
+        tierLine: '🟢 PERFECT SETUP — Enter within 15 minutes',
+        tierColor: 'ad-green',
+        direction: '<strong>DEMO</strong> — OVERBOUGHT SETUP',
+        sector: 'Sector: Technology',
+        persist: '🚨 <em>5 SCANS AT EXTREME — maximum stretch</em>',
+        persistColor: 'ad-amber',
+        wrsi: '85.2', wrsiColor: 'ad-green',
+        drsi: '84.7', drsiColor: 'ad-green',
+        mrsi: '72.1',
+        price: '$127.45',
+        vwap: 'YTD VWAP: $89.20 (+42.9% from fair value)',
+        vol: '🔥 Volume: 3.2x avg — capitulation signal',
+        volColor: 'ad-amber',
+        stack: [
+          '✅✅ Weekly RSI at extreme — 85.2 (≥83)',
+          '✅✅ Daily RSI confirming — 84.7 (from 81.3)',
+          '✅✅ Price stabilized — $127.45 (0.31% range, 4 scans)',
+          '✅✅ Gap tightening — converging (was 4.1, now 0.5)',
+          '✅✅ IV peaked — 88/100 (±1.2pts, stable)',
+          '✅✅ Weekly slope exhausted — 0.02 (flat)',
+          '✅✅ Daily slope turning DOWN ↓ — -0.18 (reversal confirmed)'
+        ],
+        action: '<strong>📉 Consider puts / bearish spread</strong>',
+        ivRank: '88/100 HIGH VOL',
+        strategy: 'Strategy: <em>Sell premium — use spreads not naked longs</em>',
+        contractTitle: 'Recommended trade:',
+        contractLines: [
+          'DEMO 35DTE $125P — Debit spread vs $120P',
+          'Max risk: $185/contract · Break-even: $123.15'
+        ]
+      },
+      os: {
+        tierLine: '🟢 PERFECT SETUP — Enter within 15 minutes',
+        tierColor: 'ad-green',
+        direction: '<strong>DEMO</strong> — OVERSOLD SETUP',
+        sector: 'Sector: Consumer Staples',
+        persist: '🚨 <em>5 SCANS AT EXTREME — maximum stretch</em>',
+        persistColor: 'ad-amber',
+        wrsi: '22.8', wrsiColor: 'ad-green',
+        drsi: '24.1', drsiColor: 'ad-green',
+        mrsi: '31.4',
+        price: '$42.18',
+        vwap: 'YTD VWAP: $68.40 (-38.3% from fair value)',
+        vol: '🔥 Volume: 4.1x avg — capitulation signal',
+        volColor: 'ad-amber',
+        stack: [
+          '✅✅ Weekly RSI at extreme — 22.8 (≤27)',
+          '✅✅ Daily RSI confirming — 24.1 (from 26.7)',
+          '✅✅ Price stabilized — $42.18 (0.28% range, 4 scans)',
+          '✅✅ Gap tightening — converging (was 3.9, now 1.3)',
+          '✅✅ IV peaked — 92/100 (±0.8pts, stable)',
+          '✅✅ Weekly slope exhausted — -0.03 (flat)',
+          '✅✅ Daily slope turning UP ↑ — 0.22 (reversal confirmed)'
+        ],
+        action: '<strong>📈 Consider calls / bullish spread</strong>',
+        ivRank: '92/100 HIGH VOL',
+        strategy: 'Strategy: <em>Sell premium — use spreads not naked longs</em>',
+        contractTitle: 'Recommended trade:',
+        contractLines: [
+          'DEMO 35DTE $45C — Debit spread vs $50C',
+          'Max risk: $195/contract · Break-even: $46.95'
+        ]
+      }
+    },
+    approaching: {
+      ob: {
+        tierLine: '🟡 APPROACHING — Setup building, get ready',
+        tierColor: 'ad-amber',
+        direction: '<strong>DEMO</strong> — OVERBOUGHT SETUP',
+        sector: 'Sector: Technology',
+        persist: '🔁 Repeat: 3 scans today',
+        persistColor: 'ad-muted',
+        wrsi: '83.5', wrsiColor: 'ad-green',
+        drsi: '79.8', drsiColor: 'ad-green',
+        mrsi: '68.9',
+        price: '$119.22',
+        vwap: 'YTD VWAP: $89.20 (+33.6% from fair value)',
+        vol: '⚡ Volume: 1.8x avg — elevated',
+        volColor: 'ad-muted',
+        stack: [
+          '✅ Weekly RSI at extreme',
+          '✅ Daily RSI confirming',
+          '🔄 Price still moving',
+          '✅ Gap tightening — converging',
+          '✅ IV peaked — premium ready to compress',
+          '✅ Weekly slope exhausted',
+          '🔄 Daily slope not yet turning'
+        ],
+        action: '<strong>📉 Consider puts / bearish spread</strong>',
+        ivRank: '81/100 HIGH VOL',
+        strategy: 'Strategy: <em>Sell premium — use spreads not naked longs</em>',
+        contractTitle: null,
+        contractLines: null
+      },
+      os: {
+        tierLine: '🟡 APPROACHING — Setup building, get ready',
+        tierColor: 'ad-amber',
+        direction: '<strong>DEMO</strong> — OVERSOLD SETUP',
+        sector: 'Sector: Consumer Staples',
+        persist: '🔁 Repeat: 3 scans today',
+        persistColor: 'ad-muted',
+        wrsi: '25.4', wrsiColor: 'ad-green',
+        drsi: '28.9', drsiColor: 'ad-green',
+        mrsi: '34.1',
+        price: '$44.08',
+        vwap: 'YTD VWAP: $68.40 (-35.6% from fair value)',
+        vol: '⚡ Volume: 1.9x avg — elevated',
+        volColor: 'ad-muted',
+        stack: [
+          '✅ Weekly RSI at extreme',
+          '✅ Daily RSI confirming',
+          '🔄 Price still moving',
+          '✅ Gap tightening — converging',
+          '✅ IV peaked — premium ready to compress',
+          '✅ Weekly slope exhausted',
+          '🔄 Daily slope not yet turning'
+        ],
+        action: '<strong>📈 Consider calls / bullish spread</strong>',
+        ivRank: '85/100 HIGH VOL',
+        strategy: 'Strategy: <em>Sell premium — use spreads not naked longs</em>',
+        contractTitle: null,
+        contractLines: null
+      }
+    },
+    radar: {
+      ob: {
+        tierLine: '🔵 ON RADAR — Price basing at extreme RSI',
+        tierColor: 'ad-cyan',
+        direction: '<strong>DEMO</strong> — OVERBOUGHT SETUP',
+        sector: 'Sector: Technology',
+        persist: '',
+        persistColor: '',
+        wrsi: '83.1', wrsiColor: 'ad-green',
+        drsi: '74.2', drsiColor: 'ad-muted',
+        mrsi: '65.7',
+        price: '$115.80',
+        vwap: 'YTD VWAP: $89.20 (+29.8% from fair value)',
+        vol: 'Volume: 1.2x avg',
+        volColor: 'ad-muted',
+        stack: [
+          '✅ Weekly RSI at extreme',
+          '🔄 Daily RSI building',
+          '✅ Price stabilized at base',
+          '🔄 Gap still wide',
+          '✅ IV peaked — premium ready to compress',
+          '🔄 Weekly slope still moving',
+          '🔄 Daily slope not yet turning'
+        ],
+        action: '<strong>📉 Consider puts / bearish spread</strong>',
+        ivRank: '76/100 HIGH VOL',
+        strategy: 'Strategy: <em>Sell premium — use spreads not naked longs</em>',
+        contractTitle: null,
+        contractLines: null
+      },
+      os: {
+        tierLine: '🔵 ON RADAR — Price basing at extreme RSI',
+        tierColor: 'ad-cyan',
+        direction: '<strong>DEMO</strong> — OVERSOLD SETUP',
+        sector: 'Sector: Consumer Staples',
+        persist: '',
+        persistColor: '',
+        wrsi: '26.5', wrsiColor: 'ad-green',
+        drsi: '35.8', drsiColor: 'ad-muted',
+        mrsi: '38.2',
+        price: '$45.62',
+        vwap: 'YTD VWAP: $68.40 (-33.3% from fair value)',
+        vol: 'Volume: 1.3x avg',
+        volColor: 'ad-muted',
+        stack: [
+          '✅ Weekly RSI at extreme',
+          '🔄 Daily RSI building',
+          '✅ Price stabilized at base',
+          '🔄 Gap still wide',
+          '✅ IV peaked — premium ready to compress',
+          '🔄 Weekly slope still moving',
+          '🔄 Daily slope not yet turning'
+        ],
+        action: '<strong>📈 Consider calls / bullish spread</strong>',
+        ivRank: '79/100 HIGH VOL',
+        strategy: 'Strategy: <em>Sell premium — use spreads not naked longs</em>',
+        contractTitle: null,
+        contractLines: null
+      }
+    }
+  };
+
+  // Field explanations — shown in the popover when an info icon is clicked
+  const EXPLAIN = {
+    tier: {
+      title: 'Signal Tier',
+      body: 'Tiers show how complete the setup is. <strong>🔵 On Radar</strong>: price basing at extreme RSI, 1 of 5 signals live. <strong>🟡 Approaching</strong>: 3+ signals live, setup building. <strong>🟢 Perfect Setup</strong>: all 5 signals confirmed, enter within 15 minutes. Only Tier 2 and Tier 3 cards fire to the subscriber channel — Tier 1 stays on the imminent list.'
+    },
+    direction: {
+      title: 'Direction',
+      body: '<strong>OVERBOUGHT</strong> setups signal a potential reversal lower — you buy puts or bearish spreads. <strong>OVERSOLD</strong> setups signal a potential bounce higher — you buy calls or bullish spreads. The scanner only flags extremes at the weekly timeframe (RSI ≥ 83 for OB, ≤ 27 for OS).'
+    },
+    persistence: {
+      title: 'Persistence',
+      body: 'How many consecutive scans the ticker has held at the extreme. Longer persistence = setup is coiling. <strong>5+ scans</strong> = maximum stretch, often precedes the sharpest reversals. <strong>3-4 scans</strong> = holding extreme, coil tightening. Under 3 = no persistence callout.'
+    },
+    wrsi: {
+      title: 'Weekly RSI',
+      body: 'The primary signal — calculated on weekly closes, giving it more weight than daily. Overbought threshold is ≥83, oversold is ≤27. The weekly timeframe cuts through daily noise and identifies when a stock is genuinely stretched versus just having a bad day.'
+    },
+    drsi: {
+      title: 'Daily RSI',
+      body: 'Confirmation signal. For an OB alert, daily ≥65 confirms the move; ≥75 is deep confirmation. For OS, daily ≤35 confirms; ≤25 is deep confirmation. When daily RSI leads weekly RSI, the reversal setup is often closer than the weekly reading alone suggests.'
+    },
+    mrsi: {
+      title: 'Monthly RSI',
+      body: 'The context check. If weekly AND daily AND monthly are all at extremes, the setup gets a <strong>+1 bonus point</strong>. Monthly RSI tells you whether this is a short-term spike or a multi-month cycle reaching exhaustion.'
+    },
+    vwap: {
+      title: 'YTD VWAP',
+      body: 'Year-to-date Volume Weighted Average Price — essentially the "fair value" weighted by trading volume. <strong>+25% above or -20% below</strong> VWAP earns a bonus point. Extreme VWAP dislocation often coincides with the largest reversals because traders use VWAP as a mean-reversion anchor.'
+    },
+    volume: {
+      title: 'Volume Ratio',
+      body: '<strong>1.5x+ avg</strong> = elevated activity. <strong>2.0x+ avg</strong> = capitulation signal — blow-off tops or panic bottoms. High volume at an extreme RSI reading is one of the strongest confirmations you can get, because it tells you the crowd has fully committed to one side.'
+    },
+    stack: {
+      title: 'Signal Stack',
+      body: 'Five confirming signals the scanner tracks across multiple scans: <strong>(1)</strong> Weekly RSI extreme, <strong>(2)</strong> Daily RSI confirming, <strong>(3)</strong> Price stabilized, <strong>(4)</strong> Gap tightening, <strong>(5)</strong> IV peaked, plus slope behavior. A ✅ means the signal is live; 🔄 means not yet present. Tier 3 "Perfect Setup" requires nearly all checkmarks active simultaneously.'
+    },
+    action: {
+      title: 'Suggested Action',
+      body: 'The scanner suggests the direction only — <em>calls or puts</em>. Specific contract recommendations (strike, expiry, spread) only appear on <strong>Tier 3 Perfect Setup</strong> alerts, because only those have enough signal confirmation to justify a specific trade.'
+    },
+    ivrank: {
+      title: 'IV Rank',
+      body: 'Implied Volatility rank (0-100) — where current IV sits vs the past 12 months. <strong>High IV (≥70)</strong> = options are expensive, favor selling premium or debit spreads. <strong>Low IV (<30)</strong> = options are cheap, favor long calls/puts. The scanner only alerts tickers with IV Rank ≥40 because cheap volatility rarely pays off on a reversal trade.'
+    },
+    contract: {
+      title: 'Contract Recommendation',
+      body: 'Only appears on <strong>Tier 3 Perfect Setup</strong> alerts. The scanner picks a defined-risk options structure — typically a debit or credit spread — with enough DTE (30-45 days) to avoid theta decay and enough margin of safety that a bad fill or adverse move doesn\'t wipe out the position. Max risk and break-even are calculated from real market data at alert time.'
+    }
+  };
+
+  // DOM refs
+  const $ = (id) => document.getElementById(id);
+  const card = $('htrDemoCard');
+  const popover = $('htrPopover');
+  const popoverTitle = $('htrPopoverTitle');
+  const popoverBody = $('htrPopoverBody');
+  const popoverClose = $('htrPopoverClose');
+
+  let currentTier = 'perfect';
+  let currentDir  = 'ob';
+  let activeInfoIcon = null;
+
+  function applyData() {
+    const d = TIER_DATA[currentTier][currentDir];
+    // Tier line
+    const tl = $('htrTierLine');
+    tl.innerHTML = d.tierLine + ' <span class="htr-info" data-tip="tier"></span>';
+    tl.className = d.tierColor;
+    // Ticker/direction
+    $('htrTickerLine').innerHTML = d.direction + ' <span class="htr-info" data-tip="direction"></span>';
+    $('htrSectorLine').textContent = d.sector;
+    // Persistence
+    const pl = $('htrPersistLine');
+    if (d.persist) {
+      pl.innerHTML = d.persist + ' <span class="htr-info" data-tip="persistence"></span>';
+      pl.className = d.persistColor;
+      pl.style.display = '';
+    } else {
+      pl.style.display = 'none';
+    }
+    // RSI fields
+    const wr = $('htrWRSI'); wr.textContent = d.wrsi; wr.className = d.wrsiColor;
+    const dr = $('htrDRSI'); dr.textContent = d.drsi; dr.className = d.drsiColor;
+    $('htrMRSI').textContent = d.mrsi;
+    $('htrPrice').textContent = d.price;
+    $('htrVWAPLine').innerHTML = d.vwap + ' <span class="htr-info" data-tip="vwap"></span>';
+    const vol = $('htrVolLine');
+    vol.innerHTML = d.vol + ' <span class="htr-info" data-tip="volume"></span>';
+    vol.className = d.volColor;
+    // Signal stack list
+    const stackList = $('htrStackList');
+    stackList.innerHTML = d.stack.map(s => '<div>' + s + '</div>').join('');
+    // Action + IV
+    $('htrAction').innerHTML = d.action + ' <span class="htr-info" data-tip="action"></span>';
+    $('htrIVLine').innerHTML = 'IV Rank: <span class="ad-amber">' + d.ivRank + '</span> <span class="htr-info" data-tip="ivrank"></span>';
+    $('htrStrategy').innerHTML = d.strategy;
+    // Contract block (only for Tier 3)
+    const cblock = $('htrContractSection');
+    if (d.contractTitle && d.contractLines) {
+      cblock.innerHTML =
+        '<div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>' +
+        '<div><strong>' + d.contractTitle + '</strong> <span class="htr-info" data-tip="contract"></span></div>' +
+        d.contractLines.map(l => '<div class="ad-muted">' + l + '</div>').join('');
+      cblock.style.display = '';
+    } else {
+      cblock.style.display = 'none';
+    }
+    // Tier-driven left border color
+    card.classList.remove('htr-tier-radar', 'htr-tier-approaching', 'htr-tier-perfect');
+    card.classList.add('htr-tier-' + currentTier);
+
+    // Rebind info icon listeners after DOM rewrite
+    bindInfoIcons();
+    // Clear any active popover state
+    if (activeInfoIcon) {
+      activeInfoIcon.classList.remove('active');
+      activeInfoIcon = null;
+    }
+    resetPopover();
+  }
+
+  function bindInfoIcons() {
+    card.querySelectorAll('.htr-info').forEach(icon => {
+      if (icon.__bound) return;
+      icon.__bound = true;
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const tip = icon.getAttribute('data-tip');
+        const data = EXPLAIN[tip];
+        if (!data) return;
+        if (activeInfoIcon) activeInfoIcon.classList.remove('active');
+        icon.classList.add('active');
+        activeInfoIcon = icon;
+        popoverTitle.textContent = data.title;
+        popoverBody.innerHTML = data.body;
+      });
+    });
+  }
+
+  function resetPopover() {
+    popoverTitle.textContent = 'Field explanation';
+    popoverBody.innerHTML = 'Click any <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--cyan);color:var(--dark);font-family:var(--font-mono);font-size:0.6rem;font-weight:700;text-align:center;line-height:14px;">i</span> icon in the card to see what that field means.';
+  }
+
+  // Tier button handlers
+  document.querySelectorAll('.htr-tier-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.htr-tier-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentTier = btn.getAttribute('data-tier');
+      applyData();
+    });
+  });
+
+  // Direction button handlers
+  document.querySelectorAll('.htr-dir-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.htr-dir-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentDir = btn.getAttribute('data-dir');
+      applyData();
+    });
+  });
+
+  // Popover close button
+  popoverClose.addEventListener('click', () => {
+    if (activeInfoIcon) {
+      activeInfoIcon.classList.remove('active');
+      activeInfoIcon = null;
+    }
+    resetPopover();
+  });
+
+  // Initial bind + render
+  bindInfoIcons();
 })();
 </script>
 </body>
