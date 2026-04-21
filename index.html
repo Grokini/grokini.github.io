@@ -224,7 +224,7 @@
     border-bottom: 1px solid var(--border);
     background: rgba(12,18,24,0.8);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 0;
   }
 
@@ -266,6 +266,198 @@
     margin-top: 4px;
     font-family: var(--font-mono);
   }
+
+  /* LIVE TIER BOARD */
+  .tier-board {
+    position: relative;
+    z-index: 5;
+    background: rgba(12,18,24,0.4);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px 56px;
+  }
+  .tier-board-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .tier-board-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(26,42,56,0.6);
+  }
+  .tier-board-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: var(--text);
+  }
+  .tier-board-title .accent-cyan { color: var(--cyan); }
+  .tier-board-meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .tier-board-meta .live-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-right: 6px;
+    animation: pulse 1.5s ease-in-out infinite;
+    vertical-align: middle;
+  }
+  .tier-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) {
+    .tier-cards { grid-template-columns: 1fr; }
+  }
+  .tier-card {
+    position: relative;
+    background: rgba(7,11,15,0.75);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--border);
+    padding: 24px 22px 22px;
+    transition: all 0.25s;
+    overflow: hidden;
+  }
+  .tier-card:hover {
+    background: rgba(12,18,24,0.9);
+    transform: translateY(-2px);
+  }
+  .tier-card.tier-green   { border-top-color: #2dff7e; }
+  .tier-card.tier-yellow  { border-top-color: #ffb800; }
+  .tier-card.tier-blue    { border-top-color: #00e5ff; }
+  .tier-card.tier-green:hover   { box-shadow: 0 8px 32px rgba(45,255,126,0.18); }
+  .tier-card.tier-yellow:hover  { box-shadow: 0 8px 32px rgba(255,184,0,0.18); }
+  .tier-card.tier-blue:hover    { box-shadow: 0 8px 32px rgba(0,229,255,0.18); }
+  .tier-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .tier-card-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tier-card-dot.tier-green   { background: #2dff7e; box-shadow: 0 0 12px rgba(45,255,126,0.6); }
+  .tier-card-dot.tier-yellow  { background: #ffb800; box-shadow: 0 0 12px rgba(255,184,0,0.5); }
+  .tier-card-dot.tier-blue    { background: #00e5ff; box-shadow: 0 0 12px rgba(0,229,255,0.5); }
+  .tier-card-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+  .tier-card-title.tier-green   { color: #2dff7e; }
+  .tier-card-title.tier-yellow  { color: #ffb800; }
+  .tier-card-title.tier-blue    { color: #00e5ff; }
+  .tier-card-count {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    line-height: 1;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin: 4px 0 10px;
+  }
+  .tier-card-count.tier-green  { color: #2dff7e; }
+  .tier-card-count.tier-yellow { color: #ffb800; }
+  .tier-card-count.tier-blue   { color: #00e5ff; }
+  .tier-card-count-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .tier-card-intel {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text);
+    background: rgba(0,0,0,0.3);
+    border-left: 2px solid var(--border);
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+    min-height: 60px;
+  }
+  .tier-card-intel .intel-label {
+    color: var(--muted);
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tier-card-intel .intel-empty {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .tier-card-names {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .tier-card-name-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 2px 4px 2px 0;
+    background: rgba(45,255,126,0.12);
+    border: 1px solid rgba(45,255,126,0.35);
+    color: #2dff7e;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .tier-card-name-chip .chip-time {
+    color: var(--muted);
+    font-size: 0.7rem;
+    margin-left: 6px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .tier-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--muted);
+    border-top: 1px solid rgba(26,42,56,0.6);
+    padding-top: 12px;
+  }
+  .tier-card-desc strong { color: var(--text); font-weight: 600; }
+  .tier-board-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(26,42,56,0.5);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.7;
+  }
+  .tier-board-footer strong { color: var(--text); }
+  .tier-board-footer .sub-cta {
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--cyan);
+    padding-bottom: 1px;
+  }
+  .tier-board-footer .sub-cta:hover { color: #00f5ff; border-bottom-style: solid; }
 
   /* SECTIONS */
   section {
@@ -1207,7 +1399,10 @@
     <div class="ticker-item"><span style="color:#00e5ff;font-family:var(--font-mono);font-size:0.75rem;letter-spacing:1px">Loading live RSI data...</span></div>
   </div>
 </div>
-<div id="tickerLabel" style="text-align:center;font-family:var(--font-mono);font-size:0.6rem;color:#4a6070;padding:5px 0;background:#0c1218;border-bottom:1px solid #1a2a38;letter-spacing:1px;">LIVE WEEKLY RSI — LOADING TODAY'S ALERTS</div>
+<div id="tickerLabel" style="text-align:center;font-family:var(--font-mono);font-size:0.62rem;color:#6a8090;padding:6px 12px;background:#0c1218;border-bottom:1px solid #1a2a38;letter-spacing:1px;line-height:1.5;">
+  <span style="color:#ffb800">⚡ IMMINENT</span> &nbsp;·&nbsp; tickers within striking distance of alert threshold &nbsp;·&nbsp;
+  <span style="opacity:0.8">names move on and off continuously — some advance into our tier system (and become private to subscribers), others fade off entirely. Only subscribers can see which.</span>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -1240,20 +1435,85 @@
     <span class="stat-label">Stocks Scanned</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num" id="alertCountStat">—</span>
-    <span class="stat-label">Alerts Today</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" id="weeklyAlertStat">—</span>
-    <span class="stat-label">Alerts This Week</span>
-  </div>
-  <div class="stat-item">
     <span class="stat-num" id="nextScanStat">—</span>
     <span class="stat-label">Next Scan</span>
   </div>
   <div class="stat-item">
     <span class="stat-num" style="color:var(--cyan)">200</span>
     <span class="stat-label">Seat Cap</span>
+  </div>
+</div>
+
+<!-- LIVE TIER BOARD — replaces old "alerts this week" counter -->
+<div class="tier-board" id="tierBoard">
+  <div class="tier-board-inner">
+    <div class="tier-board-header">
+      <div class="tier-board-title">Live <span class="accent-cyan">Tier Board</span></div>
+      <div class="tier-board-meta">
+        <span class="live-dot"></span>
+        <span id="tierBoardTimestamp">Last scan: —</span>
+      </div>
+    </div>
+
+    <div class="tier-cards">
+
+      <!-- 🟢 PERFECT SETUP (T3) -->
+      <div class="tier-card tier-green">
+        <div class="tier-card-head">
+          <div class="tier-card-dot tier-green"></div>
+          <div class="tier-card-title tier-green">Perfect Setup</div>
+        </div>
+        <div class="tier-card-count tier-green" id="t3Count">—</div>
+        <div class="tier-card-count-sub">This week · resets Mondays 8:30 AM CDT</div>
+        <div class="tier-card-names" id="t3Names">
+          <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75rem;font-style:italic;">Loading archive…</span>
+        </div>
+        <div class="tier-card-desc">
+          <strong>Highest-conviction signal.</strong> All 5 criteria align: price basing, gap tightening, IV stable, weekly slope flat, daily slope turning. These fire <strong>1–3 times per week</strong> and must be traded at the alert timestamp — stale alerts are not actionable. Subscribers receive real-time Telegram notification with the contract recommendation.
+        </div>
+      </div>
+
+      <!-- 🟡 APPROACHING (T2) -->
+      <div class="tier-card tier-yellow">
+        <div class="tier-card-head">
+          <div class="tier-card-dot tier-yellow"></div>
+          <div class="tier-card-title tier-yellow">Approaching</div>
+        </div>
+        <div class="tier-card-count tier-yellow" id="t2Count">—</div>
+        <div class="tier-card-count-sub">Current scan · tickers private to subscribers</div>
+        <div class="tier-card-intel" id="t2Intel">
+          <span class="intel-label">Snapshot</span>
+          <span class="intel-empty">Loading…</span>
+        </div>
+        <div class="tier-card-desc">
+          <strong>Setup building — 3 of 5 criteria active.</strong> Not yet trade-ready. Some advance to Perfect Setup, others fade. <strong>Names are private to subscribers</strong> — the public board shows the count and aggregate context only, so the ticker list stays behind the paywall until a setup completes.
+        </div>
+      </div>
+
+      <!-- 🔵 ON RADAR (T1) -->
+      <div class="tier-card tier-blue">
+        <div class="tier-card-head">
+          <div class="tier-card-dot tier-blue"></div>
+          <div class="tier-card-title tier-blue">On Radar</div>
+        </div>
+        <div class="tier-card-count tier-blue" id="t1Count">—</div>
+        <div class="tier-card-count-sub">Current scan · tickers private to subscribers</div>
+        <div class="tier-card-intel" id="t1Intel">
+          <span class="intel-label">Snapshot</span>
+          <span class="intel-empty">Loading…</span>
+        </div>
+        <div class="tier-card-desc">
+          <strong>Early-stage setups the scanner is tracking — 1–2 criteria active.</strong> Most radar names will never advance beyond this stage. That's by design — the scanner is designed to reject the 99%. <strong>Names private to subscribers</strong> via the Alpha RSI channel.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tier-board-footer">
+      🟢 Perfect Setup names are published here after they fire &nbsp;·&nbsp; 🟡 Approaching and 🔵 On Radar show counts only &nbsp;·&nbsp; Imminent names scroll at the top<br>
+      <span style="opacity:0.7">Subscribers see every ticker in every tier in real time via Telegram. </span>
+      <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" target="_blank" class="sub-cta">Start 7-day free trial →</a>
+    </div>
   </div>
 </div>
 
@@ -1925,36 +2185,175 @@ function getNextScanTime() {
   return 'Next: ' + (minsLeft || 60) + 'm';
 }
 
-// ── Update stats bar ──────────────────────────────────────
-function updateStats(alertCount) {
-  var countEl = document.getElementById('alertCountStat');
-  var scanEl  = document.getElementById('nextScanStat');
-  if (countEl && alertCount !== null) countEl.textContent = alertCount;
-  if (scanEl) scanEl.textContent = getNextScanTime();
-}
-
-async function updateWeeklyCount() {
-  try {
-    var r = await fetch('https://grokini.github.io/alert_history.json?nocache=' + Date.now());
-    if (!r.ok) return;
-    var history = await r.json();
-    if (!Array.isArray(history)) return;
-    var cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - 7);
-    var cutoffStr = cutoff.toISOString().slice(0, 10);
-    var weeklyCount = history.filter(function(h) {
-      return h.alert_date && h.alert_date >= cutoffStr;
-    }).length;
-    var el = document.getElementById('weeklyAlertStat');
-    if (el) el.textContent = weeklyCount > 0 ? weeklyCount : '—';
-  } catch(e) {}
-}
-updateWeeklyCount();
-
-setInterval(function() {
+// ── Update next-scan stat ─────────────────────────────────
+function updateNextScan() {
   var scanEl = document.getElementById('nextScanStat');
   if (scanEl) scanEl.textContent = getNextScanTime();
+}
+updateNextScan();
+
+// ── Tier Board (weekly T3 archive + current T1/T2 snapshot) ──────────
+// Weekly reset: every Monday 8:30 AM CDT. A T3 event "counts this week" if its
+// fired_at is at or after the most recent Mon 8:30 AM CDT boundary. Weekend
+// T3 entries (rare — scanner doesn't run weekends) would carry through to the
+// following Monday reset.
+function mostRecentWeeklyResetISO() {
+  // Returns ISO timestamp of the most recent Mon 8:30 AM America/Chicago
+  var now = new Date();
+  // Convert "now" into Chicago wall-clock parts, then roll back to Mon 8:30
+  var ct = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+  var day = ct.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+  var hour = ct.getHours();
+  var min = ct.getMinutes();
+  var minutesSinceMonday830;
+  if (day === 1 && (hour * 60 + min) < (8 * 60 + 30)) {
+    // Monday before 8:30 -> reset was last Monday
+    minutesSinceMonday830 = 7 * 24 * 60 + ((8 * 60 + 30) - (hour * 60 + min));
+    // Actually roll back 7 days worth of minutes then subtract current offset from Mon 8:30
+    var target = new Date(ct.getTime() - minutesSinceMonday830 * 60000);
+    return target.toISOString();
+  }
+  // How many days since Monday (Mon=1 in getDay)
+  var daysSinceMon = (day === 0) ? 6 : (day - 1);
+  var target = new Date(ct.getTime());
+  target.setDate(target.getDate() - daysSinceMon);
+  target.setHours(8, 30, 0, 0);
+  return target.toISOString();
+}
+
+async function loadPerfectSetupArchive() {
+  try {
+    var r = await fetch('https://grokini.github.io/perfect_setup_archive.json?nocache=' + Date.now());
+    if (!r.ok) return null;
+    return await r.json();
+  } catch(e) { return null; }
+}
+
+async function loadTierSnapshot() {
+  try {
+    var r = await fetch('https://grokini.github.io/tier_snapshot.json?nocache=' + Date.now());
+    if (!r.ok) return null;
+    return await r.json();
+  } catch(e) { return null; }
+}
+
+function renderT3(archive) {
+  var countEl = document.getElementById('t3Count');
+  var namesEl = document.getElementById('t3Names');
+  if (!countEl || !namesEl) return;
+  if (!archive || !archive.entries || !Array.isArray(archive.entries)) {
+    countEl.textContent = '0';
+    namesEl.innerHTML = '<span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75rem;font-style:italic;">No Perfect Setups yet this week.</span>';
+    return;
+  }
+  var cutoff = mostRecentWeeklyResetISO();
+  var thisWeek = archive.entries.filter(function(e) {
+    return e && e.fired_at && e.fired_at >= cutoff;
+  });
+  // Sort most-recent first
+  thisWeek.sort(function(a, b) { return (b.fired_at || '').localeCompare(a.fired_at || ''); });
+  countEl.textContent = thisWeek.length;
+  if (thisWeek.length === 0) {
+    namesEl.innerHTML = '<span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75rem;font-style:italic;">No Perfect Setups yet this week.</span>';
+  } else {
+    namesEl.innerHTML = thisWeek.map(function(e) {
+      var when = e.fired_at_display || (e.fired_at ? e.fired_at.slice(5, 10) : '');
+      return '<span class="tier-card-name-chip">' + (e.ticker || '?') +
+             '<span class="chip-time">' + when + '</span></span>';
+    }).join('');
+  }
+}
+
+function sectorAggregateString(sectors) {
+  if (!sectors || typeof sectors !== 'object') return '';
+  var keys = Object.keys(sectors).sort(function(a, b) { return sectors[b] - sectors[a]; });
+  if (keys.length === 0) return '';
+  return keys.map(function(k) { return sectors[k] + ' ' + k; }).join(' · ');
+}
+
+function renderT2(snap) {
+  var countEl = document.getElementById('t2Count');
+  var intelEl = document.getElementById('t2Intel');
+  if (!countEl || !intelEl) return;
+  if (!snap || !snap.tier2) {
+    countEl.textContent = '—';
+    intelEl.innerHTML = '<span class="intel-label">Snapshot</span><span class="intel-empty">Loading…</span>';
+    return;
+  }
+  var c = snap.tier2.count || 0;
+  countEl.textContent = c;
+  if (c === 0) {
+    intelEl.innerHTML = '<span class="intel-label">Snapshot</span><span class="intel-empty">No tickers at this tier right now. Check back next scan.</span>';
+  } else {
+    var sectorStr = sectorAggregateString(snap.tier2.sectors) || '—';
+    var rsiStr = '';
+    if (snap.tier2.w_rsi_range && snap.tier2.w_rsi_range.length === 2) {
+      rsiStr = 'W-RSI ' + snap.tier2.w_rsi_range[0].toFixed(1) + ' – ' + snap.tier2.w_rsi_range[1].toFixed(1);
+    }
+    intelEl.innerHTML = '<span class="intel-label">Sectors</span>' + sectorStr +
+      (rsiStr ? '<br><span class="intel-label" style="margin-top:6px">RSI range</span>' + rsiStr : '');
+  }
+}
+
+function renderT1(snap) {
+  var countEl = document.getElementById('t1Count');
+  var intelEl = document.getElementById('t1Intel');
+  if (!countEl || !intelEl) return;
+  if (!snap || !snap.tier1) {
+    countEl.textContent = '—';
+    intelEl.innerHTML = '<span class="intel-label">Snapshot</span><span class="intel-empty">Loading…</span>';
+    return;
+  }
+  var c = snap.tier1.count || 0;
+  countEl.textContent = c;
+  if (c === 0) {
+    intelEl.innerHTML = '<span class="intel-label">Snapshot</span><span class="intel-empty">Nothing on radar right now.</span>';
+  } else {
+    var sectorStr = sectorAggregateString(snap.tier1.sectors) || '—';
+    var rsiStr = '';
+    if (snap.tier1.w_rsi_range && snap.tier1.w_rsi_range.length === 2) {
+      rsiStr = 'W-RSI ' + snap.tier1.w_rsi_range[0].toFixed(1) + ' – ' + snap.tier1.w_rsi_range[1].toFixed(1);
+    }
+    var dirStr = '';
+    if (snap.tier1.direction_breakdown) {
+      var ob = snap.tier1.direction_breakdown.overbought || 0;
+      var os = snap.tier1.direction_breakdown.oversold || 0;
+      if (ob || os) dirStr = ob + ' OB · ' + os + ' OS';
+    }
+    intelEl.innerHTML = '<span class="intel-label">Sectors</span>' + sectorStr +
+      (rsiStr ? '<br><span class="intel-label" style="margin-top:6px">RSI range</span>' + rsiStr : '') +
+      (dirStr ? '<br><span class="intel-label" style="margin-top:6px">Direction</span>' + dirStr : '');
+  }
+}
+
+function renderTierBoardMeta(snap) {
+  var el = document.getElementById('tierBoardTimestamp');
+  if (!el) return;
+  if (snap && snap.scan_time_display) {
+    el.textContent = 'Last scan: ' + snap.scan_time_display;
+  } else {
+    el.textContent = 'Last scan: —';
+  }
+}
+
+async function updateTierBoard() {
+  var archivePromise = loadPerfectSetupArchive();
+  var snapPromise = loadTierSnapshot();
+  var archive = await archivePromise;
+  var snap = await snapPromise;
+  renderT3(archive);
+  renderT2(snap);
+  renderT1(snap);
+  renderTierBoardMeta(snap);
+}
+updateTierBoard();
+
+setInterval(function() {
+  updateNextScan();
 }, 60000);
+
+// Refresh tier board every 2 minutes (scans run every 30 min; this catches updates shortly after)
+setInterval(updateTierBoard, 120000);
 
 // ── Build paper trade history feed (Tier 3 only, replaces old alertsFeed) ─
 async function buildTradeHistory() {
@@ -2203,78 +2602,87 @@ async function fetchStock(sym, interval, range) {
   } catch(e) { console.log('fetchStock ' + sym + ': ' + e.message); return null; }
 }
 
-// ── Ticker tape ────────────────────────────────────────────
+// ── Ticker tape — IMMINENT names (within ~3pts of alert threshold) ─────
+// The scrolling list is the "pre-alert" watchlist. Names move on and off
+// every scan. Once a name advances into a tier, it becomes private to
+// subscribers — which is why it disappears from the public bar. Names can
+// also just fade off entirely. The public only sees the imminent snapshot;
+// only subscribers see which path each ticker takes afterward.
 async function buildTicker() {
   const track = document.getElementById('tickerTrack');
   if (!track) return;
 
   function setTicker(items) {
     if (!items.length) return;
+    // Double the array so the CSS loop looks continuous
     const doubled = [...items, ...items];
     track.innerHTML = doubled.map(function(item) {
-      return '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:monospace;font-size:13px;">' +
-        '<span style="color:#ddeeff;font-weight:500">' + item.sym + '</span>' +
-        '<span style="color:' + item.color + '">' + item.label + '</span>' +
+      return '<div style="display:flex;align-items:center;gap:10px;white-space:nowrap;font-family:var(--font-mono);font-size:13px;">' +
+        '<span style="color:' + (item.arrowColor || '#ffb800') + ';font-size:11px;">' + (item.arrow || '⚡') + '</span>' +
+        '<span style="color:#ddeeff;font-weight:600;letter-spacing:1px;">' + item.sym + '</span>' +
+        '<span style="color:#ffb800;font-size:11px;">' + item.label + '</span>' +
+        (item.meta ? '<span style="color:#4a6070;font-size:11px;">' + item.meta + '</span>' : '') +
         '</div>';
     }).join('');
     track.style.display = 'flex';
-    track.style.gap = '48px';
+    track.style.gap = '40px';
     track.style.width = 'max-content';
-    track.style.animation = 'ticker ' + Math.max(items.length * 4, 20) + 's linear infinite';
+    track.style.animation = 'ticker ' + Math.max(items.length * 5, 24) + 's linear infinite';
   }
 
-  const SHOWCASE = ['AAPL','MSFT','NVDA','TSLA','META','AMD','SPY','AMZN','GOOGL','JPM','NFLX','COIN'];
-  setTicker(SHOWCASE.map(function(s) { return {sym: s, label: 'RSI loading...', color: '#4a6070'}; }));
+  // Placeholder while loading
+  setTicker([{ sym: 'LOADING', label: 'imminent list…', arrow: '⚡', arrowColor: '#ffb800' }]);
 
   try {
-    const resp = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
+    const resp = await fetch('https://grokini.github.io/tier_snapshot.json?nocache=' + Date.now());
     if (resp.ok) {
       const data = await resp.json();
-      const ob  = (data.overbought || []).map(function(x) { return {sym: x.sym, type: 'ob'}; });
-      const os_ = (data.oversold   || []).map(function(x) { return {sym: x.sym, type: 'os'}; });
-      const all = ob.concat(os_);
-      if (all.length > 0) {
-        const enriched = [];
-        for (var i = 0; i < Math.min(all.length, 15); i++) {
-          var item = all[i];
-          var d = await fetchStock(item.sym, '1wk', '2y');
-          var rsi = d ? calcRSI(d.closes) : null;
-          enriched.push({
-            sym:   item.sym,
-            label: (item.type === 'ob' ? '▼ OB' : '▲ OS') + (rsi ? ' RSI ' + rsi : '') + (d ? ' $' + d.price : ''),
-            color: item.type === 'ob' ? '#ff3355' : '#2dff7e'
-          });
-          await new Promise(function(r) { setTimeout(r, 80); });
-        }
-        if (enriched.length > 0) {
-          setTicker(enriched);
-          var bar = document.getElementById('tickerLabel');
-          if (bar && data.updated) bar.textContent = "TODAY'S ALERTS — " + data.updated + " — " + all.length + " SIGNALS";
-          return;
-        }
+      const imminent = Array.isArray(data.imminent) ? data.imminent : [];
+      if (imminent.length > 0) {
+        const items = imminent.map(function(x) {
+          var isOB = (x.direction || '').toLowerCase() === 'ob' || (x.direction || '').toLowerCase() === 'overbought';
+          var arrow = isOB ? '▲' : '▼';
+          var arrowColor = isOB ? '#ff3355' : '#2dff7e';
+          var rsiTxt = (x.w_rsi != null) ? 'W-RSI ' + (+x.w_rsi).toFixed(1) : '';
+          var needsTxt = (x.needs_pts != null) ? '· needs ' + (+x.needs_pts).toFixed(1) + 'pts' : '';
+          return {
+            sym:        x.sym,
+            label:      rsiTxt,
+            meta:       needsTxt + (x.sector ? ' · ' + x.sector : ''),
+            arrow:      arrow,
+            arrowColor: arrowColor
+          };
+        });
+        setTicker(items);
+        return;
       }
     }
-  } catch(e) { console.log('Alerts fetch: ' + e.message); }
+  } catch(e) { console.log('tier_snapshot fetch: ' + e.message); }
 
-  var liveItems = [];
-  for (var i = 0; i < SHOWCASE.length; i++) {
-    var sym = SHOWCASE[i];
-    try {
-      var d = await fetchStock(sym, '1wk', '2y');
-      if (!d) continue;
-      var rsi = calcRSI(d.closes);
-      if (rsi === null) continue;
-      var ob = rsi >= 70, os = rsi <= 35;
-      liveItems.push({
-        sym:   sym,
-        label: (ob ? '▼ OB' : os ? '▲ OS' : 'RSI') + ' ' + rsi + ' $' + d.price,
-        color: ob ? '#ff3355' : os ? '#2dff7e' : '#4a6070'
-      });
-      if (liveItems.length >= 3) setTicker(liveItems);
-    } catch(e) { console.log(sym + ' error: ' + e.message); }
-    await new Promise(function(r) { setTimeout(r, 200); });
-  }
-  if (liveItems.length > 0) setTicker(liveItems);
+  // Fallback if snapshot unavailable — try the legacy public_alerts endpoint so
+  // the bar doesn't go dark, but label it clearly so no one confuses it with imminent.
+  try {
+    const resp2 = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
+    if (resp2.ok) {
+      const data = await resp2.json();
+      const ob  = (data.overbought || []).slice(0, 3).map(function(x) { return { sym: x.sym, isOB: true,  rsi: x.rsi }; });
+      const os_ = (data.oversold   || []).slice(0, 3).map(function(x) { return { sym: x.sym, isOB: false, rsi: x.rsi }; });
+      const all = ob.concat(os_);
+      if (all.length > 0) {
+        setTicker(all.map(function(x) {
+          return {
+            sym:        x.sym,
+            label:      (x.rsi != null) ? 'W-RSI ' + (+x.rsi).toFixed(1) : '',
+            arrow:      x.isOB ? '▲' : '▼',
+            arrowColor: x.isOB ? '#ff3355' : '#2dff7e'
+          };
+        }));
+        return;
+      }
+    }
+  } catch(e) {}
+
+  setTicker([{ sym: 'SCANNER', label: 'idle — next scan at open', arrow: '·', arrowColor: '#4a6070' }]);
 }
 
 // ── Alert demo card ────────────────────────────────────────
@@ -2625,7 +3033,8 @@ buildTradeHistory();
 // buildAlertHistory() — removed: the Top 5 / Bottom 5 / Carousel sections
 // were replaced by the public paper trade dashboard. Function kept below for
 // future reuse but no longer invoked on page load.
-updateStats(null);
+// updateStats() / updateWeeklyCount() removed — Tier Board now handles all
+// alert accounting; see updateTierBoard() above.
 </script>
 <script>
 // Market hours status
