@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
+    "schema_version": 1
+  },
+  "scan_time": "2026-04-21T18:01:21.221316-05:00",
+  "scan_time_display": "4/21 \u00b7 6:01 PM CDT",
+  "tier3_current": [],
+  "tier2": {
+    "count": 0,
+    "sectors": {},
+    "w_rsi_range": null,
+    "direction_breakdown": {
+      "overbought": 0,
+      "oversold": 0
+    }
+  },
+  "tier1": {
+    "count": 12,
+    "sectors": {
+      "Technology": 4,
+      "Materials": 1,
+      "Consumer Staples": 1,
+      "Industrials": 2,
+      "Utilities": 1,
+      "Finance": 1,
+      "Consumer Discretionary": 1,
+      "Healthcare": 1
+    },
+    "w_rsi_range": [
+      24.59,
+      85.5
+    ],
+    "direction_breakdown": {
+      "overbought": 9,
+      "oversold": 3
+    }
+  },
+  "imminent": [
+    {
+      "sym": "KGS",
+      "direction": "ob",
+      "w_rsi": 82.56,
+      "needs_pts": 0.4,
+      "sector": "Utilities"
+    },
+    {
+      "sym": "WDC",
+      "direction": "ob",
+      "w_rsi": 81.31,
+      "needs_pts": 1.7,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "NOK",
+      "direction": "ob",
+      "w_rsi": 81.29,
+      "needs_pts": 1.7,
+      "sector": "Technology"
+    },
+    {
+      "sym": "FIX",
+      "direction": "ob",
+      "w_rsi": 80.27,
+      "needs_pts": 2.7,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "KEYS",
+      "direction": "ob",
+      "w_rsi": 80.18,
+      "needs_pts": 2.8,
+      "sector": "Technology"
+    },
+    {
+      "sym": "COHR",
+      "direction": "ob",
+      "w_rsi": 80.0,
+      "needs_pts": 3.0,
+      "sector": "Technology"
+    }
+  ]
+}
