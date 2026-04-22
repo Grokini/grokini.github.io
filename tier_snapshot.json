@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-22T15:25:50.164593-05:00",
-  "scan_time_display": "4/22 \u00b7 3:25 PM CDT",
+  "scan_time": "2026-04-22T15:50:12.233388-05:00",
+  "scan_time_display": "4/22 \u00b7 3:50 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 3,
