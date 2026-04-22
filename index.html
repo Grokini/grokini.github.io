@@ -1623,38 +1623,61 @@
   </div>
 </section>
 
-<!-- ALERT DEMO SECTION -->
+<!-- PERFECT SETUP SHOWCASE — most recent archived Tier 3 alert -->
 <section id="alerts">
-  <div class="section-tag">Live Alerts</div>
+  <div class="section-tag">Most Recent Perfect Setup</div>
   <h2 class="section-title">What hits your <span class="accent">Telegram</span></h2>
-  <div id="demoDayLabel" style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);letter-spacing:1px;margin-bottom:8px;">
-    TODAY'S TOP SIGNAL — RESETS DAILY AT 7AM CT
+  <div id="psShowcaseLabel" style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);letter-spacing:1px;margin-bottom:8px;">
+    LATEST 🟢 PERFECT SETUP — UPDATES EACH TIME ONE FIRES
   </div>
   <div class="demo-grid reveal">
     <div class="demo-text">
       <h3>Every alert is a complete trading brief</h3>
-      <p>Not just a ticker and a number. Every alert discloses its full scoring basis — weekly, daily, and monthly RSI; conviction score out of 10 with every contributing factor named; 52-week context; volume data; sector relative strength; and a one-tap chart link.</p>
-      <p>You get everything you need to evaluate the setup — right on your phone, the moment it fires.</p>
+      <p>Not a ticker and a number — a full trading brief. Every Perfect Setup alert discloses the complete signal stack: multi-timeframe RSI, YTD VWAP dislocation, volume, IV rank, monthly alignment, and every bonus factor the scanner awarded. Subscribers receive the recommended contract and entry window alongside the alert.</p>
+      <p>The card on the right is the <strong>most recent Perfect Setup the scanner has fired</strong>, pulled directly from the public archive. Public visitors see it after the fact. Subscribers received it in real time via Telegram the moment it fired.</p>
+      <p id="psShowcaseMeta" style="font-family:var(--font-mono);font-size:0.72rem;color:var(--cyan);letter-spacing:1px;margin-top:16px;">
+        Loading most recent Perfect Setup…
+      </p>
     </div>
-    <div class="alert-demo" id="liveAlertDemo">
+    <div class="alert-demo" id="psShowcaseCard">
       <div class="ad-header">ALPHA RSI — THE OPTIONS EDGE</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div id="demoSignal" class="ad-green">⏳ Loading live market data...</div>
+      <div id="psTierLine" class="ad-green">🟢 PERFECT SETUP — archived alert</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div id="demoScore">Score: ...</div>
-      <div id="demoSector" class="ad-muted">Sector: ...</div>
+      <div id="psTickerLine"><strong id="psTicker">—</strong> <span id="psDirection" class="ad-muted">— LOADING…</span></div>
+      <div id="psSectorLine" class="ad-muted">Sector: —</div>
+      <div id="psPersistLine" class="ad-amber" style="display:none;">🚨 <em>— scans at extreme</em></div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div>Weekly RSI: <span id="demoWRSI" class="ad-green">...</span></div>
-      <div>Daily RSI: <span id="demoDRSI" class="ad-green">...</span></div>
-      <div>Price: <span id="demoPrice" class="ad-cyan">...</span></div>
-      <div id="demo52Low" class="ad-muted">52-week low: ...</div>
-      <div id="demo52High" class="ad-muted">52-week high: ...</div>
+      <div>Weekly RSI: <span id="psWRSI" class="ad-green">—</span></div>
+      <div>Daily RSI: <span id="psDRSI" class="ad-green">—</span></div>
+      <div id="psMRSIRow" style="display:none;">Monthly RSI: <span id="psMRSI">—</span></div>
+      <div>Price: <span id="psPrice" class="ad-cyan">—</span></div>
+      <div id="psVWAPLine" class="ad-muted" style="display:none;">YTD VWAP: —</div>
+      <div id="psVolLine" class="ad-amber" style="display:none;">🔥 Volume: —</div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div id="demoIV" class="ad-muted">IV Rank: Loading...</div>
+      <div><strong>Signal stack:</strong></div>
+      <div id="psStackList" class="ad-muted">—</div>
+      <div id="psBonusRow" style="display:none;margin-top:4px;"></div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div id="demoFactors" class="ad-muted">Analyzing signals...</div>
+      <div id="psActionLine" class="ad-cyan"><strong>—</strong></div>
+      <div id="psIVLine" style="display:none;">IV Rank: <span id="psIVRank" class="ad-amber">—</span></div>
+      <div id="psStrategyLine" class="ad-muted" style="display:none;">Strategy: <em>Sell premium — use spreads not naked longs</em></div>
       <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
-      <div id="demoAction" class="ad-cyan">...</div>
+      <!-- Paywalled contract recommendation — blurred on public page, revealed to subscribers in Telegram -->
+      <div id="psContractBlock">
+        <div><strong>Recommended trade:</strong> <span style="display:inline-block;font-family:var(--font-mono);font-size:0.58rem;color:var(--cyan);letter-spacing:1px;padding:1px 6px;border:1px solid rgba(0,229,255,0.3);border-radius:2px;margin-left:6px;">🔒 SUBSCRIBERS</span></div>
+        <div class="ad-muted" style="filter:blur(4.5px);user-select:none;pointer-events:none;margin-top:2px;">
+          <span id="psContractTeaser">XXXX 00DTE $000X — Debit spread vs $000X</span>
+        </div>
+        <div class="ad-muted" style="filter:blur(4.5px);user-select:none;pointer-events:none;">
+          Max risk: $0,000/contract · Break-even: $000.00
+        </div>
+        <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--cyan);letter-spacing:1px;margin-top:8px;text-align:center;padding:6px 8px;background:rgba(0,229,255,0.05);border:1px dashed rgba(0,229,255,0.35);">
+          <a href="https://whop.com/alpha-rsi-the-options-edge/alpha-rsi-alerts" target="_blank" style="color:var(--cyan);text-decoration:none;">SUBSCRIBE TO UNLOCK THE CONTRACT RECOMMENDATION →</a>
+        </div>
+      </div>
+      <div class="ad-divider">━━━━━━━━━━━━━━━━━━</div>
+      <div class="ad-muted" id="psFooterLine">Alert fired — archived</div>
       <div class="ad-muted">📲 whop.com/alpha-rsi-the-options-edge</div>
     </div>
   </div>
@@ -2197,28 +2220,55 @@ updateNextScan();
 // fired_at is at or after the most recent Mon 8:30 AM CDT boundary. Weekend
 // T3 entries (rare — scanner doesn't run weekends) would carry through to the
 // following Monday reset.
-function mostRecentWeeklyResetISO() {
-  // Returns ISO timestamp of the most recent Mon 8:30 AM America/Chicago
+//
+// Returns the Monday 8:30 AM CDT cutoff as a numeric epoch (ms). Using a
+// number (not an ISO string) avoids the common bug where comparing two ISO
+// strings with different offset formats (e.g. "...Z" vs "...-05:00") does a
+// lexical compare that disagrees with actual chronological order.
+function mostRecentWeeklyResetEpoch() {
   var now = new Date();
-  // Convert "now" into Chicago wall-clock parts, then roll back to Mon 8:30
-  var ct = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
-  var day = ct.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
-  var hour = ct.getHours();
-  var min = ct.getMinutes();
-  var minutesSinceMonday830;
-  if (day === 1 && (hour * 60 + min) < (8 * 60 + 30)) {
-    // Monday before 8:30 -> reset was last Monday
-    minutesSinceMonday830 = 7 * 24 * 60 + ((8 * 60 + 30) - (hour * 60 + min));
-    // Actually roll back 7 days worth of minutes then subtract current offset from Mon 8:30
-    var target = new Date(ct.getTime() - minutesSinceMonday830 * 60000);
-    return target.toISOString();
-  }
-  // How many days since Monday (Mon=1 in getDay)
+  // Chicago wall-clock parts
+  var fmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false, weekday: 'short'
+  });
+  var parts = {};
+  fmt.formatToParts(now).forEach(function(p) { parts[p.type] = p.value; });
+  // weekday: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+  var wkMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  var day = wkMap[parts.weekday] != null ? wkMap[parts.weekday] : 1;
+  var hour = parseInt(parts.hour, 10);
+  var min = parseInt(parts.minute, 10);
+  var year = parseInt(parts.year, 10);
+  var month = parseInt(parts.month, 10);
+  var dayOfMonth = parseInt(parts.day, 10);
+
+  // Days to roll back to reach Monday (Mon=1 → 0 days, Sun=0 → 6 days)
   var daysSinceMon = (day === 0) ? 6 : (day - 1);
-  var target = new Date(ct.getTime());
-  target.setDate(target.getDate() - daysSinceMon);
-  target.setHours(8, 30, 0, 0);
-  return target.toISOString();
+  // Edge case: if today is Monday but clock is before 8:30 AM, use previous Monday
+  if (day === 1 && (hour * 60 + min) < (8 * 60 + 30)) {
+    daysSinceMon = 7;
+  }
+  // Build a Date representing Monday 8:30 AM in Chicago local wall-clock.
+  // To convert Chicago wall-clock to a true UTC epoch we compute the UTC
+  // offset at that moment via the formatted 'timeZoneName'. Simpler: construct
+  // the Chicago-local date as if it were UTC, then subtract Chicago's UTC
+  // offset at that instant. Chicago is UTC-5 during CDT (Mar-Nov) and UTC-6
+  // during CST (Nov-Mar). We can detect which via the short timezone name.
+  var targetChi = new Date(Date.UTC(year, month - 1, dayOfMonth, 8, 30, 0));
+  targetChi.setUTCDate(targetChi.getUTCDate() - daysSinceMon);
+  // Determine Chicago offset at the target instant
+  var tzFmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago', timeZoneName: 'shortOffset'
+  });
+  var offPart = tzFmt.formatToParts(targetChi).find(function(p) { return p.type === 'timeZoneName'; });
+  // offPart.value is like "GMT-5" or "GMT-6"
+  var offMatch = offPart ? offPart.value.match(/GMT([+-])(\d+)/) : null;
+  var offHours = offMatch ? parseInt(offMatch[2], 10) * (offMatch[1] === '-' ? -1 : 1) : -5;
+  // Epoch = Chicago-local time interpreted as UTC minus the UTC offset
+  return targetChi.getTime() - offHours * 3600 * 1000;
 }
 
 async function loadPerfectSetupArchive() {
@@ -2246,12 +2296,16 @@ function renderT3(archive) {
     namesEl.innerHTML = '<span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75rem;font-style:italic;">No Perfect Setups yet this week.</span>';
     return;
   }
-  var cutoff = mostRecentWeeklyResetISO();
+  var cutoffEpoch = mostRecentWeeklyResetEpoch();
   var thisWeek = archive.entries.filter(function(e) {
-    return e && e.fired_at && e.fired_at >= cutoff;
+    if (!e || !e.fired_at) return false;
+    var t = Date.parse(e.fired_at);
+    return !isNaN(t) && t >= cutoffEpoch;
   });
-  // Sort most-recent first
-  thisWeek.sort(function(a, b) { return (b.fired_at || '').localeCompare(a.fired_at || ''); });
+  // Sort most-recent first (by parsed epoch, not by string)
+  thisWeek.sort(function(a, b) {
+    return (Date.parse(b.fired_at) || 0) - (Date.parse(a.fired_at) || 0);
+  });
   countEl.textContent = thisWeek.length;
   if (thisWeek.length === 0) {
     namesEl.innerHTML = '<span style="color:var(--muted);font-family:var(--font-mono);font-size:0.75rem;font-style:italic;">No Perfect Setups yet this week.</span>';
@@ -2685,117 +2739,196 @@ async function buildTicker() {
   setTicker([{ sym: 'SCANNER', label: 'idle — next scan at open', arrow: '·', arrowColor: '#4a6070' }]);
 }
 
-// ── Alert demo card ────────────────────────────────────────
-async function buildLiveDemo() {
-  function setEl(id, html, color) {
+// ── Perfect Setup Showcase — most recent archived Tier 3 alert ───────
+// Fetches perfect_setup_archive.json, picks the most recent entry, and
+// renders a complete Telegram-style alert card matching what subscribers
+// received at the moment the alert fired. Contract recommendation is
+// shown blurred/locked so only subscribers see the exact trade.
+async function buildPerfectSetupShowcase() {
+  function setText(id, text) {
     var el = document.getElementById(id);
-    if (!el) return;
-    el.innerHTML = html;
-    if (color) el.style.color = color;
+    if (el) el.textContent = text;
+  }
+  function setHTML(id, html) {
+    var el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+  }
+  function show(id, display) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = display || '';
+  }
+  function hide(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = 'none';
   }
 
-  var chosen = null, chosenData = null, chosenRSI = null, chosenDailyRSI = null, chosenIsOS = false;
-
+  var entry = null;
   try {
-    var resp = await fetch('https://grokini.github.io/public_alerts.json?nocache=' + Date.now());
-    if (resp.ok) {
-      var data = await resp.json();
-      var alertDate = data.date || new Date().toISOString().slice(0,10);
-      var allAlerts = (data.oversold || []).map(function(x) { return {sym: x.sym, os: true,  score: x.score || 0, date: alertDate}; })
-        .concat((data.overbought || []).map(function(x) { return {sym: x.sym, os: false, score: x.score || 0, date: alertDate}; }));
-      if (allAlerts.length > 0) {
-        var hasScores = allAlerts.some(function(a) { return a.score > 0; });
-        if (hasScores) {
-          allAlerts.sort(function(a, b) { return (b.score || 0) - (a.score || 0); });
-        }
-        var bestPick = null, bestW = null, bestRSI = 50, bestScore = -1;
-        var candidates = allAlerts.slice(0, hasScores ? 1 : Math.min(allAlerts.length, 8));
-        for (var ci = 0; ci < candidates.length; ci++) {
-          try {
-            var cw = await fetchStock(candidates[ci].sym, '1wk', '2y');
-            if (!cw) continue;
-            var cr = calcRSI(cw.closes);
-            if (cr === null) continue;
-            var cs = candidates[ci].score || 0;
-            var better = !bestPick ||
-              (cs > bestScore) ||
-              (cs === bestScore && Math.abs(cr - 50) > Math.abs(bestRSI - 50));
-            if (better) {
-              bestPick = candidates[ci]; bestW = cw; bestRSI = cr; bestScore = cs;
-            }
-          } catch(e) {}
-          await new Promise(function(r) { setTimeout(r, 80); });
-        }
-        if (bestPick) {
-          chosen      = bestPick.sym;
-          chosenData  = bestW;
-          chosenRSI   = bestRSI;
-          chosenIsOS  = bestPick.os;
-          chosenScore = bestScore > 0 ? bestScore : null;
-          var dd = await fetchStock(bestPick.sym, '1d', '3mo');
-          chosenDailyRSI = dd ? calcRSI(dd.closes) : null;
-        }
+    var r = await fetch('https://grokini.github.io/perfect_setup_archive.json?nocache=' + Date.now());
+    if (r.ok) {
+      var archive = await r.json();
+      var entries = (archive && archive.entries) || [];
+      if (entries.length > 0) {
+        // Sort by fired_at epoch, descending (most recent first)
+        entries = entries.slice().sort(function(a, b) {
+          return (Date.parse(b.fired_at) || 0) - (Date.parse(a.fired_at) || 0);
+        });
+        entry = entries[0];
       }
     }
-  } catch(e) {}
+  } catch(e) { console.log('perfect_setup_archive fetch error:', e && e.message); }
 
-  if (!chosen) {
-    var DEMO = ['AAPL','TSLA','NVDA','META','MSFT','AMD','AMZN','GOOGL','SPY','JPM'];
-    for (var i = 0; i < DEMO.length; i++) {
-      try {
-        var w = await fetchStock(DEMO[i], '1wk', '2y');
-        if (!w) continue;
-        var rsi = calcRSI(w.closes);
-        if (rsi === null) continue;
-        if (!chosen || Math.abs(rsi - 50) > Math.abs(chosenRSI - 50)) {
-          chosen = DEMO[i]; chosenData = w; chosenRSI = rsi;
-          chosenIsOS = rsi < 50;
-          var dd = await fetchStock(DEMO[i], '1d', '3mo');
-          chosenDailyRSI = dd ? calcRSI(dd.closes) : null;
-        }
-      } catch(e) {}
-      await new Promise(function(r) { setTimeout(r, 150); });
-    }
+  // Empty-archive fallback — pre-launch state before any T3 has fired
+  if (!entry) {
+    setText('psShowcaseMeta', 'No Perfect Setup has fired yet — this showcase will update the moment the first one triggers.');
+    setText('psTicker', 'AWAITING');
+    setHTML('psDirection', '<span class="ad-muted">FIRST PERFECT SETUP</span>');
+    setText('psSectorLine', 'Sector: —');
+    setText('psWRSI', '—');
+    setText('psDRSI', '—');
+    setText('psPrice', '—');
+    setHTML('psStackList', '<span class="ad-muted">The five-signal stack will be populated here when the first T3 alert fires.</span>');
+    setHTML('psActionLine', '<strong>Scanner is live — awaiting first Perfect Setup</strong>');
+    setText('psFooterLine', 'Scanner active · next full-market scan 8:30 AM CDT');
+    return;
   }
 
-  if (!chosen) return;
+  // ── Populate card from archive entry ──────────────────────────────────
+  var isOB = (entry.direction || '').toLowerCase() === 'overbought';
+  var firedDisplay = entry.fired_at_display || (entry.fired_at || '').slice(5, 10);
 
-  var emoji  = chosenIsOS ? '🟢' : '🔴';
-  var label  = chosenIsOS ? 'OVERSOLD' : 'OVERBOUGHT';
-  var color  = chosenIsOS ? '#2dff7e' : '#ff3355';
-  var action = chosenIsOS ? 'Consider calls / bullish spread' : 'Consider puts / bearish spread';
-  var price  = chosenData.price;
-  var low52  = Math.round(chosenData.low52  * 100) / 100;
-  var high52 = Math.round(chosenData.high52 * 100) / 100;
-  var pctLow  = low52  ? Math.round((price - low52)  / low52  * 1000) / 10 : 'N/A';
-  var pctHigh = high52 ? Math.round((price - high52) / high52 * 1000) / 10 : 'N/A';
+  // Header / meta strip
+  setHTML('psShowcaseMeta',
+    '<span style="color:var(--green)">🟢 ' + (entry.ticker || '—') + '</span>' +
+    ' — fired ' + firedDisplay + ' · archived permanently'
+  );
 
-  var score = (typeof chosenScore !== 'undefined' && chosenScore) ? chosenScore : 2;
-  var factors = ['Weekly RSI ' + (chosenIsOS ? 'oversold' : 'overbought') + ' (' + chosenRSI + ')'];
-  if (chosenDailyRSI !== null) {
-    if ((chosenIsOS && chosenDailyRSI <= 40) || (!chosenIsOS && chosenDailyRSI >= 60)) {
-      if (!chosenScore) score += 2;
-      factors.push('Daily RSI confirms (' + chosenDailyRSI + ')');
-    }
+  // Tier line (always green for T3)
+  setHTML('psTierLine', '🟢 PERFECT SETUP — archived ' + firedDisplay);
+
+  // Ticker + direction
+  setText('psTicker', entry.ticker || '—');
+  if (isOB) {
+    setHTML('psDirection', '<span style="color:#ff3355">— OVERBOUGHT SETUP</span>');
+  } else {
+    setHTML('psDirection', '<span style="color:#2dff7e">— OVERSOLD SETUP</span>');
   }
-  if (chosenIsOS  && pctLow  !== 'N/A' && pctLow  <= 15) { if (!chosenScore) score += 1; factors.push('Near 52-week low (' + pctLow + '% above)'); }
-  if (!chosenIsOS && pctHigh !== 'N/A' && pctHigh >= -15) { if (!chosenScore) score += 1; factors.push('Near 52-week high (' + Math.abs(pctHigh) + '% below)'); }
-  score = Math.min(score, 10);
 
-  setEl('demoSignal',  emoji + ' ' + chosen + ' — ' + label + ' | RSI: ' + chosenRSI, color);
-  setEl('demoScore',   'Score: ' + '⭐'.repeat(score) + ' (' + score + '/10)');
-  setEl('demoSector',  'Sector: Live market data');
-  var wEl = document.getElementById('demoWRSI');
-  if (wEl) { wEl.textContent = chosenRSI; wEl.style.color = color; }
-  var dEl = document.getElementById('demoDRSI');
-  if (dEl) { dEl.textContent = chosenDailyRSI !== null ? chosenDailyRSI : 'N/A'; dEl.style.color = color; }
-  var pEl = document.getElementById('demoPrice');
-  if (pEl) { pEl.textContent = '$' + price; pEl.style.color = '#00e5ff'; }
-  setEl('demo52Low',   '52-week low: $' + low52 + ' (' + pctLow + '% above)');
-  setEl('demo52High',  '52-week high: $' + high52 + ' (' + Math.abs(pctHigh) + '% below)');
-  setEl('demoIV',      'HV Rank: Subscribe for full analysis');
-  setEl('demoFactors', factors.map(function(f) { return '✓ ' + f; }).join('<br>'));
-  setEl('demoAction',  action, '#00e5ff');
+  // Sector
+  setText('psSectorLine', 'Sector: ' + (entry.sector || '—'));
+
+  // Persistence badge (show only if >= 5 scans)
+  if (typeof entry.scan_persistence === 'number' && entry.scan_persistence >= 5) {
+    setHTML('psPersistLine',
+      '🚨 <em>' + entry.scan_persistence + ' SCANS AT EXTREME — maximum stretch</em>'
+    );
+    show('psPersistLine');
+  } else {
+    hide('psPersistLine');
+  }
+
+  // RSI fields
+  setText('psWRSI', entry.w_rsi != null ? (+entry.w_rsi).toFixed(2) : '—');
+  setText('psDRSI', entry.d_rsi != null ? (+entry.d_rsi).toFixed(2) : '—');
+
+  // Monthly RSI — only show if present
+  if (entry.monthly_rsi != null) {
+    setText('psMRSI', (+entry.monthly_rsi).toFixed(2));
+    show('psMRSIRow');
+  } else {
+    hide('psMRSIRow');
+  }
+
+  // Price
+  setText('psPrice', entry.price_at_alert != null
+    ? '$' + (+entry.price_at_alert).toFixed(2)
+    : '—');
+
+  // YTD VWAP line
+  if (entry.ytd_vwap != null && entry.ytd_vwap_pct != null) {
+    var vwapSign = entry.ytd_vwap_pct >= 0 ? '+' : '';
+    setText('psVWAPLine',
+      'YTD VWAP: $' + (+entry.ytd_vwap).toFixed(2) +
+      ' (' + vwapSign + (+entry.ytd_vwap_pct).toFixed(1) + '% from fair value)'
+    );
+    show('psVWAPLine');
+  } else {
+    hide('psVWAPLine');
+  }
+
+  // Volume ratio line
+  if (entry.volume_ratio != null && entry.volume_ratio > 0) {
+    var volLabel = entry.volume_ratio >= 2.0 ? ' — capitulation signal' :
+                   entry.volume_ratio >= 1.5 ? ' — elevated' : '';
+    setText('psVolLine',
+      '🔥 Volume: ' + (+entry.volume_ratio).toFixed(1) + 'x avg' + volLabel
+    );
+    show('psVolLine');
+  } else {
+    hide('psVolLine');
+  }
+
+  // Signal stack — map the 5 signals to check marks
+  var signalLabels = {
+    price_basing:     'Price basing — structure stabilized',
+    gap_tightening:   'Gap tightening — W/D RSI converging',
+    iv_stable:        'IV peaked — premium ready to compress',
+    w_slope_flat:     'Weekly slope exhausted — flat',
+    d_slope_turning:  isOB
+                      ? 'Daily slope turning DOWN ↓ — reversal confirmed'
+                      : 'Daily slope turning UP ↑ — reversal confirmed'
+  };
+  var signalsOn = Array.isArray(entry.signals) ? entry.signals : [];
+  var stackHtml = '';
+  ['price_basing','gap_tightening','iv_stable','w_slope_flat','d_slope_turning']
+    .forEach(function(k) {
+      var on = signalsOn.indexOf(k) !== -1;
+      var mark = on ? '✅✅' : '🔄';
+      stackHtml += '<div>' + mark + ' ' + signalLabels[k] + '</div>';
+    });
+  setHTML('psStackList', stackHtml);
+
+  // Bonus factors — show if array non-empty
+  if (Array.isArray(entry.bonus_factors) && entry.bonus_factors.length > 0) {
+    var bonusHtml = entry.bonus_factors.map(function(bf) {
+      return '<div class="ad-amber" style="font-size:0.78rem;margin-top:2px;">⭐ ' + bf + '</div>';
+    }).join('');
+    setHTML('psBonusRow', bonusHtml);
+    show('psBonusRow');
+  } else {
+    hide('psBonusRow');
+  }
+
+  // Action line
+  if (isOB) {
+    setHTML('psActionLine', '<strong>📉 Consider puts / bearish spread</strong>');
+  } else {
+    setHTML('psActionLine', '<strong>📈 Consider calls / bullish spread</strong>');
+  }
+
+  // IV rank
+  if (entry.iv_rank != null) {
+    var ivLabel = entry.iv_label || (entry.iv_rank >= 70 ? 'HIGH VOL' :
+                                     entry.iv_rank >= 30 ? 'MODERATE VOL' : 'LOW VOL');
+    setText('psIVRank', (+entry.iv_rank).toFixed(0) + '/100 ' + ivLabel);
+    show('psIVLine');
+    show('psStrategyLine');
+  } else {
+    hide('psIVLine');
+    hide('psStrategyLine');
+  }
+
+  // Contract block teaser — updates the blurred placeholder with a hint
+  // matching the actual contract type, so subscribers know what to expect
+  if (entry.contract_type) {
+    var optType = (entry.contract_type || '').toLowerCase() === 'put' ? 'P' : 'C';
+    var teaser = (entry.ticker || 'XXXX') + ' 00DTE $000' + optType +
+                 ' — Debit spread vs $000' + optType;
+    setText('psContractTeaser', teaser);
+  }
+
+  // Footer
+  setText('psFooterLine', 'Alert fired ' + firedDisplay + ' · archived');
 }
 
 // ── FAQ ────────────────────────────────────────────────────
@@ -3028,7 +3161,7 @@ function startCarousel() {
 
 // ── Init ──────────────────────────────────────────────────
 buildTicker();
-buildLiveDemo();
+buildPerfectSetupShowcase();
 buildTradeHistory();
 // buildAlertHistory() — removed: the Top 5 / Bottom 5 / Carousel sections
 // were replaced by the public paper trade dashboard. Function kept below for
