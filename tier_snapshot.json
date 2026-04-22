@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-22T09:51:12.382364-05:00",
-  "scan_time_display": "4/22 \u00b7 9:51 AM CDT",
+  "scan_time": "2026-04-22T10:24:44.323080-05:00",
+  "scan_time_display": "4/22 \u00b7 10:24 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,22 +16,23 @@
     }
   },
   "tier1": {
-    "count": 8,
+    "count": 10,
     "sectors": {
       "Materials": 1,
       "Consumer Staples": 1,
-      "Industrials": 1,
+      "Industrials": 2,
       "Technology": 2,
+      "Utilities": 1,
       "Finance": 1,
       "Consumer Discretionary": 1,
       "Healthcare": 1
     },
     "w_rsi_range": [
       24.59,
-      84.85
+      86.41
     ],
     "direction_breakdown": {
-      "overbought": 5,
+      "overbought": 7,
       "oversold": 3
     }
   },
@@ -39,43 +40,43 @@
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.05,
-      "needs_pts": 1.0,
+      "w_rsi": 81.85,
+      "needs_pts": 1.2,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "WDC",
       "direction": "ob",
-      "w_rsi": 81.64,
-      "needs_pts": 1.4,
+      "w_rsi": 81.45,
+      "needs_pts": 1.5,
       "sector": "Industrials"
     },
     {
       "sym": "FIX",
       "direction": "ob",
-      "w_rsi": 81.29,
+      "w_rsi": 81.33,
       "needs_pts": 1.7,
       "sector": "Industrials"
     },
     {
-      "sym": "TER",
+      "sym": "KEYS",
       "direction": "ob",
-      "w_rsi": 80.47,
-      "needs_pts": 2.5,
+      "w_rsi": 80.38,
+      "needs_pts": 2.6,
       "sector": "Technology"
     },
     {
-      "sym": "KEYS",
+      "sym": "TER",
       "direction": "ob",
-      "w_rsi": 80.55,
-      "needs_pts": 2.5,
+      "w_rsi": 80.2,
+      "needs_pts": 2.8,
       "sector": "Technology"
     },
     {
       "sym": "COHR",
       "direction": "ob",
-      "w_rsi": 80.34,
-      "needs_pts": 2.7,
+      "w_rsi": 80.24,
+      "needs_pts": 2.8,
       "sector": "Technology"
     }
   ]
