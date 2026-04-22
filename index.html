@@ -2409,42 +2409,45 @@ setInterval(function() {
 // Refresh tier board every 2 minutes (scans run every 30 min; this catches updates shortly after)
 setInterval(updateTierBoard, 120000);
 
-// ── Build paper trade history feed (Tier 3 only, replaces old alertsFeed) ─
+// ── Build Live Track Record — reads perfect_setup_archive.json ───────
+// Each archive entry IS a Tier 3 Perfect Setup by definition, so no tier
+// filter is needed. Cards show entry signal stack and score publicly,
+// contract details blurred behind paywall. Status badge reflects paper
+// trade state:
+//   - ACCEPTED → limit order submitted, waiting for fill (alpaca_order_id starts with "accepted_")
+//   - OPEN     → order filled, position active, no exit yet
+//   - WIN      → position closed with gain (future: needs outcome tracking)
+//   - LOSS     → position closed with loss (future)
+// Outcome tracking (fill price, exit reason, P&L) requires a future
+// enrichment hook reading Alpaca order status + paper_trades.json. Until
+// then, most cards will show ACCEPTED or OPEN with P&L pending.
 async function buildTradeHistory() {
   var feed = document.getElementById('tradeHistoryFeed');
   if (!feed) return;
 
   try {
-    var r = await fetch('https://grokini.github.io/trade_fingerprints.json?nocache=' + Date.now());
-    var trades = [];
+    var r = await fetch('https://grokini.github.io/perfect_setup_archive.json?nocache=' + Date.now());
+    var archive = null;
     if (r.ok) {
-      try { trades = await r.json(); } catch(e) { trades = []; }
+      try { archive = await r.json(); } catch(e) { archive = null; }
     }
-    if (!Array.isArray(trades)) trades = [];
+    var entries = (archive && Array.isArray(archive.entries)) ? archive.entries : [];
 
-    // Filter: Tier 3 only. Trades without a tier field (pre-launch) are excluded.
-    // Rolling 30-day window so old trades age out naturally once we have volume.
-    var cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - 30);
-    var cutoffStr = cutoff.toISOString().slice(0,10);
-
-    var tier3Trades = trades.filter(function(t) {
-      if (!t) return false;
-      // Require tier field AND tier === 3 (pre-launch trades have no tier)
-      if (t.tier !== 3) return false;
-      if (t.alert_date && t.alert_date < cutoffStr) return false;
-      return true;
+    // 30-day rolling window so old Perfect Setups age off naturally
+    var cutoffEpoch = Date.now() - (30 * 24 * 60 * 60 * 1000);
+    entries = entries.filter(function(e) {
+      if (!e || !e.fired_at) return false;
+      var t = Date.parse(e.fired_at);
+      return !isNaN(t) && t >= cutoffEpoch;
     });
 
-    // Sort most recent first
-    tier3Trades.sort(function(a, b) {
-      var da = (a.alert_time || a.alert_date || '');
-      var db = (b.alert_time || b.alert_date || '');
-      return db.localeCompare(da);
+    // Sort most recent first (by parsed epoch, not lexical string)
+    entries.sort(function(a, b) {
+      return (Date.parse(b.fired_at) || 0) - (Date.parse(a.fired_at) || 0);
     });
 
-    // EMPTY STATE — show credibility framing
-    if (tier3Trades.length === 0) {
+    // EMPTY STATE — no Perfect Setups yet
+    if (entries.length === 0) {
       feed.innerHTML =
         '<div class="trade-empty-state">' +
           '<div class="trade-empty-badge">PAPER TRADING RESET: APRIL 21, 2026</div>' +
@@ -2458,23 +2461,26 @@ async function buildTradeHistory() {
           '</div>' +
           '<div class="trade-empty-hint">FIRST TIER 3 PERFECT SETUP → APPEARS HERE LIVE</div>' +
         '</div>';
-      // Stats strip stays hidden
       return;
     }
 
-    // Compute aggregate stats
-    var closed = tier3Trades.filter(function(t) { return t.outcome && t.outcome !== 'open'; });
-    var wins = closed.filter(function(t) { return t.outcome === 'win'; }).length;
-    var losses = closed.filter(function(t) { return t.outcome === 'loss'; }).length;
-    var open = tier3Trades.length - closed.length;
+    // ── Aggregate stats strip ────────────────────────────────────────
+    // closed = entries with a real outcome field (future enrichment)
+    // accepted = limit orders not yet filled
+    // open = filled trades with no exit yet
+    var accepted = entries.filter(function(e) {
+      return e.alpaca_order_id && String(e.alpaca_order_id).indexOf('accepted_') === 0 && !e.outcome;
+    });
+    var closed = entries.filter(function(e) { return e.outcome && e.outcome !== 'open'; });
+    var wins = closed.filter(function(e) { return e.outcome === 'win'; }).length;
+    var open = entries.length - closed.length - accepted.length;
     var winRate = closed.length > 0 ? Math.round((wins / closed.length) * 100) : 0;
-    var totalPnL = closed.reduce(function(sum, t) { return sum + (t.pnl || 0); }, 0);
+    var totalPnL = closed.reduce(function(sum, e) { return sum + (Number(e.pnl) || 0); }, 0);
 
-    // Populate stats strip
     var statsEl = document.getElementById('tradeStats');
     if (statsEl) {
       statsEl.style.display = 'grid';
-      document.getElementById('statTotal').textContent = tier3Trades.length;
+      document.getElementById('statTotal').textContent = entries.length;
       document.getElementById('statWinRate').textContent = closed.length > 0 ? winRate + '%' : '—';
       var pnlEl = document.getElementById('statPnL');
       pnlEl.textContent = closed.length > 0
@@ -2482,53 +2488,89 @@ async function buildTradeHistory() {
         : '—';
       pnlEl.classList.remove('pos', 'neg');
       if (closed.length > 0) pnlEl.classList.add(totalPnL >= 0 ? 'pos' : 'neg');
-      document.getElementById('statOpen').textContent = open;
+      // Open positions strip counts both ACCEPTED (awaiting fill) and OPEN (filled, live)
+      document.getElementById('statOpen').textContent = open + accepted.length;
     }
 
-    // Build trade cards (show up to 6 most recent — full history on dashboard)
-    var toShow = tier3Trades.slice(0, 6);
+    // ── Build trade cards (up to 6 most recent) ─────────────────────
+    var toShow = entries.slice(0, 6);
     var cardsHtml = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;">';
 
-    toShow.forEach(function(t) {
-      var isWin = t.outcome === 'win';
-      var isLoss = t.outcome === 'loss';
-      var isOpen = !t.outcome || t.outcome === 'open';
-      var direction = t.signal_type === 'ob' ? '▼ OVERBOUGHT' : '▲ OVERSOLD';
-      var dirColor = t.signal_type === 'ob' ? 'var(--red)' : 'var(--green)';
+    toShow.forEach(function(e) {
+      var isOB = (e.direction || '').toLowerCase() === 'overbought';
+      var direction = isOB ? '▼ OVERBOUGHT' : '▲ OVERSOLD';
+      var dirColor = isOB ? 'var(--red)' : 'var(--green)';
+
+      // Status badge — ACCEPTED / OPEN / WIN / LOSS
+      var isAccepted = e.alpaca_order_id && String(e.alpaca_order_id).indexOf('accepted_') === 0 && !e.outcome;
+      var isWin = e.outcome === 'win';
+      var isLoss = e.outcome === 'loss';
+      var isOpen = !isAccepted && !isWin && !isLoss;
 
       var statusBadge = '';
-      if (isWin) statusBadge = '<span class="trade-status-open trade-status-win">WIN</span>';
-      else if (isLoss) statusBadge = '<span class="trade-status-open trade-status-loss">LOSS</span>';
-      else statusBadge = '<span class="trade-status-open">OPEN</span>';
+      if (isAccepted) {
+        // Amber "PENDING FILL" — limit order submitted but not filled yet
+        statusBadge = '<span class="trade-status-open">PENDING FILL</span>';
+      } else if (isWin) {
+        statusBadge = '<span class="trade-status-open trade-status-win">WIN</span>';
+      } else if (isLoss) {
+        statusBadge = '<span class="trade-status-open trade-status-loss">LOSS</span>';
+      } else {
+        statusBadge = '<span class="trade-status-open">OPEN</span>';
+      }
 
-      var pnlDisplay = 'open';
+      // P&L display
+      var pnlDisplay = '—';
       var pnlClass = 'muted';
-      if (!isOpen && t.pnl !== undefined && t.pnl !== null) {
-        pnlDisplay = (t.pnl >= 0 ? '+$' : '-$') + Math.abs(Math.round(t.pnl)) +
-                     ' (' + (t.pnl_pct >= 0 ? '+' : '') + t.pnl_pct.toFixed(1) + '%)';
-        pnlClass = t.pnl >= 0 ? 'pos' : 'neg';
+      if (isAccepted) {
+        pnlDisplay = 'awaiting fill';
+      } else if (!isOpen && e.pnl !== undefined && e.pnl !== null) {
+        var pnlNum = Number(e.pnl);
+        var pnlPct = Number(e.pnl_pct) || 0;
+        pnlDisplay = (pnlNum >= 0 ? '+$' : '-$') + Math.abs(Math.round(pnlNum)) +
+                     ' (' + (pnlPct >= 0 ? '+' : '') + pnlPct.toFixed(1) + '%)';
+        pnlClass = pnlNum >= 0 ? 'pos' : 'neg';
+      } else if (isOpen) {
+        pnlDisplay = 'open';
       }
 
-      // Alert date formatted
+      // Date label — "APR 21" style from fired_at_display or fired_at ISO
       var dateLabel = '';
-      if (t.alert_date) {
-        var dp = t.alert_date.split('-');
-        var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-        if (dp.length === 3) dateLabel = months[parseInt(dp[1])-1] + ' ' + parseInt(dp[2]);
+      if (e.fired_at_display) {
+        // e.g. "4/21 · 3:32 PM CDT" → "APR 21"
+        var m = e.fired_at_display.match(/(\d+)\/(\d+)/);
+        if (m) {
+          var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+          dateLabel = months[parseInt(m[1], 10) - 1] + ' ' + parseInt(m[2], 10);
+        }
+      } else if (e.fired_at) {
+        var parts = e.fired_at.slice(0, 10).split('-');
+        if (parts.length === 3) {
+          var months2 = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+          dateLabel = months2[parseInt(parts[1], 10) - 1] + ' ' + parseInt(parts[2], 10);
+        }
       }
 
-      // Exit reason pretty
+      // Exit reason pretty-print (future)
       var exitPretty = '';
-      if (t.exit_reason === 'win_target') exitPretty = 'Take profit';
-      else if (t.exit_reason === 'stop_loss') exitPretty = 'Stop loss';
-      else if (t.exit_reason === 'time_exit') exitPretty = 'Time decay';
-      else if (t.exit_reason === 'thesis_break') exitPretty = 'Thesis break';
-      else if (t.exit_reason) exitPretty = t.exit_reason;
+      if (e.exit_reason === 'win_target') exitPretty = 'Take profit';
+      else if (e.exit_reason === 'stop_loss') exitPretty = 'Stop loss';
+      else if (e.exit_reason === 'time_exit') exitPretty = 'Time decay';
+      else if (e.exit_reason === 'thesis_break') exitPretty = 'Thesis break';
+      else if (e.exit_reason) exitPretty = e.exit_reason;
+
+      // Contract teaser — show put/call indicator so blurred row hints at real structure
+      var contractHint = '';
+      if (e.contract_type) {
+        contractHint = (String(e.contract_type).toLowerCase() === 'put') ? 'Put · 00d' : 'Call · 00d';
+      } else {
+        contractHint = isOB ? 'Put · 00d' : 'Call · 00d';
+      }
 
       var card = '';
       card += '<div class="trade-card">';
       card += '  <div class="trade-card-header">';
-      card += '    <div><span class="trade-card-ticker">' + t.sym + '</span>' + statusBadge + '</div>';
+      card += '    <div><span class="trade-card-ticker">' + (e.ticker || '—') + '</span>' + statusBadge + '</div>';
       card += '    <div class="trade-card-tier-badge">🟢 TIER 3</div>';
       card += '  </div>';
       card += '  <div class="trade-card-row">';
@@ -2537,37 +2579,37 @@ async function buildTradeHistory() {
       card += '  </div>';
       card += '  <div class="trade-card-row">';
       card += '    <span class="label">Weekly RSI</span>';
-      card += '    <span class="value">' + (t.rsi_weekly ? t.rsi_weekly.toFixed(1) : '—') + '</span>';
+      card += '    <span class="value">' + (e.w_rsi != null ? Number(e.w_rsi).toFixed(1) : '—') + '</span>';
       card += '  </div>';
       card += '  <div class="trade-card-row">';
       card += '    <span class="label">Score</span>';
-      card += '    <span class="value">' + (t.score || '—') + '/10</span>';
+      card += '    <span class="value">' + (e.score != null ? e.score : '—') + '/10</span>';
       card += '  </div>';
       card += '  <div class="trade-card-divider"></div>';
 
-      // PAYWALLED CONTENT — blurred + locked
+      // PAYWALLED ROWS — blurred behind subscriber lock
       card += '  <div class="paywall-row">';
       card += '    <span class="lock-label">Daily RSI</span>';
-      card += '    <span class="paywall-blur">' + (t.rsi_daily ? t.rsi_daily.toFixed(1) : '00.0') + '</span>';
+      card += '    <span class="paywall-blur">' + (e.d_rsi != null ? Number(e.d_rsi).toFixed(1) : '00.0') + '</span>';
       card += '  </div>';
       card += '  <div class="paywall-row">';
       card += '    <span class="lock-label">Monthly RSI</span>';
-      card += '    <span class="paywall-blur">' + (t.rsi_monthly ? t.rsi_monthly.toFixed(1) : '00.0') + '</span>';
+      card += '    <span class="paywall-blur">' + (e.monthly_rsi != null ? Number(e.monthly_rsi).toFixed(1) : '00.0') + '</span>';
       card += '  </div>';
       card += '  <div class="paywall-row">';
       card += '    <span class="lock-label">IV Rank</span>';
-      card += '    <span class="paywall-blur">' + (t.iv_rank || '00') + '/100</span>';
+      card += '    <span class="paywall-blur">' + (e.iv_rank != null ? Math.round(Number(e.iv_rank)) : '00') + '/100</span>';
       card += '  </div>';
       card += '  <div class="paywall-row">';
       card += '    <span class="lock-label">Contract</span>';
-      card += '    <span class="paywall-blur">$000 ' + (t.signal_type === 'ob' ? 'Put' : 'Call') + ' · 000d</span>';
+      card += '    <span class="paywall-blur">$000 ' + contractHint + '</span>';
       card += '  </div>';
       card += '  <div class="paywall-row">';
       card += '    <span class="lock-label">Entry premium</span>';
       card += '    <span class="paywall-blur">$0.00</span>';
       card += '  </div>';
 
-      if (!isOpen) {
+      if (!isOpen && !isAccepted) {
         card += '  <div class="paywall-row">';
         card += '    <span class="lock-label">Exit reason</span>';
         card += '    <span class="paywall-blur">' + (exitPretty || 'Closed') + '</span>';
@@ -2591,18 +2633,16 @@ async function buildTradeHistory() {
 
     cardsHtml += '</div>';
 
-    // If there are more trades than shown, add a note
-    if (tier3Trades.length > toShow.length) {
+    if (entries.length > toShow.length) {
       cardsHtml += '<div style="text-align:center;margin-top:20px;font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);letter-spacing:1px;">' +
-                   '+ ' + (tier3Trades.length - toShow.length) + ' MORE TRADES — SEE FULL PERFORMANCE DASHBOARD' +
+                   '+ ' + (entries.length - toShow.length) + ' MORE TRADES — SEE FULL PERFORMANCE DASHBOARD' +
                    '</div>';
     }
 
     feed.innerHTML = cardsHtml;
 
-  } catch(e) {
-    // Network or JSON error — show a safe fallback state
-    console.log('Trade history error:', e && e.message);
+  } catch(err) {
+    console.log('Trade history error:', err && err.message);
     feed.innerHTML =
       '<div class="trade-empty-state">' +
         '<div class="trade-empty-badge">PAPER TRADING RESET: APRIL 21, 2026</div>' +
