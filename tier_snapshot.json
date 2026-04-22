@@ -3,20 +3,15 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-22T13:52:39.841147-05:00",
-  "scan_time_display": "4/22 \u00b7 1:52 PM CDT",
+  "scan_time": "2026-04-22T14:21:14.574856-05:00",
+  "scan_time_display": "4/22 \u00b7 2:21 PM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 1,
-    "sectors": {
-      "Industrials": 1
-    },
-    "w_rsi_range": [
-      86.5,
-      86.5
-    ],
+    "count": 0,
+    "sectors": {},
+    "w_rsi_range": null,
     "direction_breakdown": {
-      "overbought": 1,
+      "overbought": 0,
       "oversold": 0
     }
   },
@@ -24,63 +19,63 @@
     "count": 9,
     "sectors": {
       "Materials": 1,
-      "Consumer Staples": 2,
-      "Industrials": 1,
+      "Consumer Staples": 1,
+      "Industrials": 2,
       "Technology": 2,
       "Finance": 1,
       "Consumer Discretionary": 1,
       "Healthcare": 1
     },
     "w_rsi_range": [
-      23.51,
-      84.85
+      24.59,
+      86.57
     ],
     "direction_breakdown": {
-      "overbought": 5,
-      "oversold": 4
+      "overbought": 6,
+      "oversold": 3
     }
   },
   "imminent": [
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.21,
-      "needs_pts": 0.8,
+      "w_rsi": 82.34,
+      "needs_pts": 0.7,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "FIX",
+      "direction": "ob",
+      "w_rsi": 81.92,
+      "needs_pts": 1.1,
+      "sector": "Industrials"
     },
     {
       "sym": "WDC",
       "direction": "ob",
-      "w_rsi": 81.85,
-      "needs_pts": 1.2,
+      "w_rsi": 81.63,
+      "needs_pts": 1.4,
       "sector": "Industrials"
     },
     {
       "sym": "COHR",
       "direction": "ob",
-      "w_rsi": 81.39,
-      "needs_pts": 1.6,
+      "w_rsi": 81.31,
+      "needs_pts": 1.7,
       "sector": "Technology"
-    },
-    {
-      "sym": "FIX",
-      "direction": "ob",
-      "w_rsi": 81.42,
-      "needs_pts": 1.6,
-      "sector": "Industrials"
     },
     {
       "sym": "TER",
       "direction": "ob",
-      "w_rsi": 80.49,
-      "needs_pts": 2.5,
+      "w_rsi": 80.44,
+      "needs_pts": 2.6,
       "sector": "Technology"
     },
     {
       "sym": "KEYS",
       "direction": "ob",
-      "w_rsi": 80.45,
-      "needs_pts": 2.5,
+      "w_rsi": 80.35,
+      "needs_pts": 2.7,
       "sector": "Technology"
     }
   ]
