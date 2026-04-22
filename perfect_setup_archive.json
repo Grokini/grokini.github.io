@@ -1,1 +1,44 @@
+{
+  "_meta": {
+    "description": "Archive of Tier 3 Perfect Setup firing events. Each entry logged once when a ticker advances to Tier 3. Weekly count resets every Monday 8:30 AM CDT.",
+    "reset_rule": "Weekly count = entries where fired_at >= most_recent_monday_830am_cdt",
+    "updated": "2026-04-21T23:55:00-05:00"
+  },
+  "entries": [
+    {
+      "ticker": "ADTN",
+      "direction": "overbought",
+      "sector": "Technology",
+      "fired_at": "2026-04-21T15:32:00-05:00",
+      "fired_at_display": "4/21 · 3:32 PM CDT",
+      "week_of": "2026-04-20",
+      "signals": ["price_basing", "gap_tightening", "iv_stable", "w_slope_flat", "d_slope_turning"],
+      "score": 9,
+      "w_rsi": 83.44,
+      "d_rsi": 84.53,
+      "price_at_alert": 17.50,
+      "note": "First Tier 3 Perfect Setup — launch day",
 
+      "iv_rank": 82.9,
+      "iv_value": 60.0,
+      "iv_label": "HIGH VOL",
+      "monthly_rsi": 70.54,
+      "ytd_vwap": 11.81,
+      "ytd_vwap_pct": 48.2,
+      "volume_ratio": null,
+      "bonus_factors": [
+        "Outperforming SPY by 23.9% over 4wk (unusual strength at OB — stretched)"
+      ],
+      "scan_persistence": 16,
+
+      "contract_sym": "ADTN260515P00017000",
+      "contract_strike": 17.0,
+      "contract_expiry": "2026-05-15",
+      "contract_type": "put",
+      "contract_limit": 1.43,
+      "contract_qty": 13,
+      "contract_max_risk": 1859.00,
+      "alpaca_order_id": "accepted_apr21_1503"
+    }
+  ]
+}
