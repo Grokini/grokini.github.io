@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-22T07:08:29.014212-05:00",
-  "scan_time_display": "4/22 \u00b7 7:08 AM CDT",
+  "scan_time": "2026-04-22T08:15:55.471703-05:00",
+  "scan_time_display": "4/22 \u00b7 8:15 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -43,13 +43,6 @@
   },
   "imminent": [
     {
-      "sym": "MRVL",
-      "direction": "ob",
-      "w_rsi": 82.74,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
       "sym": "WDC",
       "direction": "ob",
       "w_rsi": 81.25,
@@ -81,6 +74,13 @@
       "sym": "TER",
       "direction": "ob",
       "w_rsi": 80.09,
+      "needs_pts": 2.9,
+      "sector": "Technology"
+    },
+    {
+      "sym": "KEYS",
+      "direction": "ob",
+      "w_rsi": 80.14,
       "needs_pts": 2.9,
       "sector": "Technology"
     }
