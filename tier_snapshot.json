@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-22T08:47:38.277873-05:00",
-  "scan_time_display": "4/22 \u00b7 8:47 AM CDT",
+  "scan_time": "2026-04-22T09:20:59.245229-05:00",
+  "scan_time_display": "4/22 \u00b7 9:20 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,13 +16,12 @@
     }
   },
   "tier1": {
-    "count": 9,
+    "count": 8,
     "sectors": {
       "Materials": 1,
       "Consumer Staples": 1,
       "Industrials": 1,
       "Technology": 2,
-      "Utilities": 1,
       "Finance": 1,
       "Consumer Discretionary": 1,
       "Healthcare": 1
@@ -32,51 +31,44 @@
       84.85
     ],
     "direction_breakdown": {
-      "overbought": 6,
+      "overbought": 5,
       "oversold": 3
     }
   },
   "imminent": [
     {
-      "sym": "WDC",
+      "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.2,
-      "needs_pts": 0.8,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "COHR",
-      "direction": "ob",
-      "w_rsi": 82.06,
+      "w_rsi": 82.1,
       "needs_pts": 0.9,
-      "sector": "Technology"
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "FIX",
       "direction": "ob",
-      "w_rsi": 81.58,
-      "needs_pts": 1.4,
+      "w_rsi": 81.09,
+      "needs_pts": 1.9,
       "sector": "Industrials"
     },
     {
-      "sym": "SNX",
+      "sym": "WDC",
       "direction": "ob",
-      "w_rsi": 81.36,
-      "needs_pts": 1.6,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 80.84,
+      "needs_pts": 2.2,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "KEYS",
+      "direction": "ob",
+      "w_rsi": 80.4,
+      "needs_pts": 2.6,
+      "sector": "Technology"
     },
     {
       "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 81.31,
-      "needs_pts": 1.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "TER",
-      "direction": "ob",
-      "w_rsi": 80.74,
-      "needs_pts": 2.3,
+      "w_rsi": 80.34,
+      "needs_pts": 2.7,
       "sector": "Technology"
     }
   ]
