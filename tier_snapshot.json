@@ -3,32 +3,23 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-22T15:50:12.233388-05:00",
-  "scan_time_display": "4/22 \u00b7 3:50 PM CDT",
+  "scan_time": "2026-04-23T09:22:29.297665-05:00",
+  "scan_time_display": "4/23 \u00b7 9:22 AM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 3,
-    "sectors": {
-      "Industrials": 1,
-      "Utilities": 1,
-      "Finance": 1
-    },
-    "w_rsi_range": [
-      83.85,
-      86.55
-    ],
+    "count": 0,
+    "sectors": {},
+    "w_rsi_range": null,
     "direction_breakdown": {
-      "overbought": 3,
+      "overbought": 0,
       "oversold": 0
     }
   },
   "tier1": {
-    "count": 8,
+    "count": 4,
     "sectors": {
-      "Materials": 2,
-      "Consumer Staples": 1,
       "Industrials": 1,
-      "Technology": 2,
+      "Technology": 1,
       "Consumer Discretionary": 1,
       "Healthcare": 1
     },
@@ -37,51 +28,51 @@
       84.35
     ],
     "direction_breakdown": {
-      "overbought": 5,
-      "oversold": 3
+      "overbought": 2,
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "SNX",
+      "sym": "WDC",
       "direction": "ob",
-      "w_rsi": 82.1,
-      "needs_pts": 0.9,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 82.57,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
     },
     {
       "sym": "FIX",
       "direction": "ob",
-      "w_rsi": 82.02,
-      "needs_pts": 1.0,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "WDC",
-      "direction": "ob",
-      "w_rsi": 81.69,
-      "needs_pts": 1.3,
+      "w_rsi": 82.38,
+      "needs_pts": 0.6,
       "sector": "Industrials"
     },
     {
       "sym": "COHR",
       "direction": "ob",
-      "w_rsi": 81.46,
-      "needs_pts": 1.5,
+      "w_rsi": 81.87,
+      "needs_pts": 1.1,
       "sector": "Technology"
     },
     {
       "sym": "TER",
       "direction": "ob",
-      "w_rsi": 80.61,
-      "needs_pts": 2.4,
+      "w_rsi": 81.79,
+      "needs_pts": 1.2,
       "sector": "Technology"
+    },
+    {
+      "sym": "SNX",
+      "direction": "ob",
+      "w_rsi": 81.73,
+      "needs_pts": 1.3,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 80.29,
-      "needs_pts": 2.7,
+      "w_rsi": 81.51,
+      "needs_pts": 1.5,
       "sector": "Technology"
     }
   ]
