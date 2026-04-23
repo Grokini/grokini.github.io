@@ -3,13 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-<<<<<<< HEAD
-  "scan_time": "2026-04-23T10:26:31.000960-05:00",
-  "scan_time_display": "4/23 \u00b7 10:26 AM CDT",
-=======
-  "scan_time": "2026-04-23T10:02:46.084469-05:00",
-  "scan_time_display": "4/23 \u00b7 10:02 AM CDT",
->>>>>>> 4dfc801d25d280593aa15c47d67371842d28cd33
+  "scan_time": "2026-04-23T10:43:39.132124-05:00",
+  "scan_time_display": "4/23 \u00b7 10:43 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -21,97 +16,49 @@
     }
   },
   "tier1": {
-    "count": 7,
+    "count": 5,
     "sectors": {
       "Technology": 2,
       "Industrials": 1,
-      "Utilities": 1,
-      "Consumer Discretionary": 2,
+      "Consumer Discretionary": 1,
       "Healthcare": 1
     },
     "w_rsi_range": [
       24.59,
-      85.02
+      84.35
     ],
     "direction_breakdown": {
-      "overbought": 4,
-      "oversold": 3
+      "overbought": 3,
+      "oversold": 2
     }
   },
   "imminent": [
     {
-<<<<<<< HEAD
       "sym": "TER",
       "direction": "ob",
-      "w_rsi": 82.23,
-      "needs_pts": 0.8,
+      "w_rsi": 82.31,
+      "needs_pts": 0.7,
       "sector": "Technology"
     },
     {
       "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 81.82,
+      "w_rsi": 81.85,
       "needs_pts": 1.2,
-=======
-      "sym": "FIX",
-      "direction": "ob",
-      "w_rsi": 82.93,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "TER",
-      "direction": "ob",
-      "w_rsi": 82.06,
-      "needs_pts": 0.9,
-      "sector": "Technology"
-    },
-    {
-      "sym": "POWL",
-      "direction": "ob",
-      "w_rsi": 81.88,
-      "needs_pts": 1.1,
->>>>>>> 4dfc801d25d280593aa15c47d67371842d28cd33
-      "sector": "Technology"
-    },
-    {
-      "sym": "KEYS",
-      "direction": "ob",
-      "w_rsi": 80.96,
-      "needs_pts": 2.0,
       "sector": "Technology"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-<<<<<<< HEAD
-      "w_rsi": 81.03,
-      "needs_pts": 2.0,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "COHR",
-      "direction": "ob",
-      "w_rsi": 80.21,
-      "needs_pts": 2.8,
-=======
-      "w_rsi": 81.55,
-      "needs_pts": 1.5,
+      "w_rsi": 81.22,
+      "needs_pts": 1.8,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "KEYS",
       "direction": "ob",
-      "w_rsi": 80.87,
-      "needs_pts": 2.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "COHR",
-      "direction": "ob",
-      "w_rsi": 80.8,
-      "needs_pts": 2.2,
->>>>>>> 4dfc801d25d280593aa15c47d67371842d28cd33
+      "w_rsi": 81.12,
+      "needs_pts": 1.9,
       "sector": "Technology"
     }
   ]
