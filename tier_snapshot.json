@@ -3,15 +3,20 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-23T13:15:26.970956-05:00",
-  "scan_time_display": "4/23 \u00b7 1:15 PM CDT",
+  "scan_time": "2026-04-23T13:47:05.323723-05:00",
+  "scan_time_display": "4/23 \u00b7 1:47 PM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Utilities": 1
+    },
+    "w_rsi_range": [
+      85.31,
+      85.31
+    ],
     "direction_breakdown": {
-      "overbought": 0,
+      "overbought": 1,
       "oversold": 0
     }
   },
@@ -26,7 +31,7 @@
     },
     "w_rsi_range": [
       24.59,
-      85.56
+      85.64
     ],
     "direction_breakdown": {
       "overbought": 5,
@@ -35,31 +40,31 @@
   },
   "imminent": [
     {
-      "sym": "POWL",
+      "sym": "TER",
       "direction": "ob",
-      "w_rsi": 81.88,
-      "needs_pts": 1.1,
+      "w_rsi": 82.05,
+      "needs_pts": 1.0,
       "sector": "Technology"
     },
     {
-      "sym": "TER",
+      "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 81.86,
-      "needs_pts": 1.1,
+      "w_rsi": 81.76,
+      "needs_pts": 1.2,
       "sector": "Technology"
     },
     {
       "sym": "KEYS",
       "direction": "ob",
-      "w_rsi": 81.14,
-      "needs_pts": 1.9,
+      "w_rsi": 81.24,
+      "needs_pts": 1.8,
       "sector": "Technology"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 80.44,
-      "needs_pts": 2.6,
+      "w_rsi": 80.63,
+      "needs_pts": 2.4,
       "sector": "Consumer Discretionary"
     }
   ]
