@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-23T10:43:39.132124-05:00",
-  "scan_time_display": "4/23 \u00b7 10:43 AM CDT",
+  "scan_time": "2026-04-23T11:32:48.608678-05:00",
+  "scan_time_display": "4/23 \u00b7 11:32 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -36,28 +36,28 @@
     {
       "sym": "TER",
       "direction": "ob",
-      "w_rsi": 82.31,
-      "needs_pts": 0.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "POWL",
-      "direction": "ob",
-      "w_rsi": 81.85,
-      "needs_pts": 1.2,
+      "w_rsi": 82.12,
+      "needs_pts": 0.9,
       "sector": "Technology"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 81.22,
-      "needs_pts": 1.8,
+      "w_rsi": 82.04,
+      "needs_pts": 1.0,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "POWL",
+      "direction": "ob",
+      "w_rsi": 81.82,
+      "needs_pts": 1.2,
+      "sector": "Technology"
     },
     {
       "sym": "KEYS",
       "direction": "ob",
-      "w_rsi": 81.12,
+      "w_rsi": 81.06,
       "needs_pts": 1.9,
       "sector": "Technology"
     }
