@@ -3,8 +3,13 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
+<<<<<<< HEAD
+  "scan_time": "2026-04-23T10:26:31.000960-05:00",
+  "scan_time_display": "4/23 \u00b7 10:26 AM CDT",
+=======
   "scan_time": "2026-04-23T10:02:46.084469-05:00",
   "scan_time_display": "4/23 \u00b7 10:02 AM CDT",
+>>>>>>> 4dfc801d25d280593aa15c47d67371842d28cd33
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,24 +21,38 @@
     }
   },
   "tier1": {
-    "count": 4,
+    "count": 7,
     "sectors": {
+      "Technology": 2,
       "Industrials": 1,
-      "Technology": 1,
-      "Consumer Discretionary": 1,
+      "Utilities": 1,
+      "Consumer Discretionary": 2,
       "Healthcare": 1
     },
     "w_rsi_range": [
       24.59,
-      84.35
+      85.02
     ],
     "direction_breakdown": {
-      "overbought": 2,
-      "oversold": 2
+      "overbought": 4,
+      "oversold": 3
     }
   },
   "imminent": [
     {
+<<<<<<< HEAD
+      "sym": "TER",
+      "direction": "ob",
+      "w_rsi": 82.23,
+      "needs_pts": 0.8,
+      "sector": "Technology"
+    },
+    {
+      "sym": "POWL",
+      "direction": "ob",
+      "w_rsi": 81.82,
+      "needs_pts": 1.2,
+=======
       "sym": "FIX",
       "direction": "ob",
       "w_rsi": 82.93,
@@ -52,11 +71,30 @@
       "direction": "ob",
       "w_rsi": 81.88,
       "needs_pts": 1.1,
+>>>>>>> 4dfc801d25d280593aa15c47d67371842d28cd33
+      "sector": "Technology"
+    },
+    {
+      "sym": "KEYS",
+      "direction": "ob",
+      "w_rsi": 80.96,
+      "needs_pts": 2.0,
       "sector": "Technology"
     },
     {
       "sym": "SNX",
       "direction": "ob",
+<<<<<<< HEAD
+      "w_rsi": 81.03,
+      "needs_pts": 2.0,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "COHR",
+      "direction": "ob",
+      "w_rsi": 80.21,
+      "needs_pts": 2.8,
+=======
       "w_rsi": 81.55,
       "needs_pts": 1.5,
       "sector": "Consumer Discretionary"
@@ -73,6 +111,7 @@
       "direction": "ob",
       "w_rsi": 80.8,
       "needs_pts": 2.2,
+>>>>>>> 4dfc801d25d280593aa15c47d67371842d28cd33
       "sector": "Technology"
     }
   ]
