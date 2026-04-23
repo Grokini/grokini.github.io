@@ -3,17 +3,17 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-23T13:47:05.323723-05:00",
-  "scan_time_display": "4/23 \u00b7 1:47 PM CDT",
+  "scan_time": "2026-04-23T14:22:43.050344-05:00",
+  "scan_time_display": "4/23 \u00b7 2:22 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
     "sectors": {
-      "Utilities": 1
+      "Finance": 1
     },
     "w_rsi_range": [
-      85.31,
-      85.31
+      85.72,
+      85.72
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -21,51 +21,51 @@
     }
   },
   "tier1": {
-    "count": 7,
+    "count": 8,
     "sectors": {
       "Technology": 2,
       "Industrials": 2,
-      "Finance": 1,
-      "Consumer Discretionary": 1,
+      "Utilities": 1,
+      "Consumer Discretionary": 2,
       "Healthcare": 1
     },
     "w_rsi_range": [
       24.59,
-      85.64
+      85.19
     ],
     "direction_breakdown": {
       "overbought": 5,
-      "oversold": 2
+      "oversold": 3
     }
   },
   "imminent": [
     {
+      "sym": "FIX",
+      "direction": "ob",
+      "w_rsi": 82.76,
+      "needs_pts": 0.2,
+      "sector": "Industrials"
+    },
+    {
       "sym": "TER",
       "direction": "ob",
-      "w_rsi": 82.05,
-      "needs_pts": 1.0,
+      "w_rsi": 81.68,
+      "needs_pts": 1.3,
       "sector": "Technology"
     },
     {
       "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 81.76,
-      "needs_pts": 1.2,
+      "w_rsi": 81.59,
+      "needs_pts": 1.4,
       "sector": "Technology"
     },
     {
       "sym": "KEYS",
       "direction": "ob",
-      "w_rsi": 81.24,
-      "needs_pts": 1.8,
+      "w_rsi": 81.04,
+      "needs_pts": 2.0,
       "sector": "Technology"
-    },
-    {
-      "sym": "SNX",
-      "direction": "ob",
-      "w_rsi": 80.63,
-      "needs_pts": 2.4,
-      "sector": "Consumer Discretionary"
     }
   ]
 }
