@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-24T08:47:42.917948-05:00",
-  "scan_time_display": "4/24 \u00b7 8:47 AM CDT",
+  "scan_time": "2026-04-24T09:20:31.693087-05:00",
+  "scan_time_display": "4/24 \u00b7 9:20 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -21,9 +21,9 @@
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 5,
     "sectors": {
-      "Technology": 2,
+      "Technology": 1,
       "Utilities": 1,
       "Finance": 1,
       "Consumer Discretionary": 1,
@@ -31,54 +31,54 @@
     },
     "w_rsi_range": [
       25.62,
-      85.79
+      85.62
     ],
     "direction_breakdown": {
-      "overbought": 5,
+      "overbought": 4,
       "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "QFIN",
-      "direction": "os",
-      "w_rsi": 27.15,
-      "needs_pts": 0.1,
-      "sector": "Finance"
-    },
-    {
       "sym": "TER",
       "direction": "ob",
-      "w_rsi": 82.88,
-      "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "GEV",
-      "direction": "ob",
-      "w_rsi": 82.75,
-      "needs_pts": 0.2,
+      "w_rsi": 82.69,
+      "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.31,
-      "needs_pts": 0.7,
+      "w_rsi": 82.62,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "ADTN",
       "direction": "ob",
-      "w_rsi": 82.23,
-      "needs_pts": 0.8,
+      "w_rsi": 81.59,
+      "needs_pts": 1.4,
       "sector": "Technology"
     },
     {
-      "sym": "AMKR",
+      "sym": "UCTT",
       "direction": "ob",
-      "w_rsi": 81.97,
-      "needs_pts": 1.0,
+      "w_rsi": 81.43,
+      "needs_pts": 1.6,
+      "sector": "Technology"
+    },
+    {
+      "sym": "KEYS",
+      "direction": "ob",
+      "w_rsi": 81.34,
+      "needs_pts": 1.7,
+      "sector": "Technology"
+    },
+    {
+      "sym": "INTC",
+      "direction": "ob",
+      "w_rsi": 81.16,
+      "needs_pts": 1.8,
       "sector": "Technology"
     }
   ]
