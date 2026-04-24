@@ -3,18 +3,18 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-24T11:16:19.677329-05:00",
-  "scan_time_display": "4/24 \u00b7 11:16 AM CDT",
+  "scan_time": "2026-04-24T11:56:39.639021-05:00",
+  "scan_time_display": "4/24 \u00b7 11:56 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 2,
     "sectors": {
-      "Utilities": 1,
+      "Finance": 1,
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
       26.59,
-      85.41
+      85.9
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -22,62 +22,63 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 6,
     "sectors": {
       "Technology": 2,
-      "Finance": 1,
+      "Consumer Staples": 1,
       "Consumer Discretionary": 1,
-      "Healthcare": 1
+      "Healthcare": 1,
+      "Industrials": 1
     },
     "w_rsi_range": [
-      25.62,
-      85.92
+      22.01,
+      83.12
     ],
     "direction_breakdown": {
       "overbought": 4,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "GEV",
-      "direction": "ob",
-      "w_rsi": 82.79,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.63,
+      "w_rsi": 82.74,
+      "needs_pts": 0.3,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 27.37,
       "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sector": "Finance"
     },
     {
-      "sym": "ROST",
+      "sym": "AMKR",
       "direction": "ob",
-      "w_rsi": 82.51,
-      "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "POWL",
-      "direction": "ob",
-      "w_rsi": 82.15,
-      "needs_pts": 0.8,
-      "sector": "Technology"
-    },
-    {
-      "sym": "UCTT",
-      "direction": "ob",
-      "w_rsi": 82.12,
+      "w_rsi": 82.09,
       "needs_pts": 0.9,
       "sector": "Technology"
     },
     {
-      "sym": "ADTN",
+      "sym": "GEV",
       "direction": "ob",
-      "w_rsi": 81.96,
+      "w_rsi": 82.14,
+      "needs_pts": 0.9,
+      "sector": "Technology"
+    },
+    {
+      "sym": "POWL",
+      "direction": "ob",
+      "w_rsi": 82.04,
+      "needs_pts": 1.0,
+      "sector": "Technology"
+    },
+    {
+      "sym": "ESE",
+      "direction": "ob",
+      "w_rsi": 82.05,
       "needs_pts": 1.0,
       "sector": "Technology"
     }
