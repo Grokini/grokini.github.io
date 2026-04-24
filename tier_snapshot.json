@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-24T09:20:31.693087-05:00",
-  "scan_time_display": "4/24 \u00b7 9:20 AM CDT",
+  "scan_time": "2026-04-24T09:55:59.878842-05:00",
+  "scan_time_display": "4/24 \u00b7 9:55 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -24,14 +24,14 @@
     "count": 5,
     "sectors": {
       "Technology": 1,
-      "Utilities": 1,
       "Finance": 1,
       "Consumer Discretionary": 1,
-      "Healthcare": 1
+      "Healthcare": 1,
+      "Industrials": 1
     },
     "w_rsi_range": [
       25.62,
-      85.62
+      85.12
     ],
     "direction_breakdown": {
       "overbought": 4,
@@ -40,46 +40,46 @@
   },
   "imminent": [
     {
-      "sym": "TER",
-      "direction": "ob",
-      "w_rsi": 82.69,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.62,
+      "w_rsi": 82.64,
       "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
+      "sym": "ERAS",
+      "direction": "ob",
+      "w_rsi": 82.36,
+      "needs_pts": 0.6,
+      "sector": "Materials"
+    },
+    {
+      "sym": "TER",
+      "direction": "ob",
+      "w_rsi": 82.42,
+      "needs_pts": 0.6,
+      "sector": "Technology"
+    },
+    {
       "sym": "ADTN",
       "direction": "ob",
-      "w_rsi": 81.59,
-      "needs_pts": 1.4,
+      "w_rsi": 81.82,
+      "needs_pts": 1.2,
       "sector": "Technology"
     },
     {
       "sym": "UCTT",
       "direction": "ob",
-      "w_rsi": 81.43,
-      "needs_pts": 1.6,
+      "w_rsi": 81.53,
+      "needs_pts": 1.5,
       "sector": "Technology"
     },
     {
-      "sym": "KEYS",
+      "sym": "DELL",
       "direction": "ob",
-      "w_rsi": 81.34,
-      "needs_pts": 1.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "INTC",
-      "direction": "ob",
-      "w_rsi": 81.16,
-      "needs_pts": 1.8,
-      "sector": "Technology"
+      "w_rsi": 81.53,
+      "needs_pts": 1.5,
+      "sector": "Industrials"
     }
   ]
 }
