@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-24T08:27:12.068476-05:00",
-  "scan_time_display": "4/24 \u00b7 8:27 AM CDT",
+  "scan_time": "2026-04-24T08:47:42.917948-05:00",
+  "scan_time_display": "4/24 \u00b7 8:47 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -21,66 +21,65 @@
     }
   },
   "tier1": {
-    "count": 8,
+    "count": 6,
     "sectors": {
       "Technology": 2,
-      "Industrials": 2,
       "Utilities": 1,
       "Finance": 1,
       "Consumer Discretionary": 1,
       "Healthcare": 1
     },
     "w_rsi_range": [
-      24.59,
+      25.62,
       85.79
     ],
     "direction_breakdown": {
-      "overbought": 6,
-      "oversold": 2
+      "overbought": 5,
+      "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "FIX",
-      "direction": "ob",
-      "w_rsi": 82.95,
-      "needs_pts": 0.0,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "WDC",
-      "direction": "ob",
-      "w_rsi": 82.66,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "GEV",
-      "direction": "ob",
-      "w_rsi": 82.71,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
-      "sym": "ROST",
-      "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 27.15,
+      "needs_pts": 0.1,
+      "sector": "Finance"
     },
     {
       "sym": "TER",
       "direction": "ob",
-      "w_rsi": 82.04,
-      "needs_pts": 1.0,
+      "w_rsi": 82.88,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "GEV",
+      "direction": "ob",
+      "w_rsi": 82.75,
+      "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 81.89,
-      "needs_pts": 1.1,
+      "w_rsi": 82.31,
+      "needs_pts": 0.7,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "ADTN",
+      "direction": "ob",
+      "w_rsi": 82.23,
+      "needs_pts": 0.8,
+      "sector": "Technology"
+    },
+    {
+      "sym": "AMKR",
+      "direction": "ob",
+      "w_rsi": 81.97,
+      "needs_pts": 1.0,
+      "sector": "Technology"
     }
   ]
 }
