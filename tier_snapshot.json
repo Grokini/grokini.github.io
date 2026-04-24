@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-24T06:28:46.584870-05:00",
-  "scan_time_display": "4/24 \u00b7 6:28 AM CDT",
+  "scan_time": "2026-04-24T06:46:20.910021-05:00",
+  "scan_time_display": "4/24 \u00b7 6:46 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -55,6 +55,13 @@
       "sector": "Industrials"
     },
     {
+      "sym": "GEV",
+      "direction": "ob",
+      "w_rsi": 82.71,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
       "sym": "ROST",
       "direction": "ob",
       "w_rsi": 82.58,
@@ -74,13 +81,6 @@
       "w_rsi": 81.89,
       "needs_pts": 1.1,
       "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "ADTN",
-      "direction": "ob",
-      "w_rsi": 81.57,
-      "needs_pts": 1.4,
-      "sector": "Technology"
     }
   ]
 }
