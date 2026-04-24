@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-24T12:57:04.820145-05:00",
-  "scan_time_display": "4/24 \u00b7 12:57 PM CDT",
+  "scan_time": "2026-04-24T13:17:15.277754-05:00",
+  "scan_time_display": "4/24 \u00b7 1:17 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -23,8 +23,8 @@
   "tier1": {
     "count": 13,
     "sectors": {
-      "Technology": 7,
-      "Industrials": 2,
+      "Technology": 6,
+      "Industrials": 3,
       "Utilities": 1,
       "Finance": 1,
       "Consumer Discretionary": 1,
@@ -32,7 +32,7 @@
     },
     "w_rsi_range": [
       25.62,
-      92.77
+      92.71
     ],
     "direction_breakdown": {
       "overbought": 12,
@@ -41,44 +41,44 @@
   },
   "imminent": [
     {
-      "sym": "ERAS",
-      "direction": "ob",
-      "w_rsi": 82.59,
-      "needs_pts": 0.4,
-      "sector": "Materials"
-    },
-    {
-      "sym": "GEV",
-      "direction": "ob",
-      "w_rsi": 82.6,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.61,
-      "needs_pts": 0.4,
+      "w_rsi": 82.65,
+      "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "QFIN",
       "direction": "os",
-      "w_rsi": 27.66,
+      "w_rsi": 27.72,
       "needs_pts": 0.7,
       "sector": "Finance"
     },
     {
-      "sym": "ESE",
+      "sym": "GEV",
+      "direction": "ob",
+      "w_rsi": 82.32,
+      "needs_pts": 0.7,
+      "sector": "Technology"
+    },
+    {
+      "sym": "ERAS",
+      "direction": "ob",
+      "w_rsi": 82.21,
+      "needs_pts": 0.8,
+      "sector": "Materials"
+    },
+    {
+      "sym": "AMKR",
       "direction": "ob",
       "w_rsi": 82.07,
       "needs_pts": 0.9,
       "sector": "Technology"
     },
     {
-      "sym": "POWL",
+      "sym": "ADTN",
       "direction": "ob",
-      "w_rsi": 81.96,
+      "w_rsi": 82.02,
       "needs_pts": 1.0,
       "sector": "Technology"
     }
