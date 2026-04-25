@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-25T02:41:56.695795-05:00",
-  "scan_time_display": "4/25 \u00b7 2:41 AM CDT",
+  "scan_time": "2026-04-25T18:13:08.843690-05:00",
+  "scan_time_display": "4/25 \u00b7 6:13 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -21,19 +21,18 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 4,
     "sectors": {
       "Technology": 3,
-      "Healthcare": 1,
       "Industrials": 1
     },
     "w_rsi_range": [
-      25.62,
+      79.62,
       90.89
     ],
     "direction_breakdown": {
       "overbought": 4,
-      "oversold": 1
+      "oversold": 0
     }
   },
   "imminent": [
@@ -73,11 +72,11 @@
       "sector": "Finance"
     },
     {
-      "sym": "AMKR",
+      "sym": "FIX",
       "direction": "ob",
-      "w_rsi": 81.6,
-      "needs_pts": 1.4,
-      "sector": "Technology"
+      "w_rsi": 81.97,
+      "needs_pts": 1.0,
+      "sector": "Industrials"
     }
   ]
 }
