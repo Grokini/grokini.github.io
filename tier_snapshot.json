@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-27T08:21:10.154563-05:00",
-  "scan_time_display": "4/27 \u00b7 8:21 AM CDT",
+  "scan_time": "2026-04-27T08:47:01.559661-05:00",
+  "scan_time_display": "4/27 \u00b7 8:47 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -19,10 +19,10 @@
     "count": 4,
     "sectors": {
       "Technology": 3,
-      "Industrials": 1
+      "Utilities": 1
     },
     "w_rsi_range": [
-      79.62,
+      83.23,
       90.89
     ],
     "direction_breakdown": {
@@ -32,45 +32,45 @@
   },
   "imminent": [
     {
-      "sym": "INTC",
+      "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 82.76,
-      "needs_pts": 0.2,
+      "w_rsi": 82.28,
+      "needs_pts": 0.7,
       "sector": "Technology"
     },
     {
-      "sym": "SNX",
-      "direction": "ob",
-      "w_rsi": 82.79,
-      "needs_pts": 0.2,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "WDC",
-      "direction": "ob",
-      "w_rsi": 82.71,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "GEV",
-      "direction": "ob",
-      "w_rsi": 82.7,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
-      "sym": "QFIN",
+      "sym": "BTGO",
       "direction": "os",
-      "w_rsi": 27.41,
-      "needs_pts": 0.4,
+      "w_rsi": 28.21,
+      "needs_pts": 1.2,
       "sector": "Finance"
     },
     {
-      "sym": "FIX",
+      "sym": "DELL",
       "direction": "ob",
-      "w_rsi": 81.97,
-      "needs_pts": 1.0,
+      "w_rsi": 81.81,
+      "needs_pts": 1.2,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "ANAB",
+      "direction": "ob",
+      "w_rsi": 81.37,
+      "needs_pts": 1.6,
+      "sector": "Materials"
+    },
+    {
+      "sym": "NGL",
+      "direction": "ob",
+      "w_rsi": 81.42,
+      "needs_pts": 1.6,
+      "sector": "Utilities"
+    },
+    {
+      "sym": "SNDK",
+      "direction": "ob",
+      "w_rsi": 81.32,
+      "needs_pts": 1.7,
       "sector": "Industrials"
     }
   ]
