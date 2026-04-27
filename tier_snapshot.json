@@ -3,28 +3,33 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-27T10:13:56.962663-05:00",
-  "scan_time_display": "4/27 \u00b7 10:13 AM CDT",
+  "scan_time": "2026-04-27T10:45:26.588599-05:00",
+  "scan_time_display": "4/27 \u00b7 10:45 AM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Industrials": 1
+    },
+    "w_rsi_range": [
+      87.01,
+      87.01
+    ],
     "direction_breakdown": {
-      "overbought": 0,
+      "overbought": 1,
       "oversold": 0
     }
   },
   "tier1": {
     "count": 8,
     "sectors": {
-      "Technology": 4,
-      "Industrials": 2,
-      "Finance": 1,
-      "Consumer Discretionary": 1
+      "Technology": 5,
+      "Utilities": 1,
+      "Consumer Discretionary": 1,
+      "Industrials": 1
     },
     "w_rsi_range": [
-      24.05,
+      24.08,
       90.89
     ],
     "direction_breakdown": {
@@ -34,46 +39,46 @@
   },
   "imminent": [
     {
-      "sym": "FIX",
+      "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.59,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "ADTN",
-      "direction": "ob",
-      "w_rsi": 81.77,
+      "w_rsi": 81.79,
       "needs_pts": 1.2,
-      "sector": "Technology"
+      "sector": "Industrials"
     },
     {
       "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 81.58,
-      "needs_pts": 1.4,
+      "w_rsi": 81.28,
+      "needs_pts": 1.7,
       "sector": "Technology"
-    },
-    {
-      "sym": "SNDK",
-      "direction": "ob",
-      "w_rsi": 81.64,
-      "needs_pts": 1.4,
-      "sector": "Industrials"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 81.19,
-      "needs_pts": 1.8,
+      "w_rsi": 81.27,
+      "needs_pts": 1.7,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "NGL",
+      "sym": "AMKR",
       "direction": "ob",
-      "w_rsi": 80.79,
-      "needs_pts": 2.2,
-      "sector": "Utilities"
+      "w_rsi": 80.95,
+      "needs_pts": 2.0,
+      "sector": "Technology"
+    },
+    {
+      "sym": "DELL",
+      "direction": "ob",
+      "w_rsi": 80.92,
+      "needs_pts": 2.1,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "TS",
+      "direction": "ob",
+      "w_rsi": 80.94,
+      "needs_pts": 2.1,
+      "sector": "Industrials"
     }
   ]
 }
