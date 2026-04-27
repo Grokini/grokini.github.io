@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-27T09:45:59.273964-05:00",
-  "scan_time_display": "4/27 \u00b7 9:45 AM CDT",
+  "scan_time": "2026-04-27T10:13:56.962663-05:00",
+  "scan_time_display": "4/27 \u00b7 10:13 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,61 +16,63 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 8,
     "sectors": {
       "Technology": 4,
-      "Utilities": 1
+      "Industrials": 2,
+      "Finance": 1,
+      "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      78.53,
+      24.05,
       90.89
     ],
     "direction_breakdown": {
-      "overbought": 5,
-      "oversold": 0
+      "overbought": 7,
+      "oversold": 1
     }
   },
   "imminent": [
     {
       "sym": "FIX",
       "direction": "ob",
-      "w_rsi": 82.39,
-      "needs_pts": 0.6,
+      "w_rsi": 82.59,
+      "needs_pts": 0.4,
       "sector": "Industrials"
+    },
+    {
+      "sym": "ADTN",
+      "direction": "ob",
+      "w_rsi": 81.77,
+      "needs_pts": 1.2,
+      "sector": "Technology"
+    },
+    {
+      "sym": "POWL",
+      "direction": "ob",
+      "w_rsi": 81.58,
+      "needs_pts": 1.4,
+      "sector": "Technology"
     },
     {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 81.72,
-      "needs_pts": 1.3,
+      "w_rsi": 81.64,
+      "needs_pts": 1.4,
       "sector": "Industrials"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 81.3,
-      "needs_pts": 1.7,
+      "w_rsi": 81.19,
+      "needs_pts": 1.8,
       "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "POWL",
-      "direction": "ob",
-      "w_rsi": 81.07,
-      "needs_pts": 1.9,
-      "sector": "Technology"
-    },
-    {
-      "sym": "ADTN",
-      "direction": "ob",
-      "w_rsi": 80.99,
-      "needs_pts": 2.0,
-      "sector": "Technology"
     },
     {
       "sym": "NGL",
       "direction": "ob",
-      "w_rsi": 80.66,
-      "needs_pts": 2.3,
+      "w_rsi": 80.79,
+      "needs_pts": 2.2,
       "sector": "Utilities"
     }
   ]
