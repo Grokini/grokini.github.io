@@ -3,33 +3,37 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-27T11:48:24.854583-05:00",
-  "scan_time_display": "4/27 \u00b7 11:48 AM CDT",
+  "scan_time": "2026-04-27T12:22:21.506454-05:00",
+  "scan_time_display": "4/27 \u00b7 12:22 PM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Industrials": 1
+    },
+    "w_rsi_range": [
+      87.19,
+      87.19
+    ],
     "direction_breakdown": {
-      "overbought": 0,
+      "overbought": 1,
       "oversold": 0
     }
   },
   "tier1": {
-    "count": 10,
+    "count": 8,
     "sectors": {
       "Technology": 5,
-      "Industrials": 2,
       "Utilities": 1,
-      "Finance": 1,
-      "Consumer Discretionary": 1
+      "Consumer Discretionary": 1,
+      "Industrials": 1
     },
     "w_rsi_range": [
       24.03,
       90.89
     ],
     "direction_breakdown": {
-      "overbought": 9,
+      "overbought": 7,
       "oversold": 1
     }
   },
@@ -37,42 +41,42 @@
     {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.06,
-      "needs_pts": 0.9,
+      "w_rsi": 82.05,
+      "needs_pts": 1.0,
       "sector": "Industrials"
     },
     {
       "sym": "POWL",
       "direction": "ob",
-      "w_rsi": 82.04,
-      "needs_pts": 1.0,
+      "w_rsi": 81.85,
+      "needs_pts": 1.2,
       "sector": "Technology"
     },
     {
       "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 81.25,
-      "needs_pts": 1.8,
+      "w_rsi": 81.08,
+      "needs_pts": 1.9,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "DELL",
       "direction": "ob",
-      "w_rsi": 81.01,
-      "needs_pts": 2.0,
+      "w_rsi": 80.8,
+      "needs_pts": 2.2,
       "sector": "Industrials"
     },
     {
       "sym": "WATT",
       "direction": "ob",
-      "w_rsi": 80.89,
-      "needs_pts": 2.1,
+      "w_rsi": 80.64,
+      "needs_pts": 2.4,
       "sector": "Technology"
     },
     {
       "sym": "ADTN",
       "direction": "ob",
-      "w_rsi": 80.45,
+      "w_rsi": 80.54,
       "needs_pts": 2.5,
       "sector": "Technology"
     }
