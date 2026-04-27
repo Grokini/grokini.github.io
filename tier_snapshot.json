@@ -3,8 +3,13 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
+<<<<<<< HEAD
+  "scan_time": "2026-04-27T15:49:49.016074-05:00",
+  "scan_time_display": "4/27 \u00b7 3:49 PM CDT",
+=======
   "scan_time": "2026-04-27T15:33:33.522033-05:00",
   "scan_time_display": "4/27 \u00b7 3:33 PM CDT",
+>>>>>>> ed198ec32018f6f2ddc153dbfefa00a6f676ee9b
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -12,8 +17,13 @@
       "Industrials": 1
     },
     "w_rsi_range": [
+<<<<<<< HEAD
+      87.37,
+      87.37
+=======
       87.39,
       87.39
+>>>>>>> ed198ec32018f6f2ddc153dbfefa00a6f676ee9b
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -62,7 +72,11 @@
     {
       "sym": "DELL",
       "direction": "ob",
+<<<<<<< HEAD
+      "w_rsi": 81.17,
+=======
       "w_rsi": 81.18,
+>>>>>>> ed198ec32018f6f2ddc153dbfefa00a6f676ee9b
       "needs_pts": 1.8,
       "sector": "Industrials"
     },
