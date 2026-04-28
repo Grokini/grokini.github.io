@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-28T13:15:31.554476-05:00",
-  "scan_time_display": "4/28 \u00b7 1:15 PM CDT",
+  "scan_time": "2026-04-28T13:45:21.681389-05:00",
+  "scan_time_display": "4/28 \u00b7 1:45 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,50 +16,50 @@
     }
   },
   "tier1": {
-    "count": 11,
+    "count": 10,
     "sectors": {
-      "Technology": 6,
+      "Technology": 7,
       "Finance": 1,
-      "Consumer Discretionary": 2,
-      "Industrials": 2
+      "Consumer Discretionary": 1,
+      "Industrials": 1
     },
     "w_rsi_range": [
-      22.8,
+      23.61,
       90.89
     ],
     "direction_breakdown": {
       "overbought": 8,
-      "oversold": 3
+      "oversold": 2
     }
   },
   "imminent": [
     {
       "sym": "NGL",
       "direction": "ob",
-      "w_rsi": 82.47,
-      "needs_pts": 0.5,
+      "w_rsi": 82.84,
+      "needs_pts": 0.2,
       "sector": "Utilities"
-    },
-    {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 28.53,
-      "needs_pts": 1.5,
-      "sector": "Healthcare"
     },
     {
       "sym": "CPB",
       "direction": "os",
-      "w_rsi": 28.5,
-      "needs_pts": 1.5,
+      "w_rsi": 28.22,
+      "needs_pts": 1.2,
       "sector": "Consumer Staples"
     },
     {
       "sym": "QFIN",
       "direction": "os",
-      "w_rsi": 28.48,
+      "w_rsi": 28.47,
       "needs_pts": 1.5,
       "sector": "Finance"
+    },
+    {
+      "sym": "COO",
+      "direction": "os",
+      "w_rsi": 28.61,
+      "needs_pts": 1.6,
+      "sector": "Healthcare"
     },
     {
       "sym": "MNSO",
@@ -69,11 +69,11 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "KLAR",
-      "direction": "os",
-      "w_rsi": 29.41,
-      "needs_pts": 2.4,
-      "sector": "Finance"
+      "sym": "TS",
+      "direction": "ob",
+      "w_rsi": 80.9,
+      "needs_pts": 2.1,
+      "sector": "Industrials"
     }
   ]
 }
