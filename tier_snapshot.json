@@ -3,15 +3,20 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-28T10:19:05.258668-05:00",
-  "scan_time_display": "4/28 \u00b7 10:19 AM CDT",
+  "scan_time": "2026-04-28T10:55:25.062612-05:00",
+  "scan_time_display": "4/28 \u00b7 10:55 AM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Utilities": 1
+    },
+    "w_rsi_range": [
+      85.88,
+      85.88
+    ],
     "direction_breakdown": {
-      "overbought": 0,
+      "overbought": 1,
       "oversold": 0
     }
   },
@@ -20,39 +25,46 @@
     "sectors": {
       "Technology": 5,
       "Finance": 1,
-      "Materials": 1,
+      "Consumer Discretionary": 1,
       "Industrials": 1
     },
     "w_rsi_range": [
-      78.34,
+      23.61,
       90.89
     ],
     "direction_breakdown": {
-      "overbought": 8,
-      "oversold": 0
+      "overbought": 7,
+      "oversold": 1
     }
   },
   "imminent": [
     {
       "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.1,
-      "needs_pts": 0.1,
+      "w_rsi": 27.24,
+      "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
       "sym": "EDSA",
       "direction": "ob",
-      "w_rsi": 82.52,
-      "needs_pts": 0.5,
+      "w_rsi": 82.7,
+      "needs_pts": 0.3,
       "sector": "Materials"
     },
     {
       "sym": "FVRR",
       "direction": "os",
-      "w_rsi": 27.64,
-      "needs_pts": 0.6,
+      "w_rsi": 27.89,
+      "needs_pts": 0.9,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "NGL",
+      "direction": "ob",
+      "w_rsi": 82.05,
+      "needs_pts": 1.0,
+      "sector": "Utilities"
     },
     {
       "sym": "CPB",
@@ -62,17 +74,10 @@
       "sector": "Consumer Staples"
     },
     {
-      "sym": "NGL",
-      "direction": "ob",
-      "w_rsi": 81.84,
-      "needs_pts": 1.2,
-      "sector": "Utilities"
-    },
-    {
       "sym": "QFIN",
       "direction": "os",
-      "w_rsi": 28.31,
-      "needs_pts": 1.3,
+      "w_rsi": 28.47,
+      "needs_pts": 1.5,
       "sector": "Finance"
     }
   ]
