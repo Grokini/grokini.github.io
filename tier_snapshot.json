@@ -3,14 +3,13 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-28T15:24:08.411695-05:00",
-  "scan_time_display": "4/28 \u00b7 3:24 PM CDT",
+  "scan_time": "2026-04-28T15:55:58.832977-05:00",
+  "scan_time_display": "4/28 \u00b7 3:55 PM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 4,
+    "count": 3,
     "sectors": {
       "Consumer Staples": 1,
-      "Utilities": 1,
       "Technology": 1,
       "Consumer Discretionary": 1
     },
@@ -19,14 +18,15 @@
       87.21
     ],
     "direction_breakdown": {
-      "overbought": 2,
+      "overbought": 1,
       "oversold": 2
     }
   },
   "tier1": {
-    "count": 10,
+    "count": 11,
     "sectors": {
       "Technology": 5,
+      "Utilities": 1,
       "Finance": 1,
       "Industrials": 2,
       "Materials": 1,
@@ -37,7 +37,7 @@
       90.89
     ],
     "direction_breakdown": {
-      "overbought": 9,
+      "overbought": 10,
       "oversold": 1
     }
   },
@@ -73,7 +73,7 @@
     {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 29.22,
+      "w_rsi": 29.21,
       "needs_pts": 2.2,
       "sector": "Consumer Discretionary"
     },
