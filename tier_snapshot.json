@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-28T09:52:48.650995-05:00",
-  "scan_time_display": "4/28 \u00b7 9:52 AM CDT",
+  "scan_time": "2026-04-28T10:19:05.258668-05:00",
+  "scan_time_display": "4/28 \u00b7 10:19 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,11 @@
     }
   },
   "tier1": {
-    "count": 7,
+    "count": 8,
     "sectors": {
       "Technology": 5,
       "Finance": 1,
+      "Materials": 1,
       "Industrials": 1
     },
     "w_rsi_range": [
@@ -27,7 +28,7 @@
       90.89
     ],
     "direction_breakdown": {
-      "overbought": 7,
+      "overbought": 8,
       "oversold": 0
     }
   },
@@ -35,44 +36,44 @@
     {
       "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.07,
+      "w_rsi": 27.1,
       "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
       "sym": "EDSA",
       "direction": "ob",
-      "w_rsi": 82.8,
-      "needs_pts": 0.2,
-      "sector": "Materials"
-    },
-    {
-      "sym": "CPB",
-      "direction": "os",
-      "w_rsi": 27.47,
+      "w_rsi": 82.52,
       "needs_pts": 0.5,
-      "sector": "Consumer Staples"
+      "sector": "Materials"
     },
     {
       "sym": "FVRR",
       "direction": "os",
-      "w_rsi": 27.74,
-      "needs_pts": 0.7,
+      "w_rsi": 27.64,
+      "needs_pts": 0.6,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "QFIN",
+      "sym": "CPB",
       "direction": "os",
-      "w_rsi": 28.32,
-      "needs_pts": 1.3,
-      "sector": "Finance"
+      "w_rsi": 28.15,
+      "needs_pts": 1.1,
+      "sector": "Consumer Staples"
     },
     {
       "sym": "NGL",
       "direction": "ob",
-      "w_rsi": 81.73,
-      "needs_pts": 1.3,
+      "w_rsi": 81.84,
+      "needs_pts": 1.2,
       "sector": "Utilities"
+    },
+    {
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 28.31,
+      "needs_pts": 1.3,
+      "sector": "Finance"
     }
   ]
 }
