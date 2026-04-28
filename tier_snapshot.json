@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-28T08:15:25.491194-05:00",
-  "scan_time_display": "4/28 \u00b7 8:15 AM CDT",
+  "scan_time": "2026-04-28T08:48:29.962829-05:00",
+  "scan_time_display": "4/28 \u00b7 8:48 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,64 +16,63 @@
     }
   },
   "tier1": {
-    "count": 9,
+    "count": 8,
     "sectors": {
-      "Technology": 5,
-      "Industrials": 2,
+      "Technology": 6,
       "Finance": 1,
-      "Consumer Discretionary": 1
+      "Industrials": 1
     },
     "w_rsi_range": [
-      23.77,
+      78.34,
       90.89
     ],
     "direction_breakdown": {
       "overbought": 8,
-      "oversold": 1
+      "oversold": 0
     }
   },
   "imminent": [
     {
-      "sym": "POWL",
-      "direction": "ob",
-      "w_rsi": 82.52,
-      "needs_pts": 0.5,
-      "sector": "Technology"
-    },
-    {
-      "sym": "HTCO",
-      "direction": "ob",
-      "w_rsi": 82.44,
-      "needs_pts": 0.6,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "SNDK",
-      "direction": "ob",
-      "w_rsi": 82.18,
+      "sym": "FVRR",
+      "direction": "os",
+      "w_rsi": 27.82,
       "needs_pts": 0.8,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "NGL",
+      "direction": "ob",
+      "w_rsi": 81.41,
+      "needs_pts": 1.6,
+      "sector": "Utilities"
+    },
+    {
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 28.66,
+      "needs_pts": 1.7,
+      "sector": "Finance"
+    },
+    {
+      "sym": "TS",
+      "direction": "ob",
+      "w_rsi": 80.94,
+      "needs_pts": 2.1,
       "sector": "Industrials"
     },
     {
-      "sym": "WDC",
-      "direction": "ob",
-      "w_rsi": 81.6,
-      "needs_pts": 1.4,
-      "sector": "Industrials"
+      "sym": "MNSO",
+      "direction": "os",
+      "w_rsi": 29.25,
+      "needs_pts": 2.2,
+      "sector": "Consumer Discretionary"
     },
     {
-      "sym": "ADTN",
-      "direction": "ob",
-      "w_rsi": 81.45,
-      "needs_pts": 1.5,
-      "sector": "Technology"
-    },
-    {
-      "sym": "DELL",
-      "direction": "ob",
-      "w_rsi": 81.17,
-      "needs_pts": 1.8,
-      "sector": "Industrials"
+      "sym": "KLAR",
+      "direction": "os",
+      "w_rsi": 29.8,
+      "needs_pts": 2.8,
+      "sector": "Finance"
     }
   ]
 }
