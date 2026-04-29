@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-29T09:55:49.029249-05:00",
-  "scan_time_display": "4/29 \u00b7 9:55 AM CDT",
+  "scan_time": "2026-04-29T10:23:02.241842-05:00",
+  "scan_time_display": "4/29 \u00b7 10:23 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,66 +16,67 @@
     }
   },
   "tier1": {
-    "count": 12,
+    "count": 13,
     "sectors": {
       "Technology": 5,
       "Utilities": 1,
       "Finance": 2,
+      "Consumer Discretionary": 1,
       "Industrials": 2,
       "Materials": 1,
       "Healthcare": 1
     },
     "w_rsi_range": [
-      24.13,
+      22.69,
       92.85
     ],
     "direction_breakdown": {
       "overbought": 11,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "CPB",
+      "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.1,
-      "needs_pts": 0.1,
-      "sector": "Consumer Staples"
-    },
-    {
-      "sym": "QFIN",
-      "direction": "os",
-      "w_rsi": 27.22,
-      "needs_pts": 0.2,
-      "sector": "Finance"
+      "w_rsi": 27.28,
+      "needs_pts": 0.3,
+      "sector": "Healthcare"
     },
     {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.7,
+      "w_rsi": 82.66,
       "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 27.38,
-      "needs_pts": 0.4,
-      "sector": "Healthcare"
-    },
-    {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 28.1,
-      "needs_pts": 1.1,
+      "w_rsi": 27.94,
+      "needs_pts": 0.9,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "STX",
       "direction": "ob",
-      "w_rsi": 81.78,
-      "needs_pts": 1.2,
+      "w_rsi": 81.97,
+      "needs_pts": 1.0,
       "sector": "Industrials"
+    },
+    {
+      "sym": "JLHL",
+      "direction": "ob",
+      "w_rsi": 81.2,
+      "needs_pts": 1.8,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "KLAR",
+      "direction": "os",
+      "w_rsi": 28.88,
+      "needs_pts": 1.9,
+      "sector": "Finance"
     }
   ]
 }
