@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-29T12:20:47.912901-05:00",
-  "scan_time_display": "4/29 \u00b7 12:20 PM CDT",
+  "scan_time": "2026-04-29T12:54:46.543130-05:00",
+  "scan_time_display": "4/29 \u00b7 12:54 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,66 +16,66 @@
     }
   },
   "tier1": {
-    "count": 11,
+    "count": 12,
     "sectors": {
       "Technology": 5,
       "Utilities": 1,
       "Finance": 2,
+      "Consumer Discretionary": 2,
       "Materials": 1,
-      "Industrials": 1,
-      "Consumer Discretionary": 1
+      "Industrials": 1
     },
     "w_rsi_range": [
-      22.49,
+      22.61,
       92.85
     ],
     "direction_breakdown": {
       "overbought": 10,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "FLUT",
-      "direction": "os",
-      "w_rsi": 27.12,
-      "needs_pts": 0.1,
+      "sym": "MXL",
+      "direction": "ob",
+      "w_rsi": 82.79,
+      "needs_pts": 0.2,
       "sector": "Technology"
-    },
-    {
-      "sym": "FUBO",
-      "direction": "os",
-      "w_rsi": 27.12,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
     },
     {
       "sym": "CPB",
       "direction": "os",
-      "w_rsi": 27.34,
-      "needs_pts": 0.3,
+      "w_rsi": 27.37,
+      "needs_pts": 0.4,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "MXL",
-      "direction": "ob",
-      "w_rsi": 82.69,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
-      "sym": "COO",
+      "sym": "FUBO",
       "direction": "os",
-      "w_rsi": 27.39,
-      "needs_pts": 0.4,
-      "sector": "Healthcare"
+      "w_rsi": 27.57,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.47,
-      "needs_pts": 0.5,
+      "w_rsi": 82.27,
+      "needs_pts": 0.7,
       "sector": "Industrials"
+    },
+    {
+      "sym": "JLHL",
+      "direction": "ob",
+      "w_rsi": 82.13,
+      "needs_pts": 0.9,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "CSGP",
+      "direction": "os",
+      "w_rsi": 28.29,
+      "needs_pts": 1.3,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
