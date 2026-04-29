@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-29T08:56:45.133243-05:00",
-  "scan_time_display": "4/29 \u00b7 8:56 AM CDT",
+  "scan_time": "2026-04-29T09:15:56.134276-05:00",
+  "scan_time_display": "4/29 \u00b7 9:15 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -26,7 +26,7 @@
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      22.49,
+      22.6,
       90.89
     ],
     "direction_breakdown": {
@@ -36,45 +36,45 @@
   },
   "imminent": [
     {
-      "sym": "SNDK",
-      "direction": "ob",
-      "w_rsi": 82.86,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 27.23,
+      "needs_pts": 0.2,
+      "sector": "Finance"
     },
     {
-      "sym": "STX",
+      "sym": "CPB",
+      "direction": "os",
+      "w_rsi": 27.31,
+      "needs_pts": 0.3,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.94,
-      "needs_pts": 0.1,
+      "w_rsi": 82.67,
+      "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
       "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.27,
+      "w_rsi": 27.26,
       "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
-      "sym": "QFIN",
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.73,
-      "needs_pts": 0.7,
-      "sector": "Finance"
-    },
-    {
-      "sym": "WDC",
-      "direction": "ob",
-      "w_rsi": 82.06,
-      "needs_pts": 0.9,
-      "sector": "Industrials"
+      "w_rsi": 27.57,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "COO",
       "direction": "os",
-      "w_rsi": 28.5,
-      "needs_pts": 1.5,
+      "w_rsi": 27.75,
+      "needs_pts": 0.8,
       "sector": "Healthcare"
     }
   ]
