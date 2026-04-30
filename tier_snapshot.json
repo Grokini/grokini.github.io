@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-30T11:05:04.649402-05:00",
-  "scan_time_display": "4/30 \u00b7 11:05 AM CDT",
+  "scan_time": "2026-04-30T11:31:30.402882-05:00",
+  "scan_time_display": "4/30 \u00b7 11:31 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,64 +16,65 @@
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 7,
     "sectors": {
       "Utilities": 1,
       "Finance": 2,
+      "Consumer Discretionary": 1,
       "Technology": 2,
       "Materials": 1
     },
     "w_rsi_range": [
-      26.87,
+      22.96,
       92.85
     ],
     "direction_breakdown": {
       "overbought": 5,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "SNDK",
-      "direction": "ob",
-      "w_rsi": 82.73,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
+      "sym": "BTGO",
+      "direction": "os",
+      "w_rsi": 27.15,
+      "needs_pts": 0.1,
+      "sector": "Finance"
     },
     {
       "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.43,
-      "needs_pts": 0.4,
+      "w_rsi": 27.18,
+      "needs_pts": 0.2,
       "sector": "Technology"
+    },
+    {
+      "sym": "SNDK",
+      "direction": "ob",
+      "w_rsi": 82.72,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
     },
     {
       "sym": "FUBO",
       "direction": "os",
-      "w_rsi": 27.4,
-      "needs_pts": 0.4,
+      "w_rsi": 27.3,
+      "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "BAND",
       "direction": "ob",
-      "w_rsi": 82.3,
-      "needs_pts": 0.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "STX",
-      "direction": "ob",
-      "w_rsi": 82.34,
-      "needs_pts": 0.7,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "CHKP",
-      "direction": "os",
-      "w_rsi": 27.93,
+      "w_rsi": 82.09,
       "needs_pts": 0.9,
       "sector": "Technology"
+    },
+    {
+      "sym": "ODD",
+      "direction": "os",
+      "w_rsi": 28.1,
+      "needs_pts": 1.1,
+      "sector": "Materials"
     }
   ]
 }
