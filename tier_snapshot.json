@@ -3,80 +3,84 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-30T14:17:58.957274-05:00",
-  "scan_time_display": "4/30 \u00b7 2:17 PM CDT",
+  "scan_time": "2026-04-30T14:46:34.408900-05:00",
+  "scan_time_display": "4/30 \u00b7 2:46 PM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Consumer Discretionary": 1
+    },
+    "w_rsi_range": [
+      23.37,
+      23.37
+    ],
     "direction_breakdown": {
       "overbought": 0,
-      "oversold": 0
+      "oversold": 1
     }
   },
   "tier1": {
-    "count": 13,
+    "count": 11,
     "sectors": {
       "Industrials": 1,
       "Utilities": 1,
-      "Technology": 6,
       "Finance": 2,
-      "Consumer Discretionary": 1,
+      "Technology": 5,
       "Materials": 1,
       "Healthcare": 1
     },
     "w_rsi_range": [
-      22.99,
+      24.61,
       92.85
     ],
     "direction_breakdown": {
-      "overbought": 10,
-      "oversold": 3
+      "overbought": 9,
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "SNDK",
+      "sym": "FLUT",
+      "direction": "os",
+      "w_rsi": 27.34,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "STX",
       "direction": "ob",
-      "w_rsi": 82.97,
-      "needs_pts": 0.0,
+      "w_rsi": 82.32,
+      "needs_pts": 0.7,
       "sector": "Industrials"
     },
     {
       "sym": "ODD",
       "direction": "os",
-      "w_rsi": 28.02,
-      "needs_pts": 1.0,
+      "w_rsi": 27.89,
+      "needs_pts": 0.9,
       "sector": "Materials"
-    },
-    {
-      "sym": "STX",
-      "direction": "ob",
-      "w_rsi": 81.96,
-      "needs_pts": 1.0,
-      "sector": "Industrials"
     },
     {
       "sym": "AIP",
       "direction": "ob",
-      "w_rsi": 81.78,
+      "w_rsi": 81.81,
       "needs_pts": 1.2,
       "sector": "Technology"
     },
     {
-      "sym": "QFIN",
-      "direction": "os",
-      "w_rsi": 28.49,
-      "needs_pts": 1.5,
-      "sector": "Finance"
-    },
-    {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 28.92,
-      "needs_pts": 1.9,
+      "w_rsi": 28.46,
+      "needs_pts": 1.5,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 28.82,
+      "needs_pts": 1.8,
+      "sector": "Finance"
     }
   ]
 }
