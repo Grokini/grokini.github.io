@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-04-30T10:27:48.624658-05:00",
-  "scan_time_display": "4/30 \u00b7 10:27 AM CDT",
+  "scan_time": "2026-04-30T11:05:04.649402-05:00",
+  "scan_time_display": "4/30 \u00b7 11:05 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,20 +34,6 @@
   },
   "imminent": [
     {
-      "sym": "BHE",
-      "direction": "ob",
-      "w_rsi": 82.94,
-      "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "FUBO",
-      "direction": "os",
-      "w_rsi": 27.14,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "SNDK",
       "direction": "ob",
       "w_rsi": 82.73,
@@ -55,25 +41,39 @@
       "sector": "Industrials"
     },
     {
-      "sym": "STX",
-      "direction": "ob",
-      "w_rsi": 82.67,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
-    },
-    {
       "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.29,
-      "needs_pts": 0.3,
+      "w_rsi": 27.43,
+      "needs_pts": 0.4,
       "sector": "Technology"
     },
     {
-      "sym": "CSGP",
+      "sym": "FUBO",
       "direction": "os",
-      "w_rsi": 27.9,
-      "needs_pts": 0.9,
+      "w_rsi": 27.4,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "BAND",
+      "direction": "ob",
+      "w_rsi": 82.3,
+      "needs_pts": 0.7,
+      "sector": "Technology"
+    },
+    {
+      "sym": "STX",
+      "direction": "ob",
+      "w_rsi": 82.34,
+      "needs_pts": 0.7,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "CHKP",
+      "direction": "os",
+      "w_rsi": 27.93,
+      "needs_pts": 0.9,
+      "sector": "Technology"
     }
   ]
 }
