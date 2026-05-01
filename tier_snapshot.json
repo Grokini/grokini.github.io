@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-01T10:14:51.555544-05:00",
-  "scan_time_display": "5/1 \u00b7 10:14 AM CDT",
+  "scan_time": "2026-05-01T10:52:08.759565-05:00",
+  "scan_time_display": "5/1 \u00b7 10:52 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -18,55 +18,55 @@
   "tier1": {
     "count": 7,
     "sectors": {
-      "Technology": 4,
       "Utilities": 1,
+      "Technology": 4,
       "Materials": 1,
       "Finance": 1
     },
     "w_rsi_range": [
       26.87,
-      94.32
+      92.85
     ],
     "direction_breakdown": {
-      "overbought": 6,
-      "oversold": 1
+      "overbought": 5,
+      "oversold": 2
     }
   },
   "imminent": [
     {
       "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.11,
-      "needs_pts": 0.1,
+      "w_rsi": 27.17,
+      "needs_pts": 0.2,
       "sector": "Technology"
-    },
-    {
-      "sym": "NWPX",
-      "direction": "ob",
-      "w_rsi": 82.73,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
     },
     {
       "sym": "BTGO",
       "direction": "os",
-      "w_rsi": 27.33,
-      "needs_pts": 0.3,
+      "w_rsi": 27.53,
+      "needs_pts": 0.5,
       "sector": "Finance"
     },
     {
       "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.59,
-      "needs_pts": 0.6,
+      "w_rsi": 27.76,
+      "needs_pts": 0.8,
       "sector": "Healthcare"
     },
     {
       "sym": "NVT",
       "direction": "ob",
-      "w_rsi": 82.3,
-      "needs_pts": 0.7,
+      "w_rsi": 82.07,
+      "needs_pts": 0.9,
       "sector": "Industrials"
+    },
+    {
+      "sym": "LITE",
+      "direction": "ob",
+      "w_rsi": 82.02,
+      "needs_pts": 1.0,
+      "sector": "Technology"
     },
     {
       "sym": "BTSGU",
