@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-01T09:17:58.976734-05:00",
-  "scan_time_display": "5/1 \u00b7 9:17 AM CDT",
+  "scan_time": "2026-05-01T09:57:16.652810-05:00",
+  "scan_time_display": "5/1 \u00b7 9:57 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,11 +16,11 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 6,
     "sectors": {
       "Utilities": 1,
+      "Technology": 2,
       "Materials": 1,
-      "Technology": 1,
       "Finance": 1,
       "Industrials": 1
     },
@@ -29,51 +29,51 @@
       92.85
     ],
     "direction_breakdown": {
-      "overbought": 4,
+      "overbought": 5,
       "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "NWPX",
-      "direction": "ob",
-      "w_rsi": 82.97,
-      "needs_pts": 0.0,
-      "sector": "Industrials"
-    },
-    {
       "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.1,
+      "w_rsi": 27.15,
       "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
-      "sym": "BTGO",
-      "direction": "os",
-      "w_rsi": 27.25,
-      "needs_pts": 0.2,
-      "sector": "Finance"
+      "sym": "BTSGU",
+      "direction": "ob",
+      "w_rsi": 82.66,
+      "needs_pts": 0.3,
+      "sector": "Healthcare"
     },
     {
-      "sym": "NVT",
+      "sym": "NWPX",
       "direction": "ob",
-      "w_rsi": 82.56,
+      "w_rsi": 82.61,
       "needs_pts": 0.4,
       "sector": "Industrials"
     },
     {
-      "sym": "COO",
+      "sym": "NVT",
+      "direction": "ob",
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "BTGO",
       "direction": "os",
       "w_rsi": 27.59,
       "needs_pts": 0.6,
-      "sector": "Healthcare"
+      "sector": "Finance"
     },
     {
-      "sym": "RYAN",
+      "sym": "QFIN",
       "direction": "os",
-      "w_rsi": 27.61,
-      "needs_pts": 0.6,
+      "w_rsi": 27.83,
+      "needs_pts": 0.8,
       "sector": "Finance"
     }
   ]
