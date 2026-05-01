@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-01T12:16:28.819120-05:00",
-  "scan_time_display": "5/1 \u00b7 12:16 PM CDT",
+  "scan_time": "2026-05-01T12:53:49.904021-05:00",
+  "scan_time_display": "5/1 \u00b7 12:53 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -18,17 +18,15 @@
   "tier1": {
     "count": 10,
     "sectors": {
+      "Technology": 5,
       "Utilities": 1,
-      "Consumer Discretionary": 1,
-      "Technology": 4,
       "Materials": 1,
       "Finance": 1,
-      "Healthcare": 1,
-      "Industrials": 1
+      "Healthcare": 2
     },
     "w_rsi_range": [
-      22.3,
-      92.85
+      24.13,
+      94.52
     ],
     "direction_breakdown": {
       "overbought": 7,
@@ -39,29 +37,29 @@
     {
       "sym": "NVT",
       "direction": "ob",
-      "w_rsi": 82.73,
-      "needs_pts": 0.3,
+      "w_rsi": 82.81,
+      "needs_pts": 0.2,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "AGX",
+      "direction": "ob",
+      "w_rsi": 82.51,
+      "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
       "sym": "BTGO",
       "direction": "os",
-      "w_rsi": 27.37,
-      "needs_pts": 0.4,
+      "w_rsi": 27.68,
+      "needs_pts": 0.7,
       "sector": "Finance"
-    },
-    {
-      "sym": "AGX",
-      "direction": "ob",
-      "w_rsi": 82.46,
-      "needs_pts": 0.5,
-      "sector": "Industrials"
     },
     {
       "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.98,
-      "needs_pts": 1.0,
+      "w_rsi": 27.87,
+      "needs_pts": 0.9,
       "sector": "Healthcare"
     },
     {
@@ -72,11 +70,11 @@
       "sector": "Healthcare"
     },
     {
-      "sym": "LITE",
-      "direction": "ob",
-      "w_rsi": 81.91,
+      "sym": "CPB",
+      "direction": "os",
+      "w_rsi": 28.11,
       "needs_pts": 1.1,
-      "sector": "Technology"
+      "sector": "Consumer Staples"
     }
   ]
 }
