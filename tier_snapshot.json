@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-01T10:52:08.759565-05:00",
-  "scan_time_display": "5/1 \u00b7 10:52 AM CDT",
+  "scan_time": "2026-05-01T11:17:59.845019-05:00",
+  "scan_time_display": "5/1 \u00b7 11:17 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,10 @@
     }
   },
   "tier1": {
-    "count": 7,
+    "count": 6,
     "sectors": {
       "Utilities": 1,
-      "Technology": 4,
+      "Technology": 3,
       "Materials": 1,
       "Finance": 1
     },
@@ -28,43 +28,43 @@
       92.85
     ],
     "direction_breakdown": {
-      "overbought": 5,
+      "overbought": 4,
       "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "FLUT",
-      "direction": "os",
-      "w_rsi": 27.17,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
       "sym": "BTGO",
       "direction": "os",
-      "w_rsi": 27.53,
+      "w_rsi": 27.5,
       "needs_pts": 0.5,
       "sector": "Finance"
     },
     {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 27.76,
-      "needs_pts": 0.8,
-      "sector": "Healthcare"
-    },
-    {
       "sym": "NVT",
       "direction": "ob",
-      "w_rsi": 82.07,
-      "needs_pts": 0.9,
+      "w_rsi": 82.18,
+      "needs_pts": 0.8,
       "sector": "Industrials"
+    },
+    {
+      "sym": "SVCO",
+      "direction": "ob",
+      "w_rsi": 82.12,
+      "needs_pts": 0.9,
+      "sector": "Technology"
+    },
+    {
+      "sym": "COO",
+      "direction": "os",
+      "w_rsi": 27.98,
+      "needs_pts": 1.0,
+      "sector": "Healthcare"
     },
     {
       "sym": "LITE",
       "direction": "ob",
-      "w_rsi": 82.02,
+      "w_rsi": 81.99,
       "needs_pts": 1.0,
       "sector": "Technology"
     },
