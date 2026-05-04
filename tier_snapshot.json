@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-04T09:52:26.089473-05:00",
-  "scan_time_display": "5/4 \u00b7 9:52 AM CDT",
+  "scan_time": "2026-05-04T10:34:48.616021-05:00",
+  "scan_time_display": "5/4 \u00b7 10:34 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,64 +16,63 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 6,
     "sectors": {
-      "Consumer Discretionary": 1,
+      "Technology": 4,
       "Healthcare": 1,
-      "Technology": 2,
       "Industrials": 1
     },
     "w_rsi_range": [
-      22.04,
-      85.13
+      23.8,
+      90.82
     ],
     "direction_breakdown": {
-      "overbought": 2,
-      "oversold": 3
+      "overbought": 4,
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "AGX",
-      "direction": "ob",
-      "w_rsi": 82.9,
+      "sym": "FLUT",
+      "direction": "os",
+      "w_rsi": 27.08,
       "needs_pts": 0.1,
-      "sector": "Industrials"
+      "sector": "Technology"
     },
     {
       "sym": "ESE",
       "direction": "ob",
-      "w_rsi": 82.93,
-      "needs_pts": 0.1,
+      "w_rsi": 82.67,
+      "needs_pts": 0.3,
       "sector": "Technology"
+    },
+    {
+      "sym": "STM",
+      "direction": "ob",
+      "w_rsi": 82.54,
+      "needs_pts": 0.5,
+      "sector": "Technology"
+    },
+    {
+      "sym": "EFXT",
+      "direction": "ob",
+      "w_rsi": 82.37,
+      "needs_pts": 0.6,
+      "sector": "Industrials"
     },
     {
       "sym": "CELC",
       "direction": "ob",
-      "w_rsi": 82.75,
-      "needs_pts": 0.2,
+      "w_rsi": 82.33,
+      "needs_pts": 0.7,
       "sector": "Healthcare"
     },
     {
-      "sym": "CTRI",
-      "direction": "ob",
-      "w_rsi": 82.47,
-      "needs_pts": 0.5,
-      "sector": "Utilities"
-    },
-    {
-      "sym": "FLUT",
+      "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.47,
-      "needs_pts": 0.5,
-      "sector": "Technology"
-    },
-    {
-      "sym": "WOLF",
-      "direction": "ob",
-      "w_rsi": 82.12,
-      "needs_pts": 0.9,
-      "sector": "Technology"
+      "w_rsi": 27.76,
+      "needs_pts": 0.8,
+      "sector": "Healthcare"
     }
   ]
 }
