@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-02T00:15:41.649921-05:00",
-  "scan_time_display": "5/2 \u00b7 12:15 AM CDT",
+  "scan_time": "2026-05-04T08:49:19.029950-05:00",
+  "scan_time_display": "5/4 \u00b7 8:49 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,65 +16,62 @@
     }
   },
   "tier1": {
-    "count": 11,
+    "count": 3,
     "sectors": {
-      "Consumer Staples": 1,
-      "Technology": 5,
-      "Industrials": 2,
-      "Finance": 2,
+      "Technology": 2,
       "Healthcare": 1
     },
     "w_rsi_range": [
       23.8,
-      92.85
+      90.9
     ],
     "direction_breakdown": {
-      "overbought": 8,
-      "oversold": 3
+      "overbought": 2,
+      "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "PLXS",
+      "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.76,
-      "needs_pts": 0.2,
-      "sector": "Technology"
+      "w_rsi": 82.93,
+      "needs_pts": 0.1,
+      "sector": "Consumer Discretionary"
     },
     {
-      "sym": "AGX",
+      "sym": "NVT",
       "direction": "ob",
-      "w_rsi": 82.83,
-      "needs_pts": 0.2,
+      "w_rsi": 82.67,
+      "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "BRO",
-      "direction": "os",
-      "w_rsi": 27.7,
-      "needs_pts": 0.7,
-      "sector": "Finance"
-    },
-    {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 27.8,
-      "needs_pts": 0.8,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "SVCO",
+      "sym": "AXTI",
       "direction": "ob",
-      "w_rsi": 82.21,
-      "needs_pts": 0.8,
+      "w_rsi": 82.55,
+      "needs_pts": 0.5,
+      "sector": "Technology"
+    },
+    {
+      "sym": "PLXS",
+      "direction": "ob",
+      "w_rsi": 82.31,
+      "needs_pts": 0.7,
       "sector": "Technology"
     },
     {
       "sym": "CTRI",
       "direction": "ob",
-      "w_rsi": 81.92,
-      "needs_pts": 1.1,
+      "w_rsi": 82.15,
+      "needs_pts": 0.8,
       "sector": "Utilities"
+    },
+    {
+      "sym": "MDT",
+      "direction": "os",
+      "w_rsi": 27.94,
+      "needs_pts": 0.9,
+      "sector": "Healthcare"
     }
   ]
 }
