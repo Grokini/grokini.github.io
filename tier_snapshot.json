@@ -3,76 +3,82 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-04T10:50:55.217437-05:00",
-  "scan_time_display": "5/4 \u00b7 10:50 AM CDT",
+  "scan_time": "2026-05-04T11:27:35.525876-05:00",
+  "scan_time_display": "5/4 \u00b7 11:27 AM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Technology": 1
+    },
+    "w_rsi_range": [
+      82.23,
+      82.23
+    ],
     "direction_breakdown": {
-      "overbought": 0,
+      "overbought": 1,
       "oversold": 0
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 7,
     "sectors": {
-      "Technology": 4,
+      "Technology": 3,
+      "Industrials": 2,
       "Healthcare": 1,
-      "Industrials": 1
+      "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      23.8,
-      90.83
+      21.95,
+      93.38
     ],
     "direction_breakdown": {
       "overbought": 4,
-      "oversold": 2
+      "oversold": 3
     }
   },
   "imminent": [
     {
       "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.34,
-      "needs_pts": 0.3,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "POW",
-      "direction": "ob",
-      "w_rsi": 82.73,
-      "needs_pts": 0.3,
-      "sector": "Unknown"
-    },
-    {
-      "sym": "CELC",
-      "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
+      "w_rsi": 27.23,
+      "needs_pts": 0.2,
       "sector": "Healthcare"
     },
     {
       "sym": "EFXT",
       "direction": "ob",
-      "w_rsi": 82.64,
-      "needs_pts": 0.4,
+      "w_rsi": 82.55,
+      "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
-      "sym": "ESE",
+      "sym": "BTSGU",
       "direction": "ob",
-      "w_rsi": 82.57,
-      "needs_pts": 0.4,
-      "sector": "Technology"
+      "w_rsi": 82.4,
+      "needs_pts": 0.6,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "RYAN",
+      "direction": "os",
+      "w_rsi": 27.63,
+      "needs_pts": 0.6,
+      "sector": "Finance"
     },
     {
       "sym": "CPB",
       "direction": "os",
-      "w_rsi": 27.93,
-      "needs_pts": 0.9,
+      "w_rsi": 27.68,
+      "needs_pts": 0.7,
       "sector": "Consumer Staples"
+    },
+    {
+      "sym": "AXTI",
+      "direction": "ob",
+      "w_rsi": 82.17,
+      "needs_pts": 0.8,
+      "sector": "Technology"
     }
   ]
 }
