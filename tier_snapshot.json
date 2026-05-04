@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-04T10:34:48.616021-05:00",
-  "scan_time_display": "5/4 \u00b7 10:34 AM CDT",
+  "scan_time": "2026-05-04T10:50:55.217437-05:00",
+  "scan_time_display": "5/4 \u00b7 10:50 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -24,7 +24,7 @@
     },
     "w_rsi_range": [
       23.8,
-      90.82
+      90.83
     ],
     "direction_breakdown": {
       "overbought": 4,
@@ -33,46 +33,46 @@
   },
   "imminent": [
     {
-      "sym": "FLUT",
+      "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.08,
-      "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "ESE",
-      "direction": "ob",
-      "w_rsi": 82.67,
+      "w_rsi": 27.34,
       "needs_pts": 0.3,
-      "sector": "Technology"
+      "sector": "Healthcare"
     },
     {
-      "sym": "STM",
+      "sym": "POW",
       "direction": "ob",
-      "w_rsi": 82.54,
-      "needs_pts": 0.5,
-      "sector": "Technology"
-    },
-    {
-      "sym": "EFXT",
-      "direction": "ob",
-      "w_rsi": 82.37,
-      "needs_pts": 0.6,
-      "sector": "Industrials"
+      "w_rsi": 82.73,
+      "needs_pts": 0.3,
+      "sector": "Unknown"
     },
     {
       "sym": "CELC",
       "direction": "ob",
-      "w_rsi": 82.33,
-      "needs_pts": 0.7,
+      "w_rsi": 82.58,
+      "needs_pts": 0.4,
       "sector": "Healthcare"
     },
     {
-      "sym": "COO",
+      "sym": "EFXT",
+      "direction": "ob",
+      "w_rsi": 82.64,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "ESE",
+      "direction": "ob",
+      "w_rsi": 82.57,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "CPB",
       "direction": "os",
-      "w_rsi": 27.76,
-      "needs_pts": 0.8,
-      "sector": "Healthcare"
+      "w_rsi": 27.93,
+      "needs_pts": 0.9,
+      "sector": "Consumer Staples"
     }
   ]
 }
