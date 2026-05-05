@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-05T10:47:36.667098-05:00",
-  "scan_time_display": "5/5 \u00b7 10:47 AM CDT",
+  "scan_time": "2026-05-05T11:26:09.515780-05:00",
+  "scan_time_display": "5/5 \u00b7 11:26 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -24,7 +24,7 @@
       "Healthcare": 1
     },
     "w_rsi_range": [
-      21.7,
+      21.82,
       93.35
     ],
     "direction_breakdown": {
@@ -36,16 +36,9 @@
     {
       "sym": "SIMO",
       "direction": "ob",
-      "w_rsi": 82.97,
-      "needs_pts": 0.0,
+      "w_rsi": 82.88,
+      "needs_pts": 0.1,
       "sector": "Technology"
-    },
-    {
-      "sym": "MDT",
-      "direction": "os",
-      "w_rsi": 27.04,
-      "needs_pts": 0.0,
-      "sector": "Healthcare"
     },
     {
       "sym": "BTSGU",
@@ -55,25 +48,32 @@
       "sector": "Healthcare"
     },
     {
-      "sym": "LITE",
+      "sym": "AIP",
       "direction": "ob",
-      "w_rsi": 82.74,
-      "needs_pts": 0.3,
+      "w_rsi": 82.62,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "ECG",
+      "direction": "ob",
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "PLXS",
+      "direction": "ob",
+      "w_rsi": 82.42,
+      "needs_pts": 0.6,
       "sector": "Technology"
     },
     {
       "sym": "BRO",
       "direction": "os",
-      "w_rsi": 27.63,
+      "w_rsi": 27.61,
       "needs_pts": 0.6,
       "sector": "Finance"
-    },
-    {
-      "sym": "AIP",
-      "direction": "ob",
-      "w_rsi": 82.34,
-      "needs_pts": 0.7,
-      "sector": "Technology"
     }
   ]
 }
