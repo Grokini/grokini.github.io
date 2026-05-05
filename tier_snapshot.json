@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-05T08:20:30.858109-05:00",
-  "scan_time_display": "5/5 \u00b7 8:20 AM CDT",
+  "scan_time": "2026-05-05T08:51:38.104761-05:00",
+  "scan_time_display": "5/5 \u00b7 8:51 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,12 +16,12 @@
     }
   },
   "tier1": {
-    "count": 10,
+    "count": 9,
     "sectors": {
       "Industrials": 2,
       "Technology": 5,
-      "Healthcare": 2,
-      "Consumer Discretionary": 1
+      "Consumer Discretionary": 1,
+      "Healthcare": 1
     },
     "w_rsi_range": [
       21.82,
@@ -29,10 +29,24 @@
     ],
     "direction_breakdown": {
       "overbought": 8,
-      "oversold": 2
+      "oversold": 1
     }
   },
   "imminent": [
+    {
+      "sym": "STM",
+      "direction": "ob",
+      "w_rsi": 82.96,
+      "needs_pts": 0.0,
+      "sector": "Technology"
+    },
+    {
+      "sym": "AGX",
+      "direction": "ob",
+      "w_rsi": 82.86,
+      "needs_pts": 0.1,
+      "sector": "Industrials"
+    },
     {
       "sym": "BTSGU",
       "direction": "ob",
@@ -41,39 +55,25 @@
       "sector": "Healthcare"
     },
     {
-      "sym": "RYAN",
+      "sym": "PPC",
       "direction": "os",
-      "w_rsi": 27.26,
-      "needs_pts": 0.3,
+      "w_rsi": 27.42,
+      "needs_pts": 0.4,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "BRO",
+      "direction": "os",
+      "w_rsi": 27.48,
+      "needs_pts": 0.5,
       "sector": "Finance"
     },
     {
-      "sym": "ESE",
-      "direction": "ob",
-      "w_rsi": 82.6,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "MDT",
+      "sym": "CPB",
       "direction": "os",
-      "w_rsi": 27.45,
-      "needs_pts": 0.4,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "POW",
-      "direction": "ob",
-      "w_rsi": 82.6,
-      "needs_pts": 0.4,
-      "sector": "Unknown"
-    },
-    {
-      "sym": "SNX",
-      "direction": "ob",
-      "w_rsi": 82.53,
-      "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 27.61,
+      "needs_pts": 0.6,
+      "sector": "Consumer Staples"
     }
   ]
 }
