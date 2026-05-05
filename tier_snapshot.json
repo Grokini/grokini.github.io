@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-05T09:19:26.625243-05:00",
-  "scan_time_display": "5/5 \u00b7 9:19 AM CDT",
+  "scan_time": "2026-05-05T09:47:39.033789-05:00",
+  "scan_time_display": "5/5 \u00b7 9:47 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,9 +34,16 @@
   },
   "imminent": [
     {
+      "sym": "DOCN",
+      "direction": "ob",
+      "w_rsi": 82.96,
+      "needs_pts": 0.0,
+      "sector": "Technology"
+    },
+    {
       "sym": "MDT",
       "direction": "os",
-      "w_rsi": 27.12,
+      "w_rsi": 27.14,
       "needs_pts": 0.1,
       "sector": "Healthcare"
     },
@@ -48,31 +55,24 @@
       "sector": "Healthcare"
     },
     {
-      "sym": "PLXS",
-      "direction": "ob",
-      "w_rsi": 82.45,
-      "needs_pts": 0.5,
-      "sector": "Technology"
-    },
-    {
       "sym": "BRO",
       "direction": "os",
-      "w_rsi": 27.6,
-      "needs_pts": 0.6,
+      "w_rsi": 27.5,
+      "needs_pts": 0.5,
       "sector": "Finance"
+    },
+    {
+      "sym": "AIP",
+      "direction": "ob",
+      "w_rsi": 82.4,
+      "needs_pts": 0.6,
+      "sector": "Technology"
     },
     {
       "sym": "LITE",
       "direction": "ob",
-      "w_rsi": 82.19,
-      "needs_pts": 0.8,
-      "sector": "Technology"
-    },
-    {
-      "sym": "SIMO",
-      "direction": "ob",
-      "w_rsi": 82.12,
-      "needs_pts": 0.9,
+      "w_rsi": 82.38,
+      "needs_pts": 0.6,
       "sector": "Technology"
     }
   ]
