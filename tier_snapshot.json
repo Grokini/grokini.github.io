@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-06T12:32:40.196388-05:00",
-  "scan_time_display": "5/6 \u00b7 12:32 PM CDT",
+  "scan_time": "2026-05-06T13:00:30.390295-05:00",
+  "scan_time_display": "5/6 \u00b7 1:00 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,35 +16,49 @@
     }
   },
   "tier1": {
-    "count": 11,
+    "count": 13,
     "sectors": {
       "Industrials": 2,
-      "Technology": 6,
-      "Consumer Discretionary": 2,
+      "Technology": 7,
+      "Consumer Discretionary": 3,
       "Healthcare": 1
     },
     "w_rsi_range": [
-      20.93,
+      21.0,
       93.35
     ],
     "direction_breakdown": {
-      "overbought": 8,
-      "oversold": 3
+      "overbought": 9,
+      "oversold": 4
     }
   },
   "imminent": [
     {
       "sym": "BRO",
       "direction": "os",
-      "w_rsi": 27.19,
-      "needs_pts": 0.2,
+      "w_rsi": 27.09,
+      "needs_pts": 0.1,
       "sector": "Finance"
+    },
+    {
+      "sym": "FLUT",
+      "direction": "os",
+      "w_rsi": 27.13,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "LDOS",
+      "direction": "os",
+      "w_rsi": 27.05,
+      "needs_pts": 0.1,
+      "sector": "Technology"
     },
     {
       "sym": "ZETX",
       "direction": "os",
-      "w_rsi": 27.27,
-      "needs_pts": 0.3,
+      "w_rsi": 27.39,
+      "needs_pts": 0.4,
       "sector": "Unknown"
     },
     {
@@ -57,22 +71,8 @@
     {
       "sym": "UMC",
       "direction": "ob",
-      "w_rsi": 82.4,
-      "needs_pts": 0.6,
-      "sector": "Technology"
-    },
-    {
-      "sym": "AMD",
-      "direction": "ob",
-      "w_rsi": 81.87,
-      "needs_pts": 1.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "TTMI",
-      "direction": "ob",
-      "w_rsi": 81.86,
-      "needs_pts": 1.1,
+      "w_rsi": 82.47,
+      "needs_pts": 0.5,
       "sector": "Technology"
     }
   ]
