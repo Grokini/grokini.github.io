@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-06T11:52:06.350855-05:00",
-  "scan_time_display": "5/6 \u00b7 11:52 AM CDT",
+  "scan_time": "2026-05-06T12:32:40.196388-05:00",
+  "scan_time_display": "5/6 \u00b7 12:32 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,64 +16,64 @@
     }
   },
   "tier1": {
-    "count": 10,
+    "count": 11,
     "sectors": {
       "Industrials": 2,
       "Technology": 6,
-      "Consumer Discretionary": 1,
+      "Consumer Discretionary": 2,
       "Healthcare": 1
     },
     "w_rsi_range": [
-      21.82,
+      20.93,
       93.35
     ],
     "direction_breakdown": {
       "overbought": 8,
-      "oversold": 2
+      "oversold": 3
     }
   },
   "imminent": [
     {
       "sym": "BRO",
       "direction": "os",
-      "w_rsi": 27.21,
+      "w_rsi": 27.19,
       "needs_pts": 0.2,
       "sector": "Finance"
     },
     {
-      "sym": "VRRM",
+      "sym": "ZETX",
       "direction": "os",
-      "w_rsi": 27.29,
+      "w_rsi": 27.27,
       "needs_pts": 0.3,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "FLUT",
-      "direction": "os",
-      "w_rsi": 27.42,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "UMC",
-      "direction": "ob",
-      "w_rsi": 82.26,
-      "needs_pts": 0.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "ESE",
-      "direction": "ob",
-      "w_rsi": 81.99,
-      "needs_pts": 1.0,
-      "sector": "Technology"
+      "sector": "Unknown"
     },
     {
       "sym": "RYAN",
       "direction": "os",
-      "w_rsi": 27.99,
-      "needs_pts": 1.0,
+      "w_rsi": 27.47,
+      "needs_pts": 0.5,
       "sector": "Finance"
+    },
+    {
+      "sym": "UMC",
+      "direction": "ob",
+      "w_rsi": 82.4,
+      "needs_pts": 0.6,
+      "sector": "Technology"
+    },
+    {
+      "sym": "AMD",
+      "direction": "ob",
+      "w_rsi": 81.87,
+      "needs_pts": 1.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "TTMI",
+      "direction": "ob",
+      "w_rsi": 81.86,
+      "needs_pts": 1.1,
+      "sector": "Technology"
     }
   ]
 }
