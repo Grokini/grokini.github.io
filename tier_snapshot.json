@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-06T08:59:07.060096-05:00",
-  "scan_time_display": "5/6 \u00b7 8:59 AM CDT",
+  "scan_time": "2026-05-06T09:27:13.091446-05:00",
+  "scan_time_display": "5/6 \u00b7 9:27 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,45 +34,45 @@
   },
   "imminent": [
     {
-      "sym": "AXTI",
-      "direction": "ob",
-      "w_rsi": 82.94,
-      "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "AIP",
-      "direction": "ob",
-      "w_rsi": 82.8,
+      "sym": "FLUT",
+      "direction": "os",
+      "w_rsi": 27.2,
       "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "NWPX",
-      "direction": "ob",
-      "w_rsi": 82.69,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "POWI",
-      "direction": "ob",
-      "w_rsi": 82.66,
-      "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
       "sym": "KEYS",
       "direction": "ob",
-      "w_rsi": 82.7,
-      "needs_pts": 0.3,
+      "w_rsi": 82.44,
+      "needs_pts": 0.6,
       "sector": "Technology"
     },
     {
-      "sym": "UMC",
+      "sym": "NVT",
       "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
+      "w_rsi": 82.44,
+      "needs_pts": 0.6,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "WOLF",
+      "direction": "ob",
+      "w_rsi": 82.34,
+      "needs_pts": 0.7,
+      "sector": "Technology"
+    },
+    {
+      "sym": "VSH",
+      "direction": "ob",
+      "w_rsi": 81.95,
+      "needs_pts": 1.0,
+      "sector": "Technology"
+    },
+    {
+      "sym": "LDOS",
+      "direction": "os",
+      "w_rsi": 28.08,
+      "needs_pts": 1.1,
       "sector": "Technology"
     }
   ]
