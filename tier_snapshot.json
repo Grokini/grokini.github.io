@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-06T11:27:26.905769-05:00",
-  "scan_time_display": "5/6 \u00b7 11:27 AM CDT",
+  "scan_time": "2026-05-06T11:52:06.350855-05:00",
+  "scan_time_display": "5/6 \u00b7 11:52 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,10 @@
     }
   },
   "tier1": {
-    "count": 9,
+    "count": 10,
     "sectors": {
       "Industrials": 2,
-      "Technology": 5,
+      "Technology": 6,
       "Consumer Discretionary": 1,
       "Healthcare": 1
     },
@@ -29,51 +29,51 @@
     ],
     "direction_breakdown": {
       "overbought": 8,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "ZETX",
+      "sym": "BRO",
       "direction": "os",
-      "w_rsi": 27.19,
+      "w_rsi": 27.21,
       "needs_pts": 0.2,
-      "sector": "Unknown"
+      "sector": "Finance"
     },
     {
       "sym": "VRRM",
       "direction": "os",
-      "w_rsi": 27.31,
+      "w_rsi": 27.29,
       "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "BRO",
+      "sym": "FLUT",
       "direction": "os",
-      "w_rsi": 27.41,
+      "w_rsi": 27.42,
       "needs_pts": 0.4,
-      "sector": "Finance"
+      "sector": "Technology"
     },
     {
       "sym": "UMC",
       "direction": "ob",
-      "w_rsi": 82.27,
+      "w_rsi": 82.26,
       "needs_pts": 0.7,
       "sector": "Technology"
     },
     {
-      "sym": "FLUT",
-      "direction": "os",
-      "w_rsi": 27.82,
-      "needs_pts": 0.8,
+      "sym": "ESE",
+      "direction": "ob",
+      "w_rsi": 81.99,
+      "needs_pts": 1.0,
       "sector": "Technology"
     },
     {
-      "sym": "AMD",
-      "direction": "ob",
-      "w_rsi": 82.02,
+      "sym": "RYAN",
+      "direction": "os",
+      "w_rsi": 27.99,
       "needs_pts": 1.0,
-      "sector": "Technology"
+      "sector": "Finance"
     }
   ]
 }
