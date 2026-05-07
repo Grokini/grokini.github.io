@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-07T11:15:32.581521-05:00",
-  "scan_time_display": "5/7 \u00b7 11:15 AM CDT",
+  "scan_time": "2026-05-07T11:55:09.017909-05:00",
+  "scan_time_display": "5/7 \u00b7 11:55 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -36,43 +36,43 @@
     {
       "sym": "COR",
       "direction": "os",
-      "w_rsi": 27.02,
-      "needs_pts": 0.0,
+      "w_rsi": 27.1,
+      "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "DGII",
       "direction": "ob",
-      "w_rsi": 82.68,
-      "needs_pts": 0.3,
+      "w_rsi": 82.81,
+      "needs_pts": 0.2,
       "sector": "Industrials"
-    },
-    {
-      "sym": "PLXS",
-      "direction": "ob",
-      "w_rsi": 82.72,
-      "needs_pts": 0.3,
-      "sector": "Technology"
     },
     {
       "sym": "LDOS",
       "direction": "os",
-      "w_rsi": 27.41,
+      "w_rsi": 27.3,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "GFS",
+      "direction": "ob",
+      "w_rsi": 82.59,
       "needs_pts": 0.4,
       "sector": "Technology"
     },
     {
-      "sym": "UMC",
+      "sym": "BHE",
       "direction": "ob",
-      "w_rsi": 82.43,
-      "needs_pts": 0.6,
+      "w_rsi": 82.33,
+      "needs_pts": 0.7,
       "sector": "Technology"
     },
     {
       "sym": "EPAM",
       "direction": "os",
-      "w_rsi": 28.09,
-      "needs_pts": 1.1,
+      "w_rsi": 27.84,
+      "needs_pts": 0.8,
       "sector": "Technology"
     }
   ]
