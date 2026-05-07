@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-07T08:28:29.526014-05:00",
-  "scan_time_display": "5/7 \u00b7 8:28 AM CDT",
+  "scan_time": "2026-05-07T08:46:50.394425-05:00",
+  "scan_time_display": "5/7 \u00b7 8:46 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,46 +34,46 @@
   },
   "imminent": [
     {
-      "sym": "RYAN",
+      "sym": "CHKP",
       "direction": "os",
-      "w_rsi": 27.01,
-      "needs_pts": 0.0,
-      "sector": "Finance"
-    },
-    {
-      "sym": "VRRM",
-      "direction": "os",
-      "w_rsi": 27.08,
+      "w_rsi": 27.09,
       "needs_pts": 0.1,
-      "sector": "Industrials"
+      "sector": "Technology"
     },
     {
-      "sym": "PLXS",
+      "sym": "KLIC",
       "direction": "ob",
-      "w_rsi": 82.83,
+      "w_rsi": 82.85,
       "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
-      "sym": "VSH",
+      "sym": "DGII",
       "direction": "ob",
-      "w_rsi": 82.67,
+      "w_rsi": 82.66,
       "needs_pts": 0.3,
-      "sector": "Technology"
+      "sector": "Industrials"
     },
     {
-      "sym": "GFS",
+      "sym": "STX",
       "direction": "ob",
       "w_rsi": 82.53,
       "needs_pts": 0.5,
-      "sector": "Technology"
+      "sector": "Industrials"
     },
     {
-      "sym": "UMC",
+      "sym": "COO",
+      "direction": "os",
+      "w_rsi": 27.72,
+      "needs_pts": 0.7,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "WDC",
       "direction": "ob",
-      "w_rsi": 82.48,
-      "needs_pts": 0.5,
-      "sector": "Technology"
+      "w_rsi": 82.27,
+      "needs_pts": 0.7,
+      "sector": "Industrials"
     }
   ]
 }
