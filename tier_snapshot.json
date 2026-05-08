@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-08T08:16:19.576128-05:00",
-  "scan_time_display": "5/8 \u00b7 8:16 AM CDT",
+  "scan_time": "2026-05-08T08:46:50.886902-05:00",
+  "scan_time_display": "5/8 \u00b7 8:46 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -22,7 +22,7 @@
       "Technology": 2
     },
     "w_rsi_range": [
-      20.59,
+      20.5,
       83.1
     ],
     "direction_breakdown": {
@@ -32,46 +32,46 @@
   },
   "imminent": [
     {
-      "sym": "MDT",
-      "direction": "os",
-      "w_rsi": 27.13,
-      "needs_pts": 0.1,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "LDOS",
-      "direction": "os",
-      "w_rsi": 27.24,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "KLIC",
-      "direction": "ob",
-      "w_rsi": 82.73,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
-      "sym": "AMD",
-      "direction": "ob",
-      "w_rsi": 82.49,
-      "needs_pts": 0.5,
-      "sector": "Technology"
-    },
-    {
       "sym": "AIP",
       "direction": "ob",
-      "w_rsi": 82.36,
-      "needs_pts": 0.6,
+      "w_rsi": 82.98,
+      "needs_pts": 0.0,
       "sector": "Technology"
     },
     {
-      "sym": "PPC",
+      "sym": "EFXT",
+      "direction": "ob",
+      "w_rsi": 82.81,
+      "needs_pts": 0.2,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "MU",
+      "direction": "ob",
+      "w_rsi": 82.61,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "EPAM",
       "direction": "os",
-      "w_rsi": 27.61,
-      "needs_pts": 0.6,
-      "sector": "Consumer Staples"
+      "w_rsi": 27.45,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "FLUT",
+      "direction": "os",
+      "w_rsi": 27.44,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "VSH",
+      "direction": "ob",
+      "w_rsi": 82.64,
+      "needs_pts": 0.4,
+      "sector": "Technology"
     }
   ]
 }
