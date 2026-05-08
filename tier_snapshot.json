@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-08T11:21:47.334453-05:00",
-  "scan_time_display": "5/8 \u00b7 11:21 AM CDT",
+  "scan_time": "2026-05-08T11:55:55.637235-05:00",
+  "scan_time_display": "5/8 \u00b7 11:55 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "ENS",
+      "sym": "DELL",
       "direction": "ob",
-      "w_rsi": 82.82,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "VSH",
-      "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "VRRM",
-      "direction": "os",
-      "w_rsi": 27.33,
-      "needs_pts": 0.3,
+      "w_rsi": 82.98,
+      "needs_pts": 0.0,
       "sector": "Industrials"
-    },
-    {
-      "sym": "EPAM",
-      "direction": "os",
-      "w_rsi": 27.38,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.48,
-      "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
     },
     {
       "sym": "DGII",
       "direction": "ob",
-      "w_rsi": 82.55,
-      "needs_pts": 0.5,
+      "w_rsi": 82.86,
+      "needs_pts": 0.1,
       "sector": "Industrials"
+    },
+    {
+      "sym": "VRRM",
+      "direction": "os",
+      "w_rsi": 27.15,
+      "needs_pts": 0.1,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "VSH",
+      "direction": "ob",
+      "w_rsi": 82.9,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "ENS",
+      "direction": "ob",
+      "w_rsi": 82.85,
+      "needs_pts": 0.2,
+      "sector": "Technology"
+    },
+    {
+      "sym": "EPAM",
+      "direction": "os",
+      "w_rsi": 27.25,
+      "needs_pts": 0.2,
+      "sector": "Technology"
     }
   ]
 }
