@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-08T08:46:50.886902-05:00",
-  "scan_time_display": "5/8 \u00b7 8:46 AM CDT",
+  "scan_time": "2026-05-08T09:23:12.164458-05:00",
+  "scan_time_display": "5/8 \u00b7 9:23 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,61 +16,60 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 2,
     "sectors": {
-      "Consumer Discretionary": 1,
       "Technology": 2
     },
     "w_rsi_range": [
-      20.5,
+      26.17,
       83.1
     ],
     "direction_breakdown": {
       "overbought": 1,
-      "oversold": 2
+      "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "AIP",
-      "direction": "ob",
-      "w_rsi": 82.98,
-      "needs_pts": 0.0,
-      "sector": "Technology"
-    },
-    {
-      "sym": "EFXT",
-      "direction": "ob",
-      "w_rsi": 82.81,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
       "sym": "MU",
       "direction": "ob",
-      "w_rsi": 82.61,
-      "needs_pts": 0.4,
+      "w_rsi": 82.91,
+      "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
-      "sym": "EPAM",
-      "direction": "os",
-      "w_rsi": 27.45,
-      "needs_pts": 0.4,
+      "sym": "SVCO",
+      "direction": "ob",
+      "w_rsi": 82.93,
+      "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
-      "sym": "FLUT",
-      "direction": "os",
-      "w_rsi": 27.44,
-      "needs_pts": 0.4,
+      "sym": "ENS",
+      "direction": "ob",
+      "w_rsi": 82.75,
+      "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
       "sym": "VSH",
       "direction": "ob",
-      "w_rsi": 82.64,
-      "needs_pts": 0.4,
+      "w_rsi": 82.85,
+      "needs_pts": 0.2,
+      "sector": "Technology"
+    },
+    {
+      "sym": "GFS",
+      "direction": "ob",
+      "w_rsi": 82.71,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "HIMX",
+      "direction": "ob",
+      "w_rsi": 82.67,
+      "needs_pts": 0.3,
       "sector": "Technology"
     }
   ]
