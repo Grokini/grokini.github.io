@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-08T15:54:21.181838-05:00",
-  "scan_time_display": "5/8 \u00b7 3:54 PM CDT",
+  "scan_time": "2026-05-09T11:19:45.466461-05:00",
+  "scan_time_display": "5/9 \u00b7 11:19 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,61 +16,61 @@
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 1,
     "sectors": {
-      "Technology": 2
+      "Technology": 1
     },
     "w_rsi_range": [
       26.17,
-      83.1
+      26.17
     ],
     "direction_breakdown": {
-      "overbought": 1,
+      "overbought": 0,
       "oversold": 1
     }
   },
   "imminent": [
     {
+      "sym": "VRRM",
+      "direction": "os",
+      "w_rsi": 27.02,
+      "needs_pts": 0.0,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "UMC",
+      "direction": "ob",
+      "w_rsi": 82.86,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "CSGP",
+      "direction": "os",
+      "w_rsi": 27.16,
+      "needs_pts": 0.2,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "SVCO",
+      "direction": "ob",
+      "w_rsi": 82.83,
+      "needs_pts": 0.2,
+      "sector": "Technology"
+    },
+    {
       "sym": "ENS",
       "direction": "ob",
-      "w_rsi": 82.91,
-      "needs_pts": 0.1,
+      "w_rsi": 82.82,
+      "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
       "sym": "EPAM",
       "direction": "os",
-      "w_rsi": 27.15,
-      "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "UMC",
-      "direction": "ob",
-      "w_rsi": 82.89,
-      "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "BRO",
-      "direction": "os",
-      "w_rsi": 27.25,
+      "w_rsi": 27.23,
       "needs_pts": 0.2,
-      "sector": "Finance"
-    },
-    {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.32,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "PNR",
-      "direction": "os",
-      "w_rsi": 27.75,
-      "needs_pts": 0.8,
-      "sector": "Industrials"
+      "sector": "Technology"
     }
   ]
 }
