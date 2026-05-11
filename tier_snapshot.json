@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-11T08:24:08.641365-05:00",
-  "scan_time_display": "5/11 \u00b7 8:24 AM CDT",
+  "scan_time": "2026-05-11T08:54:03.957632-05:00",
+  "scan_time_display": "5/11 \u00b7 8:54 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "VRRM",
+      "sym": "CHKP",
       "direction": "os",
-      "w_rsi": 27.02,
+      "w_rsi": 27.04,
       "needs_pts": 0.0,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "UMC",
-      "direction": "ob",
-      "w_rsi": 82.86,
-      "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.16,
+      "sym": "AXTI",
+      "direction": "ob",
+      "w_rsi": 82.75,
       "needs_pts": 0.2,
-      "sector": "Consumer Discretionary"
+      "sector": "Technology"
     },
     {
-      "sym": "SVCO",
+      "sym": "KLIC",
       "direction": "ob",
       "w_rsi": 82.83,
       "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
-      "sym": "ENS",
+      "sym": "TEN",
       "direction": "ob",
-      "w_rsi": 82.82,
-      "needs_pts": 0.2,
-      "sector": "Technology"
+      "w_rsi": 82.62,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
     },
     {
-      "sym": "EPAM",
+      "sym": "ECG",
+      "direction": "ob",
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.23,
-      "needs_pts": 0.2,
-      "sector": "Technology"
+      "w_rsi": 27.55,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
