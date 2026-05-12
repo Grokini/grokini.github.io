@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-12T11:50:42.510815-05:00",
-  "scan_time_display": "5/12 \u00b7 11:50 AM CDT",
+  "scan_time": "2026-05-12T12:34:12.188801-05:00",
+  "scan_time_display": "5/12 \u00b7 12:34 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -22,7 +22,7 @@
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      26.37,
+      26.44,
       83.67
     ],
     "direction_breakdown": {
@@ -32,27 +32,6 @@
   },
   "imminent": [
     {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 27.16,
-      "needs_pts": 0.2,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "ACM",
-      "direction": "os",
-      "w_rsi": 27.2,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "UMC",
-      "direction": "ob",
-      "w_rsi": 82.83,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
       "sym": "CSGP",
       "direction": "os",
       "w_rsi": 27.26,
@@ -60,18 +39,39 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "STRL",
-      "direction": "ob",
-      "w_rsi": 82.71,
+      "sym": "LDOS",
+      "direction": "os",
+      "w_rsi": 27.32,
       "needs_pts": 0.3,
-      "sector": "Industrials"
+      "sector": "Technology"
     },
     {
       "sym": "EFOR",
       "direction": "os",
-      "w_rsi": 27.54,
+      "w_rsi": 27.51,
       "needs_pts": 0.5,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "COO",
+      "direction": "os",
+      "w_rsi": 27.62,
+      "needs_pts": 0.6,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "ACM",
+      "direction": "os",
+      "w_rsi": 27.58,
+      "needs_pts": 0.6,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "ETD",
+      "direction": "os",
+      "w_rsi": 27.83,
+      "needs_pts": 0.8,
+      "sector": "Consumer Staples"
     }
   ]
 }
