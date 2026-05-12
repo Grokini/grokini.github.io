@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-11T16:27:26.517589-05:00",
-  "scan_time_display": "5/11 \u00b7 4:27 PM CDT",
+  "scan_time": "2026-05-12T08:45:21.927070-05:00",
+  "scan_time_display": "5/12 \u00b7 8:45 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -40,11 +40,11 @@
       "sector": "Healthcare"
     },
     {
-      "sym": "SNX",
-      "direction": "ob",
-      "w_rsi": 82.91,
+      "sym": "LDOS",
+      "direction": "os",
+      "w_rsi": 27.15,
       "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
+      "sector": "Technology"
     },
     {
       "sym": "VECO",
@@ -54,25 +54,25 @@
       "sector": "Industrials"
     },
     {
-      "sym": "COR",
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.18,
-      "needs_pts": 0.2,
+      "w_rsi": 27.42,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "PNR",
+      "sym": "EPAM",
       "direction": "os",
-      "w_rsi": 27.18,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
+      "w_rsi": 27.44,
+      "needs_pts": 0.4,
+      "sector": "Technology"
     },
     {
-      "sym": "DXYZ",
+      "sym": "ENS",
       "direction": "ob",
-      "w_rsi": 82.33,
-      "needs_pts": 0.7,
-      "sector": "Unknown"
+      "w_rsi": 82.4,
+      "needs_pts": 0.6,
+      "sector": "Technology"
     }
   ]
 }
