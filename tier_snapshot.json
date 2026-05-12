@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-12T13:36:24.831527-05:00",
-  "scan_time_display": "5/12 \u00b7 1:36 PM CDT",
+  "scan_time": "2026-05-12T14:01:58.017769-05:00",
+  "scan_time_display": "5/12 \u00b7 2:01 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -21,7 +21,7 @@
       "Technology": 2
     },
     "w_rsi_range": [
-      26.38,
+      26.44,
       83.67
     ],
     "direction_breakdown": {
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "BRO",
+      "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.25,
+      "w_rsi": 27.21,
       "needs_pts": 0.2,
-      "sector": "Finance"
+      "sector": "Healthcare"
     },
     {
-      "sym": "EFOR",
+      "sym": "BRO",
       "direction": "os",
-      "w_rsi": 27.44,
+      "w_rsi": 27.36,
       "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sector": "Finance"
     },
     {
       "sym": "CTSH",
       "direction": "os",
-      "w_rsi": 27.65,
-      "needs_pts": 0.6,
+      "w_rsi": 27.51,
+      "needs_pts": 0.5,
       "sector": "Technology"
+    },
+    {
+      "sym": "EFOR",
+      "direction": "os",
+      "w_rsi": 27.46,
+      "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "ETD",
       "direction": "os",
-      "w_rsi": 27.76,
-      "needs_pts": 0.8,
+      "w_rsi": 27.73,
+      "needs_pts": 0.7,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "CPB",
+      "sym": "ACM",
       "direction": "os",
-      "w_rsi": 28.01,
-      "needs_pts": 1.0,
-      "sector": "Consumer Staples"
-    },
-    {
-      "sym": "VPG",
-      "direction": "ob",
-      "w_rsi": 82.01,
-      "needs_pts": 1.0,
-      "sector": "Technology"
+      "w_rsi": 27.88,
+      "needs_pts": 0.9,
+      "sector": "Industrials"
     }
   ]
 }
