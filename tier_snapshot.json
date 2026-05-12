@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-12T11:17:35.709859-05:00",
-  "scan_time_display": "5/12 \u00b7 11:17 AM CDT",
+  "scan_time": "2026-05-12T11:50:42.510815-05:00",
+  "scan_time_display": "5/12 \u00b7 11:50 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -22,7 +22,7 @@
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      26.34,
+      26.37,
       83.67
     ],
     "direction_breakdown": {
@@ -34,44 +34,44 @@
     {
       "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.05,
-      "needs_pts": 0.1,
+      "w_rsi": 27.16,
+      "needs_pts": 0.2,
       "sector": "Healthcare"
-    },
-    {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.28,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
     },
     {
       "sym": "ACM",
       "direction": "os",
-      "w_rsi": 27.54,
-      "needs_pts": 0.5,
+      "w_rsi": 27.2,
+      "needs_pts": 0.2,
       "sector": "Industrials"
     },
     {
-      "sym": "COR",
-      "direction": "os",
-      "w_rsi": 27.54,
-      "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
+      "sym": "UMC",
+      "direction": "ob",
+      "w_rsi": 82.83,
+      "needs_pts": 0.2,
+      "sector": "Technology"
     },
     {
-      "sym": "EFOR",
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.53,
-      "needs_pts": 0.5,
+      "w_rsi": 27.26,
+      "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "STRL",
       "direction": "ob",
-      "w_rsi": 82.36,
-      "needs_pts": 0.6,
+      "w_rsi": 82.71,
+      "needs_pts": 0.3,
       "sector": "Industrials"
+    },
+    {
+      "sym": "EFOR",
+      "direction": "os",
+      "w_rsi": 27.54,
+      "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
