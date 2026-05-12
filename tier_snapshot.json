@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-12T10:14:47.972014-05:00",
-  "scan_time_display": "5/12 \u00b7 10:14 AM CDT",
+  "scan_time": "2026-05-12T10:51:21.970087-05:00",
+  "scan_time_display": "5/12 \u00b7 10:51 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "STRL",
+      "sym": "AMBQ",
       "direction": "ob",
-      "w_rsi": 82.87,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "MDT",
-      "direction": "os",
-      "w_rsi": 27.11,
-      "needs_pts": 0.1,
-      "sector": "Healthcare"
+      "w_rsi": 82.97,
+      "needs_pts": 0.0,
+      "sector": "Technology"
     },
     {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.21,
-      "needs_pts": 0.2,
+      "w_rsi": 27.37,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "FLEX",
-      "direction": "ob",
-      "w_rsi": 82.52,
-      "needs_pts": 0.5,
-      "sector": "Technology"
+      "sym": "ACM",
+      "direction": "os",
+      "w_rsi": 27.38,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
     },
     {
       "sym": "EFOR",
       "direction": "os",
-      "w_rsi": 27.66,
-      "needs_pts": 0.7,
+      "w_rsi": 27.54,
+      "needs_pts": 0.5,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "VPG",
+      "sym": "BRO",
+      "direction": "os",
+      "w_rsi": 27.69,
+      "needs_pts": 0.7,
+      "sector": "Finance"
+    },
+    {
+      "sym": "PBT",
       "direction": "ob",
-      "w_rsi": 82.13,
-      "needs_pts": 0.9,
-      "sector": "Technology"
+      "w_rsi": 82.32,
+      "needs_pts": 0.7,
+      "sector": "Finance"
     }
   ]
 }
