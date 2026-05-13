@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-13T09:34:26.108980-05:00",
-  "scan_time_display": "5/13 \u00b7 9:34 AM CDT",
+  "scan_time": "2026-05-13T09:58:37.156752-05:00",
+  "scan_time_display": "5/13 \u00b7 9:58 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -18,11 +18,11 @@
   "tier1": {
     "count": 2,
     "sectors": {
-      "Technology": 1,
-      "Consumer Discretionary": 1
+      "Health Care": 1,
+      "Technology": 1
     },
     "w_rsi_range": [
-      26.68,
+      17.53,
       83.67
     ],
     "direction_breakdown": {
@@ -34,44 +34,44 @@
     {
       "sym": "COR",
       "direction": "os",
-      "w_rsi": 27.15,
+      "w_rsi": 27.13,
       "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "EFOR",
       "direction": "os",
-      "w_rsi": 27.14,
+      "w_rsi": 27.09,
       "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "CHTR",
-      "direction": "os",
-      "w_rsi": 27.23,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "ON",
-      "direction": "ob",
-      "w_rsi": 82.75,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.4,
-      "needs_pts": 0.4,
+      "w_rsi": 27.17,
+      "needs_pts": 0.2,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "LBRDA",
+      "sym": "AXTI",
+      "direction": "ob",
+      "w_rsi": 82.7,
+      "needs_pts": 0.3,
+      "sector": "Unknown"
+    },
+    {
+      "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.65,
-      "needs_pts": 0.6,
-      "sector": "Industrials"
+      "w_rsi": 27.43,
+      "needs_pts": 0.4,
+      "sector": "Unknown"
+    },
+    {
+      "sym": "CPB",
+      "direction": "os",
+      "w_rsi": 27.49,
+      "needs_pts": 0.5,
+      "sector": "Consumer Staples"
     }
   ]
 }
