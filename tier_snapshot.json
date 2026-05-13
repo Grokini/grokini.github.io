@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-13T13:04:17.496713-05:00",
-  "scan_time_display": "5/13 \u00b7 1:04 PM CDT",
+  "scan_time": "2026-05-13T14:04:42.239047-05:00",
+  "scan_time_display": "5/13 \u00b7 2:04 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,10 @@
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 3,
     "sectors": {
       "Health Care": 1,
-      "Materials": 1
+      "Materials": 2
     },
     "w_rsi_range": [
       17.7,
@@ -27,51 +27,51 @@
     ],
     "direction_breakdown": {
       "overbought": 1,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "CPB",
+      "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.22,
-      "needs_pts": 0.2,
-      "sector": "Consumer Staples"
+      "w_rsi": 27.15,
+      "needs_pts": 0.1,
+      "sector": "Industrials"
     },
     {
-      "sym": "GTX",
-      "direction": "ob",
-      "w_rsi": 82.66,
-      "needs_pts": 0.3,
+      "sym": "EFOR",
+      "direction": "os",
+      "w_rsi": 27.12,
+      "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "LINC",
       "direction": "ob",
-      "w_rsi": 82.71,
+      "w_rsi": 82.66,
       "needs_pts": 0.3,
       "sector": "Healthcare"
     },
     {
-      "sym": "TTMI",
-      "direction": "ob",
-      "w_rsi": 82.57,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "BR",
-      "direction": "os",
-      "w_rsi": 27.4,
-      "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "WK",
       "direction": "os",
-      "w_rsi": 27.47,
-      "needs_pts": 0.5,
+      "w_rsi": 27.38,
+      "needs_pts": 0.4,
       "sector": "Technology"
+    },
+    {
+      "sym": "CPB",
+      "direction": "os",
+      "w_rsi": 27.51,
+      "needs_pts": 0.5,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "GTX",
+      "direction": "ob",
+      "w_rsi": 82.5,
+      "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
