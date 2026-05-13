@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-13T09:58:37.156752-05:00",
-  "scan_time_display": "5/13 \u00b7 9:58 AM CDT",
+  "scan_time": "2026-05-13T10:36:06.726212-05:00",
+  "scan_time_display": "5/13 \u00b7 10:36 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -22,7 +22,7 @@
       "Technology": 1
     },
     "w_rsi_range": [
-      17.53,
+      17.5,
       83.67
     ],
     "direction_breakdown": {
@@ -34,42 +34,42 @@
     {
       "sym": "COR",
       "direction": "os",
-      "w_rsi": 27.13,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "EFOR",
-      "direction": "os",
-      "w_rsi": 27.09,
+      "w_rsi": 27.1,
       "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.17,
+      "w_rsi": 27.2,
       "needs_pts": 0.2,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "AXTI",
+      "sym": "COHR",
       "direction": "ob",
-      "w_rsi": 82.7,
-      "needs_pts": 0.3,
-      "sector": "Unknown"
+      "w_rsi": 82.64,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "WK",
+      "direction": "os",
+      "w_rsi": 27.44,
+      "needs_pts": 0.4,
+      "sector": "Technology"
     },
     {
       "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.43,
-      "needs_pts": 0.4,
-      "sector": "Unknown"
+      "w_rsi": 27.46,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
     },
     {
       "sym": "CPB",
       "direction": "os",
-      "w_rsi": 27.49,
+      "w_rsi": 27.51,
       "needs_pts": 0.5,
       "sector": "Consumer Staples"
     }
