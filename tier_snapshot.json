@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-13T08:32:35.996229-05:00",
-  "scan_time_display": "5/13 \u00b7 8:32 AM CDT",
+  "scan_time": "2026-05-13T09:04:37.797757-05:00",
+  "scan_time_display": "5/13 \u00b7 9:04 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,62 +16,61 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 1,
     "sectors": {
-      "Technology": 2,
-      "Consumer Staples": 1
+      "Technology": 1
     },
     "w_rsi_range": [
-      25.19,
+      83.67,
       83.67
     ],
     "direction_breakdown": {
       "overbought": 1,
-      "oversold": 2
+      "oversold": 0
     }
   },
   "imminent": [
     {
-      "sym": "MNSO",
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.02,
-      "needs_pts": 0.0,
+      "w_rsi": 27.12,
+      "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "HIMX",
-      "direction": "ob",
-      "w_rsi": 82.93,
-      "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "MDT",
+      "sym": "EYE",
       "direction": "os",
-      "w_rsi": 27.24,
-      "needs_pts": 0.2,
+      "w_rsi": 27.15,
+      "needs_pts": 0.1,
       "sector": "Healthcare"
     },
     {
-      "sym": "CTSH",
+      "sym": "EFOR",
       "direction": "os",
-      "w_rsi": 27.45,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "COR",
-      "direction": "os",
-      "w_rsi": 27.41,
-      "needs_pts": 0.4,
+      "w_rsi": 27.18,
+      "needs_pts": 0.2,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "ETD",
+      "sym": "ON",
+      "direction": "ob",
+      "w_rsi": 82.74,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "ACM",
       "direction": "os",
-      "w_rsi": 27.51,
-      "needs_pts": 0.5,
-      "sector": "Consumer Staples"
+      "w_rsi": 27.3,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "CHTR",
+      "direction": "os",
+      "w_rsi": 27.4,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
     }
   ]
 }
