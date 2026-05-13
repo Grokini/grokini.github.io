@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-13T11:09:51.099016-05:00",
-  "scan_time_display": "5/13 \u00b7 11:09 AM CDT",
+  "scan_time": "2026-05-13T12:04:46.988741-05:00",
+  "scan_time_display": "5/13 \u00b7 12:04 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,11 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 4,
     "sectors": {
       "Health Care": 1,
-      "Materials": 2
+      "Materials": 2,
+      "Consumer Discretionary": 1
     },
     "w_rsi_range": [
       17.7,
@@ -27,51 +28,51 @@
     ],
     "direction_breakdown": {
       "overbought": 1,
-      "oversold": 2
+      "oversold": 3
     }
   },
   "imminent": [
     {
-      "sym": "ODD",
-      "direction": "os",
-      "w_rsi": 27.12,
-      "needs_pts": 0.1,
-      "sector": "Materials"
-    },
-    {
       "sym": "CPB",
       "direction": "os",
-      "w_rsi": 27.17,
-      "needs_pts": 0.2,
+      "w_rsi": 27.14,
+      "needs_pts": 0.1,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.28,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
+      "sym": "COHR",
+      "direction": "ob",
+      "w_rsi": 82.94,
+      "needs_pts": 0.1,
+      "sector": "Technology"
     },
     {
-      "sym": "COR",
+      "sym": "EFOR",
       "direction": "os",
-      "w_rsi": 27.27,
-      "needs_pts": 0.3,
+      "w_rsi": 27.09,
+      "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.42,
-      "needs_pts": 0.4,
+      "w_rsi": 27.24,
+      "needs_pts": 0.2,
       "sector": "Industrials"
     },
     {
-      "sym": "WK",
+      "sym": "EYE",
       "direction": "os",
-      "w_rsi": 27.49,
-      "needs_pts": 0.5,
-      "sector": "Technology"
+      "w_rsi": 27.23,
+      "needs_pts": 0.2,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "COR",
+      "direction": "os",
+      "w_rsi": 27.17,
+      "needs_pts": 0.2,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
