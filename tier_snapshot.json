@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-14T09:58:12.008086-05:00",
-  "scan_time_display": "5/14 \u00b7 9:58 AM CDT",
+  "scan_time": "2026-05-14T11:04:35.223671-05:00",
+  "scan_time_display": "5/14 \u00b7 11:04 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -24,7 +24,7 @@
     },
     "w_rsi_range": [
       17.7,
-      80.62
+      80.56
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -33,46 +33,46 @@
   },
   "imminent": [
     {
+      "sym": "AXTI",
+      "direction": "ob",
+      "w_rsi": 82.89,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
       "sym": "GTX",
       "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
+      "w_rsi": 82.92,
+      "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "BRO",
-      "direction": "os",
-      "w_rsi": 27.28,
+      "sym": "VECO",
+      "direction": "ob",
+      "w_rsi": 82.72,
       "needs_pts": 0.3,
-      "sector": "Finance"
+      "sector": "Industrials"
     },
     {
-      "sym": "EFOR",
-      "direction": "os",
-      "w_rsi": 27.63,
-      "needs_pts": 0.6,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "DPZ",
-      "direction": "os",
-      "w_rsi": 27.73,
-      "needs_pts": 0.7,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "AVT",
+      "sym": "AMD",
       "direction": "ob",
-      "w_rsi": 82.25,
-      "needs_pts": 0.8,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 82.63,
+      "needs_pts": 0.4,
+      "sector": "Technology"
     },
     {
-      "sym": "RPRX",
+      "sym": "HIMX",
       "direction": "ob",
-      "w_rsi": 82.22,
-      "needs_pts": 0.8,
-      "sector": "Materials"
+      "w_rsi": 82.62,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "MU",
+      "direction": "ob",
+      "w_rsi": 82.58,
+      "needs_pts": 0.4,
+      "sector": "Technology"
     }
   ]
 }
