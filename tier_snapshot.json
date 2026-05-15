@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-15T11:51:15.034793-05:00",
-  "scan_time_display": "5/15 \u00b7 11:51 AM CDT",
+  "scan_time": "2026-05-15T12:58:36.471484-05:00",
+  "scan_time_display": "5/15 \u00b7 12:58 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,10 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 6,
     "sectors": {
       "Health Care": 1,
-      "Materials": 1,
+      "Materials": 2,
       "Consumer Discretionary": 2,
       "Technology": 1
     },
@@ -29,51 +29,51 @@
     ],
     "direction_breakdown": {
       "overbought": 1,
-      "oversold": 4
+      "oversold": 5
     }
   },
   "imminent": [
     {
-      "sym": "BRO",
+      "sym": "DOCS",
       "direction": "os",
-      "w_rsi": 27.08,
-      "needs_pts": 0.1,
-      "sector": "Finance"
+      "w_rsi": 27.25,
+      "needs_pts": 0.2,
+      "sector": "Technology"
     },
     {
-      "sym": "EPAM",
+      "sym": "ETD",
       "direction": "os",
-      "w_rsi": 27.07,
-      "needs_pts": 0.1,
+      "w_rsi": 27.2,
+      "needs_pts": 0.2,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "AMBQ",
+      "direction": "ob",
+      "w_rsi": 82.68,
+      "needs_pts": 0.3,
       "sector": "Technology"
+    },
+    {
+      "sym": "DPZ",
+      "direction": "os",
+      "w_rsi": 27.36,
+      "needs_pts": 0.4,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "MNSO",
       "direction": "os",
-      "w_rsi": 27.1,
-      "needs_pts": 0.1,
+      "w_rsi": 27.35,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "VPG",
+      "sym": "VSH",
       "direction": "ob",
-      "w_rsi": 82.93,
-      "needs_pts": 0.1,
+      "w_rsi": 82.61,
+      "needs_pts": 0.4,
       "sector": "Technology"
-    },
-    {
-      "sym": "CAEP",
-      "direction": "ob",
-      "w_rsi": 82.83,
-      "needs_pts": 0.2,
-      "sector": "Finance"
-    },
-    {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 27.16,
-      "needs_pts": 0.2,
-      "sector": "Healthcare"
     }
   ]
 }
