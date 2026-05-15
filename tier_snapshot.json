@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-14T15:57:26.957158-05:00",
-  "scan_time_display": "5/14 \u00b7 3:57 PM CDT",
+  "scan_time": "2026-05-15T09:13:16.018302-05:00",
+  "scan_time_display": "5/15 \u00b7 9:13 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,46 +34,46 @@
   },
   "imminent": [
     {
-      "sym": "CPB",
+      "sym": "MNSO",
       "direction": "os",
-      "w_rsi": 27.11,
-      "needs_pts": 0.1,
-      "sector": "Consumer Staples"
-    },
-    {
-      "sym": "GTX",
-      "direction": "ob",
-      "w_rsi": 82.9,
+      "w_rsi": 27.1,
       "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "TTMI",
+      "sym": "STRL",
       "direction": "ob",
-      "w_rsi": 82.71,
-      "needs_pts": 0.3,
-      "sector": "Technology"
+      "w_rsi": 82.8,
+      "needs_pts": 0.2,
+      "sector": "Industrials"
     },
     {
-      "sym": "COHR",
-      "direction": "ob",
-      "w_rsi": 82.72,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
-      "sym": "AMD",
-      "direction": "ob",
-      "w_rsi": 82.61,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "DPZ",
+      "sym": "COO",
       "direction": "os",
-      "w_rsi": 27.37,
+      "w_rsi": 27.4,
       "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "MRAM",
+      "direction": "ob",
+      "w_rsi": 82.63,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "VNT",
+      "direction": "os",
+      "w_rsi": 27.41,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "AMBQ",
+      "direction": "ob",
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
+      "sector": "Technology"
     }
   ]
 }
