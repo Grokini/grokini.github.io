@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-15T09:13:16.018302-05:00",
-  "scan_time_display": "5/15 \u00b7 9:13 AM CDT",
+  "scan_time": "2026-05-15T10:08:18.862088-05:00",
+  "scan_time_display": "5/15 \u00b7 10:08 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,46 +34,46 @@
   },
   "imminent": [
     {
-      "sym": "MNSO",
-      "direction": "os",
-      "w_rsi": 27.1,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "STRL",
+      "sym": "FCEL",
       "direction": "ob",
-      "w_rsi": 82.8,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
+      "w_rsi": 82.95,
+      "needs_pts": 0.0,
+      "sector": "Technology"
     },
     {
-      "sym": "COO",
+      "sym": "EPAM",
       "direction": "os",
-      "w_rsi": 27.4,
-      "needs_pts": 0.4,
+      "w_rsi": 27.25,
+      "needs_pts": 0.2,
+      "sector": "Technology"
+    },
+    {
+      "sym": "MDT",
+      "direction": "os",
+      "w_rsi": 27.29,
+      "needs_pts": 0.3,
       "sector": "Healthcare"
     },
     {
-      "sym": "MRAM",
-      "direction": "ob",
-      "w_rsi": 82.63,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "VNT",
+      "sym": "ODD",
       "direction": "os",
-      "w_rsi": 27.41,
-      "needs_pts": 0.4,
-      "sector": "Technology"
+      "w_rsi": 27.53,
+      "needs_pts": 0.5,
+      "sector": "Materials"
     },
     {
-      "sym": "AMBQ",
-      "direction": "ob",
-      "w_rsi": 82.46,
-      "needs_pts": 0.5,
-      "sector": "Technology"
+      "sym": "EFOR",
+      "direction": "os",
+      "w_rsi": 27.61,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "CHTR",
+      "direction": "os",
+      "w_rsi": 27.68,
+      "needs_pts": 0.7,
+      "sector": "Industrials"
     }
   ]
 }
