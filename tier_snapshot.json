@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-15T11:08:27.390698-05:00",
-  "scan_time_display": "5/15 \u00b7 11:08 AM CDT",
+  "scan_time": "2026-05-15T11:51:15.034793-05:00",
+  "scan_time_display": "5/15 \u00b7 11:51 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,32 +34,18 @@
   },
   "imminent": [
     {
-      "sym": "CHTR",
-      "direction": "os",
-      "w_rsi": 27.08,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 27.09,
-      "needs_pts": 0.1,
-      "sector": "Healthcare"
-    },
-    {
       "sym": "BRO",
       "direction": "os",
-      "w_rsi": 27.09,
+      "w_rsi": 27.08,
       "needs_pts": 0.1,
       "sector": "Finance"
     },
     {
-      "sym": "MDT",
+      "sym": "EPAM",
       "direction": "os",
-      "w_rsi": 27.12,
+      "w_rsi": 27.07,
       "needs_pts": 0.1,
-      "sector": "Healthcare"
+      "sector": "Technology"
     },
     {
       "sym": "MNSO",
@@ -69,11 +55,25 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "DOCS",
-      "direction": "os",
-      "w_rsi": 27.32,
-      "needs_pts": 0.3,
+      "sym": "VPG",
+      "direction": "ob",
+      "w_rsi": 82.93,
+      "needs_pts": 0.1,
       "sector": "Technology"
+    },
+    {
+      "sym": "CAEP",
+      "direction": "ob",
+      "w_rsi": 82.83,
+      "needs_pts": 0.2,
+      "sector": "Finance"
+    },
+    {
+      "sym": "COO",
+      "direction": "os",
+      "w_rsi": 27.16,
+      "needs_pts": 0.2,
+      "sector": "Healthcare"
     }
   ]
 }
