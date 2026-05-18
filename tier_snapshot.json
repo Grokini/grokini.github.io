@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-18T13:03:59.304524-05:00",
-  "scan_time_display": "5/18 \u00b7 1:03 PM CDT",
+  "scan_time": "2026-05-18T14:15:40.841330-05:00",
+  "scan_time_display": "5/18 \u00b7 2:15 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,61 +16,62 @@
     }
   },
   "tier1": {
-    "count": 1,
+    "count": 2,
     "sectors": {
+      "Materials": 1,
       "Healthcare": 1
     },
     "w_rsi_range": [
-      26.85,
+      22.63,
       26.85
     ],
     "direction_breakdown": {
       "overbought": 0,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "BTSG",
+      "sym": "VNT",
+      "direction": "os",
+      "w_rsi": 27.51,
+      "needs_pts": 0.5,
+      "sector": "Technology"
+    },
+    {
+      "sym": "WTTR",
       "direction": "ob",
-      "w_rsi": 82.84,
-      "needs_pts": 0.2,
-      "sector": "Healthcare"
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
+      "sector": "Materials"
     },
     {
       "sym": "NTCT",
       "direction": "ob",
-      "w_rsi": 82.59,
-      "needs_pts": 0.4,
+      "w_rsi": 82.36,
+      "needs_pts": 0.6,
       "sector": "Technology"
     },
     {
-      "sym": "AMBQ",
-      "direction": "ob",
-      "w_rsi": 82.59,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "VNT",
+      "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.37,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "MDT",
-      "direction": "os",
-      "w_rsi": 27.53,
-      "needs_pts": 0.5,
-      "sector": "Healthcare"
+      "w_rsi": 27.66,
+      "needs_pts": 0.7,
+      "sector": "Industrials"
     },
     {
       "sym": "EFXT",
       "direction": "ob",
-      "w_rsi": 82.06,
-      "needs_pts": 0.9,
+      "w_rsi": 82.32,
+      "needs_pts": 0.7,
       "sector": "Industrials"
+    },
+    {
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 27.85,
+      "needs_pts": 0.9,
+      "sector": "Finance"
     }
   ]
 }
