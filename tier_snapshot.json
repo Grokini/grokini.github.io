@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-18T09:09:19.571733-05:00",
-  "scan_time_display": "5/18 \u00b7 9:09 AM CDT",
+  "scan_time": "2026-05-18T09:58:34.826145-05:00",
+  "scan_time_display": "5/18 \u00b7 9:58 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "CPB",
+      "sym": "MDT",
       "direction": "os",
-      "w_rsi": 27.17,
+      "w_rsi": 27.18,
       "needs_pts": 0.2,
-      "sector": "Consumer Staples"
+      "sector": "Healthcare"
     },
     {
-      "sym": "MANE",
+      "sym": "WTTR",
       "direction": "ob",
-      "w_rsi": 82.71,
-      "needs_pts": 0.3,
+      "w_rsi": 82.76,
+      "needs_pts": 0.2,
       "sector": "Materials"
     },
     {
-      "sym": "CHTR",
+      "sym": "DPZ",
       "direction": "os",
-      "w_rsi": 27.46,
-      "needs_pts": 0.5,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.5,
-      "needs_pts": 0.5,
+      "w_rsi": 27.68,
+      "needs_pts": 0.7,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "COR",
-      "direction": "os",
-      "w_rsi": 27.48,
-      "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "PENG",
+      "sym": "NTCT",
       "direction": "ob",
-      "w_rsi": 82.37,
-      "needs_pts": 0.6,
+      "w_rsi": 82.15,
+      "needs_pts": 0.8,
       "sector": "Technology"
+    },
+    {
+      "sym": "CPB",
+      "direction": "os",
+      "w_rsi": 27.94,
+      "needs_pts": 0.9,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "EFXT",
+      "direction": "ob",
+      "w_rsi": 82.11,
+      "needs_pts": 0.9,
+      "sector": "Industrials"
     }
   ]
 }
