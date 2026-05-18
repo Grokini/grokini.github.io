@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-18T12:24:32.925410-05:00",
-  "scan_time_display": "5/18 \u00b7 12:24 PM CDT",
+  "scan_time": "2026-05-18T13:03:59.304524-05:00",
+  "scan_time_display": "5/18 \u00b7 1:03 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "EFXT",
+      "sym": "BTSG",
       "direction": "ob",
-      "w_rsi": 82.5,
-      "needs_pts": 0.5,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "VNT",
-      "direction": "os",
-      "w_rsi": 27.47,
-      "needs_pts": 0.5,
-      "sector": "Technology"
+      "w_rsi": 82.84,
+      "needs_pts": 0.2,
+      "sector": "Healthcare"
     },
     {
       "sym": "NTCT",
       "direction": "ob",
-      "w_rsi": 82.36,
-      "needs_pts": 0.6,
+      "w_rsi": 82.59,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "AMBQ",
+      "direction": "ob",
+      "w_rsi": 82.59,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "VNT",
+      "direction": "os",
+      "w_rsi": 27.37,
+      "needs_pts": 0.4,
       "sector": "Technology"
     },
     {
       "sym": "MDT",
       "direction": "os",
-      "w_rsi": 27.6,
-      "needs_pts": 0.6,
+      "w_rsi": 27.53,
+      "needs_pts": 0.5,
       "sector": "Healthcare"
     },
     {
-      "sym": "COO",
-      "direction": "os",
-      "w_rsi": 27.68,
-      "needs_pts": 0.7,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "CPB",
-      "direction": "os",
-      "w_rsi": 27.71,
-      "needs_pts": 0.7,
-      "sector": "Consumer Staples"
+      "sym": "EFXT",
+      "direction": "ob",
+      "w_rsi": 82.06,
+      "needs_pts": 0.9,
+      "sector": "Industrials"
     }
   ]
 }
