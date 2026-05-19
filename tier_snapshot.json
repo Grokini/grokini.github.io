@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-19T11:07:06.678019-05:00",
-  "scan_time_display": "5/19 \u00b7 11:07 AM CDT",
+  "scan_time": "2026-05-19T12:10:07.410043-05:00",
+  "scan_time_display": "5/19 \u00b7 12:10 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,45 +31,45 @@
   },
   "imminent": [
     {
-      "sym": "WTTR",
-      "direction": "ob",
-      "w_rsi": 82.94,
+      "sym": "PBH",
+      "direction": "os",
+      "w_rsi": 27.13,
       "needs_pts": 0.1,
       "sector": "Materials"
     },
     {
-      "sym": "BKT",
+      "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.23,
+      "w_rsi": 27.24,
       "needs_pts": 0.2,
-      "sector": "Unknown"
+      "sector": "Industrials"
     },
     {
-      "sym": "DOCS",
-      "direction": "os",
-      "w_rsi": 27.17,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "VNT",
-      "direction": "os",
-      "w_rsi": 27.46,
-      "needs_pts": 0.5,
-      "sector": "Technology"
+      "sym": "EFXT",
+      "direction": "ob",
+      "w_rsi": 82.69,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
     },
     {
       "sym": "VISN",
       "direction": "os",
-      "w_rsi": 27.6,
-      "needs_pts": 0.6,
+      "w_rsi": 27.52,
+      "needs_pts": 0.5,
       "sector": "Technology"
     },
     {
-      "sym": "PBH",
+      "sym": "BKT",
       "direction": "os",
       "w_rsi": 27.64,
       "needs_pts": 0.6,
+      "sector": "Unknown"
+    },
+    {
+      "sym": "SUNC",
+      "direction": "ob",
+      "w_rsi": 82.29,
+      "needs_pts": 0.7,
       "sector": "Materials"
     }
   ]
