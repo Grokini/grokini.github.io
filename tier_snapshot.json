@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-19T14:04:28.302307-05:00",
-  "scan_time_display": "5/19 \u00b7 2:04 PM CDT",
+  "scan_time": "2026-05-19T15:09:27.567904-05:00",
+  "scan_time_display": "5/19 \u00b7 3:09 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,60 +16,61 @@
     }
   },
   "tier1": {
-    "count": 1,
+    "count": 2,
     "sectors": {
-      "Healthcare": 1
+      "Healthcare": 1,
+      "Industrials": 1
     },
     "w_rsi_range": [
       26.85,
-      26.85
+      27.4
     ],
     "direction_breakdown": {
       "overbought": 0,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
       "sym": "VNT",
       "direction": "os",
-      "w_rsi": 27.07,
+      "w_rsi": 27.05,
       "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
       "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.3,
-      "needs_pts": 0.3,
+      "w_rsi": 27.4,
+      "needs_pts": 0.4,
       "sector": "Industrials"
-    },
-    {
-      "sym": "EFXT",
-      "direction": "ob",
-      "w_rsi": 82.67,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "PBH",
-      "direction": "os",
-      "w_rsi": 27.29,
-      "needs_pts": 0.3,
-      "sector": "Materials"
     },
     {
       "sym": "BKT",
       "direction": "os",
-      "w_rsi": 27.44,
+      "w_rsi": 27.39,
       "needs_pts": 0.4,
       "sector": "Unknown"
     },
     {
-      "sym": "CSCO",
-      "direction": "ob",
-      "w_rsi": 82.52,
-      "needs_pts": 0.5,
+      "sym": "MNSO",
+      "direction": "os",
+      "w_rsi": 27.35,
+      "needs_pts": 0.4,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "PBH",
+      "direction": "os",
+      "w_rsi": 27.62,
+      "needs_pts": 0.6,
+      "sector": "Materials"
+    },
+    {
+      "sym": "LBRDA",
+      "direction": "os",
+      "w_rsi": 27.78,
+      "needs_pts": 0.8,
       "sector": "Industrials"
     }
   ]
