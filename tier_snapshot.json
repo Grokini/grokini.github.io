@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-20T08:54:48.127647-05:00",
-  "scan_time_display": "5/20 \u00b7 8:54 AM CDT",
+  "scan_time": "2026-05-20T10:02:11.703939-05:00",
+  "scan_time_display": "5/20 \u00b7 10:02 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -23,7 +23,7 @@
       "Materials": 1
     },
     "w_rsi_range": [
-      26.38,
+      26.31,
       27.72
     ],
     "direction_breakdown": {
@@ -33,32 +33,25 @@
   },
   "imminent": [
     {
-      "sym": "BKT",
-      "direction": "os",
-      "w_rsi": 27.03,
+      "sym": "SUNC",
+      "direction": "ob",
+      "w_rsi": 82.98,
       "needs_pts": 0.0,
-      "sector": "Unknown"
+      "sector": "Materials"
     },
     {
       "sym": "EYE",
       "direction": "os",
-      "w_rsi": 27.16,
-      "needs_pts": 0.2,
+      "w_rsi": 27.1,
+      "needs_pts": 0.1,
       "sector": "Healthcare"
     },
     {
-      "sym": "AOS",
+      "sym": "CPB",
       "direction": "os",
-      "w_rsi": 27.25,
-      "needs_pts": 0.2,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "EFXT",
-      "direction": "ob",
-      "w_rsi": 82.81,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
+      "w_rsi": 27.41,
+      "needs_pts": 0.4,
+      "sector": "Consumer Staples"
     },
     {
       "sym": "QFIN",
@@ -68,11 +61,18 @@
       "sector": "Finance"
     },
     {
-      "sym": "ACM",
-      "direction": "os",
-      "w_rsi": 27.56,
-      "needs_pts": 0.6,
+      "sym": "EFXT",
+      "direction": "ob",
+      "w_rsi": 82.48,
+      "needs_pts": 0.5,
       "sector": "Industrials"
+    },
+    {
+      "sym": "INGR",
+      "direction": "os",
+      "w_rsi": 27.72,
+      "needs_pts": 0.7,
+      "sector": "Consumer Staples"
     }
   ]
 }
