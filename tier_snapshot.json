@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-21T13:14:22.180093-05:00",
-  "scan_time_display": "5/21 \u00b7 1:14 PM CDT",
+  "scan_time": "2026-05-21T13:52:39.456108-05:00",
+  "scan_time_display": "5/21 \u00b7 1:52 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -23,7 +23,7 @@
     },
     "w_rsi_range": [
       27.0,
-      87.38
+      86.99
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -32,46 +32,46 @@
   },
   "imminent": [
     {
-      "sym": "QFIN",
+      "sym": "DOCS",
       "direction": "os",
-      "w_rsi": 27.2,
-      "needs_pts": 0.2,
-      "sector": "Finance"
+      "w_rsi": 27.29,
+      "needs_pts": 0.3,
+      "sector": "Technology"
     },
     {
-      "sym": "DOCS",
+      "sym": "QFIN",
       "direction": "os",
       "w_rsi": 27.39,
       "needs_pts": 0.4,
-      "sector": "Technology"
+      "sector": "Finance"
     },
     {
       "sym": "MANE",
       "direction": "ob",
-      "w_rsi": 82.5,
+      "w_rsi": 82.45,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
     {
-      "sym": "SMTC",
+      "sym": "ATEX",
       "direction": "ob",
-      "w_rsi": 82.44,
+      "w_rsi": 82.38,
       "needs_pts": 0.6,
-      "sector": "Technology"
+      "sector": "Industrials"
     },
     {
       "sym": "HIMX",
       "direction": "ob",
-      "w_rsi": 82.14,
-      "needs_pts": 0.9,
+      "w_rsi": 82.4,
+      "needs_pts": 0.6,
       "sector": "Technology"
     },
     {
-      "sym": "ACM",
-      "direction": "os",
-      "w_rsi": 28.03,
-      "needs_pts": 1.0,
-      "sector": "Industrials"
+      "sym": "SMTC",
+      "direction": "ob",
+      "w_rsi": 81.92,
+      "needs_pts": 1.1,
+      "sector": "Technology"
     }
   ]
 }
