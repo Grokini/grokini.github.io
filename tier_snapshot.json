@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-22T09:00:55.423508-05:00",
-  "scan_time_display": "5/22 \u00b7 9:00 AM CDT",
+  "scan_time": "2026-05-22T10:02:07.102766-05:00",
+  "scan_time_display": "5/22 \u00b7 10:02 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -32,46 +32,46 @@
   },
   "imminent": [
     {
-      "sym": "FUTU",
-      "direction": "os",
-      "w_rsi": 27.02,
-      "needs_pts": 0.0,
+      "sym": "RAAQ",
+      "direction": "ob",
+      "w_rsi": 82.7,
+      "needs_pts": 0.3,
       "sector": "Finance"
     },
     {
-      "sym": "ODD",
-      "direction": "os",
-      "w_rsi": 27.02,
-      "needs_pts": 0.0,
-      "sector": "Materials"
-    },
-    {
-      "sym": "IRDM",
+      "sym": "ATEX",
       "direction": "ob",
-      "w_rsi": 82.72,
-      "needs_pts": 0.3,
+      "w_rsi": 82.23,
+      "needs_pts": 0.8,
       "sector": "Industrials"
     },
     {
-      "sym": "NVTS",
+      "sym": "ARW",
       "direction": "ob",
-      "w_rsi": 82.67,
-      "needs_pts": 0.3,
-      "sector": "Technology"
+      "w_rsi": 82.21,
+      "needs_pts": 0.8,
+      "sector": "Consumer Discretionary"
     },
     {
-      "sym": "DOCS",
+      "sym": "FUTU",
       "direction": "os",
-      "w_rsi": 27.53,
-      "needs_pts": 0.5,
+      "w_rsi": 28.33,
+      "needs_pts": 1.3,
+      "sector": "Finance"
+    },
+    {
+      "sym": "LUNR",
+      "direction": "ob",
+      "w_rsi": 81.62,
+      "needs_pts": 1.4,
       "sector": "Technology"
     },
     {
-      "sym": "PIII",
-      "direction": "ob",
-      "w_rsi": 82.27,
-      "needs_pts": 0.7,
-      "sector": "Healthcare"
+      "sym": "Z",
+      "direction": "os",
+      "w_rsi": 28.47,
+      "needs_pts": 1.5,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
