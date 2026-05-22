@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-22T12:05:35.708560-05:00",
-  "scan_time_display": "5/22 \u00b7 12:05 PM CDT",
+  "scan_time": "2026-05-22T13:04:02.957036-05:00",
+  "scan_time_display": "5/22 \u00b7 1:04 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -32,46 +32,46 @@
   },
   "imminent": [
     {
-      "sym": "DOCS",
-      "direction": "os",
-      "w_rsi": 27.24,
-      "needs_pts": 0.2,
-      "sector": "Technology"
+      "sym": "ATEX",
+      "direction": "ob",
+      "w_rsi": 82.47,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
     },
     {
       "sym": "ARW",
       "direction": "ob",
-      "w_rsi": 82.63,
-      "needs_pts": 0.4,
+      "w_rsi": 82.36,
+      "needs_pts": 0.6,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "ATEX",
-      "direction": "ob",
-      "w_rsi": 82.14,
-      "needs_pts": 0.9,
-      "sector": "Industrials"
+      "sym": "DOCS",
+      "direction": "os",
+      "w_rsi": 27.59,
+      "needs_pts": 0.6,
+      "sector": "Technology"
     },
     {
       "sym": "FUTU",
       "direction": "os",
-      "w_rsi": 27.96,
-      "needs_pts": 1.0,
+      "w_rsi": 27.86,
+      "needs_pts": 0.9,
       "sector": "Finance"
-    },
-    {
-      "sym": "EYE",
-      "direction": "os",
-      "w_rsi": 28.41,
-      "needs_pts": 1.4,
-      "sector": "Healthcare"
     },
     {
       "sym": "ATHM",
       "direction": "os",
-      "w_rsi": 28.41,
-      "needs_pts": 1.4,
+      "w_rsi": 27.88,
+      "needs_pts": 0.9,
       "sector": "Technology"
+    },
+    {
+      "sym": "Z",
+      "direction": "os",
+      "w_rsi": 28.53,
+      "needs_pts": 1.5,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
