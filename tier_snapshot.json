@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-26T08:57:36.605320-05:00",
-  "scan_time_display": "5/26 \u00b7 8:57 AM CDT",
+  "scan_time": "2026-05-26T09:58:11.410998-05:00",
+  "scan_time_display": "5/26 \u00b7 9:58 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -32,25 +32,18 @@
   },
   "imminent": [
     {
-      "sym": "RPRX",
+      "sym": "KN",
       "direction": "ob",
-      "w_rsi": 82.91,
-      "needs_pts": 0.1,
-      "sector": "Materials"
+      "w_rsi": 82.98,
+      "needs_pts": 0.0,
+      "sector": "Technology"
     },
     {
-      "sym": "ARW",
+      "sym": "AVT",
       "direction": "ob",
-      "w_rsi": 82.92,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "WTTR",
-      "direction": "ob",
-      "w_rsi": 82.71,
+      "w_rsi": 82.74,
       "needs_pts": 0.3,
-      "sector": "Materials"
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "CLDT",
@@ -60,17 +53,24 @@
       "sector": "Finance"
     },
     {
+      "sym": "QFIN",
+      "direction": "os",
+      "w_rsi": 27.47,
+      "needs_pts": 0.5,
+      "sector": "Finance"
+    },
+    {
       "sym": "DOCS",
       "direction": "os",
-      "w_rsi": 27.42,
-      "needs_pts": 0.4,
+      "w_rsi": 27.59,
+      "needs_pts": 0.6,
       "sector": "Technology"
     },
     {
-      "sym": "DELL",
+      "sym": "CSCO",
       "direction": "ob",
-      "w_rsi": 82.37,
-      "needs_pts": 0.6,
+      "w_rsi": 82.07,
+      "needs_pts": 0.9,
       "sector": "Industrials"
     }
   ]
