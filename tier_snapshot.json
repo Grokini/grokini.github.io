@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-26T14:57:14.414045-05:00",
-  "scan_time_display": "5/26 \u00b7 2:57 PM CDT",
+  "scan_time": "2026-05-26T15:59:08.783842-05:00",
+  "scan_time_display": "5/26 \u00b7 3:59 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -24,8 +24,8 @@
       "Materials": 1
     },
     "w_rsi_range": [
-      23.2,
-      80.73
+      23.17,
+      80.76
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -34,46 +34,46 @@
   },
   "imminent": [
     {
-      "sym": "DOCS",
-      "direction": "os",
-      "w_rsi": 27.38,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "EYE",
-      "direction": "os",
-      "w_rsi": 27.64,
-      "needs_pts": 0.6,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "DELL",
+      "sym": "ATEX",
       "direction": "ob",
-      "w_rsi": 82.31,
-      "needs_pts": 0.7,
+      "w_rsi": 82.86,
+      "needs_pts": 0.1,
       "sector": "Industrials"
     },
     {
       "sym": "CSCO",
       "direction": "ob",
-      "w_rsi": 82.17,
-      "needs_pts": 0.8,
+      "w_rsi": 82.91,
+      "needs_pts": 0.1,
       "sector": "Industrials"
+    },
+    {
+      "sym": "DOCS",
+      "direction": "os",
+      "w_rsi": 27.36,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "VACI",
+      "direction": "ob",
+      "w_rsi": 82.61,
+      "needs_pts": 0.4,
+      "sector": "Finance"
     },
     {
       "sym": "EXTR",
       "direction": "ob",
-      "w_rsi": 82.21,
-      "needs_pts": 0.8,
+      "w_rsi": 82.47,
+      "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
-      "sym": "VECO",
-      "direction": "ob",
-      "w_rsi": 82.17,
-      "needs_pts": 0.8,
-      "sector": "Industrials"
+      "sym": "EYE",
+      "direction": "os",
+      "w_rsi": 27.61,
+      "needs_pts": 0.6,
+      "sector": "Healthcare"
     }
   ]
 }
