@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-27T10:53:45.324249-05:00",
-  "scan_time_display": "5/27 \u00b7 10:53 AM CDT",
+  "scan_time": "2026-05-27T11:54:05.806079-05:00",
+  "scan_time_display": "5/27 \u00b7 11:54 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,18 +16,18 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 4,
     "sectors": {
-      "Finance": 1,
+      "Finance": 2,
       "Unknown": 1,
       "Materials": 1
     },
     "w_rsi_range": [
       25.2,
-      80.38
+      83.5
     ],
     "direction_breakdown": {
-      "overbought": 1,
+      "overbought": 2,
       "oversold": 2
     }
   },
@@ -35,44 +35,44 @@
     {
       "sym": "EYE",
       "direction": "os",
-      "w_rsi": 27.35,
-      "needs_pts": 0.4,
+      "w_rsi": 27.13,
+      "needs_pts": 0.1,
       "sector": "Healthcare"
-    },
-    {
-      "sym": "DELL",
-      "direction": "ob",
-      "w_rsi": 82.48,
-      "needs_pts": 0.5,
-      "sector": "Industrials"
     },
     {
       "sym": "VICR",
       "direction": "ob",
-      "w_rsi": 82.14,
-      "needs_pts": 0.9,
+      "w_rsi": 82.75,
+      "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
-      "sym": "KMPR",
-      "direction": "os",
-      "w_rsi": 27.85,
-      "needs_pts": 0.9,
-      "sector": "Finance"
+      "sym": "DELL",
+      "direction": "ob",
+      "w_rsi": 82.55,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "ON",
+      "direction": "ob",
+      "w_rsi": 82.23,
+      "needs_pts": 0.8,
+      "sector": "Technology"
     },
     {
       "sym": "ATHM",
       "direction": "os",
-      "w_rsi": 28.44,
-      "needs_pts": 1.4,
+      "w_rsi": 28.19,
+      "needs_pts": 1.2,
       "sector": "Technology"
     },
     {
-      "sym": "BFAM",
+      "sym": "MKTX",
       "direction": "os",
-      "w_rsi": 29.04,
-      "needs_pts": 2.0,
-      "sector": "Healthcare"
+      "w_rsi": 28.31,
+      "needs_pts": 1.3,
+      "sector": "Finance"
     }
   ]
 }
