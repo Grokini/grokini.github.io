@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-27T11:54:05.806079-05:00",
-  "scan_time_display": "5/27 \u00b7 11:54 AM CDT",
+  "scan_time": "2026-05-27T12:53:24.236282-05:00",
+  "scan_time_display": "5/27 \u00b7 12:53 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -24,7 +24,7 @@
     },
     "w_rsi_range": [
       25.2,
-      83.5
+      83.56
     ],
     "direction_breakdown": {
       "overbought": 2,
@@ -35,42 +35,42 @@
     {
       "sym": "EYE",
       "direction": "os",
-      "w_rsi": 27.13,
-      "needs_pts": 0.1,
+      "w_rsi": 27.41,
+      "needs_pts": 0.4,
       "sector": "Healthcare"
-    },
-    {
-      "sym": "VICR",
-      "direction": "ob",
-      "w_rsi": 82.75,
-      "needs_pts": 0.2,
-      "sector": "Technology"
     },
     {
       "sym": "DELL",
       "direction": "ob",
-      "w_rsi": 82.55,
+      "w_rsi": 82.47,
       "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
       "sym": "ON",
       "direction": "ob",
-      "w_rsi": 82.23,
-      "needs_pts": 0.8,
+      "w_rsi": 82.44,
+      "needs_pts": 0.6,
+      "sector": "Technology"
+    },
+    {
+      "sym": "VICR",
+      "direction": "ob",
+      "w_rsi": 82.31,
+      "needs_pts": 0.7,
       "sector": "Technology"
     },
     {
       "sym": "ATHM",
       "direction": "os",
-      "w_rsi": 28.19,
+      "w_rsi": 28.21,
       "needs_pts": 1.2,
       "sector": "Technology"
     },
     {
       "sym": "MKTX",
       "direction": "os",
-      "w_rsi": 28.31,
+      "w_rsi": 28.33,
       "needs_pts": 1.3,
       "sector": "Finance"
     }
