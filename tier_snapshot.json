@@ -3,21 +3,22 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-28T13:52:43.507328-05:00",
-  "scan_time_display": "5/28 \u00b7 1:52 PM CDT",
+  "scan_time": "2026-05-28T15:07:45.612833-05:00",
+  "scan_time_display": "5/28 \u00b7 3:07 PM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 1,
+    "count": 2,
     "sectors": {
+      "Consumer Discretionary": 1,
       "Technology": 1
     },
     "w_rsi_range": [
-      26.78,
+      23.25,
       26.78
     ],
     "direction_breakdown": {
       "overbought": 0,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "tier1": {
@@ -30,7 +31,7 @@
     },
     "w_rsi_range": [
       23.58,
-      91.81
+      91.92
     ],
     "direction_breakdown": {
       "overbought": 2,
@@ -39,46 +40,46 @@
   },
   "imminent": [
     {
-      "sym": "HPE",
-      "direction": "ob",
-      "w_rsi": 82.96,
-      "needs_pts": 0.0,
-      "sector": "Industrials"
-    },
-    {
       "sym": "TXN",
       "direction": "ob",
-      "w_rsi": 82.76,
+      "w_rsi": 82.77,
       "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
       "sym": "AMD",
       "direction": "ob",
-      "w_rsi": 82.72,
+      "w_rsi": 82.69,
       "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
       "sym": "BSTZ",
       "direction": "ob",
-      "w_rsi": 82.52,
+      "w_rsi": 82.48,
       "needs_pts": 0.5,
       "sector": "Unknown"
     },
     {
-      "sym": "ARM",
-      "direction": "ob",
-      "w_rsi": 82.18,
-      "needs_pts": 0.8,
-      "sector": "Technology"
-    },
-    {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.25,
-      "needs_pts": 0.8,
+      "w_rsi": 82.29,
+      "needs_pts": 0.7,
       "sector": "Industrials"
+    },
+    {
+      "sym": "ELA",
+      "direction": "ob",
+      "w_rsi": 82.31,
+      "needs_pts": 0.7,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "TD",
+      "direction": "ob",
+      "w_rsi": 82.21,
+      "needs_pts": 0.8,
+      "sector": "Finance"
     }
   ]
 }
