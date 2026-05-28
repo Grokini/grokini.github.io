@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-28T11:07:57.139703-05:00",
-  "scan_time_display": "5/28 \u00b7 11:07 AM CDT",
+  "scan_time": "2026-05-28T12:18:42.747746-05:00",
+  "scan_time_display": "5/28 \u00b7 12:18 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -25,7 +25,7 @@
     },
     "w_rsi_range": [
       23.58,
-      80.57
+      80.58
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -34,45 +34,45 @@
   },
   "imminent": [
     {
-      "sym": "AMD",
+      "sym": "HPE",
       "direction": "ob",
-      "w_rsi": 82.98,
-      "needs_pts": 0.0,
-      "sector": "Technology"
+      "w_rsi": 82.94,
+      "needs_pts": 0.1,
+      "sector": "Industrials"
     },
     {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.7,
-      "needs_pts": 0.3,
+      "w_rsi": 82.83,
+      "needs_pts": 0.2,
       "sector": "Industrials"
     },
     {
-      "sym": "TXN",
+      "sym": "AMD",
       "direction": "ob",
-      "w_rsi": 82.62,
-      "needs_pts": 0.4,
+      "w_rsi": 82.71,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "ARM",
+      "direction": "ob",
+      "w_rsi": 82.29,
+      "needs_pts": 0.7,
       "sector": "Technology"
     },
     {
       "sym": "AGL",
       "direction": "ob",
-      "w_rsi": 82.33,
+      "w_rsi": 82.31,
       "needs_pts": 0.7,
       "sector": "Healthcare"
     },
     {
-      "sym": "ARM",
-      "direction": "ob",
-      "w_rsi": 82.15,
-      "needs_pts": 0.8,
-      "sector": "Technology"
-    },
-    {
       "sym": "BSTZ",
       "direction": "ob",
-      "w_rsi": 82.25,
-      "needs_pts": 0.8,
+      "w_rsi": 82.34,
+      "needs_pts": 0.7,
       "sector": "Unknown"
     }
   ]
