@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-29T09:05:34.693450-05:00",
-  "scan_time_display": "5/29 \u00b7 9:05 AM CDT",
+  "scan_time": "2026-05-29T09:53:18.925316-05:00",
+  "scan_time_display": "5/29 \u00b7 9:53 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 2,
@@ -30,7 +30,7 @@
     },
     "w_rsi_range": [
       22.8,
-      80.63
+      80.7
     ],
     "direction_breakdown": {
       "overbought": 1,
@@ -39,46 +39,46 @@
   },
   "imminent": [
     {
+      "sym": "ARM",
+      "direction": "ob",
+      "w_rsi": 82.96,
+      "needs_pts": 0.0,
+      "sector": "Technology"
+    },
+    {
+      "sym": "XLK",
+      "direction": "ob",
+      "w_rsi": 82.81,
+      "needs_pts": 0.2,
+      "sector": "Unknown"
+    },
+    {
       "sym": "CLDT",
       "direction": "ob",
-      "w_rsi": 82.98,
-      "needs_pts": 0.0,
+      "w_rsi": 82.57,
+      "needs_pts": 0.4,
       "sector": "Finance"
+    },
+    {
+      "sym": "ON",
+      "direction": "ob",
+      "w_rsi": 82.5,
+      "needs_pts": 0.5,
+      "sector": "Technology"
+    },
+    {
+      "sym": "MOV",
+      "direction": "ob",
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
+      "sector": "Technology"
     },
     {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.62,
-      "needs_pts": 0.4,
+      "w_rsi": 82.44,
+      "needs_pts": 0.6,
       "sector": "Industrials"
-    },
-    {
-      "sym": "BSTZ",
-      "direction": "ob",
-      "w_rsi": 82.49,
-      "needs_pts": 0.5,
-      "sector": "Unknown"
-    },
-    {
-      "sym": "AMD",
-      "direction": "ob",
-      "w_rsi": 82.27,
-      "needs_pts": 0.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "TXN",
-      "direction": "ob",
-      "w_rsi": 82.34,
-      "needs_pts": 0.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "Z",
-      "direction": "os",
-      "w_rsi": 27.78,
-      "needs_pts": 0.8,
-      "sector": "Consumer Discretionary"
     }
   ]
 }
