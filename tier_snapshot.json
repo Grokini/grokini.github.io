@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-29T11:54:23.419702-05:00",
-  "scan_time_display": "5/29 \u00b7 11:54 AM CDT",
+  "scan_time": "2026-05-29T12:55:44.863289-05:00",
+  "scan_time_display": "5/29 \u00b7 12:55 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 2,
@@ -31,7 +31,7 @@
     },
     "w_rsi_range": [
       22.8,
-      92.84
+      93.08
     ],
     "direction_breakdown": {
       "overbought": 2,
@@ -40,46 +40,46 @@
   },
   "imminent": [
     {
-      "sym": "XLK",
+      "sym": "SNX",
       "direction": "ob",
-      "w_rsi": 82.88,
+      "w_rsi": 82.87,
       "needs_pts": 0.1,
-      "sector": "Unknown"
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
+      "w_rsi": 82.6,
+      "needs_pts": 0.4,
       "sector": "Industrials"
-    },
-    {
-      "sym": "MNSO",
-      "direction": "os",
-      "w_rsi": 27.32,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
     },
     {
       "sym": "AGL",
       "direction": "ob",
-      "w_rsi": 82.56,
+      "w_rsi": 82.58,
       "needs_pts": 0.4,
       "sector": "Healthcare"
     },
     {
-      "sym": "BSTZ",
+      "sym": "XLK",
       "direction": "ob",
-      "w_rsi": 82.57,
+      "w_rsi": 82.64,
       "needs_pts": 0.4,
       "sector": "Unknown"
     },
     {
-      "sym": "NWPX",
+      "sym": "MOV",
       "direction": "ob",
-      "w_rsi": 82.23,
-      "needs_pts": 0.8,
-      "sector": "Industrials"
+      "w_rsi": 82.47,
+      "needs_pts": 0.5,
+      "sector": "Technology"
+    },
+    {
+      "sym": "PURR",
+      "direction": "ob",
+      "w_rsi": 82.13,
+      "needs_pts": 0.9,
+      "sector": "Finance"
     }
   ]
 }
