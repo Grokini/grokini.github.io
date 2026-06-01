@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-01T09:52:33.241918-05:00",
-  "scan_time_display": "6/1 \u00b7 9:52 AM CDT",
+  "scan_time": "2026-06-01T11:03:30.673192-05:00",
+  "scan_time_display": "6/1 \u00b7 11:03 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -22,7 +22,7 @@
       "Materials": 1
     },
     "w_rsi_range": [
-      80.59,
+      80.63,
       87.75
     ],
     "direction_breakdown": {
@@ -32,18 +32,25 @@
   },
   "imminent": [
     {
-      "sym": "Z",
-      "direction": "os",
-      "w_rsi": 27.47,
+      "sym": "AMD",
+      "direction": "ob",
+      "w_rsi": 82.53,
       "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
+      "sector": "Technology"
     },
     {
-      "sym": "RMD",
-      "direction": "os",
-      "w_rsi": 27.53,
+      "sym": "KN",
+      "direction": "ob",
+      "w_rsi": 82.45,
       "needs_pts": 0.5,
-      "sector": "Healthcare"
+      "sector": "Technology"
+    },
+    {
+      "sym": "PBH",
+      "direction": "os",
+      "w_rsi": 27.5,
+      "needs_pts": 0.5,
+      "sector": "Materials"
     },
     {
       "sym": "LOKV",
@@ -53,25 +60,18 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "CLDT",
+      "sym": "FTNT",
       "direction": "ob",
-      "w_rsi": 82.19,
+      "w_rsi": 82.16,
       "needs_pts": 0.8,
-      "sector": "Finance"
+      "sector": "Industrials"
     },
     {
-      "sym": "UHS",
-      "direction": "os",
-      "w_rsi": 27.8,
+      "sym": "NBIS",
+      "direction": "ob",
+      "w_rsi": 82.23,
       "needs_pts": 0.8,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "PBH",
-      "direction": "os",
-      "w_rsi": 27.9,
-      "needs_pts": 0.9,
-      "sector": "Materials"
+      "sector": "Technology"
     }
   ]
 }
