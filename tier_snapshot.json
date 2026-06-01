@@ -3,83 +3,75 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-05-29T16:13:47.414699-05:00",
-  "scan_time_display": "5/29 \u00b7 4:13 PM CDT",
+  "scan_time": "2026-06-01T09:01:36.515173-05:00",
+  "scan_time_display": "6/1 \u00b7 9:01 AM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 2,
-    "sectors": {
-      "Technology": 1,
-      "Finance": 1
-    },
-    "w_rsi_range": [
-      26.78,
-      83.26
-    ],
+    "count": 0,
+    "sectors": {},
+    "w_rsi_range": null,
     "direction_breakdown": {
-      "overbought": 1,
-      "oversold": 1
+      "overbought": 0,
+      "oversold": 0
     }
   },
   "tier1": {
-    "count": 4,
+    "count": 2,
     "sectors": {
-      "Consumer Discretionary": 1,
       "Finance": 1,
-      "Materials": 1,
-      "Healthcare": 1
+      "Materials": 1
     },
     "w_rsi_range": [
-      22.8,
+      80.7,
       87.75
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 2
+      "oversold": 0
     }
   },
   "imminent": [
     {
-      "sym": "XLK",
+      "sym": "EXTR",
       "direction": "ob",
-      "w_rsi": 82.99,
-      "needs_pts": 0.0,
-      "sector": "Unknown"
-    },
-    {
-      "sym": "SNDK",
-      "direction": "ob",
-      "w_rsi": 82.91,
-      "needs_pts": 0.1,
+      "w_rsi": 82.5,
+      "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
-      "sym": "FPS",
+      "sym": "ON",
       "direction": "ob",
-      "w_rsi": 82.68,
-      "needs_pts": 0.3,
+      "w_rsi": 82.52,
+      "needs_pts": 0.5,
       "sector": "Technology"
     },
     {
-      "sym": "BSTZ",
+      "sym": "LOKV",
       "direction": "ob",
-      "w_rsi": 82.49,
-      "needs_pts": 0.5,
-      "sector": "Unknown"
-    },
-    {
-      "sym": "Z",
-      "direction": "os",
-      "w_rsi": 27.59,
+      "w_rsi": 82.39,
       "needs_pts": 0.6,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "AGL",
-      "direction": "ob",
-      "w_rsi": 82.37,
-      "needs_pts": 0.6,
+      "sym": "INGR",
+      "direction": "os",
+      "w_rsi": 27.71,
+      "needs_pts": 0.7,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "EYE",
+      "direction": "os",
+      "w_rsi": 27.94,
+      "needs_pts": 0.9,
       "sector": "Healthcare"
+    },
+    {
+      "sym": "LCCC",
+      "direction": "ob",
+      "w_rsi": 81.97,
+      "needs_pts": 1.0,
+      "sector": "Finance"
     }
   ]
 }
