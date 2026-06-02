@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-02T11:01:34.894851-05:00",
-  "scan_time_display": "6/2 \u00b7 11:01 AM CDT",
+  "scan_time": "2026-06-02T12:04:45.359797-05:00",
+  "scan_time_display": "6/2 \u00b7 12:04 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -22,7 +22,7 @@
       "Finance": 1
     },
     "w_rsi_range": [
-      80.67,
+      80.66,
       94.25
     ],
     "direction_breakdown": {
@@ -32,25 +32,11 @@
   },
   "imminent": [
     {
-      "sym": "NHIC",
-      "direction": "ob",
-      "w_rsi": 82.91,
-      "needs_pts": 0.1,
-      "sector": "Finance"
-    },
-    {
-      "sym": "ARW",
-      "direction": "ob",
-      "w_rsi": 82.86,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "PURR",
-      "direction": "ob",
-      "w_rsi": 82.76,
+      "sym": "ROL",
+      "direction": "os",
+      "w_rsi": 27.25,
       "needs_pts": 0.2,
-      "sector": "Finance"
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "SMX",
@@ -60,18 +46,32 @@
       "sector": "Industrials"
     },
     {
+      "sym": "ARW",
+      "direction": "ob",
+      "w_rsi": 82.65,
+      "needs_pts": 0.3,
+      "sector": "Consumer Discretionary"
+    },
+    {
       "sym": "MDT",
       "direction": "os",
-      "w_rsi": 27.44,
+      "w_rsi": 27.36,
       "needs_pts": 0.4,
       "sector": "Healthcare"
     },
     {
-      "sym": "NTAP",
+      "sym": "OSS",
       "direction": "ob",
-      "w_rsi": 82.46,
-      "needs_pts": 0.5,
+      "w_rsi": 82.19,
+      "needs_pts": 0.8,
       "sector": "Industrials"
+    },
+    {
+      "sym": "LCCC",
+      "direction": "ob",
+      "w_rsi": 81.97,
+      "needs_pts": 1.0,
+      "sector": "Finance"
     }
   ]
 }
