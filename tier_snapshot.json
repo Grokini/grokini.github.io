@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-02T09:07:54.492085-05:00",
-  "scan_time_display": "6/2 \u00b7 9:07 AM CDT",
+  "scan_time": "2026-06-02T09:53:50.367732-05:00",
+  "scan_time_display": "6/2 \u00b7 9:53 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -22,7 +22,7 @@
       "Finance": 1
     },
     "w_rsi_range": [
-      80.66,
+      80.67,
       94.25
     ],
     "direction_breakdown": {
@@ -32,32 +32,25 @@
   },
   "imminent": [
     {
-      "sym": "SNDK",
+      "sym": "ARW",
       "direction": "ob",
-      "w_rsi": 82.96,
+      "w_rsi": 82.98,
       "needs_pts": 0.0,
-      "sector": "Industrials"
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "CAG",
       "direction": "os",
-      "w_rsi": 27.12,
-      "needs_pts": 0.1,
+      "w_rsi": 27.01,
+      "needs_pts": 0.0,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "MDT",
+      "sym": "RMD",
       "direction": "os",
-      "w_rsi": 27.2,
-      "needs_pts": 0.2,
+      "w_rsi": 27.04,
+      "needs_pts": 0.0,
       "sector": "Healthcare"
-    },
-    {
-      "sym": "CEVA",
-      "direction": "ob",
-      "w_rsi": 82.73,
-      "needs_pts": 0.3,
-      "sector": "Technology"
     },
     {
       "sym": "SMX",
@@ -67,11 +60,18 @@
       "sector": "Industrials"
     },
     {
-      "sym": "AEHR",
+      "sym": "PBH",
+      "direction": "os",
+      "w_rsi": 27.66,
+      "needs_pts": 0.7,
+      "sector": "Materials"
+    },
+    {
+      "sym": "SNDK",
       "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
-      "sector": "Technology"
+      "w_rsi": 82.11,
+      "needs_pts": 0.9,
+      "sector": "Industrials"
     }
   ]
 }
