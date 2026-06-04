@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-04T10:59:59.545079-05:00",
-  "scan_time_display": "6/4 \u00b7 10:59 AM CDT",
+  "scan_time": "2026-06-04T12:05:30.603712-05:00",
+  "scan_time_display": "6/4 \u00b7 12:05 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -32,9 +32,16 @@
   },
   "imminent": [
     {
-      "sym": "AEHR",
+      "sym": "CAG",
+      "direction": "os",
+      "w_rsi": 27.05,
+      "needs_pts": 0.1,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "PLXS",
       "direction": "ob",
-      "w_rsi": 82.65,
+      "w_rsi": 82.71,
       "needs_pts": 0.3,
       "sector": "Technology"
     },
@@ -48,30 +55,23 @@
     {
       "sym": "NUE",
       "direction": "ob",
-      "w_rsi": 82.74,
+      "w_rsi": 82.67,
       "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
       "sym": "HCA",
       "direction": "os",
-      "w_rsi": 27.43,
+      "w_rsi": 27.36,
       "needs_pts": 0.4,
       "sector": "Healthcare"
     },
     {
-      "sym": "PLXS",
+      "sym": "AVT",
       "direction": "ob",
-      "w_rsi": 82.31,
+      "w_rsi": 82.33,
       "needs_pts": 0.7,
-      "sector": "Technology"
-    },
-    {
-      "sym": "DOCN",
-      "direction": "ob",
-      "w_rsi": 81.96,
-      "needs_pts": 1.0,
-      "sector": "Technology"
+      "sector": "Consumer Discretionary"
     }
   ]
 }
