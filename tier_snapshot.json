@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-04T10:07:07.718955-05:00",
-  "scan_time_display": "6/4 \u00b7 10:07 AM CDT",
+  "scan_time": "2026-06-04T10:59:59.545079-05:00",
+  "scan_time_display": "6/4 \u00b7 10:59 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,28 +16,27 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 4,
     "sectors": {
       "Materials": 2,
-      "Finance": 2,
-      "Technology": 1
+      "Finance": 2
     },
     "w_rsi_range": [
       25.27,
       94.25
     ],
     "direction_breakdown": {
-      "overbought": 4,
+      "overbought": 3,
       "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "EYE",
-      "direction": "os",
-      "w_rsi": 27.14,
-      "needs_pts": 0.1,
-      "sector": "Healthcare"
+      "sym": "AEHR",
+      "direction": "ob",
+      "w_rsi": 82.65,
+      "needs_pts": 0.3,
+      "sector": "Technology"
     },
     {
       "sym": "SMX",
@@ -49,29 +48,29 @@
     {
       "sym": "NUE",
       "direction": "ob",
-      "w_rsi": 82.73,
+      "w_rsi": 82.74,
       "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "LBRDA",
-      "direction": "os",
-      "w_rsi": 27.37,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "LBRDK",
+      "sym": "HCA",
       "direction": "os",
       "w_rsi": 27.43,
       "needs_pts": 0.4,
-      "sector": "Industrials"
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "PLXS",
+      "direction": "ob",
+      "w_rsi": 82.31,
+      "needs_pts": 0.7,
+      "sector": "Technology"
     },
     {
       "sym": "DOCN",
       "direction": "ob",
-      "w_rsi": 82.16,
-      "needs_pts": 0.8,
+      "w_rsi": 81.96,
+      "needs_pts": 1.0,
       "sector": "Technology"
     }
   ]
