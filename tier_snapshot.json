@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-04T08:59:43.304758-05:00",
-  "scan_time_display": "6/4 \u00b7 8:59 AM CDT",
+  "scan_time": "2026-06-04T10:07:07.718955-05:00",
+  "scan_time_display": "6/4 \u00b7 10:07 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,10 @@
     }
   },
   "tier1": {
-    "count": 4,
+    "count": 5,
     "sectors": {
       "Materials": 2,
-      "Finance": 1,
+      "Finance": 2,
       "Technology": 1
     },
     "w_rsi_range": [
@@ -27,17 +27,17 @@
       94.25
     ],
     "direction_breakdown": {
-      "overbought": 3,
+      "overbought": 4,
       "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "ODD",
+      "sym": "EYE",
       "direction": "os",
-      "w_rsi": 27.06,
+      "w_rsi": 27.14,
       "needs_pts": 0.1,
-      "sector": "Materials"
+      "sector": "Healthcare"
     },
     {
       "sym": "SMX",
@@ -47,32 +47,32 @@
       "sector": "Industrials"
     },
     {
-      "sym": "LBRDA",
-      "direction": "os",
-      "w_rsi": 27.58,
-      "needs_pts": 0.6,
+      "sym": "NUE",
+      "direction": "ob",
+      "w_rsi": 82.73,
+      "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "EYE",
+      "sym": "LBRDA",
       "direction": "os",
-      "w_rsi": 27.69,
-      "needs_pts": 0.7,
-      "sector": "Healthcare"
+      "w_rsi": 27.37,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
     },
     {
       "sym": "LBRDK",
       "direction": "os",
-      "w_rsi": 27.71,
-      "needs_pts": 0.7,
+      "w_rsi": 27.43,
+      "needs_pts": 0.4,
       "sector": "Industrials"
     },
     {
-      "sym": "NTAP",
+      "sym": "DOCN",
       "direction": "ob",
-      "w_rsi": 82.35,
-      "needs_pts": 0.7,
-      "sector": "Industrials"
+      "w_rsi": 82.16,
+      "needs_pts": 0.8,
+      "sector": "Technology"
     }
   ]
 }
