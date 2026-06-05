@@ -3,9 +3,11 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-04T15:56:25.234234-05:00",
-  "scan_time_display": "6/4 \u00b7 3:56 PM CDT",
-  "tier3_current": [],
+  "scan_time": "2026-06-05T09:06:09.581576-05:00",
+  "scan_time_display": "6/5 \u00b7 9:06 AM CDT",
+  "tier3_current": [
+    "ASRT"
+  ],
   "tier2": {
     "count": 0,
     "sectors": {},
@@ -16,62 +18,62 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 2,
     "sectors": {
-      "Materials": 2,
-      "Finance": 3
+      "Finance": 1,
+      "Materials": 1
     },
     "w_rsi_range": [
-      25.02,
-      94.25
+      25.27,
+      83.15
     ],
     "direction_breakdown": {
-      "overbought": 3,
-      "oversold": 2
+      "overbought": 1,
+      "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "NTAP",
-      "direction": "ob",
-      "w_rsi": 82.94,
-      "needs_pts": 0.1,
+      "sym": "TBB",
+      "direction": "os",
+      "w_rsi": 27.03,
+      "needs_pts": 0.0,
       "sector": "Industrials"
+    },
+    {
+      "sym": "BSX",
+      "direction": "os",
+      "w_rsi": 27.06,
+      "needs_pts": 0.1,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "NHIC",
+      "direction": "ob",
+      "w_rsi": 82.82,
+      "needs_pts": 0.2,
+      "sector": "Finance"
     },
     {
       "sym": "SMX",
       "direction": "os",
-      "w_rsi": 27.33,
+      "w_rsi": 27.32,
       "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "HCA",
+      "sym": "EXTR",
+      "direction": "ob",
+      "w_rsi": 81.83,
+      "needs_pts": 1.2,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.34,
-      "needs_pts": 0.3,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "NUE",
-      "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
+      "w_rsi": 28.36,
+      "needs_pts": 1.4,
       "sector": "Industrials"
-    },
-    {
-      "sym": "DOCN",
-      "direction": "ob",
-      "w_rsi": 82.36,
-      "needs_pts": 0.6,
-      "sector": "Technology"
-    },
-    {
-      "sym": "BWA",
-      "direction": "ob",
-      "w_rsi": 82.28,
-      "needs_pts": 0.7,
-      "sector": "Consumer Discretionary"
     }
   ]
 }
