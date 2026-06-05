@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-05T09:54:29.055279-05:00",
-  "scan_time_display": "6/5 \u00b7 9:54 AM CDT",
+  "scan_time": "2026-06-05T11:01:13.803086-05:00",
+  "scan_time_display": "6/5 \u00b7 11:01 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,10 +16,11 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 4,
     "sectors": {
       "Materials": 2,
-      "Finance": 1
+      "Finance": 1,
+      "Healthcare": 1
     },
     "w_rsi_range": [
       25.27,
@@ -27,50 +28,50 @@
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "ATEX",
-      "direction": "ob",
-      "w_rsi": 82.97,
-      "needs_pts": 0.0,
+      "sym": "LBRDK",
+      "direction": "os",
+      "w_rsi": 27.08,
+      "needs_pts": 0.1,
       "sector": "Industrials"
     },
     {
-      "sym": "CHTR",
+      "sym": "BSX",
       "direction": "os",
-      "w_rsi": 27.19,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
+      "w_rsi": 27.14,
+      "needs_pts": 0.1,
+      "sector": "Healthcare"
     },
     {
       "sym": "CAG",
       "direction": "os",
-      "w_rsi": 27.41,
-      "needs_pts": 0.4,
+      "w_rsi": 27.25,
+      "needs_pts": 0.2,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "LBRDK",
-      "direction": "os",
-      "w_rsi": 27.46,
-      "needs_pts": 0.5,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "LBRDA",
-      "direction": "os",
-      "w_rsi": 27.67,
-      "needs_pts": 0.7,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "EXTR",
+      "sym": "ATEX",
       "direction": "ob",
-      "w_rsi": 82.0,
-      "needs_pts": 1.0,
+      "w_rsi": 82.68,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "SMX",
+      "direction": "os",
+      "w_rsi": 27.32,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "DELL",
+      "direction": "ob",
+      "w_rsi": 82.73,
+      "needs_pts": 0.3,
       "sector": "Industrials"
     }
   ]
