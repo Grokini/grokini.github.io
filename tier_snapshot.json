@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-08T10:54:27.884372-05:00",
-  "scan_time_display": "6/8 \u00b7 10:54 AM CDT",
+  "scan_time": "2026-06-08T12:08:08.345805-05:00",
+  "scan_time_display": "6/8 \u00b7 12:08 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,45 +31,45 @@
   },
   "imminent": [
     {
-      "sym": "HCA",
+      "sym": "ODD",
       "direction": "os",
-      "w_rsi": 27.12,
+      "w_rsi": 27.08,
       "needs_pts": 0.1,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "CEVA",
-      "direction": "ob",
-      "w_rsi": 82.65,
-      "needs_pts": 0.3,
-      "sector": "Technology"
+      "sector": "Materials"
     },
     {
       "sym": "BFAM",
       "direction": "os",
-      "w_rsi": 27.4,
-      "needs_pts": 0.4,
+      "w_rsi": 27.21,
+      "needs_pts": 0.2,
       "sector": "Healthcare"
     },
     {
       "sym": "INGR",
       "direction": "os",
-      "w_rsi": 27.39,
-      "needs_pts": 0.4,
+      "w_rsi": 27.28,
+      "needs_pts": 0.3,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "UHS",
-      "direction": "os",
-      "w_rsi": 27.43,
-      "needs_pts": 0.4,
-      "sector": "Healthcare"
+      "sym": "CEVA",
+      "direction": "ob",
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
+      "sector": "Technology"
+    },
+    {
+      "sym": "LOKV",
+      "direction": "ob",
+      "w_rsi": 82.39,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "CVLG",
       "direction": "ob",
-      "w_rsi": 82.54,
-      "needs_pts": 0.5,
+      "w_rsi": 82.43,
+      "needs_pts": 0.6,
       "sector": "Industrials"
     }
   ]
