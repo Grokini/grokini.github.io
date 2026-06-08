@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-08T09:58:31.836034-05:00",
-  "scan_time_display": "6/8 \u00b7 9:58 AM CDT",
+  "scan_time": "2026-06-08T10:54:27.884372-05:00",
+  "scan_time_display": "6/8 \u00b7 10:54 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,38 +31,38 @@
   },
   "imminent": [
     {
-      "sym": "EYE",
+      "sym": "HCA",
       "direction": "os",
-      "w_rsi": 27.08,
+      "w_rsi": 27.12,
       "needs_pts": 0.1,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "CEVA",
+      "direction": "ob",
+      "w_rsi": 82.65,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "BFAM",
+      "direction": "os",
+      "w_rsi": 27.4,
+      "needs_pts": 0.4,
       "sector": "Healthcare"
     },
     {
       "sym": "INGR",
       "direction": "os",
-      "w_rsi": 27.15,
-      "needs_pts": 0.1,
+      "w_rsi": 27.39,
+      "needs_pts": 0.4,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "FTNT",
-      "direction": "ob",
-      "w_rsi": 82.6,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "SSAC",
-      "direction": "ob",
-      "w_rsi": 82.54,
-      "needs_pts": 0.5,
-      "sector": "Finance"
-    },
-    {
-      "sym": "BFAM",
+      "sym": "UHS",
       "direction": "os",
-      "w_rsi": 27.5,
-      "needs_pts": 0.5,
+      "w_rsi": 27.43,
+      "needs_pts": 0.4,
       "sector": "Healthcare"
     },
     {
