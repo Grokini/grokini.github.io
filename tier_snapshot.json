@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-08T08:55:55.241408-05:00",
-  "scan_time_display": "6/8 \u00b7 8:55 AM CDT",
+  "scan_time": "2026-06-08T09:58:31.836034-05:00",
+  "scan_time_display": "6/8 \u00b7 9:58 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,39 +31,25 @@
   },
   "imminent": [
     {
-      "sym": "KN",
-      "direction": "ob",
-      "w_rsi": 82.98,
-      "needs_pts": 0.0,
-      "sector": "Technology"
-    },
-    {
-      "sym": "Z",
+      "sym": "EYE",
       "direction": "os",
-      "w_rsi": 27.07,
+      "w_rsi": 27.08,
       "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
+      "sector": "Healthcare"
     },
     {
-      "sym": "LDOS",
+      "sym": "INGR",
       "direction": "os",
-      "w_rsi": 27.05,
+      "w_rsi": 27.15,
       "needs_pts": 0.1,
-      "sector": "Technology"
-    },
-    {
-      "sym": "CAG",
-      "direction": "os",
-      "w_rsi": 27.21,
-      "needs_pts": 0.2,
       "sector": "Consumer Staples"
     },
     {
-      "sym": "AVT",
+      "sym": "FTNT",
       "direction": "ob",
-      "w_rsi": 82.55,
-      "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 82.6,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
     },
     {
       "sym": "SSAC",
@@ -71,6 +57,20 @@
       "w_rsi": 82.54,
       "needs_pts": 0.5,
       "sector": "Finance"
+    },
+    {
+      "sym": "BFAM",
+      "direction": "os",
+      "w_rsi": 27.5,
+      "needs_pts": 0.5,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "CVLG",
+      "direction": "ob",
+      "w_rsi": 82.54,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
     }
   ]
 }
