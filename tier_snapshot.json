@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-08T12:53:03.677205-05:00",
-  "scan_time_display": "6/8 \u00b7 12:53 PM CDT",
+  "scan_time": "2026-06-08T14:04:59.874448-05:00",
+  "scan_time_display": "6/8 \u00b7 2:04 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -33,23 +33,30 @@
     {
       "sym": "BFAM",
       "direction": "os",
-      "w_rsi": 27.12,
-      "needs_pts": 0.1,
+      "w_rsi": 27.19,
+      "needs_pts": 0.2,
       "sector": "Healthcare"
     },
     {
-      "sym": "INGR",
+      "sym": "HCA",
       "direction": "os",
-      "w_rsi": 27.13,
-      "needs_pts": 0.1,
-      "sector": "Consumer Staples"
+      "w_rsi": 27.27,
+      "needs_pts": 0.3,
+      "sector": "Healthcare"
     },
     {
-      "sym": "CVLG",
+      "sym": "CEVA",
       "direction": "ob",
-      "w_rsi": 82.46,
+      "w_rsi": 82.49,
       "needs_pts": 0.5,
-      "sector": "Industrials"
+      "sector": "Technology"
+    },
+    {
+      "sym": "SSAC",
+      "direction": "ob",
+      "w_rsi": 82.54,
+      "needs_pts": 0.5,
+      "sector": "Finance"
     },
     {
       "sym": "LOKV",
@@ -59,18 +66,11 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "Z",
-      "direction": "os",
-      "w_rsi": 27.63,
+      "sym": "CVLG",
+      "direction": "ob",
+      "w_rsi": 82.44,
       "needs_pts": 0.6,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "HDB",
-      "direction": "os",
-      "w_rsi": 27.64,
-      "needs_pts": 0.6,
-      "sector": "Finance"
+      "sector": "Industrials"
     }
   ]
 }
