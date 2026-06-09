@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-09T10:55:42.501712-05:00",
-  "scan_time_display": "6/9 \u00b7 10:55 AM CDT",
+  "scan_time": "2026-06-09T12:05:12.268775-05:00",
+  "scan_time_display": "6/9 \u00b7 12:05 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "LBRDK",
+      "sym": "ODD",
       "direction": "os",
-      "w_rsi": 27.24,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
+      "w_rsi": 27.68,
+      "needs_pts": 0.7,
+      "sector": "Materials"
     },
     {
-      "sym": "CVLG",
-      "direction": "ob",
-      "w_rsi": 82.6,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "INGR",
+      "sym": "CHTR",
       "direction": "os",
-      "w_rsi": 27.43,
-      "needs_pts": 0.4,
-      "sector": "Consumer Staples"
-    },
-    {
-      "sym": "ARCB",
-      "direction": "ob",
-      "w_rsi": 82.21,
+      "w_rsi": 27.8,
       "needs_pts": 0.8,
       "sector": "Industrials"
     },
     {
-      "sym": "ODD",
+      "sym": "LBRDA",
       "direction": "os",
-      "w_rsi": 27.86,
+      "w_rsi": 27.92,
       "needs_pts": 0.9,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "OCS",
+      "direction": "os",
+      "w_rsi": 28.04,
+      "needs_pts": 1.0,
       "sector": "Materials"
     },
     {
-      "sym": "VECO",
-      "direction": "ob",
-      "w_rsi": 82.06,
-      "needs_pts": 0.9,
+      "sym": "LBRDK",
+      "direction": "os",
+      "w_rsi": 28.12,
+      "needs_pts": 1.1,
       "sector": "Industrials"
+    },
+    {
+      "sym": "ODC",
+      "direction": "ob",
+      "w_rsi": 81.86,
+      "needs_pts": 1.1,
+      "sector": "Technology"
     }
   ]
 }
