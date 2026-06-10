@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-10T14:55:44.141504-05:00",
-  "scan_time_display": "6/10 \u00b7 2:55 PM CDT",
+  "scan_time": "2026-06-10T16:16:39.777026-05:00",
+  "scan_time_display": "6/10 \u00b7 4:16 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,61 +16,62 @@
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 3,
     "sectors": {
       "Materials": 1,
-      "Finance": 1
+      "Finance": 1,
+      "Healthcare": 1
     },
     "w_rsi_range": [
-      80.82,
+      25.68,
       85.94
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 0
+      "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "OCC",
-      "direction": "ob",
-      "w_rsi": 82.64,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
-    },
-    {
       "sym": "STN",
       "direction": "os",
-      "w_rsi": 27.37,
-      "needs_pts": 0.4,
+      "w_rsi": 27.1,
+      "needs_pts": 0.1,
       "sector": "Industrials"
     },
     {
-      "sym": "PHI",
+      "sym": "Z",
       "direction": "os",
-      "w_rsi": 27.48,
-      "needs_pts": 0.5,
-      "sector": "Industrials"
+      "w_rsi": 27.23,
+      "needs_pts": 0.2,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "TRMB",
       "direction": "os",
-      "w_rsi": 27.57,
-      "needs_pts": 0.6,
+      "w_rsi": 27.39,
+      "needs_pts": 0.4,
       "sector": "Technology"
+    },
+    {
+      "sym": "ZG",
+      "direction": "os",
+      "w_rsi": 27.71,
+      "needs_pts": 0.7,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "PHI",
+      "direction": "os",
+      "w_rsi": 27.79,
+      "needs_pts": 0.8,
+      "sector": "Industrials"
     },
     {
       "sym": "HDB",
       "direction": "os",
-      "w_rsi": 28.06,
-      "needs_pts": 1.1,
-      "sector": "Finance"
-    },
-    {
-      "sym": "APPS",
-      "direction": "ob",
-      "w_rsi": 81.83,
-      "needs_pts": 1.2,
+      "w_rsi": 27.95,
+      "needs_pts": 0.9,
       "sector": "Finance"
     }
   ]
