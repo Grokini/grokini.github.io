@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-11T14:17:17.220564-05:00",
-  "scan_time_display": "6/11 \u00b7 2:17 PM CDT",
+  "scan_time": "2026-06-11T15:17:54.560137-05:00",
+  "scan_time_display": "6/11 \u00b7 3:17 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -39,39 +39,39 @@
       "sector": "Technology"
     },
     {
-      "sym": "MTRN",
+      "sym": "NVEC",
       "direction": "ob",
-      "w_rsi": 82.79,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "VECO",
-      "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "CARE",
-      "direction": "ob",
-      "w_rsi": 82.47,
-      "needs_pts": 0.5,
-      "sector": "Finance"
-    },
-    {
-      "sym": "LDOS",
-      "direction": "os",
-      "w_rsi": 27.5,
+      "w_rsi": 82.54,
       "needs_pts": 0.5,
       "sector": "Technology"
     },
     {
-      "sym": "STN",
+      "sym": "DOX",
       "direction": "os",
-      "w_rsi": 27.57,
+      "w_rsi": 27.65,
       "needs_pts": 0.6,
-      "sector": "Industrials"
+      "sector": "Technology"
+    },
+    {
+      "sym": "CARE",
+      "direction": "ob",
+      "w_rsi": 82.15,
+      "needs_pts": 0.8,
+      "sector": "Finance"
+    },
+    {
+      "sym": "INTU",
+      "direction": "os",
+      "w_rsi": 27.76,
+      "needs_pts": 0.8,
+      "sector": "Technology"
+    },
+    {
+      "sym": "FIS",
+      "direction": "os",
+      "w_rsi": 27.9,
+      "needs_pts": 0.9,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
