@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-11T10:02:10.951270-05:00",
-  "scan_time_display": "6/11 \u00b7 10:02 AM CDT",
+  "scan_time": "2026-06-11T10:58:26.866830-05:00",
+  "scan_time_display": "6/11 \u00b7 10:58 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -32,46 +32,46 @@
   },
   "imminent": [
     {
+      "sym": "VECO",
+      "direction": "ob",
+      "w_rsi": 82.92,
+      "needs_pts": 0.1,
+      "sector": "Industrials"
+    },
+    {
       "sym": "STN",
       "direction": "os",
-      "w_rsi": 27.09,
+      "w_rsi": 27.11,
       "needs_pts": 0.1,
       "sector": "Industrials"
     },
     {
       "sym": "ARCB",
       "direction": "ob",
-      "w_rsi": 82.75,
+      "w_rsi": 82.78,
       "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "VECO",
-      "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "PHI",
-      "direction": "os",
-      "w_rsi": 27.46,
-      "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
       "sym": "DOX",
       "direction": "os",
-      "w_rsi": 27.57,
-      "needs_pts": 0.6,
+      "w_rsi": 27.22,
+      "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
-      "sym": "FIS",
+      "sym": "EQPT",
       "direction": "os",
-      "w_rsi": 27.66,
-      "needs_pts": 0.7,
+      "w_rsi": 27.29,
+      "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "LDOS",
+      "direction": "os",
+      "w_rsi": 27.48,
+      "needs_pts": 0.5,
+      "sector": "Technology"
     }
   ]
 }
