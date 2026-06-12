@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-12T09:06:39.769312-05:00",
-  "scan_time_display": "6/12 \u00b7 9:06 AM CDT",
+  "scan_time": "2026-06-12T10:06:58.313066-05:00",
+  "scan_time_display": "6/12 \u00b7 10:06 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -32,46 +32,46 @@
   },
   "imminent": [
     {
-      "sym": "CARE",
+      "sym": "AEHR",
       "direction": "ob",
-      "w_rsi": 82.99,
-      "needs_pts": 0.0,
+      "w_rsi": 82.9,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "MKTX",
+      "direction": "os",
+      "w_rsi": 27.18,
+      "needs_pts": 0.2,
       "sector": "Finance"
     },
     {
-      "sym": "DOX",
-      "direction": "os",
-      "w_rsi": 27.41,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
       "sym": "INTU",
-      "direction": "os",
-      "w_rsi": 27.36,
-      "needs_pts": 0.4,
-      "sector": "Technology"
-    },
-    {
-      "sym": "LQDA",
-      "direction": "ob",
-      "w_rsi": 82.63,
-      "needs_pts": 0.4,
-      "sector": "Materials"
-    },
-    {
-      "sym": "LDOS",
       "direction": "os",
       "w_rsi": 27.35,
       "needs_pts": 0.4,
       "sector": "Technology"
     },
     {
-      "sym": "FIS",
-      "direction": "os",
-      "w_rsi": 27.63,
-      "needs_pts": 0.6,
-      "sector": "Consumer Discretionary"
+      "sym": "CARE",
+      "direction": "ob",
+      "w_rsi": 82.19,
+      "needs_pts": 0.8,
+      "sector": "Finance"
+    },
+    {
+      "sym": "FNRN",
+      "direction": "ob",
+      "w_rsi": 82.23,
+      "needs_pts": 0.8,
+      "sector": "Finance"
+    },
+    {
+      "sym": "STLD",
+      "direction": "ob",
+      "w_rsi": 82.15,
+      "needs_pts": 0.8,
+      "sector": "Industrials"
     }
   ]
 }
