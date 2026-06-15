@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-15T10:57:18.659904-05:00",
-  "scan_time_display": "6/15 \u00b7 10:57 AM CDT",
+  "scan_time": "2026-06-15T11:56:50.778552-05:00",
+  "scan_time_display": "6/15 \u00b7 11:56 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -26,44 +26,44 @@
   },
   "imminent": [
     {
-      "sym": "FTNT",
+      "sym": "CARE",
       "direction": "ob",
-      "w_rsi": 82.86,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
+      "w_rsi": 82.79,
+      "needs_pts": 0.2,
+      "sector": "Finance"
     },
     {
-      "sym": "AGL",
+      "sym": "PSIG",
       "direction": "ob",
-      "w_rsi": 82.89,
-      "needs_pts": 0.1,
-      "sector": "Healthcare"
+      "w_rsi": 82.77,
+      "needs_pts": 0.2,
+      "sector": "Industrials"
     },
     {
       "sym": "TRMB",
       "direction": "os",
-      "w_rsi": 27.2,
+      "w_rsi": 27.23,
       "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
+      "sym": "ZG",
+      "direction": "os",
+      "w_rsi": 27.31,
+      "needs_pts": 0.3,
+      "sector": "Consumer Discretionary"
+    },
+    {
       "sym": "DOCN",
       "direction": "ob",
-      "w_rsi": 82.79,
-      "needs_pts": 0.2,
+      "w_rsi": 82.51,
+      "needs_pts": 0.5,
       "sector": "Technology"
     },
     {
       "sym": "SNDK",
       "direction": "ob",
       "w_rsi": 82.44,
-      "needs_pts": 0.6,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "TKR",
-      "direction": "ob",
-      "w_rsi": 82.36,
       "needs_pts": 0.6,
       "sector": "Industrials"
     }
