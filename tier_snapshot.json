@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-15T12:57:39.156283-05:00",
-  "scan_time_display": "6/15 \u00b7 12:57 PM CDT",
+  "scan_time": "2026-06-15T13:55:22.272898-05:00",
+  "scan_time_display": "6/15 \u00b7 1:55 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -26,45 +26,45 @@
   },
   "imminent": [
     {
-      "sym": "FTNT",
+      "sym": "PSIG",
       "direction": "ob",
-      "w_rsi": 82.92,
-      "needs_pts": 0.1,
+      "w_rsi": 82.95,
+      "needs_pts": 0.0,
       "sector": "Industrials"
     },
     {
       "sym": "TRMB",
       "direction": "os",
-      "w_rsi": 27.12,
+      "w_rsi": 27.1,
       "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
       "sym": "DOCN",
       "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
+      "w_rsi": 82.86,
+      "needs_pts": 0.1,
       "sector": "Technology"
     },
     {
-      "sym": "TD",
+      "sym": "SPKL",
       "direction": "ob",
-      "w_rsi": 82.71,
+      "w_rsi": 82.74,
       "needs_pts": 0.3,
       "sector": "Finance"
     },
     {
-      "sym": "STN",
+      "sym": "TYL",
       "direction": "os",
-      "w_rsi": 27.58,
-      "needs_pts": 0.6,
-      "sector": "Industrials"
+      "w_rsi": 27.3,
+      "needs_pts": 0.3,
+      "sector": "Technology"
     },
     {
-      "sym": "TKR",
-      "direction": "ob",
-      "w_rsi": 82.41,
-      "needs_pts": 0.6,
+      "sym": "STN",
+      "direction": "os",
+      "w_rsi": 27.41,
+      "needs_pts": 0.4,
       "sector": "Industrials"
     }
   ]
