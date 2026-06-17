@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-17T14:57:28.460845-05:00",
-  "scan_time_display": "6/17 \u00b7 2:57 PM CDT",
+  "scan_time": "2026-06-17T16:00:09.531043-05:00",
+  "scan_time_display": "6/17 \u00b7 4:00 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,17 +16,17 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 4,
     "sectors": {
-      "Finance": 2,
+      "Finance": 3,
       "Industrials": 1
     },
     "w_rsi_range": [
       83.02,
-      86.79
+      92.27
     ],
     "direction_breakdown": {
-      "overbought": 3,
+      "overbought": 4,
       "oversold": 0
     }
   },
@@ -34,44 +34,44 @@
     {
       "sym": "NBIS",
       "direction": "ob",
-      "w_rsi": 82.83,
-      "needs_pts": 0.2,
+      "w_rsi": 82.72,
+      "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
       "sym": "EPAM",
       "direction": "os",
-      "w_rsi": 27.33,
+      "w_rsi": 27.32,
       "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
       "sym": "TYL",
       "direction": "os",
-      "w_rsi": 27.28,
+      "w_rsi": 27.34,
       "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
-      "sym": "INGR",
+      "sym": "INTU",
       "direction": "os",
-      "w_rsi": 27.35,
-      "needs_pts": 0.4,
-      "sector": "Consumer Staples"
+      "w_rsi": 27.72,
+      "needs_pts": 0.7,
+      "sector": "Technology"
     },
     {
       "sym": "DOCN",
       "direction": "ob",
-      "w_rsi": 82.44,
-      "needs_pts": 0.6,
+      "w_rsi": 82.15,
+      "needs_pts": 0.8,
       "sector": "Technology"
     },
     {
-      "sym": "AVT",
+      "sym": "STT",
       "direction": "ob",
-      "w_rsi": 82.23,
+      "w_rsi": 82.19,
       "needs_pts": 0.8,
-      "sector": "Consumer Discretionary"
+      "sector": "Finance"
     }
   ]
 }
