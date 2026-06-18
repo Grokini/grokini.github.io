@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-18T12:05:53.925566-05:00",
-  "scan_time_display": "6/18 \u00b7 12:05 PM CDT",
+  "scan_time": "2026-06-18T12:58:41.691400-05:00",
+  "scan_time_display": "6/18 \u00b7 12:58 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -33,45 +33,45 @@
   },
   "imminent": [
     {
-      "sym": "KLIC",
+      "sym": "NBIS",
       "direction": "ob",
-      "w_rsi": 82.96,
+      "w_rsi": 82.98,
       "needs_pts": 0.0,
       "sector": "Technology"
     },
     {
-      "sym": "TKR",
-      "direction": "ob",
-      "w_rsi": 82.82,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
       "sym": "ZTS",
       "direction": "os",
-      "w_rsi": 27.24,
+      "w_rsi": 27.2,
       "needs_pts": 0.2,
       "sector": "Materials"
     },
     {
       "sym": "UCTT",
       "direction": "ob",
-      "w_rsi": 82.64,
-      "needs_pts": 0.4,
+      "w_rsi": 82.67,
+      "needs_pts": 0.3,
       "sector": "Technology"
+    },
+    {
+      "sym": "TKR",
+      "direction": "ob",
+      "w_rsi": 82.73,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
     },
     {
       "sym": "ARW",
       "direction": "ob",
-      "w_rsi": 82.59,
+      "w_rsi": 82.58,
       "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "CRS",
       "direction": "ob",
-      "w_rsi": 82.55,
-      "needs_pts": 0.5,
+      "w_rsi": 82.61,
+      "needs_pts": 0.4,
       "sector": "Industrials"
     }
   ]
