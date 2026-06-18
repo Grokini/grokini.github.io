@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-18T10:56:15.292041-05:00",
-  "scan_time_display": "6/18 \u00b7 10:56 AM CDT",
+  "scan_time": "2026-06-18T12:05:53.925566-05:00",
+  "scan_time_display": "6/18 \u00b7 12:05 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,60 +16,61 @@
     }
   },
   "tier1": {
-    "count": 4,
+    "count": 7,
     "sectors": {
-      "Finance": 3,
-      "Industrials": 1
+      "Finance": 4,
+      "Consumer Discretionary": 1,
+      "Industrials": 2
     },
     "w_rsi_range": [
-      84.15,
+      21.4,
       89.62
     ],
     "direction_breakdown": {
-      "overbought": 4,
-      "oversold": 0
+      "overbought": 5,
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "STT",
-      "direction": "ob",
-      "w_rsi": 82.97,
-      "needs_pts": 0.0,
-      "sector": "Finance"
-    },
-    {
       "sym": "KLIC",
       "direction": "ob",
-      "w_rsi": 82.83,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "UCTT",
-      "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
+      "w_rsi": 82.96,
+      "needs_pts": 0.0,
       "sector": "Technology"
     },
     {
       "sym": "TKR",
       "direction": "ob",
-      "w_rsi": 82.74,
-      "needs_pts": 0.3,
+      "w_rsi": 82.82,
+      "needs_pts": 0.2,
       "sector": "Industrials"
     },
     {
-      "sym": "FNRN",
-      "direction": "ob",
-      "w_rsi": 82.46,
-      "needs_pts": 0.5,
-      "sector": "Finance"
+      "sym": "ZTS",
+      "direction": "os",
+      "w_rsi": 27.24,
+      "needs_pts": 0.2,
+      "sector": "Materials"
     },
     {
-      "sym": "SNDK",
+      "sym": "UCTT",
       "direction": "ob",
-      "w_rsi": 82.46,
+      "w_rsi": 82.64,
+      "needs_pts": 0.4,
+      "sector": "Technology"
+    },
+    {
+      "sym": "ARW",
+      "direction": "ob",
+      "w_rsi": 82.59,
+      "needs_pts": 0.4,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "CRS",
+      "direction": "ob",
+      "w_rsi": 82.55,
       "needs_pts": 0.5,
       "sector": "Industrials"
     }
