@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-19T10:54:37.123512-05:00",
-  "scan_time_display": "6/19 \u00b7 10:54 AM CDT",
+  "scan_time": "2026-06-19T12:05:45.725297-05:00",
+  "scan_time_display": "6/19 \u00b7 12:05 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,18 +16,21 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 9,
     "sectors": {
-      "Finance": 4,
-      "Industrials": 1
+      "Finance": 5,
+      "Industrials": 1,
+      "Consumer Discretionary": 1,
+      "Technology": 1,
+      "Healthcare": 1
     },
     "w_rsi_range": [
-      24.66,
+      23.57,
       92.05
     ],
     "direction_breakdown": {
-      "overbought": 4,
-      "oversold": 1
+      "overbought": 5,
+      "oversold": 4
     }
   },
   "imminent": [
