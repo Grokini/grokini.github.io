@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-22T11:57:38.837413-05:00",
-  "scan_time_display": "6/22 \u00b7 11:57 AM CDT",
+  "scan_time": "2026-06-22T13:03:41.780414-05:00",
+  "scan_time_display": "6/22 \u00b7 1:03 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,9 +16,9 @@
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 8,
     "sectors": {
-      "Finance": 3,
+      "Finance": 5,
       "Energy": 1,
       "Industrials": 1,
       "Healthcare": 1
@@ -28,8 +28,8 @@
       89.62
     ],
     "direction_breakdown": {
-      "overbought": 4,
-      "oversold": 2
+      "overbought": 5,
+      "oversold": 3
     }
   },
   "imminent": [
@@ -41,39 +41,39 @@
       "sector": "Industrials"
     },
     {
-      "sym": "DELL",
-      "direction": "ob",
-      "w_rsi": 82.96,
-      "needs_pts": 0.0,
-      "sector": "Industrials"
-    },
-    {
       "sym": "FIS",
       "direction": "os",
-      "w_rsi": 27.2,
-      "needs_pts": 0.2,
+      "w_rsi": 27.04,
+      "needs_pts": 0.0,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "AEHR",
+      "direction": "ob",
+      "w_rsi": 82.9,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "STT",
+      "direction": "ob",
+      "w_rsi": 82.92,
+      "needs_pts": 0.1,
+      "sector": "Finance"
     },
     {
       "sym": "TLK",
       "direction": "os",
-      "w_rsi": 27.21,
+      "w_rsi": 27.19,
       "needs_pts": 0.2,
       "sector": "Industrials"
     },
     {
-      "sym": "CRS",
-      "direction": "ob",
-      "w_rsi": 82.68,
+      "sym": "CSGP",
+      "direction": "os",
+      "w_rsi": 27.33,
       "needs_pts": 0.3,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "FRD",
-      "direction": "ob",
-      "w_rsi": 82.64,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
+      "sector": "Consumer Discretionary"
     }
   ]
 }
