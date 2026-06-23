@@ -3,9 +3,11 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-23T14:09:26.322792-05:00",
-  "scan_time_display": "6/23 \u00b7 2:09 PM CDT",
-  "tier3_current": [],
+  "scan_time": "2026-06-23T15:09:26.004130-05:00",
+  "scan_time_display": "6/23 \u00b7 3:09 PM CDT",
+  "tier3_current": [
+    "LDOS"
+  ],
   "tier2": {
     "count": 0,
     "sectors": {},
@@ -19,61 +21,60 @@
     "count": 4,
     "sectors": {
       "Industrials": 1,
-      "Technology": 1,
-      "Finance": 1,
+      "Finance": 2,
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      21.37,
-      86.19
+      26.19,
+      87.9
     ],
     "direction_breakdown": {
-      "overbought": 1,
-      "oversold": 3
+      "overbought": 2,
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "TYL",
+      "sym": "MKTX",
       "direction": "os",
-      "w_rsi": 27.15,
+      "w_rsi": 27.08,
       "needs_pts": 0.1,
+      "sector": "Finance"
+    },
+    {
+      "sym": "DOX",
+      "direction": "os",
+      "w_rsi": 27.29,
+      "needs_pts": 0.3,
       "sector": "Technology"
+    },
+    {
+      "sym": "CXW",
+      "direction": "ob",
+      "w_rsi": 82.68,
+      "needs_pts": 0.3,
+      "sector": "Finance"
     },
     {
       "sym": "DQ",
       "direction": "os",
-      "w_rsi": 27.19,
-      "needs_pts": 0.2,
+      "w_rsi": 27.27,
+      "needs_pts": 0.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "TYL",
+      "direction": "os",
+      "w_rsi": 27.34,
+      "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
       "sym": "BMO",
       "direction": "ob",
-      "w_rsi": 82.62,
+      "w_rsi": 82.58,
       "needs_pts": 0.4,
       "sector": "Finance"
-    },
-    {
-      "sym": "MKTX",
-      "direction": "os",
-      "w_rsi": 27.46,
-      "needs_pts": 0.5,
-      "sector": "Finance"
-    },
-    {
-      "sym": "APGE",
-      "direction": "ob",
-      "w_rsi": 82.36,
-      "needs_pts": 0.6,
-      "sector": "Materials"
-    },
-    {
-      "sym": "FISV",
-      "direction": "os",
-      "w_rsi": 27.74,
-      "needs_pts": 0.7,
-      "sector": "Consumer Discretionary"
     }
   ]
 }

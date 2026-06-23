@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Archive of Tier 3 Perfect Setup firing events. Each entry logged once when a ticker advances to Tier 3. Weekly count resets every Monday 8:30 AM CDT.",
     "reset_rule": "Weekly count = entries where fired_at >= most_recent_monday_830am_cdt",
-    "updated": "2026-06-05T08:37:03.898221-05:00"
+    "updated": "2026-06-23T15:00:14.774866-05:00"
   },
   "entries": [
     {
@@ -89,6 +89,36 @@
       "ytd_vwap_pct": 20.3,
       "volume_ratio": 0.09,
       "bonus_factors": [],
+      "scan_persistence": 1
+    },
+    {
+      "ticker": "LDOS",
+      "direction": "oversold",
+      "sector": "Technology",
+      "fired_at": "2026-06-23T15:00:12.035745-05:00",
+      "fired_at_display": "6/23 \u00b7 3:00 PM CDT",
+      "week_of": "2026-06-22",
+      "signals": [
+        "price_basing",
+        "gap_tightening",
+        "iv_stable",
+        "w_slope_flat",
+        "d_slope_turning"
+      ],
+      "score": 5,
+      "w_rsi": 22.29,
+      "d_rsi": 19.46,
+      "price_at_alert": 105.94,
+      "iv_rank": 66.1,
+      "iv_value": 34.9,
+      "iv_label": "HIGH VOL",
+      "monthly_rsi": 34.38,
+      "ytd_vwap": 152.88,
+      "ytd_vwap_pct": -30.7,
+      "volume_ratio": 0.82,
+      "bonus_factors": [
+        "Underperforming SPY by 13.6% over 4wk (unusual weakness at OS \u2014 higher reversal odds)"
+      ],
       "scan_persistence": 1
     }
   ]
