@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-23T10:08:41.608387-05:00",
-  "scan_time_display": "6/23 \u00b7 10:08 AM CDT",
+  "scan_time": "2026-06-23T11:00:06.950282-05:00",
+  "scan_time_display": "6/23 \u00b7 11:00 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -31,46 +31,46 @@
   },
   "imminent": [
     {
-      "sym": "BMO",
-      "direction": "ob",
-      "w_rsi": 82.8,
-      "needs_pts": 0.2,
+      "sym": "DQ",
+      "direction": "os",
+      "w_rsi": 27.13,
+      "needs_pts": 0.1,
+      "sector": "Technology"
+    },
+    {
+      "sym": "MKTX",
+      "direction": "os",
+      "w_rsi": 27.29,
+      "needs_pts": 0.3,
       "sector": "Finance"
     },
     {
       "sym": "CXW",
       "direction": "ob",
-      "w_rsi": 82.75,
-      "needs_pts": 0.2,
+      "w_rsi": 82.67,
+      "needs_pts": 0.3,
       "sector": "Finance"
     },
     {
-      "sym": "DQ",
-      "direction": "os",
-      "w_rsi": 27.22,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "RLJ",
+      "sym": "CHRN",
       "direction": "ob",
-      "w_rsi": 82.76,
-      "needs_pts": 0.2,
-      "sector": "Finance"
+      "w_rsi": 82.63,
+      "needs_pts": 0.4,
+      "sector": "Industrials"
     },
     {
       "sym": "PSIG",
       "direction": "ob",
-      "w_rsi": 82.65,
-      "needs_pts": 0.3,
+      "w_rsi": 82.53,
+      "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
-      "sym": "DOX",
-      "direction": "os",
-      "w_rsi": 27.53,
-      "needs_pts": 0.5,
-      "sector": "Technology"
+      "sym": "APGE",
+      "direction": "ob",
+      "w_rsi": 82.35,
+      "needs_pts": 0.7,
+      "sector": "Materials"
     }
   ]
 }
