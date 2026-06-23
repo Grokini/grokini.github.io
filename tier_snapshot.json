@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-23T08:56:54.701979-05:00",
-  "scan_time_display": "6/23 \u00b7 8:56 AM CDT",
+  "scan_time": "2026-06-23T10:08:41.608387-05:00",
+  "scan_time_display": "6/23 \u00b7 10:08 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,62 +16,61 @@
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 1,
     "sectors": {
-      "Finance": 1,
-      "Technology": 1
+      "Finance": 1
     },
     "w_rsi_range": [
-      26.54,
+      86.19,
       86.19
     ],
     "direction_breakdown": {
       "overbought": 1,
-      "oversold": 1
+      "oversold": 0
     }
   },
   "imminent": [
     {
-      "sym": "CHRN",
+      "sym": "BMO",
       "direction": "ob",
-      "w_rsi": 82.66,
+      "w_rsi": 82.8,
+      "needs_pts": 0.2,
+      "sector": "Finance"
+    },
+    {
+      "sym": "CXW",
+      "direction": "ob",
+      "w_rsi": 82.75,
+      "needs_pts": 0.2,
+      "sector": "Finance"
+    },
+    {
+      "sym": "DQ",
+      "direction": "os",
+      "w_rsi": 27.22,
+      "needs_pts": 0.2,
+      "sector": "Technology"
+    },
+    {
+      "sym": "RLJ",
+      "direction": "ob",
+      "w_rsi": 82.76,
+      "needs_pts": 0.2,
+      "sector": "Finance"
+    },
+    {
+      "sym": "PSIG",
+      "direction": "ob",
+      "w_rsi": 82.65,
       "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "TRMB",
+      "sym": "DOX",
       "direction": "os",
-      "w_rsi": 27.31,
-      "needs_pts": 0.3,
+      "w_rsi": 27.53,
+      "needs_pts": 0.5,
       "sector": "Technology"
-    },
-    {
-      "sym": "FDP",
-      "direction": "os",
-      "w_rsi": 27.27,
-      "needs_pts": 0.3,
-      "sector": "Energy"
-    },
-    {
-      "sym": "GLOB",
-      "direction": "os",
-      "w_rsi": 27.33,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
-      "sym": "ZTS",
-      "direction": "os",
-      "w_rsi": 27.32,
-      "needs_pts": 0.3,
-      "sector": "Materials"
-    },
-    {
-      "sym": "STRC",
-      "direction": "os",
-      "w_rsi": 27.43,
-      "needs_pts": 0.4,
-      "sector": "Finance"
     }
   ]
 }
