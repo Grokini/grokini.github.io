@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-23T11:56:08.175562-05:00",
-  "scan_time_display": "6/23 \u00b7 11:56 AM CDT",
+  "scan_time": "2026-06-23T12:57:18.149884-05:00",
+  "scan_time_display": "6/23 \u00b7 12:57 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,63 +16,64 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 5,
     "sectors": {
       "Industrials": 1,
-      "Technology": 1,
-      "Finance": 1
+      "Technology": 2,
+      "Finance": 1,
+      "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      21.06,
+      21.12,
       86.19
     ],
     "direction_breakdown": {
       "overbought": 1,
-      "oversold": 2
+      "oversold": 4
     }
   },
   "imminent": [
     {
-      "sym": "CRS",
-      "direction": "ob",
-      "w_rsi": 82.99,
-      "needs_pts": 0.0,
-      "sector": "Industrials"
+      "sym": "MKTX",
+      "direction": "os",
+      "w_rsi": 27.1,
+      "needs_pts": 0.1,
+      "sector": "Finance"
     },
     {
       "sym": "BMO",
       "direction": "ob",
-      "w_rsi": 82.76,
-      "needs_pts": 0.2,
+      "w_rsi": 82.91,
+      "needs_pts": 0.1,
       "sector": "Finance"
     },
     {
       "sym": "DOX",
       "direction": "os",
-      "w_rsi": 27.31,
-      "needs_pts": 0.3,
+      "w_rsi": 27.18,
+      "needs_pts": 0.2,
       "sector": "Technology"
     },
     {
-      "sym": "PSIG",
+      "sym": "CRS",
       "direction": "ob",
-      "w_rsi": 82.65,
-      "needs_pts": 0.3,
+      "w_rsi": 82.79,
+      "needs_pts": 0.2,
       "sector": "Industrials"
     },
     {
-      "sym": "STRC",
+      "sym": "DQ",
       "direction": "os",
-      "w_rsi": 27.3,
-      "needs_pts": 0.3,
-      "sector": "Finance"
+      "w_rsi": 27.48,
+      "needs_pts": 0.5,
+      "sector": "Technology"
     },
     {
-      "sym": "HQ",
+      "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.57,
-      "needs_pts": 0.4,
-      "sector": "Technology"
+      "w_rsi": 82.36,
+      "needs_pts": 0.6,
+      "sector": "Materials"
     }
   ]
 }
