@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-24T12:56:38.602600-05:00",
-  "scan_time_display": "6/24 \u00b7 12:56 PM CDT",
+  "scan_time": "2026-06-24T14:08:35.971220-05:00",
+  "scan_time_display": "6/24 \u00b7 2:08 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,50 +16,57 @@
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 5,
     "sectors": {
       "Industrials": 1,
       "Finance": 2,
-      "Technology": 2,
+      "Technology": 1,
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      25.14,
+      26.19,
       87.9
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 4
+      "oversold": 3
     }
   },
   "imminent": [
     {
-      "sym": "ZTS",
-      "direction": "os",
-      "w_rsi": 27.1,
+      "sym": "DELL",
+      "direction": "ob",
+      "w_rsi": 82.86,
       "needs_pts": 0.1,
-      "sector": "Materials"
+      "sector": "Industrials"
     },
     {
       "sym": "BTSG",
       "direction": "ob",
-      "w_rsi": 82.78,
+      "w_rsi": 82.83,
       "needs_pts": 0.2,
       "sector": "Healthcare"
     },
     {
-      "sym": "CXW",
-      "direction": "ob",
-      "w_rsi": 82.85,
+      "sym": "PDD",
+      "direction": "os",
+      "w_rsi": 27.2,
       "needs_pts": 0.2,
-      "sector": "Finance"
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "DQ",
       "direction": "os",
-      "w_rsi": 27.33,
-      "needs_pts": 0.3,
+      "w_rsi": 27.24,
+      "needs_pts": 0.2,
       "sector": "Technology"
+    },
+    {
+      "sym": "CXW",
+      "direction": "ob",
+      "w_rsi": 82.68,
+      "needs_pts": 0.3,
+      "sector": "Finance"
     },
     {
       "sym": "LI",
@@ -67,13 +74,6 @@
       "w_rsi": 27.42,
       "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "SIMO",
-      "direction": "ob",
-      "w_rsi": 82.52,
-      "needs_pts": 0.5,
-      "sector": "Technology"
     }
   ]
 }
