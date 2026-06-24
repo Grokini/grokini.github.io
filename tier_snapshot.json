@@ -3,11 +3,9 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-23T16:02:11.244219-05:00",
-  "scan_time_display": "6/23 \u00b7 4:02 PM CDT",
-  "tier3_current": [
-    "LDOS"
-  ],
+  "scan_time": "2026-06-24T08:58:13.793116-05:00",
+  "scan_time_display": "6/24 \u00b7 8:58 AM CDT",
+  "tier3_current": [],
   "tier2": {
     "count": 0,
     "sectors": {},
@@ -18,11 +16,11 @@
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 5,
     "sectors": {
       "Industrials": 1,
       "Finance": 2,
-      "Technology": 2,
+      "Technology": 1,
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
@@ -31,37 +29,37 @@
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 4
+      "oversold": 3
     }
   },
   "imminent": [
     {
-      "sym": "MKTX",
+      "sym": "PDD",
       "direction": "os",
-      "w_rsi": 27.16,
-      "needs_pts": 0.2,
-      "sector": "Finance"
+      "w_rsi": 27.11,
+      "needs_pts": 0.1,
+      "sector": "Consumer Discretionary"
     },
     {
-      "sym": "BMO",
-      "direction": "ob",
-      "w_rsi": 82.68,
-      "needs_pts": 0.3,
-      "sector": "Finance"
+      "sym": "ROL",
+      "direction": "os",
+      "w_rsi": 27.07,
+      "needs_pts": 0.1,
+      "sector": "Consumer Discretionary"
     },
     {
-      "sym": "TYL",
+      "sym": "INTU",
       "direction": "os",
-      "w_rsi": 27.34,
+      "w_rsi": 27.3,
       "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
-      "sym": "CXW",
-      "direction": "ob",
-      "w_rsi": 82.45,
-      "needs_pts": 0.5,
-      "sector": "Finance"
+      "sym": "TLK",
+      "direction": "os",
+      "w_rsi": 27.26,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
     },
     {
       "sym": "APGE",
@@ -71,11 +69,11 @@
       "sector": "Materials"
     },
     {
-      "sym": "FISV",
+      "sym": "STN",
       "direction": "os",
-      "w_rsi": 27.63,
+      "w_rsi": 27.56,
       "needs_pts": 0.6,
-      "sector": "Consumer Discretionary"
+      "sector": "Industrials"
     }
   ]
 }
