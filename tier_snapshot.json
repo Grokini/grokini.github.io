@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-24T08:58:13.793116-05:00",
-  "scan_time_display": "6/24 \u00b7 8:58 AM CDT",
+  "scan_time": "2026-06-24T09:54:30.271163-05:00",
+  "scan_time_display": "6/24 \u00b7 9:54 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,32 +34,32 @@
   },
   "imminent": [
     {
-      "sym": "PDD",
-      "direction": "os",
-      "w_rsi": 27.11,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "ROL",
-      "direction": "os",
-      "w_rsi": 27.07,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "INTU",
-      "direction": "os",
-      "w_rsi": 27.3,
-      "needs_pts": 0.3,
-      "sector": "Technology"
-    },
-    {
       "sym": "TLK",
       "direction": "os",
-      "w_rsi": 27.26,
-      "needs_pts": 0.3,
+      "w_rsi": 27.01,
+      "needs_pts": 0.0,
       "sector": "Industrials"
+    },
+    {
+      "sym": "PDD",
+      "direction": "os",
+      "w_rsi": 27.12,
+      "needs_pts": 0.1,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "PSIG",
+      "direction": "ob",
+      "w_rsi": 82.75,
+      "needs_pts": 0.2,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "LI",
+      "direction": "os",
+      "w_rsi": 27.52,
+      "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
@@ -69,11 +69,11 @@
       "sector": "Materials"
     },
     {
-      "sym": "STN",
-      "direction": "os",
-      "w_rsi": 27.56,
-      "needs_pts": 0.6,
-      "sector": "Industrials"
+      "sym": "BTSG",
+      "direction": "ob",
+      "w_rsi": 82.35,
+      "needs_pts": 0.7,
+      "sector": "Healthcare"
     }
   ]
 }
