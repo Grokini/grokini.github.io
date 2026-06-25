@@ -3,9 +3,11 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-25T10:11:56.949792-05:00",
-  "scan_time_display": "6/25 \u00b7 10:11 AM CDT",
-  "tier3_current": [],
+  "scan_time": "2026-06-25T10:55:49.590408-05:00",
+  "scan_time_display": "6/25 \u00b7 10:55 AM CDT",
+  "tier3_current": [
+    "PSIG"
+  ],
   "tier2": {
     "count": 0,
     "sectors": {},
@@ -16,9 +18,9 @@
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 5,
     "sectors": {
-      "Industrials": 2,
+      "Industrials": 1,
       "Finance": 2,
       "Technology": 1,
       "Consumer Discretionary": 1
@@ -28,52 +30,52 @@
       87.9
     ],
     "direction_breakdown": {
-      "overbought": 3,
+      "overbought": 2,
       "oversold": 3
     }
   },
   "imminent": [
     {
-      "sym": "TCOM",
-      "direction": "os",
-      "w_rsi": 27.05,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "INGR",
-      "direction": "os",
-      "w_rsi": 27.06,
-      "needs_pts": 0.1,
-      "sector": "Consumer Staples"
-    },
-    {
-      "sym": "ABSI",
+      "sym": "BLZE",
       "direction": "ob",
-      "w_rsi": 82.67,
-      "needs_pts": 0.3,
-      "sector": "Industrials"
+      "w_rsi": 82.87,
+      "needs_pts": 0.1,
+      "sector": "Technology"
     },
     {
-      "sym": "STRK",
+      "sym": "BTSG",
+      "direction": "ob",
+      "w_rsi": 82.91,
+      "needs_pts": 0.1,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.29,
-      "needs_pts": 0.3,
-      "sector": "Finance"
+      "w_rsi": 27.24,
+      "needs_pts": 0.2,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "YSS",
       "direction": "os",
-      "w_rsi": 27.28,
+      "w_rsi": 27.27,
       "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "PSMT",
+      "sym": "ABSI",
       "direction": "ob",
-      "w_rsi": 82.56,
+      "w_rsi": 82.6,
       "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sector": "Industrials"
+    },
+    {
+      "sym": "INGR",
+      "direction": "os",
+      "w_rsi": 27.38,
+      "needs_pts": 0.4,
+      "sector": "Consumer Staples"
     }
   ]
 }
