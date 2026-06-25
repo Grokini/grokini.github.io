@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-25T09:09:29.547837-05:00",
-  "scan_time_display": "6/25 \u00b7 9:09 AM CDT",
+  "scan_time": "2026-06-25T10:11:56.949792-05:00",
+  "scan_time_display": "6/25 \u00b7 10:11 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,9 +16,9 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 6,
     "sectors": {
-      "Industrials": 1,
+      "Industrials": 2,
       "Finance": 2,
       "Technology": 1,
       "Consumer Discretionary": 1
@@ -28,52 +28,52 @@
       87.9
     ],
     "direction_breakdown": {
-      "overbought": 2,
+      "overbought": 3,
       "oversold": 3
     }
   },
   "imminent": [
     {
-      "sym": "BTSG",
-      "direction": "ob",
-      "w_rsi": 82.9,
-      "needs_pts": 0.1,
-      "sector": "Healthcare"
-    },
-    {
       "sym": "TCOM",
       "direction": "os",
-      "w_rsi": 27.07,
+      "w_rsi": 27.05,
       "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "BMO",
-      "direction": "ob",
-      "w_rsi": 82.92,
+      "sym": "INGR",
+      "direction": "os",
+      "w_rsi": 27.06,
       "needs_pts": 0.1,
+      "sector": "Consumer Staples"
+    },
+    {
+      "sym": "ABSI",
+      "direction": "ob",
+      "w_rsi": 82.67,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "STRK",
+      "direction": "os",
+      "w_rsi": 27.29,
+      "needs_pts": 0.3,
       "sector": "Finance"
     },
     {
       "sym": "YSS",
       "direction": "os",
-      "w_rsi": 27.1,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.34,
+      "w_rsi": 27.28,
       "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "STRK",
-      "direction": "os",
-      "w_rsi": 27.4,
+      "sym": "PSMT",
+      "direction": "ob",
+      "w_rsi": 82.56,
       "needs_pts": 0.4,
-      "sector": "Finance"
+      "sector": "Consumer Discretionary"
     }
   ]
 }
