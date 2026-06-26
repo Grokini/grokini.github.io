@@ -3,9 +3,11 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-26T13:55:03.512766-05:00",
-  "scan_time_display": "6/26 \u00b7 1:55 PM CDT",
-  "tier3_current": [],
+  "scan_time": "2026-06-26T15:12:16.737373-05:00",
+  "scan_time_display": "6/26 \u00b7 3:12 PM CDT",
+  "tier3_current": [
+    "LI"
+  ],
   "tier2": {
     "count": 0,
     "sectors": {},
@@ -16,12 +18,12 @@
     }
   },
   "tier1": {
-    "count": 9,
+    "count": 8,
     "sectors": {
       "Industrials": 1,
       "Finance": 3,
       "Technology": 2,
-      "Consumer Discretionary": 3
+      "Consumer Discretionary": 2
     },
     "w_rsi_range": [
       25.77,
@@ -29,50 +31,50 @@
     ],
     "direction_breakdown": {
       "overbought": 4,
-      "oversold": 5
+      "oversold": 4
     }
   },
   "imminent": [
     {
-      "sym": "ACN",
-      "direction": "os",
-      "w_rsi": 27.04,
-      "needs_pts": 0.0,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "MKTX",
-      "direction": "os",
-      "w_rsi": 27.14,
-      "needs_pts": 0.1,
-      "sector": "Finance"
-    },
-    {
       "sym": "ALKS",
       "direction": "ob",
-      "w_rsi": 82.63,
-      "needs_pts": 0.4,
+      "w_rsi": 82.72,
+      "needs_pts": 0.3,
       "sector": "Materials"
     },
     {
-      "sym": "BLZE",
+      "sym": "BB",
       "direction": "ob",
-      "w_rsi": 82.64,
+      "w_rsi": 82.63,
       "needs_pts": 0.4,
       "sector": "Technology"
     },
     {
-      "sym": "STN",
-      "direction": "os",
-      "w_rsi": 27.63,
-      "needs_pts": 0.6,
-      "sector": "Industrials"
+      "sym": "MANE",
+      "direction": "ob",
+      "w_rsi": 82.6,
+      "needs_pts": 0.4,
+      "sector": "Materials"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.28,
+      "w_rsi": 82.27,
       "needs_pts": 0.7,
+      "sector": "Materials"
+    },
+    {
+      "sym": "EPAM",
+      "direction": "os",
+      "w_rsi": 27.7,
+      "needs_pts": 0.7,
+      "sector": "Technology"
+    },
+    {
+      "sym": "NVCT",
+      "direction": "ob",
+      "w_rsi": 82.24,
+      "needs_pts": 0.8,
       "sector": "Materials"
     }
   ]

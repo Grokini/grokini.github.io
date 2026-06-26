@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Archive of Tier 3 Perfect Setup firing events. Each entry logged once when a ticker advances to Tier 3. Weekly count resets every Monday 8:30 AM CDT.",
     "reset_rule": "Weekly count = entries where fired_at >= most_recent_monday_830am_cdt",
-    "updated": "2026-06-25T10:42:01.141873-05:00"
+    "updated": "2026-06-26T14:44:32.680089-05:00"
   },
   "entries": [
     {
@@ -139,6 +139,36 @@
       "w_rsi": 83.93,
       "d_rsi": 90.01,
       "price_at_alert": 11.76
+    },
+    {
+      "ticker": "LI",
+      "direction": "oversold",
+      "sector": "Consumer Discretionary",
+      "fired_at": "2026-06-26T14:44:25.331150-05:00",
+      "fired_at_display": "6/26 \u00b7 2:44 PM CDT",
+      "week_of": "2026-06-22",
+      "signals": [
+        "price_basing",
+        "gap_tightening",
+        "iv_stable",
+        "w_slope_flat",
+        "d_slope_turning"
+      ],
+      "score": 5,
+      "w_rsi": 26.96,
+      "d_rsi": 24.74,
+      "price_at_alert": 11.98,
+      "iv_rank": 17.8,
+      "iv_value": 40.6,
+      "iv_label": "LOW VOL",
+      "monthly_rsi": 36.0,
+      "ytd_vwap": 16.84,
+      "ytd_vwap_pct": -28.9,
+      "volume_ratio": 0.62,
+      "bonus_factors": [
+        "Underperforming SPY by 14.3% over 4wk (unusual weakness at OS \u2014 higher reversal odds)"
+      ],
+      "scan_persistence": 4
     }
   ]
 }
