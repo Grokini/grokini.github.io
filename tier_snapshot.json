@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-29T12:56:13.336966-05:00",
-  "scan_time_display": "6/29 \u00b7 12:56 PM CDT",
+  "scan_time": "2026-06-29T13:56:24.208532-05:00",
+  "scan_time_display": "6/29 \u00b7 1:56 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,61 +16,63 @@
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 4,
     "sectors": {
       "Industrials": 1,
-      "Finance": 1
+      "Consumer Discretionary": 1,
+      "Finance": 1,
+      "Materials": 1
     },
     "w_rsi_range": [
-      86.9,
-      90.4
+      24.7,
+      88.44
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 0
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "LESL",
-      "direction": "ob",
-      "w_rsi": 82.89,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "PDD",
       "direction": "os",
-      "w_rsi": 27.11,
+      "w_rsi": 27.04,
+      "needs_pts": 0.0,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "YSS",
+      "direction": "os",
+      "w_rsi": 27.09,
       "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "SEZL",
+      "sym": "LESL",
       "direction": "ob",
-      "w_rsi": 82.88,
-      "needs_pts": 0.1,
+      "w_rsi": 82.79,
+      "needs_pts": 0.2,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "INTU",
       "direction": "os",
-      "w_rsi": 27.24,
-      "needs_pts": 0.2,
+      "w_rsi": 27.27,
+      "needs_pts": 0.3,
       "sector": "Technology"
     },
     {
-      "sym": "EPAM",
-      "direction": "os",
-      "w_rsi": 27.47,
-      "needs_pts": 0.5,
-      "sector": "Technology"
-    },
-    {
-      "sym": "APGE",
+      "sym": "SEZL",
       "direction": "ob",
-      "w_rsi": 82.32,
-      "needs_pts": 0.7,
+      "w_rsi": 82.7,
+      "needs_pts": 0.3,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "LGND",
+      "direction": "ob",
+      "w_rsi": 82.46,
+      "needs_pts": 0.5,
       "sector": "Materials"
     }
   ]
