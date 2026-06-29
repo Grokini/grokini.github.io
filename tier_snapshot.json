@@ -3,34 +3,46 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-29T10:11:11.213162-05:00",
-  "scan_time_display": "6/29 \u00b7 10:11 AM CDT",
+  "scan_time": "2026-06-29T10:58:15.196263-05:00",
+  "scan_time_display": "6/29 \u00b7 10:58 AM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Healthcare": 1
+    },
+    "w_rsi_range": [
+      22.86,
+      22.86
+    ],
     "direction_breakdown": {
       "overbought": 0,
-      "oversold": 0
+      "oversold": 1
     }
   },
   "tier1": {
     "count": 2,
     "sectors": {
-      "Finance": 1,
-      "Healthcare": 1
+      "Industrials": 1,
+      "Finance": 1
     },
     "w_rsi_range": [
-      22.94,
-      90.4
+      86.9,
+      88.44
     ],
     "direction_breakdown": {
-      "overbought": 1,
-      "oversold": 1
+      "overbought": 2,
+      "oversold": 0
     }
   },
   "imminent": [
+    {
+      "sym": "PDD",
+      "direction": "os",
+      "w_rsi": 27.02,
+      "needs_pts": 0.0,
+      "sector": "Consumer Discretionary"
+    },
     {
       "sym": "MEI",
       "direction": "ob",
@@ -39,39 +51,32 @@
       "sector": "Technology"
     },
     {
-      "sym": "KFII",
+      "sym": "SEZL",
       "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
-      "sector": "Finance"
-    },
-    {
-      "sym": "ODC",
-      "direction": "ob",
-      "w_rsi": 82.84,
-      "needs_pts": 0.2,
-      "sector": "Technology"
+      "w_rsi": 82.64,
+      "needs_pts": 0.4,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "LESL",
       "direction": "ob",
-      "w_rsi": 82.65,
-      "needs_pts": 0.3,
+      "w_rsi": 82.47,
+      "needs_pts": 0.5,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "SEZL",
+      "sym": "ODC",
       "direction": "ob",
-      "w_rsi": 82.72,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 82.43,
+      "needs_pts": 0.6,
+      "sector": "Technology"
     },
     {
-      "sym": "IMXI",
-      "direction": "os",
-      "w_rsi": 27.39,
-      "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sym": "APGE",
+      "direction": "ob",
+      "w_rsi": 82.33,
+      "needs_pts": 0.7,
+      "sector": "Materials"
     }
   ]
 }
