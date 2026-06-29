@@ -3,11 +3,9 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-26T16:12:33.722789-05:00",
-  "scan_time_display": "6/26 \u00b7 4:12 PM CDT",
-  "tier3_current": [
-    "LI"
-  ],
+  "scan_time": "2026-06-29T09:10:10.914006-05:00",
+  "scan_time_display": "6/29 \u00b7 9:10 AM CDT",
+  "tier3_current": [],
   "tier2": {
     "count": 0,
     "sectors": {},
@@ -18,64 +16,61 @@
     }
   },
   "tier1": {
-    "count": 7,
+    "count": 1,
     "sectors": {
-      "Industrials": 1,
-      "Finance": 3,
-      "Technology": 2,
-      "Consumer Discretionary": 1
+      "Finance": 1
     },
     "w_rsi_range": [
-      25.77,
-      90.64
+      91.0,
+      91.0
     ],
     "direction_breakdown": {
-      "overbought": 4,
-      "oversold": 3
+      "overbought": 1,
+      "oversold": 0
     }
   },
   "imminent": [
     {
-      "sym": "PBI",
-      "direction": "ob",
-      "w_rsi": 82.88,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "PKOH",
-      "direction": "ob",
-      "w_rsi": 82.76,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "BB",
-      "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
-      "sector": "Technology"
-    },
-    {
-      "sym": "MANE",
+      "sym": "PSMT",
       "direction": "ob",
       "w_rsi": 82.65,
       "needs_pts": 0.3,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "PEB",
+      "direction": "ob",
+      "w_rsi": 82.71,
+      "needs_pts": 0.3,
+      "sector": "Finance"
+    },
+    {
+      "sym": "APGE",
+      "direction": "ob",
+      "w_rsi": 82.31,
+      "needs_pts": 0.7,
       "sector": "Materials"
     },
     {
-      "sym": "SEZL",
-      "direction": "ob",
-      "w_rsi": 82.6,
-      "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sym": "EPAM",
+      "direction": "os",
+      "w_rsi": 27.72,
+      "needs_pts": 0.7,
+      "sector": "Technology"
     },
     {
-      "sym": "ACN",
-      "direction": "os",
-      "w_rsi": 27.43,
-      "needs_pts": 0.4,
-      "sector": "Consumer Discretionary"
+      "sym": "STT",
+      "direction": "ob",
+      "w_rsi": 82.17,
+      "needs_pts": 0.8,
+      "sector": "Finance"
+    },
+    {
+      "sym": "RLJ",
+      "direction": "ob",
+      "w_rsi": 82.13,
+      "needs_pts": 0.9,
+      "sector": "Finance"
     }
   ]
 }
