@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-01T14:02:57.468847-05:00",
-  "scan_time_display": "7/1 \u00b7 2:02 PM CDT",
+  "scan_time": "2026-07-01T15:13:34.432508-05:00",
+  "scan_time_display": "7/1 \u00b7 3:13 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -33,45 +33,45 @@
   },
   "imminent": [
     {
+      "sym": "YSS",
+      "direction": "os",
+      "w_rsi": 27.13,
+      "needs_pts": 0.1,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "INGR",
+      "direction": "os",
+      "w_rsi": 27.18,
+      "needs_pts": 0.2,
+      "sector": "Consumer Staples"
+    },
+    {
       "sym": "PANW",
       "direction": "ob",
-      "w_rsi": 82.56,
+      "w_rsi": 82.59,
       "needs_pts": 0.4,
       "sector": "Industrials"
     },
     {
-      "sym": "APGE",
-      "direction": "ob",
-      "w_rsi": 82.32,
-      "needs_pts": 0.7,
-      "sector": "Materials"
-    },
-    {
-      "sym": "KLIC",
-      "direction": "ob",
-      "w_rsi": 82.21,
-      "needs_pts": 0.8,
-      "sector": "Technology"
-    },
-    {
       "sym": "CXW",
       "direction": "ob",
-      "w_rsi": 82.17,
-      "needs_pts": 0.8,
-      "sector": "Finance"
-    },
-    {
-      "sym": "STT",
-      "direction": "ob",
-      "w_rsi": 82.23,
-      "needs_pts": 0.8,
+      "w_rsi": 82.54,
+      "needs_pts": 0.5,
       "sector": "Finance"
     },
     {
       "sym": "TLK",
       "direction": "os",
-      "w_rsi": 27.79,
-      "needs_pts": 0.8,
+      "w_rsi": 27.48,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "CRS",
+      "direction": "ob",
+      "w_rsi": 82.43,
+      "needs_pts": 0.6,
       "sector": "Industrials"
     }
   ]
