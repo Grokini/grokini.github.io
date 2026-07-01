@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-06-30T16:01:05.583344-05:00",
-  "scan_time_display": "6/30 \u00b7 4:01 PM CDT",
+  "scan_time": "2026-07-01T08:55:25.811674-05:00",
+  "scan_time_display": "7/1 \u00b7 8:55 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,64 +16,63 @@
     }
   },
   "tier1": {
-    "count": 6,
+    "count": 5,
     "sectors": {
       "Industrials": 1,
       "Finance": 3,
-      "Materials": 1,
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      23.86,
+      24.0,
       87.42
     ],
     "direction_breakdown": {
       "overbought": 3,
-      "oversold": 3
+      "oversold": 2
     }
   },
   "imminent": [
     {
-      "sym": "CPRT",
+      "sym": "LI",
       "direction": "os",
-      "w_rsi": 27.05,
-      "needs_pts": 0.1,
+      "w_rsi": 27.38,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "GTX",
+      "sym": "ABSI",
       "direction": "ob",
-      "w_rsi": 82.93,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 82.49,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
     },
     {
-      "sym": "PDD",
+      "sym": "TCOM",
       "direction": "os",
-      "w_rsi": 27.18,
-      "needs_pts": 0.2,
+      "w_rsi": 27.52,
+      "needs_pts": 0.5,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "SEZL",
-      "direction": "ob",
-      "w_rsi": 82.7,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "PEB",
-      "direction": "ob",
-      "w_rsi": 82.67,
-      "needs_pts": 0.3,
+      "sym": "SAMG",
+      "direction": "os",
+      "w_rsi": 27.57,
+      "needs_pts": 0.6,
       "sector": "Finance"
     },
     {
-      "sym": "CTSH",
+      "sym": "TLK",
       "direction": "os",
-      "w_rsi": 27.4,
-      "needs_pts": 0.4,
-      "sector": "Technology"
+      "w_rsi": 27.57,
+      "needs_pts": 0.6,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "YSS",
+      "direction": "os",
+      "w_rsi": 27.58,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
