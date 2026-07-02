@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-01T15:55:20.786410-05:00",
-  "scan_time_display": "7/1 \u00b7 3:55 PM CDT",
+  "scan_time": "2026-07-02T08:59:44.109942-05:00",
+  "scan_time_display": "7/2 \u00b7 8:59 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -33,46 +33,46 @@
   },
   "imminent": [
     {
-      "sym": "INGR",
-      "direction": "os",
-      "w_rsi": 27.12,
-      "needs_pts": 0.1,
-      "sector": "Consumer Staples"
-    },
-    {
-      "sym": "YSS",
-      "direction": "os",
-      "w_rsi": 27.13,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "PANW",
+      "sym": "MANE",
       "direction": "ob",
-      "w_rsi": 82.58,
-      "needs_pts": 0.4,
-      "sector": "Industrials"
+      "w_rsi": 82.96,
+      "needs_pts": 0.0,
+      "sector": "Materials"
+    },
+    {
+      "sym": "TWST",
+      "direction": "ob",
+      "w_rsi": 82.87,
+      "needs_pts": 0.1,
+      "sector": "Materials"
+    },
+    {
+      "sym": "BTSG",
+      "direction": "ob",
+      "w_rsi": 82.81,
+      "needs_pts": 0.2,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "LGND",
+      "direction": "ob",
+      "w_rsi": 82.69,
+      "needs_pts": 0.3,
+      "sector": "Materials"
     },
     {
       "sym": "TLK",
       "direction": "os",
-      "w_rsi": 27.48,
-      "needs_pts": 0.5,
+      "w_rsi": 27.29,
+      "needs_pts": 0.3,
       "sector": "Industrials"
     },
     {
-      "sym": "ODC",
-      "direction": "ob",
-      "w_rsi": 82.44,
-      "needs_pts": 0.6,
-      "sector": "Technology"
-    },
-    {
-      "sym": "APGE",
-      "direction": "ob",
-      "w_rsi": 82.34,
-      "needs_pts": 0.7,
-      "sector": "Materials"
+      "sym": "TU",
+      "direction": "os",
+      "w_rsi": 27.28,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
     }
   ]
 }
