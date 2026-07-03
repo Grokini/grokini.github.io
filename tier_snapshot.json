@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-02T15:55:16.023535-05:00",
-  "scan_time_display": "7/2 \u00b7 3:55 PM CDT",
+  "scan_time": "2026-07-03T08:54:28.342998-05:00",
+  "scan_time_display": "7/3 \u00b7 8:54 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -33,24 +33,31 @@
   },
   "imminent": [
     {
-      "sym": "TLK",
-      "direction": "os",
-      "w_rsi": 27.15,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
+      "sym": "SLS",
+      "direction": "ob",
+      "w_rsi": 82.98,
+      "needs_pts": 0.0,
+      "sector": "Materials"
     },
     {
-      "sym": "ATEX",
+      "sym": "LFST",
       "direction": "ob",
-      "w_rsi": 82.51,
-      "needs_pts": 0.5,
-      "sector": "Industrials"
+      "w_rsi": 82.66,
+      "needs_pts": 0.3,
+      "sector": "Healthcare"
     },
     {
       "sym": "YSS",
       "direction": "os",
-      "w_rsi": 27.52,
-      "needs_pts": 0.5,
+      "w_rsi": 27.26,
+      "needs_pts": 0.3,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "MSM",
+      "direction": "ob",
+      "w_rsi": 82.58,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
@@ -61,17 +68,10 @@
       "sector": "Materials"
     },
     {
-      "sym": "DVA",
-      "direction": "ob",
-      "w_rsi": 82.41,
+      "sym": "TCOM",
+      "direction": "os",
+      "w_rsi": 27.58,
       "needs_pts": 0.6,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "PSMT",
-      "direction": "ob",
-      "w_rsi": 82.32,
-      "needs_pts": 0.7,
       "sector": "Consumer Discretionary"
     }
   ]
