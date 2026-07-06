@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Archive of Tier 3 Perfect Setup firing events. Each entry logged once when a ticker advances to Tier 3. Weekly count resets every Monday 8:30 AM CDT.",
     "reset_rule": "Weekly count = entries where fired_at >= most_recent_monday_830am_cdt",
-    "updated": "2026-06-26T14:44:32.680089-05:00"
+    "updated": "2026-07-06T15:54:30.615737-05:00"
   },
   "entries": [
     {
@@ -169,6 +169,25 @@
         "Underperforming SPY by 14.3% over 4wk (unusual weakness at OS \u2014 higher reversal odds)"
       ],
       "scan_persistence": 4
+    },
+    {
+      "ticker": "TU",
+      "direction": "oversold",
+      "sector": "Industrials",
+      "fired_at": "2026-07-06T15:54:30.615258-05:00",
+      "fired_at_display": "7/6 \u00b7 3:54 PM CDT",
+      "week_of": "2026-07-06",
+      "signals": [
+        "price_basing",
+        "gap_tightening",
+        "iv_stable",
+        "w_slope_flat",
+        "d_slope_turning"
+      ],
+      "score": 5,
+      "w_rsi": 24.84,
+      "d_rsi": 16.3,
+      "price_at_alert": 10.22
     }
   ]
 }

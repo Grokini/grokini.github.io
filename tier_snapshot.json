@@ -3,21 +3,18 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-06T15:06:53.097866-05:00",
-  "scan_time_display": "7/6 \u00b7 3:06 PM CDT",
-  "tier3_current": [],
+  "scan_time": "2026-07-06T15:55:43.410047-05:00",
+  "scan_time_display": "7/6 \u00b7 3:55 PM CDT",
+  "tier3_current": [
+    "TU"
+  ],
   "tier2": {
-    "count": 1,
-    "sectors": {
-      "Industrials": 1
-    },
-    "w_rsi_range": [
-      24.76,
-      24.76
-    ],
+    "count": 0,
+    "sectors": {},
+    "w_rsi_range": null,
     "direction_breakdown": {
       "overbought": 0,
-      "oversold": 1
+      "oversold": 0
     }
   },
   "tier1": {
@@ -38,45 +35,45 @@
   },
   "imminent": [
     {
-      "sym": "CCXI",
-      "direction": "ob",
-      "w_rsi": 82.9,
-      "needs_pts": 0.1,
-      "sector": "Finance"
-    },
-    {
-      "sym": "CCXIU",
-      "direction": "ob",
-      "w_rsi": 82.82,
-      "needs_pts": 0.2,
-      "sector": "Finance"
-    },
-    {
-      "sym": "PANW",
-      "direction": "ob",
-      "w_rsi": 82.75,
-      "needs_pts": 0.2,
-      "sector": "Industrials"
-    },
-    {
       "sym": "ELMD",
       "direction": "ob",
-      "w_rsi": 82.78,
-      "needs_pts": 0.2,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.27,
+      "w_rsi": 82.67,
       "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
+      "sector": "Healthcare"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.49,
+      "w_rsi": 82.51,
       "needs_pts": 0.5,
+      "sector": "Materials"
+    },
+    {
+      "sym": "PTRN",
+      "direction": "ob",
+      "w_rsi": 82.53,
+      "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "DVA",
+      "direction": "ob",
+      "w_rsi": 82.47,
+      "needs_pts": 0.5,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "TCOM",
+      "direction": "os",
+      "w_rsi": 27.56,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "ALKS",
+      "direction": "ob",
+      "w_rsi": 82.3,
+      "needs_pts": 0.7,
       "sector": "Materials"
     }
   ]
