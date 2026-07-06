@@ -3,75 +3,80 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-06T09:09:29.692186-05:00",
-  "scan_time_display": "7/6 \u00b7 9:09 AM CDT",
+  "scan_time": "2026-07-06T09:54:33.718722-05:00",
+  "scan_time_display": "7/6 \u00b7 9:54 AM CDT",
   "tier3_current": [],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Industrials": 1
+    },
+    "w_rsi_range": [
+      24.76,
+      24.76
+    ],
     "direction_breakdown": {
       "overbought": 0,
-      "oversold": 0
+      "oversold": 1
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 2,
     "sectors": {
-      "Industrials": 2,
+      "Industrials": 1,
       "Technology": 1
     },
     "w_rsi_range": [
-      24.92,
+      86.99,
       99.08
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 1
+      "oversold": 0
     }
   },
   "imminent": [
     {
-      "sym": "YSS",
-      "direction": "os",
-      "w_rsi": 27.15,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.16,
-      "needs_pts": 0.2,
+      "w_rsi": 27.03,
+      "needs_pts": 0.0,
       "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "DVA",
-      "direction": "ob",
-      "w_rsi": 82.77,
-      "needs_pts": 0.2,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "LGND",
-      "direction": "ob",
-      "w_rsi": 82.6,
-      "needs_pts": 0.4,
-      "sector": "Materials"
     },
     {
       "sym": "TCOM",
       "direction": "os",
-      "w_rsi": 27.51,
-      "needs_pts": 0.5,
+      "w_rsi": 27.07,
+      "needs_pts": 0.1,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "YSS",
+      "direction": "os",
+      "w_rsi": 27.12,
+      "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.44,
-      "needs_pts": 0.6,
+      "w_rsi": 82.47,
+      "needs_pts": 0.5,
       "sector": "Materials"
+    },
+    {
+      "sym": "DVA",
+      "direction": "ob",
+      "w_rsi": 82.52,
+      "needs_pts": 0.5,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "ELMD",
+      "direction": "ob",
+      "w_rsi": 82.43,
+      "needs_pts": 0.6,
+      "sector": "Healthcare"
     }
   ]
 }
