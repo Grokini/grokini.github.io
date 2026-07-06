@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-06T11:55:25.383459-05:00",
-  "scan_time_display": "7/6 \u00b7 11:55 AM CDT",
+  "scan_time": "2026-07-06T12:55:41.567662-05:00",
+  "scan_time_display": "7/6 \u00b7 12:55 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -39,44 +39,44 @@
     {
       "sym": "PANW",
       "direction": "ob",
-      "w_rsi": 82.99,
+      "w_rsi": 82.97,
       "needs_pts": 0.0,
       "sector": "Industrials"
     },
     {
-      "sym": "BB",
-      "direction": "ob",
-      "w_rsi": 82.96,
+      "sym": "YSS",
+      "direction": "os",
+      "w_rsi": 27.04,
       "needs_pts": 0.0,
-      "sector": "Technology"
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "LGND",
+      "direction": "ob",
+      "w_rsi": 82.85,
+      "needs_pts": 0.2,
+      "sector": "Materials"
+    },
+    {
+      "sym": "INGR",
+      "direction": "os",
+      "w_rsi": 27.19,
+      "needs_pts": 0.2,
+      "sector": "Consumer Staples"
     },
     {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.24,
-      "needs_pts": 0.2,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "YSS",
-      "direction": "os",
-      "w_rsi": 27.16,
-      "needs_pts": 0.2,
+      "w_rsi": 27.35,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "DVA",
       "direction": "ob",
-      "w_rsi": 82.6,
+      "w_rsi": 82.61,
       "needs_pts": 0.4,
       "sector": "Healthcare"
-    },
-    {
-      "sym": "APGE",
-      "direction": "ob",
-      "w_rsi": 82.48,
-      "needs_pts": 0.5,
-      "sector": "Materials"
     }
   ]
 }
