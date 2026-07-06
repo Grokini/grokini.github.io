@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-06T09:54:33.718722-05:00",
-  "scan_time_display": "7/6 \u00b7 9:54 AM CDT",
+  "scan_time": "2026-07-06T10:59:18.806135-05:00",
+  "scan_time_display": "7/6 \u00b7 10:59 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -27,7 +27,7 @@
       "Technology": 1
     },
     "w_rsi_range": [
-      86.99,
+      86.96,
       99.08
     ],
     "direction_breakdown": {
@@ -37,46 +37,46 @@
   },
   "imminent": [
     {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.03,
-      "needs_pts": 0.0,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "TCOM",
-      "direction": "os",
-      "w_rsi": 27.07,
+      "sym": "IQMX",
+      "direction": "ob",
+      "w_rsi": 82.89,
       "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
+      "sector": "Technology"
     },
     {
       "sym": "YSS",
       "direction": "os",
-      "w_rsi": 27.12,
+      "w_rsi": 27.06,
       "needs_pts": 0.1,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "APGE",
-      "direction": "ob",
-      "w_rsi": 82.47,
-      "needs_pts": 0.5,
-      "sector": "Materials"
+      "sym": "CSGP",
+      "direction": "os",
+      "w_rsi": 27.16,
+      "needs_pts": 0.2,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "DVA",
       "direction": "ob",
-      "w_rsi": 82.52,
-      "needs_pts": 0.5,
+      "w_rsi": 82.64,
+      "needs_pts": 0.4,
       "sector": "Healthcare"
     },
     {
-      "sym": "ELMD",
+      "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.43,
+      "w_rsi": 82.48,
+      "needs_pts": 0.5,
+      "sector": "Materials"
+    },
+    {
+      "sym": "TCOM",
+      "direction": "os",
+      "w_rsi": 27.61,
       "needs_pts": 0.6,
-      "sector": "Healthcare"
+      "sector": "Consumer Discretionary"
     }
   ]
 }
