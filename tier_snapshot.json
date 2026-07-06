@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-06T12:55:41.567662-05:00",
-  "scan_time_display": "7/6 \u00b7 12:55 PM CDT",
+  "scan_time": "2026-07-06T14:10:34.288153-05:00",
+  "scan_time_display": "7/6 \u00b7 2:10 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 1,
@@ -21,62 +21,63 @@
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 3,
     "sectors": {
       "Industrials": 1,
-      "Technology": 1
+      "Technology": 1,
+      "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      86.88,
+      26.12,
       99.08
     ],
     "direction_breakdown": {
       "overbought": 2,
-      "oversold": 0
+      "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "PANW",
-      "direction": "ob",
-      "w_rsi": 82.97,
-      "needs_pts": 0.0,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "YSS",
-      "direction": "os",
-      "w_rsi": 27.04,
-      "needs_pts": 0.0,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "LGND",
       "direction": "ob",
-      "w_rsi": 82.85,
+      "w_rsi": 82.77,
       "needs_pts": 0.2,
       "sector": "Materials"
     },
     {
-      "sym": "INGR",
-      "direction": "os",
-      "w_rsi": 27.19,
+      "sym": "CXW",
+      "direction": "ob",
+      "w_rsi": 82.84,
       "needs_pts": 0.2,
-      "sector": "Consumer Staples"
+      "sector": "Finance"
+    },
+    {
+      "sym": "PANW",
+      "direction": "ob",
+      "w_rsi": 82.71,
+      "needs_pts": 0.3,
+      "sector": "Industrials"
     },
     {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.35,
+      "w_rsi": 27.41,
       "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "DVA",
+      "sym": "ELMD",
       "direction": "ob",
-      "w_rsi": 82.61,
+      "w_rsi": 82.57,
       "needs_pts": 0.4,
       "sector": "Healthcare"
+    },
+    {
+      "sym": "APGE",
+      "direction": "ob",
+      "w_rsi": 82.49,
+      "needs_pts": 0.5,
+      "sector": "Materials"
     }
   ]
 }
