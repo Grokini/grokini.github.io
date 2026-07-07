@@ -3,28 +3,24 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-07T08:59:43.174036-05:00",
-  "scan_time_display": "7/7 \u00b7 8:59 AM CDT",
+  "scan_time": "2026-07-07T10:09:09.232863-05:00",
+  "scan_time_display": "7/7 \u00b7 10:09 AM CDT",
   "tier3_current": [
     "TU"
   ],
   "tier2": {
-    "count": 1,
-    "sectors": {
-      "Industrials": 1
-    },
-    "w_rsi_range": [
-      86.94,
-      86.94
-    ],
+    "count": 0,
+    "sectors": {},
+    "w_rsi_range": null,
     "direction_breakdown": {
-      "overbought": 1,
+      "overbought": 0,
       "oversold": 0
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 3,
     "sectors": {
+      "Industrials": 1,
       "Technology": 1,
       "Consumer Discretionary": 1
     },
@@ -33,52 +29,52 @@
       99.08
     ],
     "direction_breakdown": {
-      "overbought": 1,
+      "overbought": 2,
       "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "PTRN",
-      "direction": "ob",
-      "w_rsi": 82.67,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.51,
+      "w_rsi": 82.47,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
     {
-      "sym": "DVA",
-      "direction": "ob",
-      "w_rsi": 82.48,
-      "needs_pts": 0.5,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "PANW",
-      "direction": "ob",
-      "w_rsi": 82.28,
-      "needs_pts": 0.7,
-      "sector": "Industrials"
-    },
-    {
       "sym": "CBC",
       "direction": "ob",
-      "w_rsi": 82.24,
-      "needs_pts": 0.8,
+      "w_rsi": 82.38,
+      "needs_pts": 0.6,
       "sector": "Finance"
     },
     {
-      "sym": "FTNT",
+      "sym": "PTRN",
       "direction": "ob",
-      "w_rsi": 82.06,
-      "needs_pts": 0.9,
-      "sector": "Industrials"
+      "w_rsi": 81.27,
+      "needs_pts": 1.7,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "HNGE",
+      "direction": "ob",
+      "w_rsi": 80.68,
+      "needs_pts": 2.3,
+      "sector": "Technology"
+    },
+    {
+      "sym": "CON",
+      "direction": "ob",
+      "w_rsi": 80.52,
+      "needs_pts": 2.5,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "ENVA",
+      "direction": "ob",
+      "w_rsi": 80.09,
+      "needs_pts": 2.9,
+      "sector": "Finance"
     }
   ]
 }
