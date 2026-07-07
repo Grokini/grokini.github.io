@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-07T11:04:04.895079-05:00",
-  "scan_time_display": "7/7 \u00b7 11:04 AM CDT",
+  "scan_time": "2026-07-07T12:02:57.450592-05:00",
+  "scan_time_display": "7/7 \u00b7 12:02 PM CDT",
   "tier3_current": [
     "TU"
   ],
@@ -35,46 +35,46 @@
   },
   "imminent": [
     {
+      "sym": "ELMD",
+      "direction": "ob",
+      "w_rsi": 82.96,
+      "needs_pts": 0.0,
+      "sector": "Healthcare"
+    },
+    {
       "sym": "TCOM",
       "direction": "os",
-      "w_rsi": 27.28,
+      "w_rsi": 27.09,
+      "needs_pts": 0.1,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "PTRN",
+      "direction": "ob",
+      "w_rsi": 82.72,
       "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.48,
+      "w_rsi": 82.49,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
     {
-      "sym": "PTRN",
-      "direction": "ob",
-      "w_rsi": 82.29,
-      "needs_pts": 0.7,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "ATEX",
       "direction": "ob",
-      "w_rsi": 81.71,
-      "needs_pts": 1.3,
+      "w_rsi": 82.01,
+      "needs_pts": 1.0,
       "sector": "Industrials"
     },
     {
-      "sym": "CBC",
+      "sym": "CLRO",
       "direction": "ob",
-      "w_rsi": 81.67,
-      "needs_pts": 1.3,
-      "sector": "Finance"
-    },
-    {
-      "sym": "BACC",
-      "direction": "ob",
-      "w_rsi": 80.96,
-      "needs_pts": 2.0,
-      "sector": "Finance"
+      "w_rsi": 82.01,
+      "needs_pts": 1.0,
+      "sector": "Technology"
     }
   ]
 }
