@@ -3,24 +3,28 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-06T15:55:43.410047-05:00",
-  "scan_time_display": "7/6 \u00b7 3:55 PM CDT",
+  "scan_time": "2026-07-07T08:59:43.174036-05:00",
+  "scan_time_display": "7/7 \u00b7 8:59 AM CDT",
   "tier3_current": [
     "TU"
   ],
   "tier2": {
-    "count": 0,
-    "sectors": {},
-    "w_rsi_range": null,
+    "count": 1,
+    "sectors": {
+      "Industrials": 1
+    },
+    "w_rsi_range": [
+      86.94,
+      86.94
+    ],
     "direction_breakdown": {
-      "overbought": 0,
+      "overbought": 1,
       "oversold": 0
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 2,
     "sectors": {
-      "Industrials": 1,
       "Technology": 1,
       "Consumer Discretionary": 1
     },
@@ -29,17 +33,17 @@
       99.08
     ],
     "direction_breakdown": {
-      "overbought": 2,
+      "overbought": 1,
       "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "ELMD",
+      "sym": "PTRN",
       "direction": "ob",
       "w_rsi": 82.67,
       "needs_pts": 0.3,
-      "sector": "Healthcare"
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
@@ -49,32 +53,32 @@
       "sector": "Materials"
     },
     {
-      "sym": "PTRN",
-      "direction": "ob",
-      "w_rsi": 82.53,
-      "needs_pts": 0.5,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "DVA",
       "direction": "ob",
-      "w_rsi": 82.47,
+      "w_rsi": 82.48,
       "needs_pts": 0.5,
       "sector": "Healthcare"
     },
     {
-      "sym": "TCOM",
-      "direction": "os",
-      "w_rsi": 27.56,
-      "needs_pts": 0.6,
-      "sector": "Consumer Discretionary"
+      "sym": "PANW",
+      "direction": "ob",
+      "w_rsi": 82.28,
+      "needs_pts": 0.7,
+      "sector": "Industrials"
     },
     {
-      "sym": "ALKS",
+      "sym": "CBC",
       "direction": "ob",
-      "w_rsi": 82.3,
-      "needs_pts": 0.7,
-      "sector": "Materials"
+      "w_rsi": 82.24,
+      "needs_pts": 0.8,
+      "sector": "Finance"
+    },
+    {
+      "sym": "FTNT",
+      "direction": "ob",
+      "w_rsi": 82.06,
+      "needs_pts": 0.9,
+      "sector": "Industrials"
     }
   ]
 }
