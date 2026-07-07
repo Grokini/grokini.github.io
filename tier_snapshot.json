@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-07T14:00:37.113645-05:00",
-  "scan_time_display": "7/7 \u00b7 2:00 PM CDT",
+  "scan_time": "2026-07-07T14:56:21.403522-05:00",
+  "scan_time_display": "7/7 \u00b7 2:56 PM CDT",
   "tier3_current": [
     "TU"
   ],
@@ -25,7 +25,7 @@
       "Consumer Discretionary": 2
     },
     "w_rsi_range": [
-      24.56,
+      24.65,
       99.08
     ],
     "direction_breakdown": {
@@ -44,37 +44,37 @@
     {
       "sym": "PTRN",
       "direction": "ob",
-      "w_rsi": 82.71,
-      "needs_pts": 0.3,
+      "w_rsi": 82.54,
+      "needs_pts": 0.5,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.36,
-      "needs_pts": 0.6,
+      "w_rsi": 82.32,
+      "needs_pts": 0.7,
       "sector": "Materials"
+    },
+    {
+      "sym": "LGND",
+      "direction": "ob",
+      "w_rsi": 81.86,
+      "needs_pts": 1.1,
+      "sector": "Materials"
+    },
+    {
+      "sym": "TU",
+      "direction": "os",
+      "w_rsi": 28.48,
+      "needs_pts": 1.5,
+      "sector": "Industrials"
     },
     {
       "sym": "BACC",
       "direction": "ob",
-      "w_rsi": 82.29,
-      "needs_pts": 0.7,
+      "w_rsi": 81.18,
+      "needs_pts": 1.8,
       "sector": "Finance"
-    },
-    {
-      "sym": "SIF",
-      "direction": "ob",
-      "w_rsi": 81.1,
-      "needs_pts": 1.9,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "HNGE",
-      "direction": "ob",
-      "w_rsi": 80.92,
-      "needs_pts": 2.1,
-      "sector": "Technology"
     }
   ]
 }
