@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-08T12:55:16.666137-05:00",
-  "scan_time_display": "7/8 \u00b7 12:55 PM CDT",
+  "scan_time": "2026-07-08T14:03:15.653398-05:00",
+  "scan_time_display": "7/8 \u00b7 2:03 PM CDT",
   "tier3_current": [
     "TU"
   ],
@@ -36,25 +36,32 @@
   },
   "imminent": [
     {
-      "sym": "CSGP",
+      "sym": "CPRT",
       "direction": "os",
-      "w_rsi": 27.26,
-      "needs_pts": 0.3,
+      "w_rsi": 27.24,
+      "needs_pts": 0.2,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "CPRT",
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.53,
-      "needs_pts": 0.5,
+      "w_rsi": 27.36,
+      "needs_pts": 0.4,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.49,
+      "w_rsi": 82.45,
       "needs_pts": 0.5,
       "sector": "Materials"
+    },
+    {
+      "sym": "OLLI",
+      "direction": "os",
+      "w_rsi": 27.47,
+      "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
@@ -64,18 +71,11 @@
       "sector": "Materials"
     },
     {
-      "sym": "OLLI",
-      "direction": "os",
-      "w_rsi": 27.64,
-      "needs_pts": 0.6,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "PLNT",
-      "direction": "os",
-      "w_rsi": 28.32,
-      "needs_pts": 1.3,
-      "sector": "Consumer Discretionary"
+      "sym": "LGND",
+      "direction": "ob",
+      "w_rsi": 81.76,
+      "needs_pts": 1.2,
+      "sector": "Materials"
     }
   ]
 }
