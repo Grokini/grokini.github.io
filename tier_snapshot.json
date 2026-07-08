@@ -3,28 +3,24 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-08T10:04:22.279179-05:00",
-  "scan_time_display": "7/8 \u00b7 10:04 AM CDT",
+  "scan_time": "2026-07-08T10:56:13.581541-05:00",
+  "scan_time_display": "7/8 \u00b7 10:56 AM CDT",
   "tier3_current": [
     "TU"
   ],
   "tier2": {
-    "count": 1,
-    "sectors": {
-      "Industrials": 1
-    },
-    "w_rsi_range": [
-      86.8,
-      86.8
-    ],
+    "count": 0,
+    "sectors": {},
+    "w_rsi_range": null,
     "direction_breakdown": {
-      "overbought": 1,
+      "overbought": 0,
       "oversold": 0
     }
   },
   "tier1": {
-    "count": 2,
+    "count": 3,
     "sectors": {
+      "Industrials": 1,
       "Technology": 1,
       "Consumer Discretionary": 1
     },
@@ -33,36 +29,22 @@
       99.08
     ],
     "direction_breakdown": {
-      "overbought": 1,
+      "overbought": 2,
       "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "TSCO",
+      "sym": "OLLI",
       "direction": "os",
-      "w_rsi": 27.11,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "LGND",
-      "direction": "ob",
-      "w_rsi": 82.79,
-      "needs_pts": 0.2,
-      "sector": "Materials"
-    },
-    {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.39,
-      "needs_pts": 0.4,
+      "w_rsi": 27.33,
+      "needs_pts": 0.3,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.54,
+      "w_rsi": 82.53,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
@@ -74,10 +56,24 @@
       "sector": "Materials"
     },
     {
-      "sym": "OLLI",
+      "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.47,
+      "w_rsi": 27.49,
       "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "STN",
+      "direction": "os",
+      "w_rsi": 27.53,
+      "needs_pts": 0.5,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "CPRT",
+      "direction": "os",
+      "w_rsi": 27.6,
+      "needs_pts": 0.6,
       "sector": "Consumer Discretionary"
     }
   ]
