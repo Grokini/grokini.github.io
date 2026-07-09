@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-09T13:06:46.456852-05:00",
-  "scan_time_display": "7/9 \u00b7 1:06 PM CDT",
+  "scan_time": "2026-07-09T14:03:49.375187-05:00",
+  "scan_time_display": "7/9 \u00b7 2:03 PM CDT",
   "tier3_current": [
     "TU"
   ],
@@ -25,7 +25,7 @@
       "Consumer Discretionary": 2
     },
     "w_rsi_range": [
-      23.19,
+      23.17,
       89.34
     ],
     "direction_breakdown": {
@@ -35,46 +35,46 @@
   },
   "imminent": [
     {
-      "sym": "PTRN",
-      "direction": "ob",
-      "w_rsi": 82.89,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "CSGP",
       "direction": "os",
-      "w_rsi": 27.29,
-      "needs_pts": 0.3,
+      "w_rsi": 27.22,
+      "needs_pts": 0.2,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.48,
+      "w_rsi": 82.51,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.53,
+      "w_rsi": 82.54,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
     {
       "sym": "DELL",
       "direction": "ob",
-      "w_rsi": 82.43,
-      "needs_pts": 0.6,
+      "w_rsi": 82.48,
+      "needs_pts": 0.5,
       "sector": "Industrials"
     },
     {
       "sym": "TU",
       "direction": "os",
-      "w_rsi": 28.06,
-      "needs_pts": 1.1,
+      "w_rsi": 27.91,
+      "needs_pts": 0.9,
       "sector": "Industrials"
+    },
+    {
+      "sym": "PLNT",
+      "direction": "os",
+      "w_rsi": 28.12,
+      "needs_pts": 1.1,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
