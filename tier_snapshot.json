@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-10T12:59:43.554158-05:00",
-  "scan_time_display": "7/10 \u00b7 12:59 PM CDT",
+  "scan_time": "2026-07-10T13:56:58.312316-05:00",
+  "scan_time_display": "7/10 \u00b7 1:56 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -41,37 +41,37 @@
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.54,
+      "w_rsi": 82.55,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
     {
-      "sym": "TU",
-      "direction": "os",
-      "w_rsi": 28.11,
-      "needs_pts": 1.1,
-      "sector": "Industrials"
-    },
-    {
       "sym": "PLNT",
       "direction": "os",
-      "w_rsi": 28.33,
-      "needs_pts": 1.3,
+      "w_rsi": 28.24,
+      "needs_pts": 1.2,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "OLLI",
       "direction": "os",
-      "w_rsi": 28.79,
-      "needs_pts": 1.8,
+      "w_rsi": 28.95,
+      "needs_pts": 1.9,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "ELMD",
-      "direction": "ob",
-      "w_rsi": 80.77,
-      "needs_pts": 2.2,
-      "sector": "Healthcare"
+      "sym": "AD",
+      "direction": "os",
+      "w_rsi": 29.51,
+      "needs_pts": 2.5,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "SAR",
+      "direction": "os",
+      "w_rsi": 29.76,
+      "needs_pts": 2.8,
+      "sector": "Unknown"
     }
   ]
 }
