@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-10T15:54:33.889991-05:00",
-  "scan_time_display": "7/10 \u00b7 3:54 PM CDT",
+  "scan_time": "2026-07-13T09:37:14.464103-05:00",
+  "scan_time_display": "7/13 \u00b7 9:37 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,63 +16,62 @@
     }
   },
   "tier1": {
-    "count": 4,
+    "count": 2,
     "sectors": {
-      "Finance": 1,
       "Industrials": 1,
-      "Consumer Discretionary": 2
+      "Consumer Discretionary": 1
     },
     "w_rsi_range": [
-      26.03,
-      86.89
+      26.64,
+      86.94
     ],
     "direction_breakdown": {
-      "overbought": 2,
-      "oversold": 2
+      "overbought": 1,
+      "oversold": 1
     }
   },
   "imminent": [
     {
-      "sym": "ODC",
+      "sym": "STT",
       "direction": "ob",
-      "w_rsi": 82.93,
+      "w_rsi": 82.94,
       "needs_pts": 0.1,
-      "sector": "Technology"
+      "sector": "Finance"
     },
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.54,
-      "needs_pts": 0.5,
+      "w_rsi": 82.56,
+      "needs_pts": 0.4,
       "sector": "Materials"
+    },
+    {
+      "sym": "PTRN",
+      "direction": "ob",
+      "w_rsi": 82.59,
+      "needs_pts": 0.4,
+      "sector": "Consumer Discretionary"
     },
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.5,
+      "w_rsi": 82.55,
       "needs_pts": 0.5,
       "sector": "Materials"
     },
     {
-      "sym": "TU",
-      "direction": "os",
-      "w_rsi": 27.88,
-      "needs_pts": 0.9,
-      "sector": "Industrials"
-    },
-    {
-      "sym": "PLNT",
-      "direction": "os",
-      "w_rsi": 28.23,
-      "needs_pts": 1.2,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "PENG",
+      "sym": "ELMD",
       "direction": "ob",
-      "w_rsi": 81.73,
-      "needs_pts": 1.3,
-      "sector": "Technology"
+      "w_rsi": 82.44,
+      "needs_pts": 0.6,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "CSGP",
+      "direction": "os",
+      "w_rsi": 27.74,
+      "needs_pts": 0.7,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
