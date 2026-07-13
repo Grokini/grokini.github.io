@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-13T14:02:51.702976-05:00",
-  "scan_time_display": "7/13 \u00b7 2:02 PM CDT",
+  "scan_time": "2026-07-13T15:06:45.156700-05:00",
+  "scan_time_display": "7/13 \u00b7 3:06 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,18 +16,18 @@
     }
   },
   "tier1": {
-    "count": 3,
+    "count": 4,
     "sectors": {
       "Industrials": 1,
-      "Finance": 1,
+      "Finance": 2,
       "Consumer Discretionary": 1
     },
     "w_rsi_range": [
       22.79,
-      88.31
+      89.38
     ],
     "direction_breakdown": {
-      "overbought": 2,
+      "overbought": 3,
       "oversold": 1
     }
   },
@@ -40,23 +40,9 @@
       "sector": "Finance"
     },
     {
-      "sym": "CSGP",
-      "direction": "os",
-      "w_rsi": 27.11,
-      "needs_pts": 0.1,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "ELMD",
-      "direction": "ob",
-      "w_rsi": 82.86,
-      "needs_pts": 0.1,
-      "sector": "Healthcare"
-    },
-    {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.57,
+      "w_rsi": 82.56,
       "needs_pts": 0.4,
       "sector": "Materials"
     },
@@ -68,11 +54,25 @@
       "sector": "Materials"
     },
     {
-      "sym": "PENG",
+      "sym": "ELMD",
       "direction": "ob",
-      "w_rsi": 82.6,
+      "w_rsi": 82.57,
       "needs_pts": 0.4,
-      "sector": "Technology"
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "TSCO",
+      "direction": "os",
+      "w_rsi": 27.63,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "PLNT",
+      "direction": "os",
+      "w_rsi": 27.63,
+      "needs_pts": 0.6,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
