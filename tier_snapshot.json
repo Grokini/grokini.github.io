@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-14T09:53:42.314247-05:00",
-  "scan_time_display": "7/14 \u00b7 9:53 AM CDT",
+  "scan_time": "2026-07-14T11:16:20.999835-05:00",
+  "scan_time_display": "7/14 \u00b7 11:16 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -33,45 +33,45 @@
   },
   "imminent": [
     {
-      "sym": "TSCO",
-      "direction": "os",
-      "w_rsi": 27.3,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
-    },
-    {
-      "sym": "YSS",
-      "direction": "os",
-      "w_rsi": 27.34,
-      "needs_pts": 0.3,
-      "sector": "Consumer Discretionary"
-    },
-    {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.62,
+      "w_rsi": 82.63,
       "needs_pts": 0.4,
       "sector": "Materials"
     },
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.57,
+      "w_rsi": 82.58,
       "needs_pts": 0.4,
       "sector": "Materials"
     },
     {
+      "sym": "TSCO",
+      "direction": "os",
+      "w_rsi": 27.54,
+      "needs_pts": 0.5,
+      "sector": "Consumer Discretionary"
+    },
+    {
       "sym": "PLNT",
       "direction": "os",
-      "w_rsi": 28.07,
+      "w_rsi": 28.13,
       "needs_pts": 1.1,
       "sector": "Consumer Discretionary"
     },
     {
+      "sym": "AGL",
+      "direction": "ob",
+      "w_rsi": 81.68,
+      "needs_pts": 1.3,
+      "sector": "Healthcare"
+    },
+    {
       "sym": "STN",
       "direction": "os",
-      "w_rsi": 28.11,
-      "needs_pts": 1.1,
+      "w_rsi": 28.52,
+      "needs_pts": 1.5,
       "sector": "Industrials"
     }
   ]
