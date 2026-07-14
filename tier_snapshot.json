@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-14T12:52:45.413151-05:00",
-  "scan_time_display": "7/14 \u00b7 12:52 PM CDT",
+  "scan_time": "2026-07-14T13:55:47.927053-05:00",
+  "scan_time_display": "7/14 \u00b7 1:55 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,11 +16,13 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 7,
     "sectors": {
       "Industrials": 1,
       "Finance": 3,
-      "Consumer Discretionary": 1
+      "Consumer Discretionary": 1,
+      "Materials": 1,
+      "Technology": 1
     },
     "w_rsi_range": [
       22.79,
@@ -28,30 +30,23 @@
     ],
     "direction_breakdown": {
       "overbought": 4,
-      "oversold": 1
+      "oversold": 3
     }
   },
   "imminent": [
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.65,
-      "needs_pts": 0.3,
+      "w_rsi": 82.63,
+      "needs_pts": 0.4,
       "sector": "Materials"
     },
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.59,
+      "w_rsi": 82.6,
       "needs_pts": 0.4,
       "sector": "Materials"
-    },
-    {
-      "sym": "AGL",
-      "direction": "ob",
-      "w_rsi": 82.31,
-      "needs_pts": 0.7,
-      "sector": "Healthcare"
     },
     {
       "sym": "TSCO",
@@ -61,17 +56,24 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "AD",
+      "sym": "AGL",
+      "direction": "ob",
+      "w_rsi": 81.6,
+      "needs_pts": 1.4,
+      "sector": "Healthcare"
+    },
+    {
+      "sym": "STN",
       "direction": "os",
-      "w_rsi": 28.77,
-      "needs_pts": 1.8,
+      "w_rsi": 28.53,
+      "needs_pts": 1.5,
       "sector": "Industrials"
     },
     {
       "sym": "PLNT",
       "direction": "os",
-      "w_rsi": 28.9,
-      "needs_pts": 1.9,
+      "w_rsi": 28.57,
+      "needs_pts": 1.6,
       "sector": "Consumer Discretionary"
     }
   ]
