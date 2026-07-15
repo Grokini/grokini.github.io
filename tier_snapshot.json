@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-15T12:56:21.477561-05:00",
-  "scan_time_display": "7/15 \u00b7 12:56 PM CDT",
+  "scan_time": "2026-07-15T14:05:51.056786-05:00",
+  "scan_time_display": "7/15 \u00b7 2:05 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -16,11 +16,12 @@
     }
   },
   "tier1": {
-    "count": 5,
+    "count": 6,
     "sectors": {
       "Industrials": 1,
       "Finance": 3,
-      "Consumer Discretionary": 1
+      "Consumer Discretionary": 1,
+      "Materials": 1
     },
     "w_rsi_range": [
       22.79,
@@ -28,7 +29,7 @@
     ],
     "direction_breakdown": {
       "overbought": 4,
-      "oversold": 1
+      "oversold": 2
     }
   },
   "imminent": [
@@ -42,9 +43,16 @@
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.64,
+      "w_rsi": 82.63,
       "needs_pts": 0.4,
       "sector": "Materials"
+    },
+    {
+      "sym": "AGL",
+      "direction": "ob",
+      "w_rsi": 82.06,
+      "needs_pts": 0.9,
+      "sector": "Healthcare"
     },
     {
       "sym": "CSGP",
@@ -54,23 +62,16 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "AGL",
-      "direction": "ob",
-      "w_rsi": 81.75,
-      "needs_pts": 1.2,
-      "sector": "Healthcare"
-    },
-    {
-      "sym": "STN",
+      "sym": "RPT",
       "direction": "os",
-      "w_rsi": 28.89,
-      "needs_pts": 1.9,
-      "sector": "Industrials"
+      "w_rsi": 28.99,
+      "needs_pts": 2.0,
+      "sector": "Finance"
     },
     {
-      "sym": "VSTS",
-      "direction": "ob",
-      "w_rsi": 80.94,
+      "sym": "TSCO",
+      "direction": "os",
+      "w_rsi": 29.09,
       "needs_pts": 2.1,
       "sector": "Consumer Discretionary"
     }
