@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-15T11:05:19.657886-05:00",
-  "scan_time_display": "7/15 \u00b7 11:05 AM CDT",
+  "scan_time": "2026-07-15T12:06:48.154913-05:00",
+  "scan_time_display": "7/15 \u00b7 12:06 PM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -35,7 +35,7 @@
     {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.68,
+      "w_rsi": 82.67,
       "needs_pts": 0.3,
       "sector": "Materials"
     },
@@ -47,18 +47,32 @@
       "sector": "Materials"
     },
     {
-      "sym": "VSTS",
-      "direction": "ob",
-      "w_rsi": 80.6,
-      "needs_pts": 2.4,
+      "sym": "PLNT",
+      "direction": "os",
+      "w_rsi": 28.94,
+      "needs_pts": 1.9,
       "sector": "Consumer Discretionary"
     },
     {
-      "sym": "JACS",
+      "sym": "VSTS",
       "direction": "ob",
-      "w_rsi": 80.4,
+      "w_rsi": 81.0,
+      "needs_pts": 2.0,
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "STN",
+      "direction": "os",
+      "w_rsi": 29.18,
+      "needs_pts": 2.2,
+      "sector": "Industrials"
+    },
+    {
+      "sym": "TSCO",
+      "direction": "os",
+      "w_rsi": 29.59,
       "needs_pts": 2.6,
-      "sector": "Finance"
+      "sector": "Consumer Discretionary"
     }
   ]
 }
