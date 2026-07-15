@@ -1,1 +1,1 @@
-{"date": "2026-07-15", "updated": "08:59 CDT", "overbought": [], "oversold": [], "total": 0}
+{"date": "2026-07-15", "updated": "10:18 CDT", "overbought": [{"sym": "DSAC", "score": 8, "rsi": 89.55, "price": 10.15, "alert_date": "2026-07-06", "opt_price": null, "sector": "Finance"}], "oversold": [{"sym": "PNR", "score": 9, "rsi": 25.43, "price": 63.61, "alert_date": "2026-07-15", "opt_price": null, "sector": "Industrials"}], "total": 2}

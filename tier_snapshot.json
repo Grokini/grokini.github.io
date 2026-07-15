@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-15T08:59:16.505572-05:00",
-  "scan_time_display": "7/15 \u00b7 8:59 AM CDT",
+  "scan_time": "2026-07-15T10:18:52.029854-05:00",
+  "scan_time_display": "7/15 \u00b7 10:18 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -26,7 +26,7 @@
     },
     "w_rsi_range": [
       22.79,
-      89.68
+      89.55
     ],
     "direction_breakdown": {
       "overbought": 4,
@@ -35,46 +35,46 @@
   },
   "imminent": [
     {
-      "sym": "PNR",
-      "direction": "os",
-      "w_rsi": 27.1,
-      "needs_pts": 0.1,
-      "sector": "Industrials"
-    },
-    {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.56,
-      "needs_pts": 0.4,
+      "w_rsi": 82.66,
+      "needs_pts": 0.3,
       "sector": "Materials"
     },
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.6,
+      "w_rsi": 82.64,
       "needs_pts": 0.4,
       "sector": "Materials"
     },
     {
-      "sym": "CSGP",
+      "sym": "PRH",
       "direction": "os",
-      "w_rsi": 27.65,
-      "needs_pts": 0.6,
-      "sector": "Consumer Discretionary"
+      "w_rsi": 27.9,
+      "needs_pts": 0.9,
+      "sector": "Finance"
     },
     {
-      "sym": "PLNT",
+      "sym": "CPRT",
       "direction": "os",
-      "w_rsi": 28.2,
-      "needs_pts": 1.2,
+      "w_rsi": 28.43,
+      "needs_pts": 1.4,
       "sector": "Consumer Discretionary"
     },
     {
       "sym": "STRS",
       "direction": "os",
-      "w_rsi": 29.43,
-      "needs_pts": 2.4,
+      "w_rsi": 28.74,
+      "needs_pts": 1.7,
       "sector": "Finance"
+    },
+    {
+      "sym": "PLNT",
+      "direction": "os",
+      "w_rsi": 29.12,
+      "needs_pts": 2.1,
+      "sector": "Consumer Discretionary"
     }
   ]
 }
