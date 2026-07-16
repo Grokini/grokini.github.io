@@ -3,8 +3,8 @@
     "description": "Current scan snapshot of tier counts and aggregate intel. Written by scanner on every run. Counts are live (not cumulative). Imminent list is top-6 names closest to alert threshold.",
     "schema_version": 1
   },
-  "scan_time": "2026-07-16T09:14:04.108351-05:00",
-  "scan_time_display": "7/16 \u00b7 9:14 AM CDT",
+  "scan_time": "2026-07-16T10:05:17.056474-05:00",
+  "scan_time_display": "7/16 \u00b7 10:05 AM CDT",
   "tier3_current": [],
   "tier2": {
     "count": 0,
@@ -34,46 +34,46 @@
   },
   "imminent": [
     {
+      "sym": "RPT",
+      "direction": "os",
+      "w_rsi": 27.23,
+      "needs_pts": 0.2,
+      "sector": "Finance"
+    },
+    {
       "sym": "APGE",
       "direction": "ob",
-      "w_rsi": 82.6,
+      "w_rsi": 82.59,
       "needs_pts": 0.4,
       "sector": "Materials"
     },
     {
       "sym": "CRNX",
       "direction": "ob",
-      "w_rsi": 82.62,
+      "w_rsi": 82.6,
       "needs_pts": 0.4,
       "sector": "Materials"
     },
     {
       "sym": "AGL",
       "direction": "ob",
-      "w_rsi": 82.53,
-      "needs_pts": 0.5,
+      "w_rsi": 82.42,
+      "needs_pts": 0.6,
       "sector": "Healthcare"
-    },
-    {
-      "sym": "BMO",
-      "direction": "ob",
-      "w_rsi": 82.55,
-      "needs_pts": 0.5,
-      "sector": "Finance"
-    },
-    {
-      "sym": "RPT",
-      "direction": "os",
-      "w_rsi": 27.93,
-      "needs_pts": 0.9,
-      "sector": "Finance"
     },
     {
       "sym": "VSTS",
       "direction": "ob",
-      "w_rsi": 81.97,
-      "needs_pts": 1.0,
+      "w_rsi": 82.22,
+      "needs_pts": 0.8,
       "sector": "Consumer Discretionary"
+    },
+    {
+      "sym": "CDNA",
+      "direction": "ob",
+      "w_rsi": 81.86,
+      "needs_pts": 1.1,
+      "sector": "Healthcare"
     }
   ]
 }
